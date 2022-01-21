@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="3dp"
+    tools:layout_editor_absoluteY="0dp"
+    android:background="#d0eaf2"
+    tools:context=".InspectionDetails">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
+
+
+
+            <TextView
+                android:id="@+id/dim_number10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="230dp"
+                android:fontFamily="@font/arbutus_slab"
+                android:text="Prepared By:"
+                android:textColor="@color/colorBlack"
+                android:textSize="26sp"
+          />
+
+            <EditText
+                android:id="@+id/et_preparedby"
+                android:layout_width="350dp"
+                android:layout_height="53dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="90dp"
+                android:layout_marginRight="53dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Prepared by"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+
+                />
+
+            <ImageView
+                android:id="@+id/prepared_datepicker"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="150dp"
+                android:layout_marginRight="53dp"
+                app:srcCompat="@drawable/calendar"
+                app:tint="#000000" />
+
+            <EditText
+                android:id="@+id/et_preparedddate"
+                android:layout_width="300dp"
+                android:layout_height="53dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="150dp"
+                android:layout_marginRight="104dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="MM/DD/YYYY"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+
+            <TextView
+
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:layout_marginBottom="84dp"
+                android:fontFamily="@font/arbutus_slab"
+                android:text="INCOMING INSPECTION REPORT"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="450dp"
+                android:text="Invoice # / D.R."
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/et_invoicenum"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="500dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Invoice Number"
+
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+                  />
+
+
+            <TextView
+                android:id="@+id/materialcode"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginTop="450dp"
+                android:layout_marginRight="28dp"
+                android:text="Toss Code"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/et_materialcode"
+                android:layout_width="286dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+              android:layout_marginRight="40dp"
+                android:layout_marginTop="500dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Goods Code"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+
+                android:textSize="30sp" />
+
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Material Name"
+                android:textAlignment="center"
+                android:layout_marginTop="600dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+            <AutoCompleteTextView
+                android:id="@+id/et_partname"
+                android:layout_width="690dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="650dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Part Name"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Invoice Quantity"
+                android:layout_marginTop="720dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/et_invoicequantity"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="770dp"
+                android:hint="Enter Invoice Quantity"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+
+                />
+
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="720dp"
+                android:layout_marginRight="144dp"
+                android:text="Temperature"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/et_temp"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="770dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Temperature"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="850dp"
+                        android:text="Assembly line"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_assline"
+                        android:layout_width="300dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="890dp"
+                        android:background="@drawable/edittext_background"
+                        android:ems="10"
+                        android:hint="Enter Assembly Line"
+                        android:inputType="textPersonName"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/colorgrAY"
+                        android:textSize="30sp" />
+
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="850dp"
+                android:layout_marginRight="166dp"
+                android:text="Part Number"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_partnum"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="890dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint=" Enter Part Number"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="RoHS Compliance"
+                android:layout_marginTop="980dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/et_compliance"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1020dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="YES/NO"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <Spinner
+                android:id="@+id/compliance_spinner"
+                android:layout_width="297dp"
+                android:layout_height="77dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1020dp"
+                android:backgroundTint="@color/colorBlack"
+                android:spinnerMode="dropdown"
+                />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1120dp"
+                android:text="Humidity"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/et_humidity"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1160dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint=" Humidity"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/inspected_datepicker"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1020dp"
+
+                android:layout_marginRight="50dp"
+                app:srcCompat="@drawable/calendar"
+                app:tint="#000000" />
+
+            <EditText
+                android:id="@+id/et_inspecteddate"
+                android:layout_width="217dp"
+                android:layout_height="66dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1020dp"
+                android:layout_marginRight="118dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="MM/DD/YYYY"
+                android:inputType="date"
+
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+
+                />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="980dp"
+                android:layout_marginRight="138dp"
+                android:text="Date Inspected"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1120dp"
+                android:layout_marginRight="223dp"
+                android:text="Supplier"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/et_supplier"
+                android:layout_width="299dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1160dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Enter Supplier"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+
+
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1255dp"
+                android:text="Inspector"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/et_inspector"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1300dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:hint="Inspector"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+                />
+
+
+            <ImageView
+                android:id="@+id/recieved_datepicker"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1300dp"
+                android:layout_marginRight="50dp"
+                app:srcCompat="@drawable/calendar"
+                app:tint="#000000" />
+
+            <EditText
+                android:id="@+id/et_recieveddate"
+                android:layout_width="218dp"
+                android:layout_height="79dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1300dp"
+                android:layout_marginRight="118dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="MM/DD/YYYY"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="#949494"
+                android:textSize="30sp"
+
+                />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1255dp"
+                android:layout_marginRight="144dp"
+                android:text="Date Received"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Maker"
+                android:layout_marginTop="1400dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+
+
+            <EditText
+                android:id="@+id/et_maker"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1440dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Enter Maker"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="1400dp"
+                android:layout_marginRight="171dp"
+                android:text="Sample Size"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_samplesize"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Enter Sample Size"
+                android:layout_marginTop="1440dp"
+                android:inputType="number"
+                android:layout_alignParentRight="true"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp" />
+
+
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1520dp"
+                android:text="Material type"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:hint="Enter Sample Size" />
+
+
+            <EditText
+                android:id="@+id/et_mattype"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1560dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Enter Material Type"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <Spinner
+                android:id="@+id/material_spinner"
+                android:layout_width="297dp"
+                android:layout_height="67dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1560dp"
+                android:backgroundTint="@color/colorBlack"
+                android:spinnerMode="dropdown"
+                />
+
+
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1520dp"
+                android:text="Production Type"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="120dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/et_prodtype"
+                android:layout_width="296dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1560dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="SP/PP/MP"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <Spinner
+                android:id="@+id/prodtype_spinner"
+                android:layout_width="301dp"
+                android:layout_height="75dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1560dp"
+                android:layout_marginRight="35dp"
+                android:backgroundTint="@color/colorBlack" />
+
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1650dp"
+                android:text="Inspection Type"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/et_inspectiontype"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1700dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Enter Inspection Type"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <Spinner
+                android:id="@+id/inspection_spinner"
+                android:layout_width="297dp"
+                android:layout_height="67dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1700dp"
+                android:backgroundTint="@color/colorBlack"
+
+                android:spinnerMode="dropdown"
+
+                />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1650dp"
+                android:layout_marginRight="29dp"
+                android:text="With UL Marking on Label"
+                android:textColor="@color/colorBlack"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_ulmarking"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:hint="YES/NO"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="26sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1700dp"
+                android:layout_marginRight="40dp"
+               />
+
+
+            <Spinner
+                android:id="@+id/ulmarking_spinner"
+                android:layout_width="294dp"
+                android:layout_height="79dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1700dp"
+                android:layout_marginRight="41dp"
+                android:backgroundTint="@color/colorBlack"
+                android:spinnerMode="dropdown"
+
+                />
+
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="OIR"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="1790dp"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_oir"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="1830dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="YES/NO"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+
+            <Spinner
+                android:id="@+id/OIR_spinner"
+                android:layout_width="306dp"
+                android:layout_height="73dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1830dp"
+                android:layout_marginRight="35dp"
+                android:backgroundTint="@color/colorBlack"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1790dp"
+                android:layout_marginRight="271dp"
+                android:text="CoC"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_coc"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1830dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="YES/NO"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp" />
+
+            <Spinner
+                android:id="@+id/coc_spinner"
+                android:layout_width="300dp"
+                android:layout_height="76dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1830dp"
+                android:layout_marginRight="35dp"
+                android:backgroundTint="@color/colorBlack"
+                android:spinnerMode="dropdown"
+
+                />
+
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1930dp"
+                android:text="Test Report"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                />
+
+            <EditText
+                android:id="@+id/et_testreport"
+                android:layout_width="300dp"
+                android:layout_height="65dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:hint="YES/NO"
+                android:layout_marginTop="1980dp"
+                android:textColorHint="@color/colorgrAY"
+                android:textSize="30sp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+
+
+            <Spinner
+                android:id="@+id/testreport_spinner"
+                android:layout_width="299dp"
+                android:layout_height="68dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1980dp"
+                android:layout_marginRight="35dp"
+                android:backgroundTint="#000000"
+                android:entries="@array/Test_report"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:id="@+id/btn_inspectnext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="2300dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="#e1e1e1"
+                android:drawableLeft="@drawable/ic_baseline_navigate_next_25"
+                android:fontFamily="@font/arbutus_slab"
+                android:text="Next"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="2400dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="#e1e1e1"
+                android:drawableLeft="@drawable/ic_baseline_navigate_next_25"
+                android:fontFamily="@font/arbutus_slab"
+                android:text="BACK"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+</ScrollView>

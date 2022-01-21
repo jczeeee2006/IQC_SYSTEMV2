@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhiteLight"
+    tools:ignore="MissingDefaultResource">
+
+
+    <EditText
+        android:id="@+id/lot_Number"
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:baselineAligned="false"
+        android:fontFamily="@font/arbutus_slab"
+        android:hint="Enter Lot Number"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorgrAY"
+        android:textSize="14sp"></EditText>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/lot_Quantity"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/arbutus_slab"
+            android:hint="Enter Lot Qty"
+            android:inputType="number"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorgrAY"
+            android:textSize="14sp"></EditText>
+
+        <EditText
+            android:id="@+id/lot_remarks"
+            android:layout_width="372dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:fontFamily="@font/arbutus_slab"
+            android:hint="Remarks"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorgrAY"
+            android:textSize="14sp"></EditText>
+
+    </FrameLayout>
+
+
+</LinearLayout>

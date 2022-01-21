@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">IQC SYSTEM</string>
+
+
+    <string-array name="RoHS_compliance">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="invoice_no">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Production_type">
+        <item></item>
+        <item>SP</item>
+        <item>PP</item>
+        <item>MP</item>
+    </string-array>
+
+    <string-array name="UL_marking">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+        <item>NA</item>
+    </string-array>
+
+    <string-array name="OIR">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="CoC">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Test_report">
+        <item></item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Inspection_type">
+        <item></item>
+        <item>NORMAL INSPECTION</item>
+        <item>TIGHTEN INSPECTION</item>
+        <item>100% INSPECTION</item>
+        <item>LABEL AND QUANTITY</item>
+
+
+    </string-array>
+
+    <string-array name="instrument_array">
+        <item></item>
+        <item>DC-Digital Caliper</item>
+        <item>MM-Micrometer</item>
+        <item>2D-Keyence</item>
+        <item>SR-Steel Ruler</item>
+        <item>PG-Pin Gauge</item>
+        <item>TG-Thread Gauge</item>
+        <item>HG-Dial Height Gauge</item>
+        <item>DG-Depth Gauge</item>
+        <item>PR-Feeler Gauge</item>
+        <item>DM-Digital Multimeter</item>
+        <item>LCR-LCR Meter</item>
+        <item>SG-Steel Gauge</item>
+    </string-array>
+
+    <string-array name="instrument_array1">
+        <item></item>
+        <item>MC-Microscope</item>
+        <item>NE-Naked Eye</item>
+        <item>MR-Magnifier</item>
+        <item>GN-Go nogo Jig</item>
+    </string-array>
+
+
+    <string-array name="instrument_array2">
+        <item></item>
+        <item>DC-Digital Caliper</item>
+        <item>MM-Micrometer</item>
+        <item>2D-Keyence</item>
+        <item>SR-Steel Ruler</item>
+        <item>PG-Pin Gauge</item>
+        <item>TG-Thread Gauge</item>
+        <item>HG-Dial Height Gauge</item>
+        <item>DG-Depth Gauge</item>
+        <item>PR-Feeler Gauge</item>
+        <item>DM-Digital Multimeter</item>
+        <item>LCR-LCR Meter</item>
+        <item>SG-Steel Gauge</item>
+        <item>MC-Microscope</item>
+        <item>NE-Naked Eye</item>
+        <item>GN-GoNo/Go Jig</item>
+        <item>MR-Magnifier</item>
+    </string-array>
+
+
+    <string-array name="material">
+        <item></item>
+        <item>PLASTIC</item>
+        <item>METAL</item>
+        <item>ELECTRICAL</item>
+        <item>COMPONENTS</item>
+        <item>OTHERS</item>
+    </string-array>
+
+
+</resources>

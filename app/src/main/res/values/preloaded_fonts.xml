@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/antic_slab</item>
+        <item>@font/arbutus_slab</item>
+        <item>@font/asset</item>
+        <item>@font/diplomata_sc</item>
+        <item>@font/goblin_one</item>
+    </array>
+</resources>
