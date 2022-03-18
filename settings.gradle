@@ -1,0 +1,2 @@
+rootProject.name = "IQC APPLICATION"
+include ':app'

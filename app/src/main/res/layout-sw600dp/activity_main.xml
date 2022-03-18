@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/login"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/cardview_container"
+        android:layout_width="match_parent"
+        android:layout_height="690dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="24dp"
+
+        android:elevation="80dp"
+
+
+        >
+
+
+        <ImageView
+
+            android:id="@+id/imageView2"
+            android:layout_width="670dp"
+            android:layout_height="480dp"
+            android:layout_marginLeft="530dp"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/dalawatao"
+            android:elevation="12sp"
+            android:innerRadius="0dp"
+            android:shape="ring" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="501dp"
+            android:layout_height="650dp"
+            android:layout_marginLeft="50dp"
+            android:elevation="12sp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            app:cardBackgroundColor="#fff"
+            app:cardCornerRadius="44dp"
+            app:cardElevation="4dp">
+
+
+            <LinearLayout
+                android:layout_width="520dp"
+                android:layout_height="600dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/matech_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.936"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/pbbar"
+                    style="?android:attr/progressBarStyleLargeInverse"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginTop="30dp"
+                    android:progressTint="#000000"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.453"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/popbold"
+                    android:text="IQC LOG IN "
+
+                    android:textColor="@color/darkish"
+                    android:textSize="40sp" />
+
+                <EditText
+                    android:id="@+id/et_username"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/grid_row_borderradius"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:ems="10"
+                    android:hint="Enter Username"
+                    android:padding="10dp"
+
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColorHint="#828282"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.937"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/grid_row_borderradius"
+                    android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+                    android:hint="Enter Password"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:paddingLeft="12dp"
+                    android:singleLine="true"
+                    android:textColorHint="#828282"
+                    app:layout_constraintEnd_toEndOf="@+id/et_username"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/et_username"
+                    app:layout_constraintTop_toBottomOf="@+id/et_username" />
+
+                <Button
+                    android:id="@+id/btn_Login"
+                    android:layout_width="350dp"
+                    android:layout_height="70dp"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/darkish"
+                    android:text="Log In"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/et_password"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/et_password"
+                    app:layout_constraintTop_toBottomOf="@+id/et_password" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
