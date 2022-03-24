@@ -59,7 +59,7 @@ public class ConnectionClass {
 
             Class.forName(classs);
             ConnURL2 = "jdbc:jtds:sqlserver://" + ip + ";"
-                    + "databaseName=" + db2 + ";user=" + un + ";password="
+                    + "databaseName=" + db + ";user=" + un + ";password="
                     + password + ";///test?allowMultiQueries=true";
             conn2 = DriverManager.getConnection(ConnURL2);
         } catch (SQLException se) {

@@ -4,12 +4,12 @@ public class InspectionEncapsulation {
 
     int id;
    String invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,maker,  goodc,
-    dateeee, inspector, dateinspected,samplesize,datereceived,invoicequant,
-    oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking;
+    dateeee, inspector, dateinspected,samplesize,datereceived,invoicequant, reject,
+    oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking,coc;
 
     public InspectionEncapsulation(int id, String invoicenum, String preparedby, String temp, String assemblyline, String partnum, String partName, String humidity, String supplier, String maker,
-                                   String goodc, String dateeee, String inspector, String dateinspected, String samplesize, String datereceived, String invoicequant, String oir, String inspecttype,
-                                   String testreport, String mattype, String inscoc, String rohscomp, String prodtype, String ulmarking) {
+                                   String goodc, String dateeee, String inspector, String dateinspected, String samplesize, String datereceived, String invoicequant,String reject, String oir, String inspecttype,
+                                   String testreport, String mattype, String inscoc, String rohscomp, String prodtype, String ulmarking, String coc) {
         this.id = id;
         this.invoicenum = invoicenum;
         this.preparedby = preparedby;
@@ -27,6 +27,7 @@ public class InspectionEncapsulation {
         this.samplesize = samplesize;
         this.datereceived = datereceived;
         this.invoicequant = invoicequant;
+        this.reject = reject;
         this.oir = oir;
         this.inspecttype = inspecttype;
         this.testreport = testreport;
@@ -35,6 +36,8 @@ public class InspectionEncapsulation {
         this.rohscomp = rohscomp;
         this.prodtype = prodtype;
         this.ulmarking = ulmarking;
+
+        this.coc = coc;
     }
 
     public int getId() {
@@ -105,6 +108,10 @@ public class InspectionEncapsulation {
         return invoicequant;
     }
 
+    public String getReject() {
+        return reject;
+    }
+
     public String getOir() {
         return oir;
     }
@@ -135,5 +142,8 @@ public class InspectionEncapsulation {
 
     public String getUlmarking() {
         return ulmarking;
+    }
+    public String getCoc() {
+        return coc;
     }
 }

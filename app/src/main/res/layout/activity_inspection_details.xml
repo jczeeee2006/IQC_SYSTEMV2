@@ -534,7 +534,7 @@
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:paddingRight="20dp"
+                    android:paddingRight="10dp"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/rohs"
                     app:layout_constraintHorizontal_bias="0.0"

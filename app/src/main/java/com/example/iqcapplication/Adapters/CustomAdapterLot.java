@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyViewHolder> {
         Context context;
         Activity activity;
-        ArrayList<LotEncapsulation> lotData =new ArrayList<>();
+        ArrayList<LotEncapsulation> lotData = new ArrayList<>();
 
 
     public CustomAdapterLot(Context context, ArrayList<LotEncapsulation> lotData) {
@@ -42,7 +42,8 @@ public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyVi
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterLot.MyViewHolder holder, int position) {
 
-        LotEncapsulation lotNumberlist = lotData.get(position);holder.id_txt.setText(String.valueOf(lotNumberlist.getId()));
+        LotEncapsulation lotNumberlist = lotData.get(position);
+        holder.id_txt.setText(String.valueOf(lotNumberlist.getId()));
         holder.invoice_txt.setText(String.valueOf(lotNumberlist.getLot_invoiceno()));
         holder.partNum_txt.setText(String.valueOf(lotNumberlist.getEt_partnum()));
         holder.goodsCode_txt.setText(String.valueOf(lotNumberlist.getGoodsc()));
@@ -56,6 +57,8 @@ public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyVi
         holder.lotNum_txt.setText(String.valueOf(lotNumberlist.getLotno()));
         holder.lotQty_txt.setText(String.valueOf(lotNumberlist.getLotquant()));
         holder.remarks_txt.setText(String.valueOf(lotNumberlist.getRemarks()));
+
+
 
     }
 
@@ -73,7 +76,7 @@ public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyVi
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id_txt = itemView.findViewById(R.id.id_txt);
+            id_txt = itemView.findViewById(R.id.idins_txt);
             invoice_txt = itemView.findViewById(R.id.invoiceNum_txt);
             partNum_txt = itemView.findViewById(R.id.partN_txt);
             goodsCode_txt = itemView.findViewById(R.id.goodsCode_txt);

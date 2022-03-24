@@ -22,7 +22,7 @@
             android:id="@+id/cardView3"
             android:layout_width="230dp"
             android:layout_height="230dp"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="136dp"
             android:elevation="12sp"
             android:innerRadius="0dp"
             android:shape="ring"
@@ -30,7 +30,7 @@
             app:cardCornerRadius="44dp"
             app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.587"
+            app:layout_constraintHorizontal_bias="0.19"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -101,12 +101,11 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
-            android:layout_width="490dp"
+            android:layout_width="600dp"
             android:layout_height="300dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="136dp"
             android:elevation="12sp"
             android:innerRadius="0dp"
             android:shape="ring"
@@ -114,13 +113,13 @@
             app:cardCornerRadius="44dp"
             app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.27"
+            app:layout_constraintHorizontal_bias="0.152"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
 
            <androidx.constraintlayout.widget.ConstraintLayout
-               android:layout_width="490dp"
+               android:layout_width="600dp"
                android:layout_height="296dp"
                android:layout_marginLeft="30dp"
                android:layout_marginRight="30dp"
@@ -151,8 +150,8 @@
 
               <EditText
                   android:id="@+id/partNuminspec"
-                  android:layout_width="200dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="44dp"
                   android:background="@drawable/edittext_shadow"
                   android:elevation="10dp"
@@ -166,8 +165,8 @@
 
               <EditText
                   android:id="@+id/partName"
-                  android:layout_width="200dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="52dp"
                   android:background="@drawable/edittext_shadow"
                   android:elevation="10dp"
@@ -193,8 +192,8 @@
 
               <EditText
                   android:id="@+id/goodsCodeinsp"
-                  android:layout_width="200dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="36dp"
                   android:background="@drawable/edittext_shadow"
                   android:elevation="10dp"
@@ -221,8 +220,8 @@
 
               <EditText
                   android:id="@+id/prepared"
-                  android:layout_width="200dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginStart="12dp"
                   android:layout_marginTop="56dp"
                   android:background="@drawable/edittext_shadow"
@@ -249,8 +248,8 @@
 
               <EditText
                   android:id="@+id/dateinspect"
-                  android:layout_width="200dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_calendar_today_24"
                   android:elevation="10dp"
@@ -276,8 +275,8 @@
 
               <EditText
                   android:id="@+id/invoiceNumber"
-                  android:layout_width="200dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="40dp"
                   android:background="@drawable/edittext_shadow"
                   android:elevation="10dp"
@@ -296,8 +295,8 @@
         <androidx.cardview.widget.CardView
 
             android:id="@+id/cardView"
-            android:layout_width="750dp"
-            android:layout_height="360dp"
+            android:layout_width="1100dp"
+            android:layout_height="650dp"
             android:layout_marginTop="36dp"
             android:elevation="12sp"
             android:innerRadius="0dp"
@@ -312,8 +311,8 @@
 
 
            <androidx.constraintlayout.widget.ConstraintLayout
-               android:layout_width="750dp"
-               android:layout_height="360dp"
+               android:layout_width="1100dp"
+               android:layout_height="650dp"
                android:layout_marginLeft="30dp"
                android:layout_marginRight="30dp"
                android:layout_marginBottom="30dp"
@@ -321,8 +320,8 @@
 
               <AutoCompleteTextView
                   android:id="@+id/testreport"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="40dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -333,12 +332,13 @@
                   app:layout_constraintEnd_toEndOf="@+id/oir"
                   app:layout_constraintHorizontal_bias="1.0"
                   app:layout_constraintStart_toStartOf="@+id/oir"
-                  app:layout_constraintTop_toBottomOf="@+id/oir" />
+                  app:layout_constraintTop_toBottomOf="@+id/oir"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
 
               <AutoCompleteTextView
                   android:id="@+id/oir"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="40dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -349,7 +349,8 @@
                   app:layout_constraintEnd_toEndOf="parent"
                   app:layout_constraintHorizontal_bias="0.058"
                   app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintTop_toTopOf="parent" />
+                  app:layout_constraintTop_toTopOf="parent"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
 
               <TextView
                   android:id="@+id/textView32"
@@ -365,9 +366,9 @@
 
               <AutoCompleteTextView
                   android:id="@+id/inspecttype"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
-                  android:layout_marginTop="44dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="40dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                   android:ems="10"
@@ -375,14 +376,14 @@
                   android:padding="10dp"
                   android:textSize="13sp"
                   app:layout_constraintEnd_toEndOf="parent"
-                  app:layout_constraintHorizontal_bias="0.06"
+                  app:layout_constraintHorizontal_bias="0.139"
                   app:layout_constraintStart_toEndOf="@+id/oir"
                   app:layout_constraintTop_toTopOf="parent" />
 
               <AutoCompleteTextView
                   android:id="@+id/mattype"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="44dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -393,7 +394,8 @@
                   app:layout_constraintEnd_toEndOf="@+id/inspecttype"
                   app:layout_constraintHorizontal_bias="0.0"
                   app:layout_constraintStart_toStartOf="@+id/inspecttype"
-                  app:layout_constraintTop_toBottomOf="@+id/inspecttype" />
+                  app:layout_constraintTop_toBottomOf="@+id/inspecttype"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
 
               <TextView
                   android:id="@+id/textView33"
@@ -430,8 +432,8 @@
 
               <AutoCompleteTextView
                   android:id="@+id/coc"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="44dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -442,12 +444,13 @@
                   app:layout_constraintEnd_toEndOf="@+id/testreport"
                   app:layout_constraintHorizontal_bias="0.0"
                   app:layout_constraintStart_toStartOf="@+id/testreport"
-                  app:layout_constraintTop_toBottomOf="@+id/testreport" />
+                  app:layout_constraintTop_toBottomOf="@+id/testreport"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
 
               <AutoCompleteTextView
                   android:id="@+id/rohs"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="44dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -458,7 +461,8 @@
                   app:layout_constraintEnd_toEndOf="@+id/mattype"
                   app:layout_constraintHorizontal_bias="0.0"
                   app:layout_constraintStart_toStartOf="@+id/mattype"
-                  app:layout_constraintTop_toBottomOf="@+id/mattype" />
+                  app:layout_constraintTop_toBottomOf="@+id/mattype"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
 
               <TextView
                   android:id="@+id/textView37"
@@ -484,19 +488,20 @@
 
               <AutoCompleteTextView
                   android:id="@+id/supplier"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="52dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                   android:ems="10"
                   android:inputType="textPersonName"
-                  android:paddingRight="20dp"
                   android:textSize="13sp"
                   app:layout_constraintEnd_toEndOf="@+id/rohs"
                   app:layout_constraintHorizontal_bias="0.0"
                   app:layout_constraintStart_toStartOf="@+id/coc"
-                  app:layout_constraintTop_toBottomOf="@+id/coc" />
+                  app:layout_constraintTop_toBottomOf="@+id/coc"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
+
               <TextView
                   android:id="@+id/textView18"
                   android:layout_width="wrap_content"
@@ -521,30 +526,29 @@
 
               <AutoCompleteTextView
                   android:id="@+id/prodtype"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="44dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                   android:ems="10"
                   android:inputType="textPersonName"
-                  android:paddingRight="20dp"
                   android:textSize="13sp"
                   app:layout_constraintEnd_toEndOf="@+id/rohs"
                   app:layout_constraintHorizontal_bias="0.0"
                   app:layout_constraintStart_toStartOf="@+id/rohs"
-                  app:layout_constraintTop_toBottomOf="@+id/rohs" />
+                  app:layout_constraintTop_toBottomOf="@+id/rohs"
+                  tools:drawableRight="@drawable/ic_baseline_arrow_drop_down_24" />
 
               <AutoCompleteTextView
                   android:id="@+id/ulMarking"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="48dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                   android:ems="10"
                   android:inputType="textPersonName"
-                  android:paddingRight="20dp"
                   android:textSize="13sp"
                   app:layout_constraintEnd_toEndOf="@+id/maker"
                   app:layout_constraintHorizontal_bias="0.0"
@@ -564,8 +568,8 @@
 
               <EditText
                   android:id="@+id/inspector"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="44dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:ems="10"
@@ -573,14 +577,14 @@
                   android:padding="10dp"
                   android:textSize="13sp"
                   app:layout_constraintEnd_toEndOf="parent"
-                  app:layout_constraintHorizontal_bias="0.64"
+                  app:layout_constraintHorizontal_bias="0.856"
                   app:layout_constraintStart_toStartOf="parent"
                   app:layout_constraintTop_toTopOf="parent" />
 
               <EditText
                   android:id="@+id/sampleSizeinspect"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="48dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:ems="10"
@@ -594,8 +598,8 @@
 
               <EditText
                   android:id="@+id/maker"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="40dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:ems="10"
@@ -642,19 +646,19 @@
 
               <EditText
                   android:id="@+id/dateinsp"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
-                  android:layout_marginTop="44dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="40dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:drawableRight="@drawable/ic_baseline_calendar_today_24"
                   android:ems="10"
                   android:inputType="textPersonName"
                   android:padding="10dp"
                   android:textSize="13sp"
-                  app:layout_constraintEnd_toEndOf="parent"
-                  app:layout_constraintHorizontal_bias="0.181"
-                  app:layout_constraintStart_toEndOf="@+id/inspector"
-                  app:layout_constraintTop_toTopOf="parent" />
+                  app:layout_constraintEnd_toEndOf="@+id/supplier"
+                  app:layout_constraintHorizontal_bias="0.0"
+                  app:layout_constraintStart_toStartOf="@+id/supplier"
+                  app:layout_constraintTop_toBottomOf="@+id/supplier" />
 
               <TextView
                   android:id="@+id/textView27"
@@ -669,18 +673,18 @@
 
               <EditText
                   android:id="@+id/dateReceived"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
-                  android:layout_marginTop="52dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="44dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:ems="10"
                   android:inputType="textPersonName"
                   android:padding="10dp"
                   android:textSize="13sp"
-                  app:layout_constraintEnd_toEndOf="@+id/dateinsp"
-                  app:layout_constraintHorizontal_bias="0.0"
-                  app:layout_constraintStart_toStartOf="@+id/dateinsp"
-                  app:layout_constraintTop_toBottomOf="@+id/dateinsp" />
+                  app:layout_constraintEnd_toEndOf="@+id/prodtype"
+                  app:layout_constraintHorizontal_bias="1.0"
+                  app:layout_constraintStart_toStartOf="@+id/prodtype"
+                  app:layout_constraintTop_toBottomOf="@+id/prodtype" />
 
               <TextView
                   android:id="@+id/textView28"
@@ -695,8 +699,8 @@
 
               <EditText
                   android:id="@+id/invoiceQuantity"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
                   android:layout_marginTop="36dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:ems="10"
@@ -710,18 +714,18 @@
 
               <EditText
                   android:id="@+id/assyLine"
-                  android:layout_width="150dp"
-                  android:layout_height="40dp"
-                  android:layout_marginTop="48dp"
+                  android:layout_width="250dp"
+                  android:layout_height="50dp"
+                  android:layout_marginTop="32dp"
                   android:background="@drawable/grid_row_borderradius"
                   android:ems="10"
                   android:inputType="textPersonName"
                   android:padding="10dp"
                   android:textSize="13sp"
-                  app:layout_constraintEnd_toEndOf="@+id/invoiceQuantity"
+                  app:layout_constraintEnd_toEndOf="@+id/dateinsp"
                   app:layout_constraintHorizontal_bias="1.0"
-                  app:layout_constraintStart_toStartOf="@+id/invoiceQuantity"
-                  app:layout_constraintTop_toBottomOf="@+id/invoiceQuantity" />
+                  app:layout_constraintStart_toStartOf="@+id/dateinsp"
+                  app:layout_constraintTop_toBottomOf="@+id/dateinsp" />
 
               <TextView
                   android:id="@+id/textView22"

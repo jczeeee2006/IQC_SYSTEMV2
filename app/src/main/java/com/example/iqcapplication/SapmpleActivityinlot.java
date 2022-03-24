@@ -1,34 +1,34 @@
 package com.example.iqcapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.iqcapplication.add.InspectionDetailsActivity;
-import com.example.iqcapplication.dataview.LotFormActivityview;
+import com.example.iqcapplication.fragments.FragmentforLot;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class LotNumberActivity extends AppCompatActivity {
-
+public class SapmpleActivityinlot extends AppCompatActivity {
+        Button firstFragButton;
     ConnectionClass connectionClass;
     Button button,buttonAdd,buttonShow,nextForm;
 
@@ -37,14 +37,20 @@ public class LotNumberActivity extends AppCompatActivity {
     int ctr= 0;
     public static String invoicenumholder,materialholder, boxseqholder, partnameholder,  partnumholder, latestID;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_lot_number);
+        setContentView(R.layout.activity_sapmple_activityinlot);
+        firstFragButton = findViewById(R.id.showbutton);
+
+
+        firstFragButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new FragmentforLot());
+            }
+        });
+
 
         boxseqid = findViewById(R.id.boxSequence);
         lot_invoiceno = findViewById(R.id.invoiceNum);
@@ -60,7 +66,7 @@ public class LotNumberActivity extends AppCompatActivity {
         sampsize = findViewById(R.id.sampleSize);
         remarks   = findViewById(R.id.remarks);
         buttonAdd = findViewById(R.id.addlotbutton);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.uploadtoSQLIte);
         buttonShow = findViewById(R.id.showbutton);
         nextForm = findViewById(R.id.nextForm);
         connectionClass = new ConnectionClass();
@@ -73,7 +79,7 @@ public class LotNumberActivity extends AppCompatActivity {
         nextForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LotNumberActivity.this, InspectionDetailsActivity.class);
+                Intent intent = new Intent(SapmpleActivityinlot.this, InspectionDetailsActivity.class);
                 startActivity(intent);
             }
         });
@@ -81,8 +87,7 @@ public class LotNumberActivity extends AppCompatActivity {
         buttonShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LotNumberActivity.this, LotFormActivityview.class);
-                startActivity(intent);
+
             }
         });
 
@@ -91,22 +96,46 @@ public class LotNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addDatatoSQLite();
+                replaceFragment(new FragmentforLot());
             }
         });
 
+
     }
 
+
+    public void onPause(){
+        super.onPause();
+        String toStore = et_partnum.getText().toString();
+        getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putString("KEY", toStore);
+    }
+
+
+    public void onResume(){
+        super.onResume();
+        String toStore = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("KEY", et_partnum.getText().toString());
+        et_partnum.setText(toStore);
+    }
+
+
+    private void replaceFragment(FragmentforLot lotFragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction  fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.framelayout,lotFragment);
+        fragmentTransaction.commit();
+
+    }
 
     public void addData(){
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    switch (v.getId()){
-                        case R.id.addlotbutton:
-                            if (getData() == true) {
+                switch (v.getId()){
+                    case R.id.addlotbutton:
+                        if (getData() == true) {
 
-                            }
-                    }
+                        }
+                }
             }
         });
     }
@@ -149,7 +178,7 @@ public class LotNumberActivity extends AppCompatActivity {
 
 
         }catch (Exception e){
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -169,12 +198,12 @@ public class LotNumberActivity extends AppCompatActivity {
                 output = generatedItem;
             }
         }catch(Exception e){
-            e.printStackTrace();
+            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
         }
         return output;
     }
 
-        //----GET THE LATEST ID TO THE TOP -------//
+    //----GET THE LATEST ID TO THE TOP -------//
     public int Latest_ID(String tablename){
         int output = 0;
         connectionClass = new ConnectionClass();
@@ -235,7 +264,7 @@ public class LotNumberActivity extends AppCompatActivity {
         try{
             if(!lotquant.getText().toString().equals("")){
 
-                DatabaseHelper myDB = new DatabaseHelper(LotNumberActivity.this);
+                DatabaseHelper myDB = new DatabaseHelper(SapmpleActivityinlot.this);
                 myDB.addData(
                         lot_invoiceno.getText().toString().trim(),
                         et_partnum.getText().toString().trim(),
@@ -250,18 +279,10 @@ public class LotNumberActivity extends AppCompatActivity {
                         lotno.getText().toString().trim(),
                         lotquant.getText().toString().trim(),
                         remarks.getText().toString().trim());
-
-
-                LayoutInflater mylayoutInflator = getLayoutInflater();
-                View view1 = mylayoutInflator.inflate(R. layout.showpopup,null);
-                Toast toast=new Toast (getApplicationContext ());
-                toast.setView(view1);
-                toast.setDuration (Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
-                toast.show();
-                }
+                Toast.makeText(this, "Successfully Inserted.", Toast.LENGTH_SHORT).show();
+            }
             else {
-                Toast.makeText(LotNumberActivity.this, "please fill up data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SapmpleActivityinlot.this, "please fill up data", Toast.LENGTH_SHORT).show();
             }
 
         }catch (Exception e){

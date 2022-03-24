@@ -21,7 +21,6 @@
     </string-array>
 
 
-
     <string-array name="RoHS_compliance">
         <item></item>
         <item>Yes</item>
@@ -75,7 +74,6 @@
 
 
     </string-array>
-
 
 
     <string-array name="instrument_array1">

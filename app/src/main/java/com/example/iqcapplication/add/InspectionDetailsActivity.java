@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -19,15 +17,14 @@ import android.widget.Toast;
 import com.example.iqcapplication.ConnectionClass;
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.DimensionalActivity;
-import com.example.iqcapplication.LotNumberActivity;
 import com.example.iqcapplication.R;
+import com.example.iqcapplication.SapmpleActivityinlot;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class InspectionDetailsActivity extends AppCompatActivity {
@@ -38,7 +35,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     ConnectionClass connectionClass;
 
     final Calendar myCalendar= Calendar.getInstance();
-    EditText editText;
+
 
     public ArrayAdapter inspecttypee,OIRR,testreportt,mattypee,cocc,rohscompp,prodadapter,uladpter ;
     @Override
@@ -85,15 +82,20 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         addData = findViewById(R.id.button2);
         nextForm = findViewById(R.id.inspectnextbutton);
 
+        rohs();
+        prodtype();
+        mattype();
+        ulMarking();
+        coc();
+        testReport();
+        inspecttype();
+
         temp.setText(temp_hum("Temperature"));
         humidity.setText(temp_hum("Humidity"));
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         nextForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InspectionDetailsActivity.this, LotNumberActivity.class);
+                Intent intent = new Intent(InspectionDetailsActivity.this, SapmpleActivityinlot.class);
                 startActivity(intent);
             }
         });

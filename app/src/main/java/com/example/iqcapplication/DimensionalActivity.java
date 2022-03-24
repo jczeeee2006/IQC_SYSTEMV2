@@ -48,7 +48,6 @@ public class DimensionalActivity extends AppCompatActivity {
 
 
 
-        dc_checkPoints = findViewById(R.id.chkpoint);
         sammpleUnit = findViewById(R.id.sampleUnit);
         addData = findViewById(R.id.addData);
 
