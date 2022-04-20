@@ -1,46 +1,56 @@
-package com.example.iqcapplication.dataview;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.iqcapplication.fragments;
 
 import android.database.Cursor;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.iqcapplication.Adapters.CustomAdapterInspection;
-import com.example.iqcapplication.Adapters.CustomAdapterLot;
+
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.encapsulation.InspectionEncapsulation;
-import com.example.iqcapplication.encapsulation.LotEncapsulation;
 
 import java.util.ArrayList;
 
-public class InspectionDetailsDataView extends AppCompatActivity {
+public class FragmentForInspection extends Fragment {
     DatabaseHelper myDB;
     CustomAdapterInspection customAdapterIns;
     ArrayList<InspectionEncapsulation> InspectEncap = new ArrayList<>();
     RecyclerView recyclerView;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inspection_details_data_view);
 
-        recyclerView = findViewById(R.id.recyclerviewinspection);
 
-        myDB = new DatabaseHelper(InspectionDetailsDataView.this);
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view =  inflater.inflate(R.layout.fragment_for_inspection, container, false);
+        recyclerView = view.findViewById(R.id.recyclerviewins);
+
+        recyclerView.setHasFixedSize(true);
+
+        myDB = new DatabaseHelper(getContext());
         displayData();
-        customAdapterIns = new CustomAdapterInspection(InspectionDetailsDataView.this, InspectEncap);
+        customAdapterIns = new CustomAdapterInspection(getActivity(),getContext(), InspectEncap);
         recyclerView.setAdapter(customAdapterIns);
-        recyclerView.setLayoutManager(new LinearLayoutManager(InspectionDetailsDataView.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+
+        return view;
     }
 
     void displayData() {
         Cursor cursor = myDB.readinspectData();
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "no data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
                 InspectEncap.add(new InspectionEncapsulation
@@ -58,7 +68,6 @@ public class InspectionDetailsDataView extends AppCompatActivity {
                                 cursor.getString(11),
                                 cursor.getString(12),
                                 cursor.getString(13),
-                                cursor.getString(13),
                                 cursor.getString(14),
                                 cursor.getString(15),
                                 cursor.getString(16),
@@ -70,12 +79,12 @@ public class InspectionDetailsDataView extends AppCompatActivity {
                                 cursor.getString(22),
                                 cursor.getString(23),
                                 cursor.getString(24),
-                                cursor.getString(25)
-
+                                cursor.getString(25),
+                                cursor.getString(26)
                         ));
 
             }
-            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
         }
     }
 }

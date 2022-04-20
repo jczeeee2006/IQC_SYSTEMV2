@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">IQC APPLICATION</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="instruction">For Using the Lot Form please Follow the intructions:</string>
+    <string name="instruction1">1: Fill up Required inputs in this form. Please Double Check each inputs to lessen the error</string>
+    <string name="instruction2">2: After filling up, just click the add data BUTTON to save data in your device</string>
+    <string name="instruction3">3: Click View Records to View your previous input data</string>
 
+
+    <string name="instruction4">For Using the Dimension Form please Follow the intructions:</string>
+    <string name="instruction5">1: Input Instrument, then Enter how many samples are inspecting . Please Double Check each inputs to lessen the error</string>
+    <string name="instruction6">2: After filling up, just click the add data BUTTON to save data in your device</string>
+    <string name="instruction7">3: Click View Records to View your previous input data</string>
     <string-array name="instrument_array">
         <item></item>
         <item>DC-Digital Caliper</item>
@@ -65,6 +74,7 @@
         <item>No</item>
     </string-array>
 
+
     <string-array name="Inspection_type">
         <item></item>
         <item>NORMAL</item>
@@ -114,5 +124,6 @@
         <item>COMPONENTS</item>
         <item>OTHERS</item>
     </string-array>
+
 
 </resources>

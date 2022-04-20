@@ -17,13 +17,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "IQCDATABASE";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 26;
 
     private static final  String TABLE_NAME = "Lotnumberdb";
     private static final  String TABLE_NAME2 = "Dimensiondb";
     private static final  String TABLE_NAME3 = "Inspectiondb";
+    private static final  String TABLE_NAME4 = "Visualdb";
 
-
+   // lot table
     private static final  String COLUMN_ID = "ID";
     private static final  String COLUMN_P_INVOICE = "INVOICE";
     private static final  String COLUMN_P_PART_NUMBER = "PART_NUMBER";
@@ -38,12 +39,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String COLUMN_P_LOTNUM = "LOTNUM";
     private static final  String COLUMN_P_LOTQUANT = "LOTQUANT";
     private static final  String COLUMN_P_REMARKS = "REMARKS";
+    private static final  String COLUMN_P_DATETIME = "DATETIME";
 
+
+    //dimension table
     private static final  String COLUMN_P_DCID = "DCID";
+    private static final  String COLUMN_P_INSTRUMENT = "DCINSTRUMENT";
     private static final  String COLUMN_P_DCSAMPLENUM = "DCSAMPLENUM";
     private static final  String COLUMN_P_DCCHECKPOINT = "DCCHECKPOINT";
-    private static final  String COLUMN_P_DCSAMPLEVALUE = "DCSAMPLEVALUE";
+    private static final  String COLUMN_P_DCSAMPLEUNIT = "DCSAMPLEUNIT";
 
+    private static final  String COLUMN_P_DCSAMPLE1 = "DCSAMPLE1";
+    private static final  String COLUMN_P_DCSAMPLE2 = "DCSAMPLE2";
+    private static final  String COLUMN_P_DCSAMPLE3 = "DCSAMPLE3";
+    private static final  String COLUMN_P_DCSAMPLE4 = "DCSAMPLE4";
+    private static final  String COLUMN_P_DCSAMPLE5 = "DCSAMPLE5";
+
+    private static final  String COLUMN_P_DCSAMPLE6 = "DCSAMPLE6";
+    private static final  String COLUMN_P_DCSAMPLE7 = "DCSAMPLE7";
+    private static final  String COLUMN_P_DCSAMPLE8 = "DCSAMPLE8";
+    private static final  String  COLUMN_P_DCSAMPLE9 = "DCSAMPLE9";
+    private static final  String  COLUMN_P_DCSAMPLE10 = "DCSAMPLE10";
+
+    private static final  String  COLUMN_P_LOWER = "LOWER";
+    private static final  String  COLUMN_P_UPPER = "UPPER";
+    private static final  String  COLUMN_P_MINIMUM = "MINIMUM";
+    private static final  String  COLUMN_P_AVERAGE = "AVERAGE";
+    private static final  String  COLUMN_P_MAXIMUM = "MAXIMUM";
+    private static final  String  COLUMN_P_JUDGEMENT = "JUDGEMENT";
+    private static final  String  COLUMN_P_DATEDIM = "DATE";
+
+
+    //inspection table
     private static final  String COLUMN_P_INSID = "INSID";
     private static final  String COLUMN_P_INSPREPARED = "INSPREPARED";
     private static final  String COLUMN_P_INSPREPAREDDATE = "INSPREPAREDDATE";
@@ -69,7 +96,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String COLUMN_P_INSCOC = "INSCOC";
     private static final  String COLUMN_P_INSPRODTYPE = "INSPRODTYPE";
     private static final  String COLUMN_P_INSTESTREPORT = "INSTESTREPORT";
+    private static final  String COLUMN_P_DATE_TIMEE = "DATE_TIME";
+    private static final  String COLUMN_P_BOXSEQID = "BOXSEQID";
 
+    // appearance inspection
+    private static final  String COLUMN_P_VISID = "ID";
+    private static final  String COLUMN_P_VISINSTRUMENT = "INSTRUMENT_USED";
+    private static final  String COLUMN_P_VISSAMPLESIZE = "SAMPLE_SIZE";
+    private static final  String COLUMN_P_VICHECKPOINT = "CHECKPOINT";
+    private static final  String COLUMN_P_VIREMARKS = "REMARKS";
+    private static final  String COLUMN_P_VIJUDGEMENT = "JUDGEMENT";
+
+    //TODO dagdagan ng column yung dim ng date time then fix yung inserting issue sa lahat then proceed sa visual checkpoint dapat matapso ko to by tomorrow
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -96,16 +134,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_SAMPLE + " TEXT," +
                         COLUMN_P_LOTNUM + " TEXT," +
                         COLUMN_P_LOTQUANT + " TEXT," +
-                        COLUMN_P_REMARKS + " TEXT );" ;
+                        COLUMN_P_REMARKS  + " TEXT," +
+                        COLUMN_P_DATETIME    + " TEXT );" ;
 
 
         String query1  =
                 "CREATE TABLE " + TABLE_NAME2 +
                         "(" + COLUMN_P_DCID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_P_INSTRUMENT  + " TEXT," +
                         COLUMN_P_DCSAMPLENUM + " TEXT," +
                         COLUMN_P_DCCHECKPOINT + " TEXT," +
+                        COLUMN_P_DCSAMPLEUNIT + " TEXT," +
 
-                        COLUMN_P_DCSAMPLEVALUE + " TEXT );" ;
+                        COLUMN_P_DCSAMPLE1 + " TEXT," +
+                        COLUMN_P_DCSAMPLE2 + " TEXT," +
+                        COLUMN_P_DCSAMPLE3 + " TEXT," +
+                        COLUMN_P_DCSAMPLE4 + " TEXT," +
+                        COLUMN_P_DCSAMPLE5 + " TEXT," +
+                        COLUMN_P_DCSAMPLE6 + " TEXT," +
+                        COLUMN_P_DCSAMPLE7 + " TEXT," +
+                        COLUMN_P_DCSAMPLE8 + " TEXT," +
+                        COLUMN_P_DCSAMPLE9 + " TEXT," +
+                        COLUMN_P_DCSAMPLE10 + " TEXT," +
+
+                        COLUMN_P_LOWER + " TEXT," +
+                        COLUMN_P_UPPER + " TEXT," +
+                        COLUMN_P_MINIMUM  + " TEXT," +
+                        COLUMN_P_AVERAGE  + " TEXT," +
+                        COLUMN_P_MAXIMUM   + " TEXT," +
+                        COLUMN_P_JUDGEMENT   + " TEXT," +
+                        COLUMN_P_DATEDIM  + " TEXT );" ;
 
 
         String query2  =
@@ -134,26 +192,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_INSOIR + " TEXT," +
                         COLUMN_P_INSCOC + " TEXT," +
                         COLUMN_P_INSPRODTYPE  + " TEXT," +
-                        COLUMN_P_INSTESTREPORT + " TEXT);" ;
+                        COLUMN_P_INSTESTREPORT   + " TEXT," +
+                        COLUMN_P_DATE_TIMEE    + " TEXT," +
+                        COLUMN_P_BOXSEQID + " TEXT);" ;
+
+        String query3  =
+                "CREATE TABLE " + TABLE_NAME4 +
+                        "(" + COLUMN_P_VISID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_P_VISINSTRUMENT + " TEXT," +
+                        COLUMN_P_VISSAMPLESIZE + " TEXT," +
+                        COLUMN_P_VICHECKPOINT + " TEXT," +
+                        COLUMN_P_VIREMARKS + " TEXT," +
+                        COLUMN_P_VIJUDGEMENT + " TEXT);";
+
+
+
+
 
 
         db.execSQL(query);
         db.execSQL(query1);
         db.execSQL(query2);
+        db.execSQL(query3);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_NAME);
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_NAME2);
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_NAME3);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME3);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME4);
+
         onCreate(db);
 
 
     }
 
     public void addData(String INVOICE,String PART_NUMBER, String GOODS_CODE,String PART_NAME,String BOX_NUMBER,String BOXSEQ,
-                        String ACTUALQUANT, String TOTALQUANT, String REJECT,String  SAMPLE, String LOTNUM, String LOTQUANT,String REMARKS  ){
+                        String ACTUALQUANT, String TOTALQUANT, String REJECT,String  SAMPLE, String LOTNUM, String LOTQUANT,String REMARKS,String DATETIME ){
 
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -172,6 +248,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_LOTNUM, LOTNUM);
         cv.put(COLUMN_P_LOTQUANT, LOTQUANT);
         cv.put(COLUMN_P_REMARKS, REMARKS);
+        cv.put(COLUMN_P_DATETIME, DATETIME);
+
 
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {
@@ -182,13 +260,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void addDC( String samplenum, String checkpoint, String sampleValue){
+    public void addDC(String instrumentUsed, String samplenum, String checkpoint, String samplUnit, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
+                       String sample7, String sample8, String sample9,String sample10,String lower, String upper, String min,String average, String max, String judgement,String date){
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(COLUMN_P_INSTRUMENT,instrumentUsed);
+        cv.put(COLUMN_P_DCCHECKPOINT, checkpoint);
         cv.put(COLUMN_P_DCSAMPLENUM, samplenum);
         cv.put(COLUMN_P_DCCHECKPOINT, checkpoint);
-        cv.put(COLUMN_P_DCSAMPLEVALUE, sampleValue);
+        cv.put(COLUMN_P_DCSAMPLEUNIT, samplUnit);
+        cv.put(COLUMN_P_DCSAMPLE1, sample1);
+        cv.put(COLUMN_P_DCSAMPLE2, sample2);
+        cv.put(COLUMN_P_DCSAMPLE3, sample3);
+        cv.put(COLUMN_P_DCSAMPLE4, sample4);
+        cv.put(COLUMN_P_DCSAMPLE5, sample5);
+        cv.put(COLUMN_P_DCSAMPLE6, sample6);
+        cv.put(COLUMN_P_DCSAMPLE7, sample7);
+        cv.put(COLUMN_P_DCSAMPLE8, sample8);
+        cv.put(COLUMN_P_DCSAMPLE9, sample9);
+        cv.put(COLUMN_P_DCSAMPLE10, sample10);
+        cv.put(COLUMN_P_LOWER, lower);
+        cv.put(COLUMN_P_UPPER, upper);
+        cv.put(COLUMN_P_MINIMUM, min);
+        cv.put(COLUMN_P_AVERAGE, average);
+        cv.put(COLUMN_P_MAXIMUM, max);
+        cv.put(COLUMN_P_JUDGEMENT, judgement);
+        cv.put(COLUMN_P_DATEDIM, date);
 
         long result = db.insert(TABLE_NAME2, null, cv);
         if (result == -1) {
@@ -201,8 +299,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void addinspection(String prepared, String prepareddate, String insinvoicenum, String insgoods, String inspartname, String insinvoicequant, String insassyline,
                               String inspatnum, String instemp, String insrohs, String insdateinspected, String inshumid, String insupp, String inspector, String insdatereceived,
-                              String insmaker, String inssample, String insmaterial, String insinspecttype, String insulmarking, String insoir, String inscoc,String insprodtype, String instestreport
-
+                              String insmaker, String inssample, String insmaterial, String insinspecttype, String insulmarking, String insoir, String inscoc,String insprodtype, String instestreport,
+                              String datetime ,String boxseqid
                             ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -230,8 +328,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_INSULMARKING, insulmarking);
         cv.put(COLUMN_P_INSOIR, insoir);
         cv.put(COLUMN_P_INSCOC, inscoc);
-        cv.put( COLUMN_P_INSPRODTYPE, insprodtype);
+        cv.put(COLUMN_P_INSPRODTYPE, insprodtype);
         cv.put(COLUMN_P_INSTESTREPORT, instestreport);
+        cv.put(COLUMN_P_DATE_TIMEE, datetime);
+        cv.put(COLUMN_P_BOXSEQID, boxseqid);
 
 
 
@@ -242,6 +342,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void addVisual( String instrument, String sampSize, String checkpoint,String remarks, String judgement){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_P_VISINSTRUMENT, instrument);
+        cv.put(COLUMN_P_VISSAMPLESIZE, sampSize);
+        cv.put(COLUMN_P_VICHECKPOINT, checkpoint);
+        cv.put(COLUMN_P_VIREMARKS, remarks);
+        cv.put(COLUMN_P_VIJUDGEMENT, judgement);
+
+        long result = db.insert(TABLE_NAME4, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
 
     public Cursor readAllData(){
@@ -258,6 +378,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+
 
     public Cursor readdcAllData(){
         String query = "SELECT * FROM " + TABLE_NAME2;
@@ -292,9 +413,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+
+    public Cursor readVisualData(){
+        String query = "SELECT * FROM " + TABLE_NAME4;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+
+        }
+        return cursor;
+
+    }
+
+
+
+
     public void updateinspectdata(String insid, String prepared, String prepareddate,String insinvoicenum, String insgoods,String inspartname, String insinvoicequant, String insassyline,
                                   String inspatnum,String instemp,String insrohs, String insdateinspected, String inshumid, String insupp, String inspector, String insdatereceived,
-                                  String insmaker,String inssample, String insmaterial, String insinspecttype, String insulmarking, String insoir, String inscoc, String instestreport){
+                                  String insmaker,String inssample, String insmaterial, String insinspecttype, String insulmarking, String insoir, String inscoc,String prodtypes, String instestreport,String dateteime){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -321,9 +461,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_INSULMARKING, insulmarking);
         cv.put(COLUMN_P_INSOIR, insoir);
         cv.put(COLUMN_P_INSCOC, inscoc);
+        cv.put(COLUMN_P_INSPRODTYPE, prodtypes);
         cv.put(COLUMN_P_INSTESTREPORT, instestreport);
+        cv.put(COLUMN_P_DATE_TIMEE, dateteime)
+        ;
 
-        long result = db.update(TABLE_NAME, cv,"id=?", new String[]{insid});
+        long result = db.update(TABLE_NAME3, cv,"INSID=?", new String[]{insid});
         if(result == -1){
             Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
         }else {
@@ -332,24 +475,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateData(String row_id, String INVOICE,String PART_NUMBER, String GOODS_CODE,String PART_NAME,String BOX_NUMBER,String BOXSEQ,
-                           String ACTUALQUANT, String TOTALQUANT, String REJECT,String  SAMPLE, String LOTNUM, String LOTQUANT,String REMARKS ){
+
+
+
+    public void updateData(String row_id, String invoice, String part_number, String goods_code, String part_name, String box_number, String boxseq, String actualquant,
+                           String totalquant, String reject, String sample, String lotnum, String lotquant, String remarks, String datetime) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_P_INVOICE, INVOICE);
-        cv.put(COLUMN_P_INVOICE, PART_NUMBER);
-        cv.put(COLUMN_P_INVOICE, GOODS_CODE);
-        cv.put(COLUMN_P_INVOICE, PART_NAME);
-        cv.put(COLUMN_P_INVOICE, BOX_NUMBER);
-        cv.put(COLUMN_P_INVOICE, BOXSEQ);
-        cv.put(COLUMN_P_INVOICE, ACTUALQUANT);
-        cv.put(COLUMN_P_INVOICE, TOTALQUANT);
-        cv.put(COLUMN_P_INVOICE, REJECT);
-        cv.put(COLUMN_P_INVOICE, SAMPLE);
-        cv.put(COLUMN_P_INVOICE, LOTNUM);
-        cv.put(COLUMN_P_INVOICE, LOTQUANT);
-        cv.put(COLUMN_P_INVOICE, REMARKS);
-
+        cv.put(COLUMN_P_INVOICE, invoice);
+        cv.put(COLUMN_P_PART_NUMBER, part_number);
+        cv.put(COLUMN_P_GOODS_CODE, goods_code);
+        cv.put(COLUMN_P_PART_NAME, part_name);
+        cv.put(COLUMN_P_BOX_NUMBER, box_number);
+        cv.put(COLUMN_P_BOXSEQ, boxseq);
+        cv.put(COLUMN_P_ACTUALQUANT, actualquant);
+        cv.put(COLUMN_P_TOTALQUANT, totalquant);
+        cv.put(COLUMN_P_REJECT, reject);
+        cv.put(COLUMN_P_SAMPLE, sample);
+        cv.put(COLUMN_P_LOTNUM, lotnum);
+        cv.put(COLUMN_P_LOTQUANT, lotquant);
+        cv.put(COLUMN_P_REMARKS, remarks);
+        cv.put(COLUMN_P_DATETIME, datetime);
         long result = db.update(TABLE_NAME, cv,"id=?", new String[]{row_id});
         if(result == -1){
             Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
@@ -357,4 +503,63 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context," Succesfully updated", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void updateVisual(String id, String instrument, String sampSize, String checkpoint, String remarks, String judgement ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+
+
+        cv.put(COLUMN_P_VISINSTRUMENT, instrument);
+        cv.put(COLUMN_P_VISSAMPLESIZE, sampSize);
+        cv.put(COLUMN_P_VICHECKPOINT, checkpoint);
+        cv.put(COLUMN_P_VIREMARKS, remarks);
+        cv.put(COLUMN_P_VIJUDGEMENT, judgement);
+
+
+        long result = db.update(TABLE_NAME, cv,"id=?", new String[]{id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context," Succesfully updated", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public void updateDc( String _id,String instrumentUsed,  String samplenum, String checkpoint, String samplUnit, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
+                       String sample7, String sample8, String sample9,String sample10,String lower, String upper, String max, String min, String average, String judgement,String date){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_P_INSTRUMENT,instrumentUsed);
+        cv.put(COLUMN_P_DCSAMPLENUM, samplenum);
+        cv.put(COLUMN_P_DCCHECKPOINT, checkpoint);
+        cv.put(COLUMN_P_DCSAMPLEUNIT, samplUnit);
+        cv.put(COLUMN_P_DCSAMPLE1, sample1);
+        cv.put(COLUMN_P_DCSAMPLE2, sample2);
+        cv.put(COLUMN_P_DCSAMPLE3, sample3);
+        cv.put(COLUMN_P_DCSAMPLE4, sample4);
+        cv.put(COLUMN_P_DCSAMPLE5, sample5);
+        cv.put(COLUMN_P_DCSAMPLE6, sample6);
+        cv.put(COLUMN_P_DCSAMPLE7, sample7);
+        cv.put(COLUMN_P_DCSAMPLE8, sample8);
+        cv.put(COLUMN_P_DCSAMPLE9, sample9);
+        cv.put(COLUMN_P_DCSAMPLE10, sample10);
+        cv.put(COLUMN_P_LOWER, lower);
+        cv.put(COLUMN_P_UPPER, upper);
+        cv.put(COLUMN_P_MINIMUM, min);
+        cv.put(COLUMN_P_AVERAGE, average);
+        cv.put(COLUMN_P_MAXIMUM, max);
+        cv.put(COLUMN_P_JUDGEMENT, judgement);
+        cv.put(COLUMN_P_DATEDIM, date);
+
+        long result = db.update(TABLE_NAME2, cv,"DCID=?", new String[]{_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context," Succesfully updated", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

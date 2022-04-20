@@ -4,19 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/paaa"
     tools:context=".SapmpleActivityinlot">
 
+    <EditText
+        android:id="@+id/dateToday"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:background="@drawable/edittext_shadow"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="825dp"
+        tools:layout_editor_absoluteY="41dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageButton
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_help_24" />
+
+    <TextView
+        android:id="@+id/textView79"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/popbold"
+        android:text=" RECORDS"
+        android:textColor="@color/ocean"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/framelayout"
+        app:layout_constraintEnd_toEndOf="@+id/framelayout"
+        app:layout_constraintHorizontal_bias="0.389"
+        app:layout_constraintStart_toStartOf="@+id/framelayout" />
+
+    <TextView
+        android:id="@+id/textView64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1100dp"
+        android:fontFamily="@font/popbold"
+        android:text="VIEW RECORDS"
+        android:textColor="@color/ocean"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/framelayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/framelayout"
-        android:layout_width="720dp"
-        android:layout_height="450dp"
+        android:layout_width="702dp"
+        android:layout_height="371dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/layer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_bias="0.423">
+        app:layout_constraintVertical_bias="0.653">
 
     </FrameLayout>
 
@@ -56,11 +114,27 @@
                 android:paddingLeft="20dp"
                 android:text="next form"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/uploadtoSQLIte"
+                app:layout_constraintEnd_toEndOf="@+id/showbutton"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/uploadtoSQLIte"
-                app:layout_constraintTop_toBottomOf="@+id/uploadtoSQLIte" />
+                app:layout_constraintStart_toStartOf="@+id/showbutton"
+                app:layout_constraintTop_toBottomOf="@+id/showbutton" />
 
+
+            <Button
+                android:id="@+id/clearData"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_clear_all_24"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="CLEAR "
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/remarks"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/remarks"
+                app:layout_constraintTop_toBottomOf="@+id/remarks" />
 
             <AutoCompleteTextView
                 android:id="@+id/invoiceNum"
@@ -68,7 +142,7 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="96dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
 
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -77,7 +151,7 @@
                 android:shadowDx="-6"
                 android:shadowDy="-6"
                 android:shadowRadius="20"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,11 +160,11 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="44dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/invoiceNum"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/invoiceNum"
@@ -101,12 +175,12 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="52dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
 
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/goodsCode"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/goodsCode"
@@ -117,11 +191,11 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="96dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.06"
                 app:layout_constraintStart_toEndOf="@+id/invoiceNum"
@@ -132,7 +206,7 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="96dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
@@ -177,7 +251,7 @@
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|numberDecimal"
                 android:padding="10dp"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/totalQuan_txt"
@@ -191,11 +265,11 @@
                 android:layout_height="60dp"
 
                 android:layout_marginTop="48dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|numberDecimal"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/partName"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/partName"
@@ -246,16 +320,16 @@
                 app:layout_constraintStart_toStartOf="@+id/partName" />
 
             <Button
-                android:id="@+id/uploadtoSQLIte"
+                android:id="@+id/showbutton"
                 android:layout_width="200dp"
                 android:layout_height="70dp"
 
                 android:layout_marginTop="48dp"
-                android:backgroundTint="#FF0000"
-                android:drawableLeft="@drawable/ic_baseline_storage_24"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
                 android:elevation="20dp"
                 android:paddingLeft="20dp"
-                android:text="UPLOAD DATA TO SQL"
+                android:text="VIEW RECORDS"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/boxSequence"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -316,12 +390,12 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="48dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
 
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/boxNum"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/boxNum"
@@ -332,11 +406,11 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="48dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/lotQuant"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/lotQuant"
@@ -369,11 +443,11 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/reject"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/reject"
@@ -384,11 +458,11 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="44dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/partN"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/partN"
@@ -399,11 +473,11 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="52dp"
-                android:background="@drawable/layer"
+                android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|numberDecimal"
                 android:padding="10dp"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/lotNumber"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/lotNumber"
@@ -441,23 +515,6 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/remarks"
                 app:layout_constraintStart_toStartOf="@+id/remarks" />
-
-            <Button
-                android:id="@+id/showbutton"
-
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/darkish"
-                android:drawableLeft="@drawable/ic_baseline_pageview_24"
-                android:elevation="20dp"
-                android:paddingLeft="20dp"
-                android:text="VIEW RECORD"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/addlotbutton"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/addlotbutton"
-                app:layout_constraintTop_toBottomOf="@+id/addlotbutton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

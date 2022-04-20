@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="720dp"
+        android:layout_height="490dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="60dp"
+        android:elevation="12sp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="44dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginLeft="30dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="730dp"
+            android:layout_height="550dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <AutoCompleteTextView
+                android:id="@+id/visualInstrument"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/edittext_shadow"
+
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="#000"
+                android:shadowDx="-6"
+                android:shadowDy="-6"
+                android:shadowRadius="20"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualJudgement"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="396dp"
+                android:background="@drawable/edittext_shadow"
+
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="#000"
+                android:shadowDx="-6"
+                android:shadowDy="-6"
+                android:shadowRadius="20"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.076"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualSampleSize"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualcheckPoint"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.447"
+                app:layout_constraintStart_toEndOf="@+id/partN"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/visualRemarks"
+                android:layout_width="650dp"
+                android:layout_height="100dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Instrument Used:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualInstrument"
+                app:layout_constraintStart_toStartOf="@+id/visualInstrument" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample Size"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualSampleSize"
+                app:layout_constraintStart_toStartOf="@+id/visualSampleSize" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:fontFamily="@font/popbold"
+                android:text="Checkpoint"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualcheckPoint"
+                app:layout_constraintStart_toStartOf="@+id/visualcheckPoint" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:fontFamily="@font/popbold"
+                android:text="Remarks:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualRemarks"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarks" />
+
+            <TextView
+                android:id="@+id/textView73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Judgement:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualJudgement"
+                app:layout_constraintStart_toStartOf="@+id/visualJudgement" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

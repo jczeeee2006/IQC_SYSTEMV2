@@ -1,43 +1,65 @@
 package com.example.iqcapplication.add;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.iqcapplication.ConnectionClass;
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.DimensionalActivity;
+import com.example.iqcapplication.MainActivity;
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.SapmpleActivityinlot;
+import com.example.iqcapplication.VisualInspection;
+import com.example.iqcapplication.fragments.FragmentForInspection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class InspectionDetailsActivity extends AppCompatActivity {
-    EditText invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,maker,  goodc;
-    EditText dateeee, inspector, dateinspected,samplesize,datereceived,invoicequant;
+    EditText invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,maker,  goodc, dateeee, inspector, dateinspected,samplesize,
+            datereceived,invoicequant,dateTodayins,boxsequenceins;
     AutoCompleteTextView oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking;
-    Button nextForm,addData,uploadData;
+    Button nextForm,addData,showButton;
     ConnectionClass connectionClass;
+    private int mYear,mMonth,mDay;
 
+    public static String goodscodeholder;
     final Calendar myCalendar= Calendar.getInstance();
 
-
     public ArrayAdapter inspecttypee,OIRR,testreportt,mattypee,cocc,rohscompp,prodadapter,uladpter ;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,161 +67,306 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
 
         connectionClass = new ConnectionClass();
-        OOIR();
+
 
         preparedby = findViewById(R.id.prepared);
-        dateeee = findViewById(R.id.dateinspect);
+        dateeee = findViewById(R.id.dateinspectup);
         temp = findViewById(R.id.temperature);
-        temp.setEnabled(false);
-        temp.setBackgroundColor(Color.parseColor("#d2d9d9"));
-        assemblyline = findViewById(R.id.assyLine);
-        maker = findViewById(R.id.maker);
-        invoicenum = findViewById(R.id.invoiceNumber);
-        goodc = findViewById(R.id.goodsCodeinsp);
-        partnum = findViewById(R.id.partNuminspec);
+        assemblyline = findViewById(R.id.assyLineup);
+        maker = findViewById(R.id.makerup);
+        invoicenum = findViewById(R.id.invoiceNumberinsup);
+        goodc = findViewById(R.id.goodsCodeinspup);
+        partnum = findViewById(R.id.partNuminspecup);
         partName = findViewById(R.id.partName);
         humidity = findViewById(R.id.humidity);
+        supplier = findViewById(R.id.supplierup);
+        oir = findViewById(R.id.oirup);
+        testreport = findViewById(R.id.testreportup);
+        mattype = findViewById(R.id.mattypeup);
+        inscoc = findViewById(R.id.cocup);
+        supplier = findViewById(R.id.supplierup);
+        inspecttype   = findViewById(R.id.inspecttypeup);
+        rohscomp = findViewById(R.id.rohsup);
+        prodtype = findViewById(R.id.prodtypeup);
+        ulmarking = findViewById(R.id.ulMarkingup);
+        inspector = findViewById(R.id.inspectorup);
+        samplesize = findViewById(R.id.sampleSizeinspectup);
+        dateinspected = findViewById(R.id.dateinsp);
+        datereceived = findViewById(R.id.dateReceivedup);
+        invoicequant = findViewById(R.id.invoiceQuantityup);
+        addData = findViewById(R.id.button2);
+        showButton = findViewById(R.id.button3);
+
+        nextForm = findViewById(R.id.inspectnextbutton);
+        boxsequenceins = findViewById(R.id.boxseqinspection);
+        dateTodayins = findViewById(R.id.dateToday1);
+
+
+
+         //----------------------HUMIDITY-------------------------///
+
         humidity.setEnabled(false);
         humidity.setBackgroundColor(Color.parseColor("#d2d9d9"));
-        supplier = findViewById(R.id.supplier);
+        temp.setEnabled(false);
+        temp.setBackgroundColor(Color.parseColor("#d2d9d9"));
 
-
-        oir = findViewById(R.id.oir);
-        testreport = findViewById(R.id.testreport);
-        mattype = findViewById(R.id.mattype);
-        inscoc = findViewById(R.id.coc);
-        supplier = findViewById(R.id.supplier);
-        inspecttype   = findViewById(R.id.inspecttype);
-        rohscomp = findViewById(R.id.rohs);
-        prodtype = findViewById(R.id.prodtype);
-        ulmarking = findViewById(R.id.ulMarking);
-
-        inspector = findViewById(R.id.inspector);
-        samplesize = findViewById(R.id.sampleSizeinspect);
-        dateinspected = findViewById(R.id.dateinsp);
-        datereceived = findViewById(R.id.dateReceived);
-        invoicequant = findViewById(R.id.invoiceQuantity);
-        addData = findViewById(R.id.button2);
-        nextForm = findViewById(R.id.inspectnextbutton);
-
-        rohs();
-        prodtype();
-        mattype();
-        ulMarking();
-        coc();
-        testReport();
-        inspecttype();
-
+        invoicenum.setText(SapmpleActivityinlot.invoicenumholder);
+        goodc.setText(SapmpleActivityinlot.goodscodeholder);
+        partName.setText(SapmpleActivityinlot.partnameholder);
+        partnum.setText(SapmpleActivityinlot.partnumholder);
+        boxsequenceins.setText(SapmpleActivityinlot.boxseqholder);
+        goodscodeholder = goodc.getText().toString();
         temp.setText(temp_hum("Temperature"));
         humidity.setText(temp_hum("Humidity"));
-        nextForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InspectionDetailsActivity.this, SapmpleActivityinlot.class);
-                startActivity(intent);
-            }
-        });
+        preparedby.setText(MainActivity.lastNameholder);
 
-
-        addData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                insertIntoSQLlite();
-            }
-        });
-
-        //------showing calendar in date inspected--------
-        DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH,month);
-                myCalendar.set(Calendar.DAY_OF_MONTH,day);
-                updateLabel();
-            }
-        };
-        //------showing calendar in date today--------
-        DatePickerDialog.OnDateSetListener dateee =new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH,month);
-                myCalendar.set(Calendar.DAY_OF_MONTH,day);
-                updateLabel1();
-            }
-        };
-
-        DatePickerDialog.OnDateSetListener datereceive =new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH,month);
-                myCalendar.set(Calendar.DAY_OF_MONTH,day);
-                updateLabel2();
-            }
-        };
-
-
-        dateeee.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                new DatePickerDialog(InspectionDetailsActivity.this,dateee,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        dateinspected.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                new DatePickerDialog(InspectionDetailsActivity.this,date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        datereceived.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(InspectionDetailsActivity.this,datereceive,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        nextForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(preparedby.length()==0)
-                {
-                    preparedby.setError("Enter Prepared By");
-                }
-
-                if(partnum.length()==0)
-                {
-                    partnum.setError("Enter Partnumber");
-                }
-
-                if(invoicequant.length()==0)
-                {
-                    invoicequant.setError("Input Invoice Quantity");
-                }
-
-                if(invoicequant.length()==0)
-                {
-                    invoicequant.setError("Input Invoice Quantity");
-                }
-
-                if(assemblyline.length()==0)
-                {
-                    assemblyline.setError("Input Assembly Line");
-                }
-                else{
-                    Intent intent = new Intent(InspectionDetailsActivity.this, DimensionalActivity.class);
-                    startActivity(intent);
-
-                }
-            }
-        });
-
+        InspectionAsync inspectionAsync = new InspectionAsync();
+        inspectionAsync.execute("");
 
     }
 
-    private void updateLabel(){
+    public void buttons(){
+
+        nextForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog2();
+            }
+        });
+        addData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog1();
+
+
+            }
+        });
+
+        showButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new FragmentForInspection());
+            }
+        });
+
+    }
+
+    void confirmDialog1() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Upload " + " Data " + "?");
+        builder.setMessage("Are you sure you want to Upload to this Device?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                  insertIntoSQLlite();
+
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+
+    void confirmDialog2() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Proceed to" + "next form" + "?");
+        builder.setMessage("Are you sure you want to proceed to next form?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                Intent intent = new Intent(InspectionDetailsActivity.this, DimensionalActivity.class);
+
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+    public void dateFormats(){
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss",Locale.ENGLISH);
+        String now = df.format(new Date());
+        dateTodayins.setText(now);
+
+
+        SimpleDateFormat dff = new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
+        String noww = dff.format(new Date());
+        datereceived.setText(noww);
+
+        SimpleDateFormat dfff = new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
+        String nowwww = dfff.format(new Date());
+        dateinspected.setText(nowwww);
+
+        SimpleDateFormat dffff = new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
+        String nowwwww = dffff.format(new Date());
+        dateeee.setText(nowwwww);
+    }
+
+
+
+
+
+
+    public void suupplier() {
+        final AutoCompleteTextView SUPPLIER = findViewById(R.id.supplierup);
+        connectionClass = new ConnectionClass();
+
+        try {
+            Connection con = connectionClass.CONN();//open ng connection sa connection class
+            String query = "select DISTINCT (SuppName) from tblSupplierName";
+            PreparedStatement stmt = con.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            final ArrayList<String> invoice = new ArrayList<String>();
+            while (rs.next()) {
+                String invoicenumber = rs.getString("SuppName");
+                invoice.add(invoicenumber);
+            }
+
+
+            final ArrayAdapter<String> invoice_array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, invoice);
+            SUPPLIER.setThreshold(1);
+            SUPPLIER.setAdapter(invoice_array);
+
+            SUPPLIER.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String item = parent.getItemAtPosition(position).toString();
+                    SUPPLIER.setText(item);
+
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+
+    public void myCustomDalog(){
+        final Dialog MyDialog = new Dialog(InspectionDetailsActivity.this);
+        MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        MyDialog.setContentView(R.layout.customdialog);
+
+        MyDialog.show();
+    }
+
+
+
+    void date(){
+        dateeee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == dateeee){
+                    final Calendar calendar = Calendar.getInstance();
+                    mYear = calendar.get(Calendar.YEAR);
+                    mMonth = calendar.get ( Calendar.MONTH );
+                    mDay = calendar.get ( Calendar.DAY_OF_MONTH );
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog ( InspectionDetailsActivity.this, new DatePickerDialog.OnDateSetListener () {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            dateeee.setText ( dayOfMonth + "/" + (month + 1) + "/" + year );
+                        }
+                    }, mYear, mMonth, mDay );
+                    datePickerDialog.show ();
+                }
+
+            }
+        });
+
+    }
+
+    void date1(){
+        dateinspected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == dateinspected){
+                    final Calendar calendar = Calendar.getInstance();
+                    mYear = calendar.get(Calendar.YEAR);
+                    mMonth = calendar.get ( Calendar.MONTH );
+                    mDay = calendar.get ( Calendar.DAY_OF_MONTH );
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog ( InspectionDetailsActivity.this, new DatePickerDialog.OnDateSetListener () {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            dateinspected.setText ( dayOfMonth + "/" + (month + 1) + "/" + year );
+                        }
+                    }, mYear, mMonth, mDay );
+                    datePickerDialog.show ();
+                }
+
+            }
+        });
+
+    }
+
+    void date2(){
+        datereceived.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == datereceived){
+                    final Calendar calendar = Calendar.getInstance();
+                    mYear = calendar.get(Calendar.YEAR);
+                    mMonth = calendar.get ( Calendar.MONTH );
+                    mDay = calendar.get ( Calendar.DAY_OF_MONTH );
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog ( InspectionDetailsActivity.this, new DatePickerDialog.OnDateSetListener () {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            datereceived.setText ( dayOfMonth + "/" + (month + 1) + "/" + year );
+                        }
+                    }, mYear, mMonth, mDay );
+                    datePickerDialog.show ();
+                }
+
+            }
+        });
+
+    }
+
+    void  nextForm(){
+        nextForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+            }
+        });
+
+    }
+
+
+
+    private void replaceFragment(FragmentForInspection inspectFragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.framelayoutins,inspectFragment);
+        fragmentTransaction.commit();
+
+    }
+
+  /*  private void updateLabel(){
         String myFormat="MM/dd/yy";
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
         dateinspected.setText(dateFormat.format(myCalendar.getTime()));
@@ -218,10 +385,10 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
         datereceived.setText(dateFormat.format(myCalendar.getTime()));
     }
-
+*/
 
     void OOIR(){
-        AutoCompleteTextView oir = findViewById(R.id.oir);
+        AutoCompleteTextView oir = findViewById(R.id.oirup);
 
 
         OIRR = ArrayAdapter.createFromResource(this, R.array.OIR, android.R.layout.simple_dropdown_item_1line);
@@ -237,7 +404,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     void rohs(){
-        AutoCompleteTextView rohs = findViewById(R.id.rohs);
+        AutoCompleteTextView rohs = findViewById(R.id.rohsup);
 
 
         rohscompp = ArrayAdapter.createFromResource(this, R.array.RoHS_compliance, android.R.layout.simple_dropdown_item_1line);
@@ -253,7 +420,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     void prodtype(){
-        AutoCompleteTextView prodtype = findViewById(R.id.prodtype);
+        AutoCompleteTextView prodtype = findViewById(R.id.prodtypeup);
 
 
         prodadapter = ArrayAdapter.createFromResource(this, R.array.Production_type, android.R.layout.simple_dropdown_item_1line);
@@ -269,7 +436,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     void mattype(){
-        AutoCompleteTextView matype = findViewById(R.id.mattype);
+        AutoCompleteTextView matype = findViewById(R.id.mattypeup);
 
 
         mattypee = ArrayAdapter.createFromResource(this, R.array.material, android.R.layout.simple_dropdown_item_1line);
@@ -285,9 +452,8 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     void ulMarking(){
-        AutoCompleteTextView ulmarking = findViewById(R.id.ulMarking);
 
-
+        AutoCompleteTextView ulmarking = findViewById(R.id.ulMarkingup);
         uladpter = ArrayAdapter.createFromResource(this, R.array.UL_marking, android.R.layout.simple_dropdown_item_1line);
         uladpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ulmarking.setAdapter(uladpter);
@@ -301,9 +467,8 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     void coc(){
-        AutoCompleteTextView cocauto = findViewById(R.id.coc);
 
-
+        AutoCompleteTextView cocauto = findViewById(R.id.cocup);
         cocc = ArrayAdapter.createFromResource(this, R.array.CoC, android.R.layout.simple_dropdown_item_1line);
         cocc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         cocauto.setAdapter(uladpter);
@@ -318,13 +483,11 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
 
     void testReport(){
-        AutoCompleteTextView testReport = findViewById(R.id.testreport);
 
-
+        AutoCompleteTextView testReport = findViewById(R.id.testreportup);
         testreportt = ArrayAdapter.createFromResource(this, R.array.Test_report, android.R.layout.simple_dropdown_item_1line);
         testreportt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         testReport.setAdapter(testreportt);
-
         testReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -334,9 +497,8 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     void inspecttype(){
-        AutoCompleteTextView inspectype = findViewById(R.id.inspecttype);
 
-
+        AutoCompleteTextView inspectype = findViewById(R.id.inspecttypeup);
         inspecttypee = ArrayAdapter.createFromResource(this, R.array.Inspection_type, android.R.layout.simple_dropdown_item_1line);
         inspecttypee.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         inspectype.setAdapter(inspecttypee);
@@ -354,11 +516,12 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         connectionClass = new ConnectionClass();
         try {
             Connection con2 = connectionClass.CONN3();//open ng connection sa connection class
-            String query = "SELECT TOP 1 "+colname+" FROM TempHumid_Log ORDER BY Day_Time DESC";
+            String query = "SELECT TOP 1 "+colname+"  FROM TempHumid_Log ORDER BY ID DESC";
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 String tem_hum = rs.getString(colname);
+
                 output = tem_hum;
 
             }
@@ -370,67 +533,86 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
     public void insertIntoSQLlite(){
-
-
-
-
-
-        if(preparedby.length()==0)
-        {
-            preparedby.setError("Enter Prepared By");
-        }
-
-        if(partnum.length()==0)
-        {
-            partnum.setError("Enter Partnumber");
-        }
-
-        if(invoicequant.length()==0)
-        {
-            invoicequant.setError("Input Invoice Quantity");
-        }
-
-        if(invoicequant.length()==0)
-        {
-            invoicequant.setError("Input Invoice Quantity");
-        }
-
-        if(assemblyline.length()==0)
-        {
-            assemblyline.setError("Input Assembly Line");
-        }
-
-        else{
-
-            DatabaseHelper myDB = new DatabaseHelper(InspectionDetailsActivity.this);
-
+        DatabaseHelper myDB = new DatabaseHelper(InspectionDetailsActivity.this);
+    /* TODO eto yung issue sa hindi tama ang data na lumalabas */
             myDB.addinspection(
                     preparedby.getText().toString().trim(),
                     dateeee.getText().toString().trim(),
-                    temp.getText().toString().trim(),
-                    assemblyline.getText().toString().trim(),
-                    maker.getText().toString().trim(),
                     invoicenum.getText().toString().trim(),
                     goodc.getText().toString().trim(),
-                    partnum.getText().toString().trim(),
                     partName.getText().toString().trim(),
+
+                    invoicequant.getText().toString().trim(),
+                    assemblyline.getText().toString().trim(),
+                    partnum.getText().toString().trim(),
+                    temp.getText().toString().trim(),
+                    rohscomp.getText().toString().trim(),
+
+                    dateinspected.getText().toString().trim(),
                     humidity.getText().toString().trim(),
                     supplier.getText().toString().trim(),
                     inspector.getText().toString().trim(),
-                    samplesize.getText().toString().trim(),
-                    dateinspected.getText().toString().trim(),
                     datereceived.getText().toString().trim(),
-                    invoicequant.getText().toString().trim(),
-                    rohscomp.getText().toString().trim(),
-                    prodtype.getText().toString().trim(),
+
+                    maker.getText().toString().trim(),
+                    samplesize.getText().toString().trim(),
                     mattype.getText().toString().trim(),
+                    inspecttype.getText().toString().trim(),
                     ulmarking.getText().toString().trim(),
-                    inscoc.getText().toString().trim(),
+
                     oir.getText().toString().trim(),
+                    inscoc.getText().toString().trim(),
+                    prodtype.getText().toString().trim(),
                     testreport.getText().toString().trim(),
-                    inspecttype.getText().toString().trim());
-        }
-            Toast.makeText(InspectionDetailsActivity.this, "please fill up data", Toast.LENGTH_SHORT).show();
+                    dateTodayins.getText().toString().trim(),
+                    boxsequenceins.getText().toString().trim()
+            );
+
+
+
 
     }
+
+
+    public class InspectionAsync extends AsyncTask<String,String, String>{
+        @Override
+        protected void onPreExecute() {
+            inspecttype();
+            OOIR();
+            rohs();
+            prodtype();
+            mattype();
+            ulMarking();
+            coc();
+            testReport();
+            date();
+            date1();
+            date2();
+            buttons();
+            dateFormats();
+            suupplier();
+            OOIR();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+            super.onPostExecute(s);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            return null;
+        }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
+
 }

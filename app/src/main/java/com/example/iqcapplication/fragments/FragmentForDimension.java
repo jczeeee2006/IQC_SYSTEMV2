@@ -12,52 +12,57 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.iqcapplication.Adapters.CustomAdapterDimension;
+import com.example.iqcapplication.Adapters.CustomAdapterInspection;
 import com.example.iqcapplication.Adapters.CustomAdapterLot;
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.R;
+import com.example.iqcapplication.encapsulation.DimensionEncapsulation;
+import com.example.iqcapplication.encapsulation.InspectionEncapsulation;
 import com.example.iqcapplication.encapsulation.LotEncapsulation;
 
 import java.util.ArrayList;
 
+public class FragmentForDimension extends Fragment {
 
-public class FragmentforLot extends Fragment {
     DatabaseHelper myDB;
-    CustomAdapterLot customAdapterLot;
-    ArrayList<LotEncapsulation> lotData = new ArrayList<>();
+    CustomAdapterDimension customAdapterDimension;
+    ArrayList<DimensionEncapsulation> dimesiondata = new ArrayList<>();
     RecyclerView recyclerView;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_forlot, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerview);
+        View view = inflater.inflate(R.layout.fragment_for_dimension, container, false);
 
-        recyclerView.setHasFixedSize(true);
+        recyclerView = view.findViewById(R.id.dimensionrecyclerview);
+
+
 
         myDB = new DatabaseHelper(getContext());
-
-        customAdapterLot = new CustomAdapterLot(getActivity(),getContext(), lotData);
-        recyclerView.setAdapter(customAdapterLot);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         displayData();
+        customAdapterDimension = new CustomAdapterDimension(getActivity(),getContext(), dimesiondata);
+        recyclerView.setAdapter(customAdapterDimension);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recyclerView.setItemViewCacheSize(20);
-        recyclerView.setDrawingCacheEnabled(true);
-        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+
         return view;
     }
 
     void displayData() {
-        int ctr= 0;
-        Cursor cursor = myDB.readAllData();
+
+        Cursor cursor = myDB.readdcAllData();
         if (cursor.getCount() == 0) {
-            Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"no data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
 
-                lotData.add(new LotEncapsulation
+                dimesiondata.add(new DimensionEncapsulation
                         (cursor.getInt(0),
                                 cursor.getString(1),
                                 cursor.getString(2),
@@ -72,7 +77,14 @@ public class FragmentforLot extends Fragment {
                                 cursor.getString(11),
                                 cursor.getString(12),
                                 cursor.getString(13),
-                                cursor.getString(14)
+                                cursor.getString(14),
+                                cursor.getString(15),
+                                cursor.getString(16),
+                                cursor.getString(17),
+                                cursor.getString(18),
+                                cursor.getString(19),
+                                cursor.getString(20),
+                                cursor.getString(21)
                         ));
 
             }

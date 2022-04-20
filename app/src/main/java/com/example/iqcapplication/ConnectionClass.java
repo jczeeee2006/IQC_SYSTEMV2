@@ -15,6 +15,7 @@ public class ConnectionClass {
     String db = "IQCDatabase";
     String db2 = "MATech";
     String db3 = "TempHumid";
+    String db4 = "MA_Receiving";
     String un = "iqc_db_user_dev";
     String password = "iqcdbuserdev";
     String un1 = "software";
@@ -34,7 +35,7 @@ public class ConnectionClass {
         try {
             Class.forName(classs);
             ConnURL = "jdbc:jtds:sqlserver://" + ip + ";"
-                    + "databaseName=" + db2 + ";user=" + un + ";password="
+                    + "databaseName=" + db + ";user=" + un + ";password="
                     + password + ";///test?allowMultiQueries=true" + ";///useLOBs=false;";
             conn = DriverManager.getConnection(ConnURL);
         } catch (SQLException se) {
@@ -59,7 +60,7 @@ public class ConnectionClass {
 
             Class.forName(classs);
             ConnURL2 = "jdbc:jtds:sqlserver://" + ip + ";"
-                    + "databaseName=" + db + ";user=" + un + ";password="
+                    + "databaseName=" + db2 + ";user=" + un + ";password="
                     + password + ";///test?allowMultiQueries=true";
             conn2 = DriverManager.getConnection(ConnURL2);
         } catch (SQLException se) {
@@ -95,6 +96,30 @@ public class ConnectionClass {
             Log.e("ERRO", e.getMessage());
         }
         return conn3;
+    }
+
+    @SuppressLint("NewApi")
+    public Connection CONN4 () {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection conn4 = null;
+        String ConnURL4 = null;
+        try {
+
+            Class.forName(classs);
+            ConnURL4 = "jdbc:jtds:sqlserver://" + ip + ";"
+                    + "databaseName=" + db4 + ";user=" + un + ";password="
+                    + password + ";";
+            conn4 = DriverManager.getConnection(ConnURL4);
+        } catch (SQLException se) {
+            Log.e("ERRO", se.getMessage());
+        } catch (ClassNotFoundException e) {
+            Log.e("ERRO", e.getMessage());
+        } catch (Exception e) {
+            Log.e("ERRO", e.getMessage());
+        }
+        return conn4;
     }
 
 }

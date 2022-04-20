@@ -2,26 +2,30 @@ package com.example.iqcapplication.encapsulation;
 
 public class LotEncapsulation {
     int id;
-    String totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks, lot_invoiceno, tv_partname, goodsc, et_partnum;;
+    String totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks, lot_invoiceno, tv_partname, goodsc, et_partnum, dateToday;
 
-    public LotEncapsulation(int id,String lot_invoiceno,String et_partnum, String goodsc,   String tv_partname,  String boxnum, String boxseqid,String quantityrecieved,  String totalquantity,
-                            String reject, String sampsize,    String lotno, String lotquant,
-                            String remarks ) {
+    public LotEncapsulation(int id, String lot_invoiceno, String et_partnum, String goodsc, String tv_partname, String boxnum, String boxseqid, String quantityrecieved, String totalquantity,
+                            String reject, String sampsize, String lotno, String lotquant, String remarks, String dateToday) {
         this.id = id;
-        this.lot_invoiceno = lot_invoiceno;
-        this.et_partnum = et_partnum;
-        this.goodsc = goodsc;
-        this.tv_partname = tv_partname;
-        this.boxnum = boxnum;
-        this.boxseqid = boxseqid;
-        this.quantityrecieved = quantityrecieved;
         this.totalquantity = totalquantity;
-        this.reject = reject;
-        this.sampsize = sampsize;
+        this.quantityrecieved = quantityrecieved;
         this.lotno = lotno;
         this.lotquant = lotquant;
+        this.boxnum = boxnum;
+        this.reject = reject;
+        this.sampsize = sampsize;
+        this.boxseqid = boxseqid;
         this.remarks = remarks;
+        this.lot_invoiceno = lot_invoiceno;
+        this.tv_partname = tv_partname;
+        this.goodsc = goodsc;
+        this.et_partnum = et_partnum;
+        this.dateToday = dateToday;
 
+    }
+
+    public String getDateToday() {
+        return dateToday;
     }
 
     public int getId() {

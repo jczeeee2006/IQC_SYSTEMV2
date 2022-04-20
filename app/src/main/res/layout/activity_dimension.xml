@@ -5,38 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/paaa"
-    tools:context=".DimensionalActivity">
-
-    <ImageButton
-        android:id="@+id/helpButton1"
-        android:layout_width="wrap_content"
+    tools:context=".Update.DimensionActivity">
+    <TextView
+        android:id="@+id/datedimup"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_help_outline_24" />
-
-    <FrameLayout
-        android:id="@+id/dcframelayout"
-        android:layout_width="782dp"
-        android:layout_height="407dp"
-        android:background="@drawable/layer"
-        android:elevation="20dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintEnd_toStartOf="@+id/cardView6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintTop_toTopOf="parent" />
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="770dp"
-        android:layout_height="750dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="725dp"
+        android:layout_height="745dp"
+        android:layout_marginTop="28dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -44,52 +27,51 @@
         app:cardCornerRadius="44dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginLeft="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="730dp"
+            android:layout_width="700dp"
             android:layout_height="760dp"
             android:layout_marginRight="30dp"
 
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
-
             <Button
-                android:id="@+id/nextFormfc"
+                android:id="@+id/backbuttondim3"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
 
-                android:backgroundTint="@color/darkblue"
-                android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
-                android:text="NEXT FORM"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_keyboard_double_arrow_left_24"
+                android:text="back"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/fc5"
+                app:layout_constraintEnd_toEndOf="@+id/dc5up"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc5"
-                app:layout_constraintTop_toBottomOf="@+id/fc5"
-                app:layout_constraintVertical_bias="0.47" />
+                app:layout_constraintStart_toStartOf="@+id/dc5up"
+                app:layout_constraintTop_toBottomOf="@+id/dc5up"
+                app:layout_constraintVertical_bias="0.333" />
 
             <EditText
-                android:id="@+id/checkPointfc"
+                android:id="@+id/checkPointup"
                 android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="156dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="160dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.412"
+                app:layout_constraintHorizontal_bias="0.32"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <AutoCompleteTextView
-                android:id="@+id/instrumentUsedfc"
+                android:id="@+id/instrumentUsedup"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
@@ -99,16 +81,18 @@
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.154"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:textAlignment="center" />
 
             <EditText
-                android:id="@+id/sampleUnit"
+                android:id="@+id/sampleUnitup"
                 android:layout_width="100dp"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="160dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -124,126 +108,117 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/fc6"
+                android:id="@+id/dc6up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/instrumentUsedfc" />
+                app:layout_constraintEnd_toStartOf="@+id/minimumfc"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toEndOf="@+id/dc1up"
+                app:layout_constraintTop_toBottomOf="@+id/checkPointup" />
 
             <EditText
-                android:id="@+id/sampleSizefc_"
+                android:id="@+id/sampleSizedc_up"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="number|textPersonName"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/upperspecsup"
+                app:layout_constraintStart_toEndOf="@+id/checkPointup"
+                app:layout_constraintTop_toTopOf="@+id/checkPointup" />
+
+            <EditText
+                android:id="@+id/dc2up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc1up"
+                app:layout_constraintTop_toBottomOf="@+id/dc1up" />
+
+            <EditText
+                android:id="@+id/dc1up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.536"
+                app:layout_constraintHorizontal_bias="0.125"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/instrumentUsedfc" />
+                app:layout_constraintTop_toBottomOf="@+id/sampleUnitup" />
 
             <EditText
-                android:id="@+id/fc2"
+                android:id="@+id/dc7up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="28dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc1"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc1"
-                app:layout_constraintTop_toBottomOf="@+id/fc1" />
+                app:layout_constraintEnd_toEndOf="@+id/dc6up"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc6up"
+                app:layout_constraintTop_toBottomOf="@+id/dc6up" />
 
             <EditText
-                android:id="@+id/fc1"
+                android:id="@+id/dc3up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.127"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sampleUnit" />
-
-            <EditText
-                android:id="@+id/fc7"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/fc6"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc6"
-                app:layout_constraintTop_toBottomOf="@+id/fc6"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/fc3"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc2"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/fc2"
-                app:layout_constraintTop_toBottomOf="@+id/fc2" />
+                app:layout_constraintStart_toStartOf="@+id/dc2up"
+                app:layout_constraintTop_toBottomOf="@+id/dc2up" />
 
             <EditText
-                android:id="@+id/fc8"
+                android:id="@+id/dc8up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc7"
+                app:layout_constraintEnd_toEndOf="@+id/dc7up"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc7"
-                app:layout_constraintTop_toBottomOf="@+id/fc7" />
+                app:layout_constraintStart_toStartOf="@+id/dc7up"
+                app:layout_constraintTop_toBottomOf="@+id/dc7up" />
 
             <EditText
-                android:id="@+id/fc4"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="36dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc3"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/fc3"
-                app:layout_constraintTop_toBottomOf="@+id/fc3" />
-
-            <EditText
-                android:id="@+id/fc9"
+                android:id="@+id/dc4up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="44dp"
@@ -251,41 +226,61 @@
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc3up"
+                app:layout_constraintTop_toBottomOf="@+id/dc3up" />
+
+            <EditText
+                android:id="@+id/dc9up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc8"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/fc8"
-                app:layout_constraintTop_toBottomOf="@+id/fc8" />
+                app:layout_constraintStart_toStartOf="@+id/dc8up"
+                app:layout_constraintTop_toBottomOf="@+id/dc8up" />
 
             <EditText
-                android:id="@+id/fc5"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:id="@+id/dc5up"
+                android:layout_width="143dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc4"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc4"
-                app:layout_constraintTop_toBottomOf="@+id/fc4" />
+                app:layout_constraintStart_toStartOf="@+id/dc4up"
+                app:layout_constraintTop_toBottomOf="@+id/dc4up" />
 
             <EditText
-                android:id="@+id/fc10"
+                android:id="@+id/dc10up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc9"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/fc9"
-                app:layout_constraintTop_toBottomOf="@+id/fc9" />
+                app:layout_constraintEnd_toEndOf="@+id/dc9up"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc9up"
+                app:layout_constraintTop_toBottomOf="@+id/dc9up" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -293,8 +288,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Checkpoint:"
-                app:layout_constraintBottom_toTopOf="@+id/checkPointfc"
-                app:layout_constraintStart_toStartOf="@+id/checkPointfc" />
+                app:layout_constraintBottom_toTopOf="@+id/checkPointup"
+                app:layout_constraintStart_toStartOf="@+id/checkPointup" />
 
             <TextView
                 android:id="@+id/textView52"
@@ -302,8 +297,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Instrument Used:"
-                app:layout_constraintBottom_toTopOf="@+id/instrumentUsedfc"
-                app:layout_constraintStart_toStartOf="@+id/instrumentUsedfc" />
+                app:layout_constraintBottom_toTopOf="@+id/instrumentUsedup"
+                app:layout_constraintStart_toStartOf="@+id/instrumentUsedup" />
 
             <TextView
                 android:id="@+id/textView66"
@@ -311,8 +306,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample Size:"
-                app:layout_constraintBottom_toTopOf="@+id/sampleSizefc_"
-                app:layout_constraintStart_toStartOf="@+id/sampleSizefc_" />
+                app:layout_constraintBottom_toTopOf="@+id/sampleSizedc_up"
+                app:layout_constraintStart_toStartOf="@+id/sampleSizedc_up" />
 
             <TextView
                 android:id="@+id/textView60"
@@ -320,8 +315,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample Unit:"
-                app:layout_constraintBottom_toTopOf="@+id/sampleUnit"
-                app:layout_constraintStart_toStartOf="@+id/sampleUnit" />
+                app:layout_constraintBottom_toTopOf="@+id/sampleUnitup"
+                app:layout_constraintStart_toStartOf="@+id/sampleUnitup" />
 
             <TextView
                 android:id="@+id/textView49"
@@ -329,8 +324,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 1:"
-                app:layout_constraintBottom_toTopOf="@+id/fc1"
-                app:layout_constraintStart_toStartOf="@+id/fc1" />
+                app:layout_constraintBottom_toTopOf="@+id/dc1up"
+                app:layout_constraintStart_toStartOf="@+id/dc1up" />
 
             <TextView
                 android:id="@+id/textView55"
@@ -338,8 +333,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 6:"
-                app:layout_constraintBottom_toTopOf="@+id/fc6"
-                app:layout_constraintStart_toStartOf="@+id/fc6" />
+                app:layout_constraintBottom_toTopOf="@+id/dc6up"
+                app:layout_constraintStart_toStartOf="@+id/dc6up" />
 
             <TextView
                 android:id="@+id/textView56"
@@ -347,8 +342,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 7:"
-                app:layout_constraintBottom_toTopOf="@+id/fc7"
-                app:layout_constraintStart_toStartOf="@+id/fc7" />
+                app:layout_constraintBottom_toTopOf="@+id/dc7up"
+                app:layout_constraintStart_toStartOf="@+id/dc7up" />
 
             <TextView
                 android:id="@+id/textView57"
@@ -356,8 +351,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 8:"
-                app:layout_constraintBottom_toTopOf="@+id/fc8"
-                app:layout_constraintStart_toStartOf="@+id/fc8" />
+                app:layout_constraintBottom_toTopOf="@+id/dc8up"
+                app:layout_constraintStart_toStartOf="@+id/dc8up" />
 
             <TextView
                 android:id="@+id/textView58"
@@ -365,8 +360,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 9:"
-                app:layout_constraintBottom_toTopOf="@+id/fc9"
-                app:layout_constraintStart_toStartOf="@+id/fc9" />
+                app:layout_constraintBottom_toTopOf="@+id/dc9up"
+                app:layout_constraintStart_toStartOf="@+id/dc9up" />
 
             <TextView
                 android:id="@+id/textView59"
@@ -374,8 +369,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 10:"
-                app:layout_constraintBottom_toTopOf="@+id/fc10"
-                app:layout_constraintStart_toStartOf="@+id/fc10" />
+                app:layout_constraintBottom_toTopOf="@+id/dc10up"
+                app:layout_constraintStart_toStartOf="@+id/dc10up" />
 
             <TextView
                 android:id="@+id/textView50"
@@ -383,8 +378,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 2:"
-                app:layout_constraintBottom_toTopOf="@+id/fc2"
-                app:layout_constraintStart_toStartOf="@+id/fc2" />
+                app:layout_constraintBottom_toTopOf="@+id/dc2up"
+                app:layout_constraintStart_toStartOf="@+id/dc2up" />
 
             <TextView
                 android:id="@+id/textView51"
@@ -392,8 +387,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 3:"
-                app:layout_constraintBottom_toTopOf="@+id/fc3"
-                app:layout_constraintStart_toStartOf="@+id/fc3" />
+                app:layout_constraintBottom_toTopOf="@+id/dc3up"
+                app:layout_constraintStart_toStartOf="@+id/dc3up" />
 
             <TextView
                 android:id="@+id/textView53"
@@ -401,8 +396,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 4:"
-                app:layout_constraintBottom_toTopOf="@+id/fc4"
-                app:layout_constraintStart_toStartOf="@+id/fc4" />
+                app:layout_constraintBottom_toTopOf="@+id/dc4up"
+                app:layout_constraintStart_toStartOf="@+id/dc4up" />
 
             <TextView
                 android:id="@+id/textView54"
@@ -410,129 +405,125 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 5:"
-                app:layout_constraintBottom_toTopOf="@+id/fc5"
-                app:layout_constraintStart_toStartOf="@+id/fc5" />
+                app:layout_constraintBottom_toTopOf="@+id/dc5up"
+                app:layout_constraintStart_toStartOf="@+id/dc5up" />
 
 
             <Button
                 android:id="@+id/addDatafc"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
 
-                android:backgroundTint="@color/darkblue"
-                android:text="ADD DATA"
+                android:backgroundTint="#FF0000"
+                android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+                android:text="UPLOAD DATA"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/fc10"
-                app:layout_constraintHorizontal_bias="0.634"
-                app:layout_constraintStart_toStartOf="@+id/fc10"
-                app:layout_constraintTop_toBottomOf="@+id/fc10"
-                app:layout_constraintVertical_bias="0.324" />
+                app:layout_constraintEnd_toEndOf="@+id/uploadfc"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/uploadfc"
+                app:layout_constraintTop_toBottomOf="@+id/uploadfc"
+                app:layout_constraintVertical_bias="0.333" />
 
             <Button
                 android:id="@+id/uploadfc"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="692dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="568dp"
                 android:backgroundTint="@color/darkblue"
-                android:text="ADD DATA"
+                android:drawableLeft="@drawable/ic_baseline_add_box_24"
+                android:text="UPDATE DATA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintHorizontal_bias="0.918"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/inputSampleQuantity"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="60dp"
-                android:backgroundTint="@color/darkblue"
-                android:text="INPUT SAMPLE QUANTITY"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.26"
-                app:layout_constraintStart_toEndOf="@+id/sampleSizefc_"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:id="@+id/minimumfc"
+                android:id="@+id/minimumup"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/upperspecsfc"
+                app:layout_constraintEnd_toEndOf="@+id/upperspecsup"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/upperspecsfc"
-                app:layout_constraintTop_toBottomOf="@+id/upperspecsfc" />
+                app:layout_constraintStart_toStartOf="@+id/upperspecsup"
+                app:layout_constraintTop_toBottomOf="@+id/upperspecsup" />
 
             <TextView
-                android:id="@+id/averagefc"
+                android:id="@+id/average_txtup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/minimumup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/minimumup"
+                app:layout_constraintTop_toBottomOf="@+id/minimumup" />
+
+            <TextView
+                android:id="@+id/maximumup"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/minimumfc"
+                app:layout_constraintEnd_toEndOf="@+id/average_txtup"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/minimumfc"
-                app:layout_constraintTop_toBottomOf="@+id/minimumfc" />
-
-            <TextView
-                android:id="@+id/maximumfc"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="48dp"
-                android:background="@drawable/rounded_corners"
-                android:elevation="10dp"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/averagefc"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/averagefc"
-                app:layout_constraintTop_toBottomOf="@+id/averagefc" />
+                app:layout_constraintStart_toStartOf="@+id/average_txtup"
+                app:layout_constraintTop_toBottomOf="@+id/average_txtup" />
 
             <EditText
-                android:id="@+id/fcjudgeMent"
-                android:layout_width="250dp"
+                android:id="@+id/dcjudgeMentup"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.569"
-                app:layout_constraintStart_toEndOf="@+id/fc10"
-                app:layout_constraintTop_toBottomOf="@+id/maximumfc" />
-
-            <EditText
-                android:id="@+id/lowerspecfc"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="36dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.411"
-                app:layout_constraintStart_toEndOf="@+id/checkPointfc"
-                app:layout_constraintTop_toBottomOf="@+id/inputSampleQuantity" />
-
-            <EditText
-                android:id="@+id/upperspecsfc"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="52dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/lowerspecfc"
+                app:layout_constraintEnd_toEndOf="@+id/maximumup"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/lowerspecfc"
-                app:layout_constraintTop_toBottomOf="@+id/lowerspecfc" />
+                app:layout_constraintStart_toStartOf="@+id/maximumup"
+                app:layout_constraintTop_toBottomOf="@+id/maximumup" />
+
+            <EditText
+                android:id="@+id/lowerspecup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toEndOf="@+id/checkPointfc"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/upperspecsup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/lowerspecup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lowerspecup"
+                app:layout_constraintTop_toBottomOf="@+id/lowerspecup" />
 
             <TextView
                 android:id="@+id/textView41"
@@ -540,8 +531,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Lower Specs:"
-                app:layout_constraintBottom_toTopOf="@+id/lowerspecfc"
-                app:layout_constraintStart_toStartOf="@+id/lowerspecfc" />
+                app:layout_constraintBottom_toTopOf="@+id/lowerspecup"
+                app:layout_constraintStart_toStartOf="@+id/lowerspecup" />
 
             <TextView
                 android:id="@+id/upperspec"
@@ -549,8 +540,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Upper Specs:"
-                app:layout_constraintBottom_toTopOf="@+id/upperspecsfc"
-                app:layout_constraintStart_toStartOf="@+id/upperspecsfc" />
+                app:layout_constraintBottom_toTopOf="@+id/upperspecsup"
+                app:layout_constraintStart_toStartOf="@+id/upperspecsup" />
 
             <TextView
                 android:id="@+id/textView80"
@@ -559,8 +550,8 @@
 
                 android:fontFamily="@font/popbold"
                 android:text="Judgement:"
-                app:layout_constraintBottom_toTopOf="@+id/fcjudgeMent"
-                app:layout_constraintStart_toStartOf="@+id/fcjudgeMent" />
+                app:layout_constraintBottom_toTopOf="@+id/dcjudgeMentup"
+                app:layout_constraintStart_toStartOf="@+id/dcjudgeMentup" />
 
             <TextView
                 android:id="@+id/textView46"
@@ -568,8 +559,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Minimum"
-                app:layout_constraintBottom_toTopOf="@+id/minimumfc"
-                app:layout_constraintStart_toStartOf="@+id/minimumfc" />
+                app:layout_constraintBottom_toTopOf="@+id/minimumup"
+                app:layout_constraintStart_toStartOf="@+id/minimumup" />
 
             <TextView
                 android:id="@+id/textView47"
@@ -577,8 +568,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Maximum"
-                app:layout_constraintBottom_toTopOf="@+id/maximumfc"
-                app:layout_constraintStart_toStartOf="@+id/maximumfc" />
+                app:layout_constraintBottom_toTopOf="@+id/maximumup"
+                app:layout_constraintStart_toStartOf="@+id/maximumup" />
 
             <TextView
                 android:id="@+id/textView48"
@@ -586,13 +577,22 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Average:"
-                app:layout_constraintBottom_toTopOf="@+id/averagefc"
-                app:layout_constraintStart_toStartOf="@+id/averagefc" />
+                app:layout_constraintBottom_toTopOf="@+id/average_txtup"
+                app:layout_constraintStart_toStartOf="@+id/average_txtup" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>
 
-
+    <TextView
+        android:id="@+id/textView_invoiceno"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="600dp"
+        android:layout_marginTop="1190dp"
+        android:textColor="#d0eaf2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,59 +1,84 @@
 package com.example.iqcapplication.encapsulation;
 
+import java.sql.Date;
+
 public class InspectionEncapsulation {
 
-    int id;
-   String invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,maker,  goodc,
-    dateeee, inspector, dateinspected,samplesize,datereceived,invoicequant, reject,
-    oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking,coc;
 
-    public InspectionEncapsulation(int id, String invoicenum, String preparedby, String temp, String assemblyline, String partnum, String partName, String humidity, String supplier, String maker,
-                                   String goodc, String dateeee, String inspector, String dateinspected, String samplesize, String datereceived, String invoicequant,String reject, String oir, String inspecttype,
-                                   String testreport, String mattype, String inscoc, String rohscomp, String prodtype, String ulmarking, String coc) {
+    int id;
+    String dateToday;
+     String preparedby, dateeee,  invoicenum,  goodc,  partName,  invoicequant,  assemblyline,  partnum,  temp,  rohscomp,  dateinspected,   humidity,
+     supplier,   inspector, datereceived,   maker,  samplesize,  mattype,    inspecttype,  ulmarking, oir,
+     inscoc,   prodtype,  testreport,boxseqid;
+
+    public InspectionEncapsulation(int id, String preparedby, String dateeee, String invoicenum, String goodc, String partName, String invoicequant, String assemblyline,
+                                   String partnum, String temp, String rohscomp, String dateinspected, String humidity, String supplier, String inspector, String datereceived,
+                                   String maker, String samplesize, String mattype, String inspecttype, String ulmarking, String oir, String inscoc, String prodtype, String testreport, String dateToday, String boxseqid
+
+    ) {
         this.id = id;
-        this.invoicenum = invoicenum;
         this.preparedby = preparedby;
-        this.temp = temp;
+        this.dateeee = dateeee;
+        this.invoicenum = invoicenum;
+        this.goodc = goodc;
+
+        this.partName = partName;
+        this.invoicequant = invoicequant;
         this.assemblyline = assemblyline;
         this.partnum = partnum;
-        this.partName = partName;
+        this.temp = temp;
+
+        this.rohscomp = rohscomp;
+        this.dateinspected = dateinspected;
         this.humidity = humidity;
         this.supplier = supplier;
-        this.maker = maker;
-        this.goodc = goodc;
-        this.dateeee = dateeee;
         this.inspector = inspector;
-        this.dateinspected = dateinspected;
-        this.samplesize = samplesize;
-        this.datereceived = datereceived;
-        this.invoicequant = invoicequant;
-        this.reject = reject;
-        this.oir = oir;
-        this.inspecttype = inspecttype;
-        this.testreport = testreport;
-        this.mattype = mattype;
-        this.inscoc = inscoc;
-        this.rohscomp = rohscomp;
-        this.prodtype = prodtype;
-        this.ulmarking = ulmarking;
 
-        this.coc = coc;
+        this.datereceived = datereceived;
+        this.maker = maker;
+        this.samplesize = samplesize;
+        this.mattype = mattype;
+        this.inspecttype = inspecttype;
+
+        this.ulmarking = ulmarking;
+        this.oir = oir;
+        this.inscoc = inscoc;
+        this.prodtype = prodtype;
+        this.testreport = testreport;
+        this.dateToday = dateToday;
+        this.boxseqid = boxseqid;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getInvoicenum() {
-        return invoicenum;
+    public String getBoxseqid() {
+        return boxseqid;
     }
 
     public String getPreparedby() {
         return preparedby;
     }
 
-    public String getTemp() {
-        return temp;
+    public String getDateeee() {
+        return dateeee;
+    }
+
+    public String getInvoicenum() {
+        return invoicenum;
+    }
+
+    public String getGoodc() {
+        return goodc;
+    }
+
+    public String getPartName() {
+        return partName;
+    }
+
+    public String getInvoicequant() {
+        return invoicequant;
     }
 
     public String getAssemblyline() {
@@ -64,86 +89,71 @@ public class InspectionEncapsulation {
         return partnum;
     }
 
-    public String getPartName() {
-        return partName;
-    }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-    public String getSupplier() {
-        return supplier;
-    }
-
-    public String getMaker() {
-        return maker;
-    }
-
-    public String getGoodc() {
-        return goodc;
-    }
-
-    public String getDateeee() {
-        return dateeee;
-    }
-
-    public String getInspector() {
-        return inspector;
-    }
-
-    public String getDateinspected() {
-        return dateinspected;
-    }
-
-    public String getSamplesize() {
-        return samplesize;
-    }
-
-    public String getDatereceived() {
-        return datereceived;
-    }
-
-    public String getInvoicequant() {
-        return invoicequant;
-    }
-
-    public String getReject() {
-        return reject;
-    }
-
-    public String getOir() {
-        return oir;
-    }
-
-    public String getInspecttype() {
-        return inspecttype;
-    }
-
-    public String getTestreport() {
-        return testreport;
-    }
-
-    public String getMattype() {
-        return mattype;
-    }
-
-    public String getInscoc() {
-        return inscoc;
+    public String getTemp() {
+        return temp;
     }
 
     public String getRohscomp() {
         return rohscomp;
     }
 
-    public String getProdtype() {
-        return prodtype;
+    public String getDateinspected() {
+        return dateinspected;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public String getDateToday() {
+        return dateToday;
+    }
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public String getInspector() {
+        return inspector;
+    }
+
+    public String getDatereceived() {
+        return datereceived;
+    }
+
+    public String getMaker() {
+        return maker;
+    }
+
+    public String getSamplesize() {
+        return samplesize;
+    }
+
+    public String getMattype() {
+        return mattype;
+    }
+
+    public String getInspecttype() {
+        return inspecttype;
     }
 
     public String getUlmarking() {
         return ulmarking;
     }
-    public String getCoc() {
-        return coc;
+
+    public String getOir() {
+        return oir;
+    }
+
+    public String getInscoc() {
+        return inscoc;
+    }
+
+    public String getProdtype() {
+        return prodtype;
+    }
+
+    public String getTestreport() {
+        return testreport;
     }
 }

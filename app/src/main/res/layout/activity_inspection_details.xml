@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/homescreen"
     tools:context=".add.InspectionDetailsActivity">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
+        <EditText
+            android:id="@+id/dateToday1"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/edittext_shadow"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:layout_editor_absoluteX="825dp"
+            tools:layout_editor_absoluteY="41dp"
+            tools:ignore="MissingConstraints" />
 
         <androidx.cardview.widget.CardView
 
             android:id="@+id/cardView5"
             android:layout_width="750dp"
             android:layout_height="420dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="70dp"
             android:elevation="12sp"
             android:innerRadius="0dp"
             android:shape="ring"
@@ -44,11 +55,11 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/inspector"
+                    android:id="@+id/inspectorup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
@@ -66,23 +77,23 @@
                     android:text="Inspector:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/inspector"
-                    app:layout_constraintStart_toStartOf="@+id/inspector" />
+                    app:layout_constraintBottom_toTopOf="@+id/inspectorup"
+                    app:layout_constraintStart_toStartOf="@+id/inspectorup" />
 
                 <EditText
-                    android:id="@+id/sampleSizeinspect"
+                    android:id="@+id/sampleSizeinspectup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/inspector"
+                    app:layout_constraintEnd_toEndOf="@+id/inspectorup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/inspector"
-                    app:layout_constraintTop_toBottomOf="@+id/inspector" />
+                    app:layout_constraintStart_toStartOf="@+id/inspectorup"
+                    app:layout_constraintTop_toBottomOf="@+id/inspectorup" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -92,23 +103,23 @@
                     android:text="Sample Size"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/sampleSizeinspect"
-                    app:layout_constraintStart_toStartOf="@+id/sampleSizeinspect" />
+                    app:layout_constraintBottom_toTopOf="@+id/sampleSizeinspectup"
+                    app:layout_constraintStart_toStartOf="@+id/sampleSizeinspectup" />
 
                 <EditText
-                    android:id="@+id/maker"
+                    android:id="@+id/makerup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="48dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/sampleSizeinspect"
+                    app:layout_constraintEnd_toEndOf="@+id/sampleSizeinspectup"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/sampleSizeinspect"
-                    app:layout_constraintTop_toBottomOf="@+id/sampleSizeinspect" />
+                    app:layout_constraintStart_toStartOf="@+id/sampleSizeinspectup"
+                    app:layout_constraintTop_toBottomOf="@+id/sampleSizeinspectup" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -118,38 +129,38 @@
                     android:text="Maker:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/maker"
-                    app:layout_constraintStart_toStartOf="@+id/maker" />
+                    app:layout_constraintBottom_toTopOf="@+id/makerup"
+                    app:layout_constraintStart_toStartOf="@+id/makerup" />
 
                 <EditText
                     android:id="@+id/dateinsp"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.387"
-                    app:layout_constraintStart_toEndOf="@+id/inspector"
-                    app:layout_constraintTop_toTopOf="@+id/inspector" />
+                    app:layout_constraintStart_toEndOf="@+id/inspectorup"
+                    app:layout_constraintTop_toTopOf="@+id/inspectorup" />
 
                 <EditText
-                    android:id="@+id/assyLine"
+                    android:id="@+id/assyLineup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/maker"
+                    app:layout_constraintEnd_toEndOf="@+id/makerup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/maker"
-                    app:layout_constraintTop_toBottomOf="@+id/maker" />
+                    app:layout_constraintStart_toStartOf="@+id/makerup"
+                    app:layout_constraintTop_toBottomOf="@+id/makerup" />
 
                 <TextView
 
@@ -159,24 +170,24 @@
                     android:text="UL Marking:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/ulMarking"
-                    app:layout_constraintStart_toStartOf="@+id/ulMarking" />
+                    app:layout_constraintBottom_toTopOf="@+id/ulMarkingup"
+                    app:layout_constraintStart_toStartOf="@+id/ulMarkingup" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/ulMarking"
+                    android:id="@+id/ulMarkingup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingRight="20dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/dateReceived"
+                    app:layout_constraintEnd_toEndOf="@+id/dateReceivedup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/dateReceived"
-                    app:layout_constraintTop_toBottomOf="@+id/dateReceived" />
+                    app:layout_constraintStart_toStartOf="@+id/dateReceivedup"
+                    app:layout_constraintTop_toBottomOf="@+id/dateReceivedup" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -186,30 +197,30 @@
                     android:text="Assembly Line:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/assyLine"
-                    app:layout_constraintStart_toStartOf="@+id/assyLine" />
+                    app:layout_constraintBottom_toTopOf="@+id/assyLineup"
+                    app:layout_constraintStart_toStartOf="@+id/assyLineup" />
 
                 <EditText
-                    android:id="@+id/dateReceived"
+                    android:id="@+id/dateReceivedup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="48dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/invoiceQuantity"
+                    app:layout_constraintEnd_toEndOf="@+id/invoiceQuantityup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/invoiceQuantity"
-                    app:layout_constraintTop_toBottomOf="@+id/invoiceQuantity" />
+                    app:layout_constraintStart_toStartOf="@+id/invoiceQuantityup"
+                    app:layout_constraintTop_toBottomOf="@+id/invoiceQuantityup" />
 
                 <EditText
-                    android:id="@+id/invoiceQuantity"
+                    android:id="@+id/invoiceQuantityup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
@@ -227,8 +238,8 @@
                     android:text="Invoice Quantity"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/invoiceQuantity"
-                    app:layout_constraintStart_toStartOf="@+id/invoiceQuantity" />
+                    app:layout_constraintBottom_toTopOf="@+id/invoiceQuantityup"
+                    app:layout_constraintStart_toStartOf="@+id/invoiceQuantityup" />
 
                 <TextView
                     android:id="@+id/textView28"
@@ -238,8 +249,8 @@
                     android:text="Date Received:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/dateReceived"
-                    app:layout_constraintStart_toStartOf="@+id/dateReceived" />
+                    app:layout_constraintBottom_toTopOf="@+id/dateReceivedup"
+                    app:layout_constraintStart_toStartOf="@+id/dateReceivedup" />
 
                 <TextView
                     android:id="@+id/textView27"
@@ -288,8 +299,8 @@
                     android:text="Part Number:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/partNuminspec"
-                    app:layout_constraintStart_toStartOf="@+id/partNuminspec" />
+                    app:layout_constraintBottom_toTopOf="@+id/partNuminspecup"
+                    app:layout_constraintStart_toStartOf="@+id/partNuminspecup" />
 
                 <TextView
                     android:id="@+id/textView42"
@@ -302,8 +313,8 @@
                     app:layout_constraintBottom_toTopOf="@+id/partName"
                     app:layout_constraintStart_toStartOf="@+id/partName" />
 
-                <EditText
-                    android:id="@+id/partNuminspec"
+                <AutoCompleteTextView
+                    android:id="@+id/partNuminspecup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="44dp"
@@ -312,10 +323,10 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/invoiceNumber"
+                    app:layout_constraintEnd_toEndOf="@+id/invoiceNumberinsup"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/invoiceNumber"
-                    app:layout_constraintTop_toBottomOf="@+id/invoiceNumber" />
+                    app:layout_constraintStart_toStartOf="@+id/invoiceNumberinsup"
+                    app:layout_constraintTop_toBottomOf="@+id/invoiceNumberinsup" />
 
                 <EditText
                     android:id="@+id/partName"
@@ -327,10 +338,10 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/goodsCodeinsp"
+                    app:layout_constraintEnd_toEndOf="@+id/goodsCodeinspup"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/goodsCodeinsp"
-                    app:layout_constraintTop_toBottomOf="@+id/goodsCodeinsp" />
+                    app:layout_constraintStart_toStartOf="@+id/goodsCodeinspup"
+                    app:layout_constraintTop_toBottomOf="@+id/goodsCodeinspup" />
 
                 <TextView
                     android:id="@+id/textView17"
@@ -340,12 +351,12 @@
                     android:text="Goods Code:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/goodsCodeinsp"
-                    app:layout_constraintStart_toStartOf="@+id/goodsCodeinsp" />
+                    app:layout_constraintBottom_toTopOf="@+id/goodsCodeinspup"
+                    app:layout_constraintStart_toStartOf="@+id/goodsCodeinspup" />
 
 
                 <EditText
-                    android:id="@+id/goodsCodeinsp"
+                    android:id="@+id/goodsCodeinspup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
@@ -355,10 +366,10 @@
                     android:padding="10dp"
                     android:textSize="20sp"
 
-                    app:layout_constraintEnd_toEndOf="@+id/dateinspect"
+                    app:layout_constraintEnd_toEndOf="@+id/dateinspectup"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/dateinspect"
-                    app:layout_constraintTop_toBottomOf="@+id/dateinspect" />
+                    app:layout_constraintStart_toStartOf="@+id/dateinspectup"
+                    app:layout_constraintTop_toBottomOf="@+id/dateinspectup" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -368,8 +379,8 @@
                     android:text="Invoice Number:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/invoiceNumber"
-                    app:layout_constraintStart_toStartOf="@+id/invoiceNumber" />
+                    app:layout_constraintBottom_toTopOf="@+id/invoiceNumberinsup"
+                    app:layout_constraintStart_toStartOf="@+id/invoiceNumberinsup" />
 
 
                 <EditText
@@ -401,7 +412,7 @@
 
 
                 <EditText
-                    android:id="@+id/dateinspect"
+                    android:id="@+id/dateinspectup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:background="@drawable/layer"
@@ -424,11 +435,11 @@
                     android:text="Date:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/dateinspect"
-                    app:layout_constraintStart_toStartOf="@+id/dateinspect" />
+                    app:layout_constraintBottom_toTopOf="@+id/dateinspectup"
+                    app:layout_constraintStart_toStartOf="@+id/dateinspectup" />
 
                 <EditText
-                    android:id="@+id/invoiceNumber"
+                    android:id="@+id/invoiceNumberinsup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
@@ -453,10 +464,10 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/partNuminspec"
+                    app:layout_constraintEnd_toEndOf="@+id/partNuminspecup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/partNuminspec"
-                    app:layout_constraintTop_toBottomOf="@+id/partNuminspec" />
+                    app:layout_constraintStart_toStartOf="@+id/partNuminspecup"
+                    app:layout_constraintTop_toBottomOf="@+id/partNuminspecup" />
 
                 <EditText
                     android:id="@+id/temperature"
@@ -505,7 +516,7 @@
             android:id="@+id/cardView"
             android:layout_width="750dp"
             android:layout_height="420dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="80dp"
             android:elevation="12sp"
             android:innerRadius="0dp"
             android:shape="ring"
@@ -526,43 +537,43 @@
 
 
                 <AutoCompleteTextView
-                    android:id="@+id/supplier"
+                    android:id="@+id/supplierup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="52dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingRight="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/rohs"
+                    app:layout_constraintEnd_toEndOf="@+id/rohsup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/coc"
-                    app:layout_constraintTop_toBottomOf="@+id/coc" />
+                    app:layout_constraintStart_toStartOf="@+id/cocup"
+                    app:layout_constraintTop_toBottomOf="@+id/cocup" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/testreport"
+                    android:id="@+id/testreportup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/oir"
+                    app:layout_constraintEnd_toEndOf="@+id/oirup"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/oir"
-                    app:layout_constraintTop_toBottomOf="@+id/oir" />
+                    app:layout_constraintStart_toStartOf="@+id/oirup"
+                    app:layout_constraintTop_toBottomOf="@+id/oirup" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/oir"
+                    android:id="@+id/oirup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="48dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
@@ -581,16 +592,16 @@
                     android:text="Inspection Type:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/inspecttype"
-                    app:layout_constraintStart_toStartOf="@+id/inspecttype" />
+                    app:layout_constraintBottom_toTopOf="@+id/inspecttypeup"
+                    app:layout_constraintStart_toStartOf="@+id/inspecttypeup" />
 
 
                 <AutoCompleteTextView
-                    android:id="@+id/inspecttype"
+                    android:id="@+id/inspecttypeup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="48dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
@@ -598,24 +609,24 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.51"
-                    app:layout_constraintStart_toEndOf="@+id/oir"
+                    app:layout_constraintStart_toEndOf="@+id/oirup"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/mattype"
+                    android:id="@+id/mattypeup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="44dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/inspecttype"
+                    app:layout_constraintEnd_toEndOf="@+id/inspecttypeup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/inspecttype"
-                    app:layout_constraintTop_toBottomOf="@+id/inspecttype" />
+                    app:layout_constraintStart_toStartOf="@+id/inspecttypeup"
+                    app:layout_constraintTop_toBottomOf="@+id/inspecttypeup" />
 
                 <TextView
                     android:id="@+id/textView33"
@@ -625,8 +636,8 @@
                     android:text="Material Type:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/mattype"
-                    app:layout_constraintStart_toStartOf="@+id/mattype" />
+                    app:layout_constraintBottom_toTopOf="@+id/mattypeup"
+                    app:layout_constraintStart_toStartOf="@+id/mattypeup" />
 
                 <TextView
                     android:id="@+id/textView35"
@@ -636,8 +647,8 @@
                     android:text="Test Report"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/testreport"
-                    app:layout_constraintStart_toStartOf="@+id/testreport" />
+                    app:layout_constraintBottom_toTopOf="@+id/testreportup"
+                    app:layout_constraintStart_toStartOf="@+id/testreportup" />
 
                 <TextView
                     android:id="@+id/textView36"
@@ -647,40 +658,40 @@
                     android:text="OIR"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/oir"
-                    app:layout_constraintStart_toStartOf="@+id/oir" />
+                    app:layout_constraintBottom_toTopOf="@+id/oirup"
+                    app:layout_constraintStart_toStartOf="@+id/oirup" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/coc"
+                    android:id="@+id/cocup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="44dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/testreport"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/testreport"
-                    app:layout_constraintTop_toBottomOf="@+id/testreport" />
+                    app:layout_constraintEnd_toEndOf="@+id/testreportup"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/testreportup"
+                    app:layout_constraintTop_toBottomOf="@+id/testreportup" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/rohs"
+                    android:id="@+id/rohsup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/mattype"
+                    app:layout_constraintEnd_toEndOf="@+id/mattypeup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/mattype"
-                    app:layout_constraintTop_toBottomOf="@+id/mattype" />
+                    app:layout_constraintStart_toStartOf="@+id/mattypeup"
+                    app:layout_constraintTop_toBottomOf="@+id/mattypeup" />
 
                 <TextView
                     android:id="@+id/textView37"
@@ -690,8 +701,8 @@
                     android:text="COC"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/coc"
-                    app:layout_constraintStart_toStartOf="@+id/coc" />
+                    app:layout_constraintBottom_toTopOf="@+id/cocup"
+                    app:layout_constraintStart_toStartOf="@+id/cocup" />
 
                 <TextView
                     android:id="@+id/textView24"
@@ -701,8 +712,8 @@
                     android:text="ROHS Compliance:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/rohs"
-                    app:layout_constraintStart_toStartOf="@+id/rohs" />
+                    app:layout_constraintBottom_toTopOf="@+id/rohsup"
+                    app:layout_constraintStart_toStartOf="@+id/rohsup" />
 
                 <TextView
                     android:id="@+id/textView25"
@@ -712,8 +723,8 @@
                     android:text="Supplier:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/supplier"
-                    app:layout_constraintStart_toStartOf="@+id/supplier" />
+                    app:layout_constraintBottom_toTopOf="@+id/supplierup"
+                    app:layout_constraintStart_toStartOf="@+id/supplierup" />
 
                 <TextView
                     android:id="@+id/textView18"
@@ -723,24 +734,24 @@
                     android:text="Production type:"
                     android:textColor="@color/darkish"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/prodtype"
-                    app:layout_constraintStart_toStartOf="@+id/prodtype" />
+                    app:layout_constraintBottom_toTopOf="@+id/prodtypeup"
+                    app:layout_constraintStart_toStartOf="@+id/prodtypeup" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/prodtype"
+                    android:id="@+id/prodtypeup"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="56dp"
-                    android:background="@drawable/layer"
+                    android:background="@drawable/edittext_shadow"
                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingRight="20dp"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/rohs"
+                    app:layout_constraintEnd_toEndOf="@+id/rohsup"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/rohs"
-                    app:layout_constraintTop_toBottomOf="@+id/rohs" />
+                    app:layout_constraintStart_toStartOf="@+id/rohsup"
+                    app:layout_constraintTop_toBottomOf="@+id/rohsup" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -748,8 +759,8 @@
 
         <Button
             android:id="@+id/inspectnextbutton"
-            android:layout_width="380dp"
-            android:layout_height="50dp"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
             android:backgroundTint="@color/darkish"
             android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
             android:elevation="10dp"
@@ -761,25 +772,26 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="380dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="44dp"
             android:backgroundTint="@color/darkish"
             android:drawableLeft="@drawable/ic_baseline_save_24"
             android:elevation="20dp"
             android:text="SAVE DATA"
             android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/cardView"
-            app:layout_constraintStart_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+            app:layout_constraintEnd_toEndOf="@+id/framelayoutins"
+            app:layout_constraintStart_toStartOf="@+id/framelayoutins"
+            app:layout_constraintTop_toBottomOf="@+id/framelayoutins" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="380dp"
-            android:layout_height="50dp"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#FF0000"
-            android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+            android:backgroundTint="@color/darkish"
+
+            android:drawableLeft="@drawable/ic_baseline_search_24"
             android:elevation="20dp"
             android:text="UPLOAD  DATA"
             android:textAlignment="center"
@@ -788,7 +800,21 @@
             app:layout_constraintStart_toStartOf="@+id/button2"
             app:layout_constraintTop_toBottomOf="@+id/button2" />
 
+        <FrameLayout
+            android:id="@+id/framelayoutins"
+            android:layout_width="750dp"
+            android:layout_height="500dp"
+            android:layout_marginTop="68dp"
+
+            android:innerRadius="40dp"
+            android:shape="ring"
+            android:background="@drawable/layer"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

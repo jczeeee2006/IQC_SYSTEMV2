@@ -22,11 +22,11 @@ import java.sql.Statement;
 public class MainActivity extends AppCompatActivity {
         Button  btn_login;
     public static ConnectionClass connectionClass;
-    Button btn1,btn2;
+    Button btn1;
     public static EditText userNamee,passwordd;
 
     ProgressBar pbbar;
-    public static String prepBy, unameholder,pwordholder,usernameh;
+    public static String prepBy,usernameh,lastNameholder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // replaceFragement(new Fragment1());
                 DoLogin doLogin = new DoLogin();
                 doLogin.execute("");
 
@@ -54,13 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public String firstandLastname(String username, String password)
     {
         String output = "";
 
         try {
             connectionClass = new ConnectionClass();
-            Connection conn = connectionClass.CONN2();
+            Connection conn = connectionClass.CONN();
             String query = "SELECT *  FROM User_Account WHERE employee_num= '" + username + "' AND password= '" + password + "' ";
 
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 String fname = rs.getString("employee_num");
                 usernameh = fname;
                 String pos = rs.getString("password");
-                output = fname + " " + pos;
+                String lastName = rs.getString("lastname");
+                lastNameholder = lastName;
+                output = fname + " " + pos + " " + lastName;
             }
         } catch (Exception e) {
             return output;
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class DoLogin extends AsyncTask<String, String, String>
     {
-        String z = "ghhgh";
+        String z = "";
         Boolean isSuccess = false;
 
         String userid = userNamee.getText().toString();
@@ -99,9 +101,9 @@ public class MainActivity extends AppCompatActivity {
             else {
                 try {
                     connectionClass = new ConnectionClass();
-                    Connection con = connectionClass.CONN2();
+                    Connection con = connectionClass.CONN();
                     if (con == null) {
-                        z = "";
+                        z = "No Internet Connection";
                     } else {
                         String query = "SELECT * from User_Account where employee_num='" + userid + "' and password='" + password + "'";
                         Statement stmt = con.createStatement();
@@ -141,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
+
 
     }
 

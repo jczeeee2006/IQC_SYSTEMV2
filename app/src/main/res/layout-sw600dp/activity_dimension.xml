@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/paaa"
+    tools:context=".Update.DimensionActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="725dp"
+        android:layout_height="745dp"
+        android:layout_marginTop="8dp"
+        android:elevation="12sp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="44dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginLeft="30dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="700dp"
+            android:layout_height="760dp"
+            android:layout_marginRight="30dp"
+
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/checkPointup"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/instrumentUsedup"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/edittext_shadow"
+                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.154"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/sampleUnitup"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:text="mm"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.117"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/dc6up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/minimumfc"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toEndOf="@+id/dc1up"
+                app:layout_constraintTop_toBottomOf="@+id/checkPointup" />
+
+            <EditText
+                android:id="@+id/sampleSizedc_up"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="number|textPersonName"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/upperspecsup"
+                app:layout_constraintStart_toEndOf="@+id/checkPointup"
+                app:layout_constraintTop_toTopOf="@+id/checkPointup" />
+
+            <EditText
+                android:id="@+id/dc2up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc1up"
+                app:layout_constraintTop_toBottomOf="@+id/dc1up" />
+
+            <EditText
+                android:id="@+id/dc1up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.125"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sampleUnitup" />
+
+            <EditText
+                android:id="@+id/dc7up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/dc6up"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc6up"
+                app:layout_constraintTop_toBottomOf="@+id/dc6up" />
+
+            <EditText
+                android:id="@+id/dc3up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc2up"
+                app:layout_constraintTop_toBottomOf="@+id/dc2up" />
+
+            <EditText
+                android:id="@+id/dc8up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/dc7up"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc7up"
+                app:layout_constraintTop_toBottomOf="@+id/dc7up" />
+
+            <EditText
+                android:id="@+id/dc4up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc3up"
+                app:layout_constraintTop_toBottomOf="@+id/dc3up" />
+
+            <EditText
+                android:id="@+id/dc9up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc8"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc8up"
+                app:layout_constraintTop_toBottomOf="@+id/dc8up" />
+
+            <EditText
+                android:id="@+id/dc5up"
+                android:layout_width="143dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc4up"
+                app:layout_constraintTop_toBottomOf="@+id/dc4up" />
+
+            <EditText
+                android:id="@+id/dc10up"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/dc9up"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc9up"
+                app:layout_constraintTop_toBottomOf="@+id/dc9up" />
+
+
+            <Button
+                android:id="@+id/addDatafc"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+
+                android:backgroundTint="#FF0000"
+                android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+                android:text="UPLOAD DATA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/uploadfc"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/uploadfc"
+                app:layout_constraintTop_toBottomOf="@+id/uploadfc"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <Button
+                android:id="@+id/backbuttondim"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_keyboard_double_arrow_left_24"
+                android:text="back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/dc5up"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc5up"
+                app:layout_constraintTop_toBottomOf="@+id/dc5up"
+                app:layout_constraintVertical_bias="0.333" />
+
+            <Button
+                android:id="@+id/uploadfc"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="568dp"
+                android:backgroundTint="@color/darkblue"
+                android:drawableLeft="@drawable/ic_baseline_add_box_24"
+                android:text="UPDATE DATA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.918"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/minimumup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/upperspecsup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/upperspecsup"
+                app:layout_constraintTop_toBottomOf="@+id/upperspecsup" />
+
+            <TextView
+                android:id="@+id/average_txtup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/minimumup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/minimumup"
+                app:layout_constraintTop_toBottomOf="@+id/minimumup" />
+
+            <TextView
+                android:id="@+id/maximumup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/average_txtup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/average_txtup"
+                app:layout_constraintTop_toBottomOf="@+id/average_txtup" />
+
+            <EditText
+                android:id="@+id/dcjudgeMentup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/maximumup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/maximumup"
+                app:layout_constraintTop_toBottomOf="@+id/maximumup" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Instrument Used:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/instrumentUsedup"
+                app:layout_constraintStart_toStartOf="@+id/instrumentUsedup" />
+
+            <TextView
+                android:id="@+id/textView60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample Unit:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/sampleUnitup"
+                app:layout_constraintStart_toStartOf="@+id/sampleUnitup" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 1:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc1up"
+                app:layout_constraintStart_toStartOf="@+id/dc1up" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 2:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc2up"
+                app:layout_constraintStart_toStartOf="@+id/dc2up" />
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 3:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc3up"
+                app:layout_constraintStart_toStartOf="@+id/dc3up" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 4:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc4up"
+                app:layout_constraintStart_toStartOf="@+id/dc4up" />
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 5:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc5up"
+                app:layout_constraintStart_toStartOf="@+id/dc5up" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 10:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc10up"
+                app:layout_constraintStart_toStartOf="@+id/dc10up" />
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 9:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc9up"
+                app:layout_constraintStart_toStartOf="@+id/dc9up" />
+
+            <TextView
+                android:id="@+id/textView57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 8:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc8up"
+                app:layout_constraintStart_toStartOf="@+id/dc8up" />
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 7:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc7up"
+                app:layout_constraintStart_toStartOf="@+id/dc7up" />
+
+            <TextView
+                android:id="@+id/textView55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample 6:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dc6up"
+                app:layout_constraintStart_toStartOf="@+id/dc6up" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Checkpoint:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/checkPointup"
+                app:layout_constraintStart_toStartOf="@+id/checkPointup" />
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample Size:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/sampleSizedc_up"
+                app:layout_constraintStart_toStartOf="@+id/sampleSizedc_up" />
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pop"
+                android:text="Lower Specs:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/lowerspecup"
+                app:layout_constraintStart_toStartOf="@+id/lowerspecup" />
+
+            <TextView
+                android:id="@+id/upperspec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pop"
+                android:text="Upper Specs:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/upperspecsup"
+                app:layout_constraintStart_toStartOf="@+id/upperspecsup" />
+
+            <TextView
+                android:id="@+id/textView46"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pop"
+                android:text="Minimum"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/minimumup"
+                app:layout_constraintStart_toStartOf="@+id/minimumup" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pop"
+                android:text="Average:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/average_txtup"
+                app:layout_constraintStart_toStartOf="@+id/average_txtup" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pop"
+                android:text="Maximum"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/maximumup"
+                app:layout_constraintStart_toStartOf="@+id/maximumup" />
+
+            <EditText
+                android:id="@+id/lowerspecup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="68dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toEndOf="@+id/checkPointfc"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/upperspecsup"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/lowerspecup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lowerspecup"
+                app:layout_constraintTop_toBottomOf="@+id/lowerspecup" />
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/popbold"
+                android:text="Judgement:"
+                android:textColor="@color/darkblue"
+                app:layout_constraintBottom_toTopOf="@+id/dcjudgeMentup"
+                app:layout_constraintStart_toStartOf="@+id/dcjudgeMentup" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/datedimup"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_invoiceno"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="600dp"
+        android:layout_marginTop="1190dp"
+        android:textColor="#d0eaf2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_margin="10dp"
+    android:id="@+id/dimensionLayout"
+    android:background="@drawable/grid_row_border"
+  >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="780dp"
+        android:layout_height="720dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/dcid_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/popbold"
+            android:text="1"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/checkPointfc"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="152dp"
+            android:background="@drawable/edittext_shadow"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/instrumentUsed_txt"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/rounded_corners"
+
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.086"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/sampleUnit_txt"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="mm"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/instrumentUsed_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/instrumentUsed_txt"
+            app:layout_constraintTop_toBottomOf="@+id/instrumentUsed_txt" />
+
+        <TextView
+            android:id="@+id/dc6_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="380dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintStart_toEndOf="@+id/fc1"
+            app:layout_constraintTop_toBottomOf="@+id/checkPointfc" />
+
+        <TextView
+            android:id="@+id/sampleSizedc_txt"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/edittext_shadow"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="number|textPersonName"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.696"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dc2_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/dc1_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc1_txt" />
+
+        <TextView
+            android:id="@+id/dc1_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/dc6_txt"
+            app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sampleUnit_txt" />
+
+        <TextView
+            android:id="@+id/dc7_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc6_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dc6_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc6_txt" />
+
+        <TextView
+            android:id="@+id/dc3_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc2_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/dc2_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc2_txt" />
+
+        <TextView
+            android:id="@+id/dc8_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc7_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dc7_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc7_txt" />
+
+        <TextView
+            android:id="@+id/dc4_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc3_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/dc3_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc3_txt" />
+
+        <TextView
+            android:id="@+id/dc9_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc8_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dc8_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc8_txt" />
+
+        <TextView
+            android:id="@+id/dc5_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc4_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/dc4_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc4_txt" />
+
+        <TextView
+            android:id="@+id/dc10_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/dc9_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/dc9_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc9_txt" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Checkpoint:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/checkPointfc"
+            app:layout_constraintStart_toStartOf="@+id/checkPointfc" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Instrument Used:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/instrumentUsed_txt"
+            app:layout_constraintStart_toStartOf="@+id/instrumentUsed_txt" />
+
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample Size:"
+            android:textColor="@color/darkish"
+            app:layout_constraintBottom_toTopOf="@+id/sampleSizedc_txt"
+            app:layout_constraintStart_toStartOf="@+id/sampleSizedc_txt" />
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample Unit:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/sampleUnit_txt"
+            app:layout_constraintStart_toStartOf="@+id/sampleUnit_txt" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 1:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc1_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc1_txt" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 6:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc6_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc6_txt" />
+
+        <TextView
+            android:id="@+id/textView56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 7:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc7_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc7_txt" />
+
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 8:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc8_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc8_txt" />
+
+        <TextView
+            android:id="@+id/textView58"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 9:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc9_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc9_txt" />
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 10:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc10_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc10_txt" />
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 2:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc2_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc2_txt" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 3:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc3_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc3_txt" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 4:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc4_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc4_txt" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popbold"
+            android:text="Sample 5:"
+            android:textColor="@color/darkish"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/dc5_txt"
+            app:layout_constraintStart_toStartOf="@+id/dc5_txt" />
+
+
+        <TextView
+            android:id="@+id/minimum_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/upperspecs_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/upperspecs_txt"
+            app:layout_constraintTop_toBottomOf="@+id/upperspecs_txt" />
+
+        <TextView
+            android:id="@+id/averagefc"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/minimum_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/minimum_txt"
+            app:layout_constraintTop_toBottomOf="@+id/minimum_txt" />
+
+        <TextView
+            android:id="@+id/maximum_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/averagefc"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/averagefc"
+            app:layout_constraintTop_toBottomOf="@+id/averagefc" />
+
+        <TextView
+            android:id="@+id/dcjudgeMent_txt"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/maximum_txt"
+            app:layout_constraintTop_toBottomOf="@+id/maximum_txt" />
+
+        <TextView
+            android:id="@+id/lowerspec_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="152dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.346"
+            app:layout_constraintStart_toEndOf="@+id/checkPointfc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/upperspecs_txt"
+            android:layout_width="154dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/lowerspec_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/lowerspec_txt"
+            app:layout_constraintTop_toBottomOf="@+id/lowerspec_txt" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pop"
+            android:text="Lower Specs:"
+            android:textColor="@color/darkish"
+            app:layout_constraintBottom_toTopOf="@+id/lowerspec_txt"
+            app:layout_constraintStart_toStartOf="@+id/lowerspec_txt" />
+
+        <TextView
+            android:id="@+id/upperspec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pop"
+            android:text="Upper Specs:"
+            android:textColor="@color/darkish"
+            app:layout_constraintBottom_toTopOf="@+id/upperspecs_txt"
+            app:layout_constraintStart_toStartOf="@+id/upperspecs_txt" />
+
+        <TextView
+            android:id="@+id/textView80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/popbold"
+            android:text="Judgement:"
+            app:layout_constraintBottom_toTopOf="@+id/dcjudgeMent_txt"
+            app:layout_constraintStart_toStartOf="@+id/dcjudgeMent_txt" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pop"
+            android:text="Minimum"
+            app:layout_constraintBottom_toTopOf="@+id/minimum_txt"
+            app:layout_constraintStart_toStartOf="@+id/minimum_txt" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pop"
+            android:text="Maximum"
+            android:textColor="@color/darkish"
+            app:layout_constraintBottom_toTopOf="@+id/maximum_txt"
+            app:layout_constraintStart_toStartOf="@+id/maximum_txt" />
+
+        <TextView
+            android:id="@+id/textView48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pop"
+            android:text="Average:"
+            android:textColor="@color/darkish"
+            app:layout_constraintBottom_toTopOf="@+id/averagefc"
+            app:layout_constraintStart_toStartOf="@+id/averagefc" />
+
+        <TextView
+            android:id="@+id/datedim_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.356"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.95" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</LinearLayout>
