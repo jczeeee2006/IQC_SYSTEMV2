@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".VisualInspection">
+
+    <TextView
+        android:id="@+id/textView76"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popbold"
+        android:text="DEFECT FORM"
+        android:textColor="@color/ocean"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="720dp"
+        android:layout_height="450dp"
+        android:elevation="12sp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="44dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_goneMarginLeft="30dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="730dp"
+            android:layout_height="450dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <Button
+
+                android:id="@+id/adddefect"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_delete"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="ADD"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/failed"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
+                app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualQuantitiy"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/edittext_shadow"
+
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="#000"
+                android:shadowDx="-6"
+                android:shadowDy="-6"
+                android:shadowRadius="20"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualjudgementdefect"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/edittext_shadow"
+
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="#000"
+                android:shadowDx="-6"
+                android:shadowDy="-6"
+                android:shadowRadius="20"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.609"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/visualRemarksdefect"
+                android:layout_width="650dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="64dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.412"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/visualjudgementdefect" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Quantitiy:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualQuantitiy"
+                app:layout_constraintStart_toStartOf="@+id/visualQuantitiy" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:fontFamily="@font/popbold"
+                android:text="Remarks:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualRemarksdefect"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect" />
+
+            <TextView
+                android:id="@+id/textView73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Judgement:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualjudgementdefect"
+                app:layout_constraintStart_toStartOf="@+id/visualjudgementdefect" />
+
+            <Button
+                android:id="@+id/failed"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#FF0000"
+                android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="NEXT FORM"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.329"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
+                app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="720dp"
+        android:layout_height="550dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="60dp"
+        android:elevation="12sp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="44dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginLeft="30dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="730dp"
+            android:layout_height="550dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/ViewRecordsvisual"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="120dp"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="VIEW RECORDS"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarks"
+                app:layout_constraintTop_toBottomOf="@+id/visualRemarks" />
+
+            <Button
+                android:id="@+id/visualOk"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_delete"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="OK"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarks"
+                app:layout_constraintTop_toBottomOf="@+id/visualRemarks" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualInstrument"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/edittext_shadow"
+
+                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="#000"
+                android:shadowDx="-6"
+                android:shadowDy="-6"
+                android:shadowRadius="20"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualJudgement"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="368dp"
+                android:background="@drawable/edittext_shadow"
+
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:shadowColor="#000"
+                android:shadowDx="-6"
+                android:shadowDy="-6"
+                android:shadowRadius="20"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.909"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualSampleSize"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName|numberDecimal"
+                android:padding="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/visualcheckPoint"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.447"
+                app:layout_constraintStart_toEndOf="@+id/partN"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/visualRemarks"
+                android:layout_width="650dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/visualSampleSize" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Instrument Used:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualInstrument"
+                app:layout_constraintStart_toStartOf="@+id/visualInstrument" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Sample Size"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualSampleSize"
+                app:layout_constraintStart_toStartOf="@+id/visualSampleSize" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:fontFamily="@font/popbold"
+                android:text="Checkpoint"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualcheckPoint"
+                app:layout_constraintStart_toStartOf="@+id/visualcheckPoint" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:fontFamily="@font/popbold"
+                android:text="Remarks:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualRemarks"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarks" />
+
+            <TextView
+                android:id="@+id/textView73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Judgement:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/visualJudgement"
+                app:layout_constraintStart_toStartOf="@+id/visualJudgement" />
+
+            <Button
+                android:id="@+id/failed"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="188dp"
+                android:backgroundTint="#FF0000"
+                android:drawableLeft="@drawable/ic_baseline_storage_24"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="NG"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/visualRemarks"
+                app:layout_constraintHorizontal_bias="0.535"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarks"
+                app:layout_constraintTop_toBottomOf="@+id/visualRemarks" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
