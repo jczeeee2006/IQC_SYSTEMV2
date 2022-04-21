@@ -48,7 +48,7 @@ public class DimensionActivity extends AppCompatActivity {
 
 
         sammpleUnit = findViewById(R.id.sampleUnitup);
-        addData = findViewById(R.id.addDatafc);
+        addData = findViewById(R.id.Viewdatafc);
 
         //-----SAMPLE VALUES---
         dc1 = findViewById(R.id.dc1up);
@@ -74,9 +74,9 @@ public class DimensionActivity extends AppCompatActivity {
         dc_checkPoints = findViewById(R.id.checkPointup);
         dcsampleSize = findViewById(R.id.sampleSizedc_up);
         dateToday  = findViewById(R.id.datedimup);
-        addData = findViewById(R.id.addDatafc);
+        addData = findViewById(R.id.Viewdatafc);
         tvinvoice = findViewById(R.id.textView_invoiceno);
-        uploadtosqlite = findViewById(R.id.uploadfc);
+        uploadtosqlite = findViewById(R.id.uploadfcDatafc);
         backbutton = findViewById(R.id.backbuttondim);
         getIntentData();
         backbutton.setOnClickListener(new View.OnClickListener() {

@@ -74,7 +74,7 @@ public class DimensionalActivity extends AppCompatActivity {
 
 
         sammpleUnit = findViewById(R.id.sampleUnit);
-        addData = findViewById(R.id.addDatafc);
+        addData = findViewById(R.id.Viewdatafc);
 
         //-----SAMPLE VALUES---
         dc1 = findViewById(R.id.fc1);
@@ -100,8 +100,8 @@ public class DimensionalActivity extends AppCompatActivity {
         dc_checkPoints = findViewById(R.id.checkPointfc);
         dcsampleSize = findViewById(R.id.sampleSizefc_);
 
-        addData = findViewById(R.id.addDatafc);
-        uploadtosqlite = findViewById(R.id.uploadfc);
+        addData = findViewById(R.id.Viewdatafc);
+        uploadtosqlite = findViewById(R.id.uploadfcDatafc);
         nextFormdim = findViewById(R.id.nextFormfc);
         sammpleUnit.setText("Mm");
         sammpleUnit.setEnabled(false);
@@ -190,7 +190,7 @@ public class DimensionalActivity extends AppCompatActivity {
     private void replaceFragment(FragmentForDimension dcfragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.dcframelayout,dcfragment);
+        fragmentTransaction.replace(R.id.fcframelayout,dcfragment);
         fragmentTransaction.commit();
 
     }

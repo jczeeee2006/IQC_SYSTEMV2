@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/ic_baseline_help_outline_24" />
 
     <FrameLayout
-        android:id="@+id/dcframelayout"
+        android:id="@+id/fcframelayout"
         android:layout_width="650dp"
         android:layout_height="540dp"
         android:background="@drawable/layer"
@@ -441,7 +441,7 @@
 
 
             <Button
-                android:id="@+id/addDatafc"
+                android:id="@+id/Viewdatafc"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
 
@@ -470,17 +470,17 @@
                 app:layout_constraintVertical_bias="0.47" />
 
             <Button
-                android:id="@+id/uploadfc"
+                android:id="@+id/uploadfcDatafc"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="@color/darkblue"
                 android:drawableLeft="@drawable/ic_baseline_pageview_24"
                 android:text="VIEW DATA"
-                app:layout_constraintEnd_toEndOf="@+id/addDatafc"
+                app:layout_constraintEnd_toEndOf="@+id/Viewdatafc"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/addDatafc"
-                app:layout_constraintTop_toBottomOf="@+id/addDatafc" />
+                app:layout_constraintStart_toStartOf="@+id/Viewdatafc"
+                app:layout_constraintTop_toBottomOf="@+id/Viewdatafc" />
 
             <TextView
                 android:id="@+id/minimumfc"
@@ -650,9 +650,9 @@
         android:text=" RECORDS"
         android:textColor="@color/ocean"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/dcframelayout"
-        app:layout_constraintEnd_toEndOf="@+id/dcframelayout"
-        app:layout_constraintStart_toStartOf="@+id/dcframelayout" />
+        app:layout_constraintBottom_toTopOf="@+id/fcframelayout"
+        app:layout_constraintEnd_toEndOf="@+id/fcframelayout"
+        app:layout_constraintStart_toStartOf="@+id/fcframelayout" />
 
     <TextView
         android:id="@+id/dateTodaydim"
