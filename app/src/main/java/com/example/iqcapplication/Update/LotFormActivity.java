@@ -32,14 +32,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class LotFormActivity extends AppCompatActivity {
-    EditText totalquantityup, quantityrecievedup, lotnoup, lotquantup, boxnumup, rejectup, sampsizeup, boxseqidup,remarksup,dateToday;
+    EditText totalquantityup, quantityrecievedup, lotnoup, lotquantup, boxnumup, rejectUp, sampsizeup, boxseqidup,remarksup,dateToday;
     AutoCompleteTextView lot_invoicenoup, tv_partnameup, goodscup, et_partnumup;
     String id, REMARKS,LOTQUANT,LOTNUM,SAMPLE,REJECT,TOTALQUANT,ACTUALQUANT,BOXSEQ,BOX_NUMBER,PART_NAME,
-            GOODS_CODE,PART_NUMBER,INVOICE, DATETIME;
+            GOODS_CODE,PART_NUMBER,INVOICE, DATETIME, rejectHolder;
     public static String    boxseqholder,invoiceholder,partnumholder,goodscodeholder,partnameholder,totalquantholder,lotnumholder,actualquantityHolder, lotQuantityholder,
             boxnumholder,samplesizeHolder;
 
-    TextView difFerence;
+    TextView difFerence,totallGood;
 
     Button buttonAdd, button,buttonUpload,backButton, updateRejectup;
     public static  String dateHolder;
@@ -59,13 +59,13 @@ public class LotFormActivity extends AppCompatActivity {
         lotnoup = findViewById(R.id.lotNumberup);
         lotquantup = findViewById(R.id.lotQuantup);
         boxnumup = findViewById(R.id.boxNumup);
-        rejectup = findViewById(R.id.rejectup);
+        rejectUp = findViewById(R.id.rejectup);
         sampsizeup = findViewById(R.id.sampleSizeup);
         remarksup   = findViewById(R.id.remarksup);
         buttonAdd = findViewById(R.id.add);
         button = findViewById(R.id.failed);
         difFerence = findViewById(R.id.difference);
-
+        totallGood = findViewById(R.id.totalGood);
         buttonUpload = findViewById(R.id.uploadtosqlserver);
 
         dateToday = findViewById(R.id.dateToday);
@@ -94,42 +94,71 @@ public class LotFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int firstvalue= Integer.parseInt((totalquantityup.getText().toString()));
-                int secondvalue=Integer.parseInt((rejectup.getText().toString()));
+                int secondvalue=Integer.parseInt((rejectUp.getText().toString()));
                 int diff = 0;
                 connectionClass = new ConnectionClass();
                 Connection con = connectionClass.CONN2();
-                        try {
+                try {
 
-                            if(difFerence.getText().toString().equals("")  && !difFerence.getText().toString().equals("") ){
-                                difFerence.setText(String.valueOf(0 - Integer.parseInt(rejectup.getText().toString())));
-
-
-                                String query = " UPDATE LotNumber SET reject = '" + Integer.parseInt(rejectup.getText().toString() )+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "'";
-                                String query2 = " UPDATE LotNumber SET DIFF = '" + difFerence.getText().toString()+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "' ";
-                                Statement stmt =  con.createStatement();
-                                stmt.execute(query+query2);
-
-                                String  query4 = "";
-
-                                Toast.makeText(getApplicationContext(),"Successfully updated!", Toast.LENGTH_SHORT).show();
-
-                            }else{
-                                difFerence.setText(String.valueOf(firstvalue - secondvalue));
-                                difFerence.setText(String.valueOf(diff));
-                                totalquantityup.setTextColor(Color.parseColor("#23f011"));
-                            }
+                    if(rejectUp.getText().toString().equals("0")  ){
+                        difFerence.setText(String.valueOf(0 - Integer.parseInt(rejectUp.getText().toString())));
+                        String query7 = " UPDATE LotNumber SET DIFF = '" + Integer.parseInt(difFerence.getText().toString())+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "' ";
+                        Statement stmt =  con.createStatement();
+                        stmt.execute(query7);
 
 
 
-                        } catch (Exception ex) {
-                            Toast.makeText(getApplicationContext(),ex.toString(), Toast.LENGTH_LONG).show();
+                    }else{
+                        difFerence.setText(String.valueOf(firstvalue - secondvalue));
+                        difFerence.setText(String.valueOf(diff));
+                        totalquantityup.setTextColor(Color.parseColor("#23f011"));
 
+
+                        String query5 = "  SELECT SUM(reject)  as sumreject  FROM LotNumber  WHERE invoice_no= '"+lot_invoicenoup.getText().toString()+"' AND MaterialCodeBoxSeqID  = '"+boxseqidup.getText().toString()+"'";
+                        PreparedStatement stmtt = con.prepareStatement(query5);
+                        ResultSet rs = stmtt.executeQuery();
+                        while(rs.next()){
+                            String totalSum = rs.getString("sumreject");
+                            rejectHolder = totalSum;
                         }
+                        totallGood.setText(rejectHolder);
+                        int thirdVal=Integer.parseInt((totallGood.getText().toString()));
+                        totallGood.setText(String.valueOf(firstvalue - thirdVal));
 
+
+
+                        String query6 = " UPDATE LotNumber SET Total_good = '" + totallGood.getText().toString()+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' ";
+                        Statement stmt1 =  con.createStatement();
+                        stmt1.execute(query6);
+
+
+                        Toast.makeText(LotFormActivity.this, "success", Toast.LENGTH_SHORT).show();
+
+
+                        String query = " UPDATE LotNumber SET reject = '" + Integer.parseInt(rejectUp.getText().toString() )+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "'";
+                        difFerence.setText(String.valueOf(firstvalue - secondvalue));
+                        String query2 = " UPDATE LotNumber SET DIFF = '" + Integer.parseInt(difFerence.getText().toString())+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "' ";
+                        Statement stmt =  con.createStatement();
+                        stmt.execute(query+query2);
+
+                        Toast.makeText(getApplicationContext(),"Successfully updated!", Toast.LENGTH_SHORT).show();
 
                     }
 
+
+
+
+                } catch (Exception ex) {
+                    Toast.makeText(getApplicationContext(),ex.toString(), Toast.LENGTH_LONG).show();
+
+                }
+
+
+            }
+
         });
+
+
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +184,7 @@ public class LotFormActivity extends AppCompatActivity {
                 lotQuantityholder = lotquantup.getText().toString();
                 boxnumholder = boxnumup.getText().toString();
                 samplesizeHolder   = sampsizeup.getText().toString();
+
                 try {
                     pendingIntent.send();
                 } catch (PendingIntent.CanceledException e) {
@@ -227,7 +257,7 @@ public class LotFormActivity extends AppCompatActivity {
                     BOXSEQ =   boxseqidup.getText().toString().trim();
                     ACTUALQUANT =  quantityrecievedup.getText().toString().trim();
                     TOTALQUANT = totalquantityup.getText().toString().trim();
-                    REJECT =    rejectup.getText().toString().trim();
+                    REJECT =    rejectUp.getText().toString().trim();
                     SAMPLE =  sampsizeup.getText().toString().trim();
                     LOTNUM   =  lotnoup.getText().toString().trim();
                     LOTQUANT = lotquantup.getText().toString().trim();
@@ -250,6 +280,7 @@ public class LotFormActivity extends AppCompatActivity {
 
 
                 saveToSQLSERVER();
+                totalQuantofReject();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -291,6 +322,36 @@ public class LotFormActivity extends AppCompatActivity {
 
     }
 
+    void totalQuantofReject(){
+
+
+
+        try{
+            connectionClassss = new ConnectionClass();
+            Connection con = connectionClass.CONN2();
+            String query = "  SELECT SUM(reject)  as sumreject  FROM LotNumber  WHERE invoice_no= '"+lot_invoicenoup.getText().toString()+"' AND MaterialCodeBoxSeqID  = '"+boxseqidup.getText().toString()+"'";
+            PreparedStatement stmtt = con.prepareStatement(query);
+            ResultSet rs = stmtt.executeQuery();
+            while(rs.next()){
+                String totalSum = rs.getString("sumreject");
+                rejectHolder = totalSum;
+            }
+
+            String query2 = " UPDATE LotNumber SET DIFF = '" + rejectHolder+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "' ";
+            Statement stmt =  con.createStatement();
+            stmt.execute(query2);
+
+            rejectUp.setText(rejectHolder);
+                Toast.makeText(LotFormActivity.this, "success", Toast.LENGTH_SHORT).show();
+
+
+
+
+        }catch(Exception e ){
+            Toast.makeText(LotFormActivity.this,e.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 
     void getIntentData(){
@@ -324,7 +385,7 @@ public class LotFormActivity extends AppCompatActivity {
             lotnoup.setText(LOTNUM);
             lotquantup.setText(LOTQUANT);
             boxnumup.setText(BOX_NUMBER);
-            rejectup.setText(REJECT);
+            rejectUp.setText(REJECT);
             sampsizeup.setText(SAMPLE);
             remarksup.setText(REMARKS);
             dateToday.setText(DATETIME);
