@@ -80,6 +80,8 @@
         <item>NORMAL</item>
         <item>TIGHTENED</item>
         <item>100%</item>
+        <item>VALIDITY</item>
+        <item>BARCODE</item>
         <item>LABEL AND QTY</item>
 
 
@@ -123,6 +125,40 @@
         <item>ELECTRICAL</item>
         <item>COMPONENTS</item>
         <item>OTHERS</item>
+    </string-array>
+
+
+    <string-array name="func">
+        <item></item>
+        <item>GN-GoNo/Go Jig</item>
+        <item>TG-Thread GaugeL</item>
+
+    </string-array>
+
+
+    <string-array name="Makers">
+        <item></item>
+        <item>MAT-SMT</item>
+        <item>TAISHODO HONG KONG LIMITED</item>
+        <item>Kong Ngai Precision Stamping</item>
+        <item>TENMA</item>
+        <item>OB</item>
+        <item>LiMing(PH)</item>
+        <item>Goodway (July 2019)</item>
+        <item>CHICHIBU(HK)CO.LTD.</item>
+        <item>CHEUNG SHING PRECISION IND</item>
+        <item>HINODE</item>
+        <item>DG Jiayu Optical TechCoLtd.</item>
+        <item>IGARASHI ELECTRIC WORKS</item>
+        <item>INOAC HONG KONG LTD.</item>
+        <item>ITAKURA PRECISION CO., LTD.</item>
+        <item>GOGO CORPORATION</item>
+        <item>IGARASHI ELECTRIC WORKS</item>
+        <item>INOAC HONG KONG LTD.</item>
+        <item>Jingda Technology Dev. Ltd.</item>
+        <item>KD HONG KONG LIMITED</item>
+        <item>Kong ngai PH</item>
+        <item>MASTECH PRECISION CO., LTD.</item>
     </string-array>
 
 

@@ -3,13 +3,21 @@ package com.example.iqcapplication.fragments;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.iqcapplication.Adapters.CustomAdapterInspection;
@@ -25,7 +33,9 @@ public class FragmentForInspection extends Fragment {
     CustomAdapterInspection customAdapterIns;
     ArrayList<InspectionEncapsulation> InspectEncap = new ArrayList<>();
     RecyclerView recyclerView;
-
+    Toolbar tOolbar;
+    MenuItem menuItem;
+    SearchView searchView;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,11 +43,16 @@ public class FragmentForInspection extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_for_inspection, container, false);
         recyclerView = view.findViewById(R.id.recyclerviewins);
-
+        tOolbar = view.findViewById(R.id.toolbarIns);
         recyclerView.setHasFixedSize(true);
 
         myDB = new DatabaseHelper(getContext());
         displayData();
+
+
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(tOolbar);
+        activity.getSupportActionBar().setTitle("SEARCH RECORDS");
         customAdapterIns = new CustomAdapterInspection(getActivity(),getContext(), InspectEncap);
         recyclerView.setAdapter(customAdapterIns);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -45,6 +60,37 @@ public class FragmentForInspection extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
+        //-------------SEARCH VIEW DECLARE------------//
+        inflater.inflate(R.menu.search_v, menu);
+        MenuItem item = menu.findItem(R.id.searchairlist);
+        searchView = (SearchView)item.getActionView();
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                customAdapterIns.getFilter().filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     void displayData() {

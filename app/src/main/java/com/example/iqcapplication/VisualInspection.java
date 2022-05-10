@@ -1,7 +1,9 @@
 package com.example.iqcapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -52,27 +54,11 @@ public class VisualInspection extends AppCompatActivity {
         visualInspect();
         displayButton();
 
-        visualnextForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(VisualInspection.this, LotFormActivity.class);
-                update_judgement();
-                insert_defect_AP();
-                startActivity(intent);
-            }
-        });
-    }
-
-
-    public void displayButton(){
         appearanceOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                insert_appearanceinspection("OK");
-                visualJudgement.setText("PASSED");
-                visualJudgement.setTextColor(Color.parseColor("#58f40b"));
-                reset();
+                confirmDialog3();
 
             }
         });
@@ -80,19 +66,39 @@ public class VisualInspection extends AppCompatActivity {
         appearanceNG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insert_appearanceinspection("NG");
-                visualJudgement.setText("FAILED");
-                visualJudgement.setTextColor(Color.parseColor("#FF0000"));
-                reset();
+                confirmDialog4();
             }
         });
+
+        visualAddDefect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog2();
+            }
+        });
+
+        visualnextForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VisualInspection.this, FunctionalActivity.class);
+                update_judgement();
+                insert_defect_AP();
+
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    public void displayButton(){
+
     }
 
     public void visualInspect(){
 
 
 
-            instrumentUsedd = ArrayAdapter.createFromResource(this, R.array.instrument_array, android.R.layout.simple_dropdown_item_1line);
+            instrumentUsedd = ArrayAdapter.createFromResource(this, R.array.instrument_array1, android.R.layout.simple_dropdown_item_1line);
             instrumentUsedd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             visualinsUsed.setAdapter(instrumentUsedd);
 
@@ -117,11 +123,12 @@ public class VisualInspection extends AppCompatActivity {
 
         if (IGCheckpoints.trim().equals("")||Instrumentused.trim().equals("")|| Sample_size.trim().equals("")) {
             Toast.makeText(getApplicationContext(), "Fill up all fields!", Toast.LENGTH_LONG).show();
+            visualJudgement.setText("");
         }
         else {
             try {
                 connectionClass = new ConnectionClass();
-                Connection con = connectionClass.CONN();
+                Connection con = connectionClass.CONN2();
 
                 String query = "INSERT INTO Appearance_Inspection ( invoice_no, ig_checkpoints, instrument_used, result, remarks, goodsCode,MaterialCodeBoxSeqID) values ('"+SapmpleActivityinlot.invoicenumholder+"','"+IGCheckpoints+"','"+Instrumentused+"','"+Result+"','"+Remarkss+"','"+SapmpleActivityinlot.goodscodeholder+"','"+SapmpleActivityinlot.boxseqholder+"')";
                 String query1 = "UPDATE SampleSize SET appearance_sample_size = '"+visualsampleSize.getText().toString()+"' WHERE id = '"+DimensionalActivity.samplesize_id_hldr+"'";
@@ -143,7 +150,7 @@ public class VisualInspection extends AppCompatActivity {
     {
         //apsamplesize.setText("");
         visualCheckpoint.setText("");
-        visualJudgement.setText("");
+
         visualremarks.setText("");
 
     }
@@ -154,14 +161,14 @@ public class VisualInspection extends AppCompatActivity {
 
         try {
             connectionClass = new ConnectionClass();
-            Connection con = connectionClass.CONN();
+            Connection con = connectionClass.CONN2();
 
             for(int x = 0; x<id_list.size(); x++) {
                 String query1 = "UPDATE Appearance_Inspection SET judgement = '" + Judgement + "' WHERE id = '" + id_list.get(x) + "'";
                 Statement stmt = con.createStatement();
                 stmt.execute(query1);
             }
-            Toast.makeText(getApplicationContext(), "Successfully updated!", Toast.LENGTH_LONG).show();
+
             appinspectioncheck_id_hldr = Latest_ID();
             id_list.add(Latest_ID());
             // AlertSuccess();
@@ -182,12 +189,13 @@ public class VisualInspection extends AppCompatActivity {
         connectionClass = new ConnectionClass();
 
         try {
-            Connection con = connectionClass.CONN();//open ng connection sa connection class
+            Connection con = connectionClass.CONN2();//open ng connection sa connection class
             String query = "SELECT TOP 1 id FROM Appearance_Inspection ORDER BY id DESC";
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
+
                 output = id;
             }
         }
@@ -203,14 +211,15 @@ public class VisualInspection extends AppCompatActivity {
         String Quantity = visualDefectQuantity.getText().toString();
         String Encountered = visualdefectJudgement.getText().toString();
 
-        if (Quantity.trim().equals("") || Encountered.trim().equals(""))
-            Toast.makeText(getApplicationContext(),"Fillup required fields!", Toast.LENGTH_LONG).show();
-        else {
+        if (Quantity.trim().equals("") || Encountered.trim().equals("")){
 
+        }
+
+        else {
 
             try {
                 connectionClass = new ConnectionClass();
-                Connection con = connectionClass.CONN();
+                Connection con = connectionClass.CONN2();
 
                 String query = "UPDATE Appearance_Inspection SET defectqty = '"+Quantity+"', defect_enc = '"+Encountered+"' WHERE invoice_no = '"+SapmpleActivityinlot.invoicenumholder+"' AND id = '"+VisualInspection.appinspectioncheck_id_hldr+"'";
                 Statement stmt = con.createStatement();
@@ -225,6 +234,77 @@ public class VisualInspection extends AppCompatActivity {
         }
     }
 
+    void confirmDialog2() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("ADD" + "DATA " + "?");
+        builder.setMessage("Are you sure you want to add defect data ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                insert_defect_AP();
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+    void confirmDialog3() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("ADD" + " AS PASSED" + "?");
+        builder.setMessage("Are you sure you want to add  data, this can't be undone ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                insert_appearanceinspection("OK");
+                visualJudgement.setText("PASSSED");
+                visualJudgement.setTextColor(Color.parseColor("#23f011"));
+                reset();
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
 
 
+    void confirmDialog4() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("ADD" +  " AS FAILED" + "?");
+        builder.setMessage("Are you sure you want to add  data, this can't be undone ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                insert_appearanceinspection("NG");
+                visualJudgement.setText("FAILED");
+                visualJudgement.setTextColor(Color.parseColor("#FF0000"));
+                reset();
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
 }
+
+
+
+

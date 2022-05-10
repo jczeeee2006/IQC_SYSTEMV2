@@ -4,20 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/paaa"
     tools:context=".FunctionalActivity">
+
+    <TextView
+        android:id="@+id/textView82"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popbold"
+        android:text=" RECORDS"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/fcframelayout"
+        app:layout_constraintEnd_toEndOf="@+id/fcframelayout"
+        app:layout_constraintStart_toStartOf="@+id/fcframelayout" />
 
     <FrameLayout
         android:id="@+id/fcframelayout"
-        android:layout_width="650dp"
+        android:layout_width="580dp"
         android:layout_height="540dp"
         android:background="@drawable/layer"
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
@@ -43,6 +56,18 @@
 
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/rejectquanttt"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_baseline_add_box_24"
+                android:text="ADD REJECT"
+                app:layout_constraintEnd_toEndOf="@+id/adddatatosqllite"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/adddatatosqllite"
+                app:layout_constraintTop_toBottomOf="@+id/adddatatosqllite" />
 
             <EditText
                 android:id="@+id/checkPointfc"
@@ -104,7 +129,7 @@
                 android:layout_marginTop="140dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -131,17 +156,18 @@
                 android:id="@+id/fc2"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="28dp"
                 android:background="@drawable/edittext_shadow"
                 android:cursorVisible="true"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc1"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/fc1"
-                tools:layout_editor_absoluteY="342dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc1" />
 
             <EditText
                 android:id="@+id/fc1"
@@ -150,7 +176,7 @@
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
@@ -163,106 +189,113 @@
                 android:id="@+id/fc7"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc6"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/fc6"
-                tools:layout_editor_absoluteY="340dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc6" />
 
             <EditText
                 android:id="@+id/fc3"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc2"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc2"
-                tools:layout_editor_absoluteY="432dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc2" />
 
             <EditText
                 android:id="@+id/fc8"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="44dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc7"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc7"
-                tools:layout_editor_absoluteY="430dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc7" />
 
             <EditText
                 android:id="@+id/fc4"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc3"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc3"
-                tools:layout_editor_absoluteY="518dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc3" />
 
             <EditText
                 android:id="@+id/fc9"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc8"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/fc8"
-                tools:layout_editor_absoluteY="524dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc8" />
 
             <EditText
                 android:id="@+id/fc5"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc4"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc4"
-                tools:layout_editor_absoluteY="616dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc4" />
 
             <EditText
                 android:id="@+id/fc10"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="numberDecimal"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc9"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc9"
-                tools:layout_editor_absoluteY="618dp" />
+                app:layout_constraintTop_toBottomOf="@+id/fc9" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -420,23 +453,23 @@
 
 
             <Button
-                android:id="@+id/Viewdatafc"
-                android:layout_width="200dp"
+                android:id="@+id/viewdadtfun"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
 
                 android:backgroundTint="@color/darkblue"
                 android:drawableLeft="@drawable/ic_baseline_search_24"
                 android:text="VIEW DATA"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/uploadfcDatafc"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/uploadfcDatafc"
-                app:layout_constraintTop_toBottomOf="@+id/uploadfcDatafc"
-                app:layout_constraintVertical_bias="0.619" />
+                app:layout_constraintEnd_toEndOf="@+id/fc10"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/fc10"
+                app:layout_constraintTop_toBottomOf="@+id/fc10"
+                app:layout_constraintVertical_bias="0.409" />
 
             <Button
                 android:id="@+id/nextFormfc"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
 
                 android:backgroundTint="@color/darkblue"
@@ -444,23 +477,26 @@
                 android:text="NEXT FORM"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/fc5"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.366"
                 app:layout_constraintStart_toStartOf="@+id/fc5"
                 app:layout_constraintTop_toBottomOf="@+id/fc5"
-                app:layout_constraintVertical_bias="0.47" />
+                app:layout_constraintVertical_bias="0.235" />
+
 
             <Button
-                android:id="@+id/uploadfcDatafc"
-                android:layout_width="200dp"
+                android:id="@+id/adddatatosqllite"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="592dp"
-                android:backgroundTint="@color/darkblue"
+
+                android:backgroundTint="#1ff03b"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
-                android:text="add daata"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.858"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/fcjudgeMent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/fcjudgeMent"
+                app:layout_constraintTop_toBottomOf="@+id/fcjudgeMent"
+                app:layout_constraintVertical_bias="0.287" />
 
             <TextView
                 android:id="@+id/minimumfc"
@@ -554,7 +590,7 @@
                 android:id="@+id/textView41"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Lower Specs:"
                 android:textColor="@color/darkish"
                 android:textSize="18sp"
@@ -565,7 +601,7 @@
                 android:id="@+id/upperspec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Upper Specs:"
                 android:textColor="@color/darkish"
                 android:textSize="18sp"
@@ -599,7 +635,7 @@
                 android:id="@+id/textView47"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Maximum"
                 android:textColor="@color/darkish"
                 android:textSize="18sp"
@@ -628,5 +664,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

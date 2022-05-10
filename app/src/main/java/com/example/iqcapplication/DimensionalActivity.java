@@ -1,5 +1,6 @@
 package com.example.iqcapplication;
 
+
 import static com.example.iqcapplication.MainActivity.connectionClass;
 
 import androidx.appcompat.app.AlertDialog;
@@ -74,7 +75,7 @@ public class DimensionalActivity extends AppCompatActivity {
 
 
         sammpleUnit = findViewById(R.id.sampleUnit);
-        addData = findViewById(R.id.Viewdatafc);
+        addData = findViewById(R.id.viewdadtfun);
 
         //-----SAMPLE VALUES---
         dc1 = findViewById(R.id.fc1);
@@ -100,8 +101,8 @@ public class DimensionalActivity extends AppCompatActivity {
         dc_checkPoints = findViewById(R.id.checkPointfc);
         dcsampleSize = findViewById(R.id.sampleSizefc_);
 
-        addData = findViewById(R.id.Viewdatafc);
-        uploadtosqlite = findViewById(R.id.uploadfcDatafc);
+        addData = findViewById(R.id.viewdadtfun);
+        uploadtosqlite = findViewById(R.id.updateTosqlite);
         nextFormdim = findViewById(R.id.nextFormfc);
         sammpleUnit.setText("Mm");
         sammpleUnit.setEnabled(false);
@@ -137,6 +138,8 @@ public class DimensionalActivity extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String noww = df.format(new Date());
         dateToday.setText(noww);
+
+        dc_Judgemen.setEnabled(false);
 
 
         helpbuttton.setOnClickListener(new View.OnClickListener() {
@@ -175,13 +178,7 @@ public class DimensionalActivity extends AppCompatActivity {
         addData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dcsampleSize.getText().toString().equals("")){
-                    dcsampleSize.setError("Enter Sample size, this occurs due to tablet loosing to its keyboard");
-                }else if(!dcsampleSize.getText().toString().equals("")){
-                    addDatatoSQLite();
-                }
-
-
+                confirmDialog4();
             }
         });
     }
@@ -190,7 +187,7 @@ public class DimensionalActivity extends AppCompatActivity {
     private void replaceFragment(FragmentForDimension dcfragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fcframelayout,dcfragment);
+        fragmentTransaction.replace(R.id.dcframelayout,dcfragment);
         fragmentTransaction.commit();
 
     }
@@ -219,6 +216,32 @@ public class DimensionalActivity extends AppCompatActivity {
     }
 
 
+    void confirmDialog4() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Upload " + "Data " + "?");
+        builder.setMessage("Are you sure you want to Upload?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                if(dcsampleSize.getText().toString().equals("")){
+                    dcsampleSize.setError("Enter Sample size, this occurs due to tablet loosing to its keyboard");
+                }else if(!dcsampleSize.getText().toString().equals("")){
+                    addDatatoSQLite();
+                   // insert_dimcheck();
+                }
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
     public void addDatatoSQLite(){
         try{
             DatabaseHelper myDB = new DatabaseHelper(DimensionalActivity.this);
@@ -246,7 +269,7 @@ public class DimensionalActivity extends AppCompatActivity {
                     dc_Judgemen.getText().toString().trim(),
                     dateToday.getText().toString().trim()
             );
-            insert_dimcheck();
+         //   insert_dimcheck();
 
 
         }catch(Exception e){
@@ -1224,9 +1247,11 @@ public class DimensionalActivity extends AppCompatActivity {
         String DC8 = dc8.getText().toString();
         String DC9 = dc9.getText().toString();
         String DC10 = dc10.getText().toString();
+
         String Min = dc_Minimum.getText().toString();
         String Ave = dc_Average.getText().toString();
         String Max = dc_Maximum.getText().toString();
+
         String LowerSpec = lowerSpec.getText().toString();
         String UppperSpec = upperSpec.getText().toString();
         String Judgmnt = dc_Judgemen.getText().toString();
@@ -1242,12 +1267,19 @@ public class DimensionalActivity extends AppCompatActivity {
         else {
             try {
                 connectionClass = new ConnectionClass();
-                Connection con = connectionClass.CONN();
+                Connection con = connectionClass.CONN2();
+                String query = "SELECT * FROM DimensionalCheck WHERE  Date =  '"+ dateToday.getText().toString() +"' ";
+                PreparedStatement stmtt = con.prepareStatement(query);
+                ResultSet rs = stmtt.executeQuery();
+                if(rs.next()){
 
-                String query = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ InspectionDetailsActivity.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"','"+SapmpleActivityinlot.boxseqholder+"')"   ;
+                    //  String time = rs.getString("Time");
+                    Toast.makeText(DimensionalActivity.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
+                }
+                String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ InspectionDetailsActivity.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"' ,'"+SapmpleActivityinlot.boxseqholder+"','"+dateToday.getText().toString()+"')"   ;
 
                 Statement stmt = con.createStatement();
-                stmt.execute(query);
+                stmt.execute(query2);
                 dimcheck_id_hldr = Latest_ID("DimensionalCheck");
 
 
@@ -1263,7 +1295,7 @@ public class DimensionalActivity extends AppCompatActivity {
 
         try{
             connectionClass = new ConnectionClass();
-            Connection con = connectionClass.CONN();
+            Connection con = connectionClass.CONN2();
             String query1 = "INSERT INTO SampleSize (dimension_sample_size, goodsCode,invoice_number,MaterialCodeBoxSeqID) values ('"+sampleSizeDC+"', '"+SapmpleActivityinlot.materialholder+"', '"+SapmpleActivityinlot.invoicenumholder+"', '"+SapmpleActivityinlot.boxseqholder+"')";
             Statement stmt = con.createStatement();
             stmt.execute(query1);
@@ -1281,7 +1313,7 @@ public class DimensionalActivity extends AppCompatActivity {
         connectionClass = new ConnectionClass();
 
         try {
-            Connection con = connectionClass.CONN();//open ng connection sa connection class
+            Connection con = connectionClass.CONN2();//open ng connection sa connection class
             String query = "SELECT TOP 1 id FROM "+tablename+" ORDER BY id DESC";
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();

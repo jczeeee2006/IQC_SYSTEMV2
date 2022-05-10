@@ -21,6 +21,7 @@ import android.widget.EditText;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -32,6 +33,7 @@ import com.example.iqcapplication.R;
 import com.example.iqcapplication.SapmpleActivityinlot;
 import com.example.iqcapplication.VisualInspection;
 import com.example.iqcapplication.fragments.FragmentForInspection;
+import com.example.iqcapplication.fragments.FragmentforLot;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,24 +49,28 @@ import java.util.Date;
 import java.util.Locale;
 
 public class InspectionDetailsActivity extends AppCompatActivity {
-    EditText invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,maker,  goodc, dateeee, inspector, dateinspected,samplesize,
+    EditText invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,  goodc, dateeee, inspector, dateinspected,samplesize,
             datereceived,invoicequant,dateTodayins,boxsequenceins;
-    AutoCompleteTextView oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking;
+    AutoCompleteTextView oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking,maker;
     Button nextForm,addData,showButton;
     ConnectionClass connectionClass;
     private int mYear,mMonth,mDay;
 
-    public static String goodscodeholder;
+    public static String goodscodeholder,invoicenumholderr;
     final Calendar myCalendar= Calendar.getInstance();
 
-    public ArrayAdapter inspecttypee,OIRR,testreportt,mattypee,cocc,rohscompp,prodadapter,uladpter ;
+    public ArrayAdapter inspecttypee,OIRR,testreportt,mattypee,cocc,rohscompp,prodadapter,uladpter,makerADapter ;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inspection_details);
-
+        Fragment fragment= new FragmentForInspection();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.framelayoutins, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
 
         connectionClass = new ConnectionClass();
 
@@ -73,7 +79,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         dateeee = findViewById(R.id.dateinspectup);
         temp = findViewById(R.id.temperature);
         assemblyline = findViewById(R.id.assyLineup);
-        maker = findViewById(R.id.makerup);
+
         invoicenum = findViewById(R.id.invoiceNumberinsup);
         goodc = findViewById(R.id.goodsCodeinspup);
         partnum = findViewById(R.id.partNuminspecup);
@@ -96,7 +102,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         invoicequant = findViewById(R.id.invoiceQuantityup);
         addData = findViewById(R.id.button2);
         showButton = findViewById(R.id.button3);
-
+        maker = findViewById(R.id.makerup);
         nextForm = findViewById(R.id.inspectnextbutton);
         boxsequenceins = findViewById(R.id.boxseqinspection);
         dateTodayins = findViewById(R.id.dateToday1);
@@ -106,9 +112,9 @@ public class InspectionDetailsActivity extends AppCompatActivity {
          //----------------------HUMIDITY-------------------------///
 
         humidity.setEnabled(false);
-        humidity.setBackgroundColor(Color.parseColor("#d2d9d9"));
+
         temp.setEnabled(false);
-        temp.setBackgroundColor(Color.parseColor("#d2d9d9"));
+
 
         invoicenum.setText(SapmpleActivityinlot.invoicenumholder);
         goodc.setText(SapmpleActivityinlot.goodscodeholder);
@@ -116,10 +122,18 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         partnum.setText(SapmpleActivityinlot.partnumholder);
         boxsequenceins.setText(SapmpleActivityinlot.boxseqholder);
         goodscodeholder = goodc.getText().toString();
+        invoicenumholderr  = invoicenum.getText().toString();
         temp.setText(temp_hum("Temperature"));
         humidity.setText(temp_hum("Humidity"));
         preparedby.setText(MainActivity.lastNameholder);
-
+        inspector.setText(MainActivity.lastNameholder);
+        inspector.setEnabled(false);
+        preparedby.setEnabled(false);
+        invoicenum.setEnabled(false);
+        dateeee.setEnabled(false);
+        goodc.setEnabled(false);
+        partnum.setEnabled(false);
+        partName.setEnabled(false);
         InspectionAsync inspectionAsync = new InspectionAsync();
         inspectionAsync.execute("");
 
@@ -215,43 +229,44 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
 
+    public void invoiceQuantity(){
 
+    }
 
+    public void Maker() {
 
+        makerADapter = ArrayAdapter.createFromResource(this, R.array.Makers, android.R.layout.simple_dropdown_item_1line);
+        makerADapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        maker.setAdapter(makerADapter);
+
+        maker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                maker.showDropDown();
+            }
+        });
+
+    }
 
     public void suupplier() {
         final AutoCompleteTextView SUPPLIER = findViewById(R.id.supplierup);
         connectionClass = new ConnectionClass();
 
         try {
-            Connection con = connectionClass.CONN();//open ng connection sa connection class
-            String query = "select DISTINCT (SuppName) from tblSupplierName";
+            Connection con = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "select *  from Receive  WHERE INVOICE = '"+ invoicenum.getText().toString() +"'  AND GOODS_CODE = '"+ goodc.getText().toString() +"'  AND PART_NAME = '"+ partName.getText().toString() +"' AND PART_NUMBER = '"+ partnum.getText().toString() +"'  ";
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
-            final ArrayList<String> invoice = new ArrayList<String>();
+
             while (rs.next()) {
-                String invoicenumber = rs.getString("SuppName");
-                invoice.add(invoicenumber);
+                String supplier = rs.getString("SUPPLIER");
+                String  invoicequantity = rs.getString("QTY");
+                String  assylinee = rs.getString("ASY_LINE");
+                SUPPLIER.setText(supplier);
+                invoicequant.setText(invoicequantity);
+                assemblyline.setText(assylinee);
+
             }
-
-
-            final ArrayAdapter<String> invoice_array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, invoice);
-            SUPPLIER.setThreshold(1);
-            SUPPLIER.setAdapter(invoice_array);
-
-            SUPPLIER.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String item = parent.getItemAtPosition(position).toString();
-                    SUPPLIER.setText(item);
-
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                }
-            });
 
 
         } catch (Exception ex) {
@@ -295,7 +310,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
     }
 
-    void date1(){
+  void date1(){
         dateinspected.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -343,18 +358,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
     }
 
-    void  nextForm(){
-        nextForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-
-            }
-        });
-
-    }
 
 
 
@@ -365,27 +368,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
-
-  /*  private void updateLabel(){
-        String myFormat="MM/dd/yy";
-        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
-        dateinspected.setText(dateFormat.format(myCalendar.getTime()));
-
-
-    }
-    private void updateLabel1(){
-        String myFormat="MM/dd/yy";
-        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
-        dateeee.setText(dateFormat.format(myCalendar.getTime()));
-    }
-
-
-    private void updateLabel2(){
-        String myFormat="MM/dd/yy";
-        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
-        datereceived.setText(dateFormat.format(myCalendar.getTime()));
-    }
-*/
 
     void OOIR(){
         AutoCompleteTextView oir = findViewById(R.id.oirup);
@@ -581,6 +563,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
             OOIR();
             rohs();
             prodtype();
+            Maker();
             mattype();
             ulMarking();
             coc();

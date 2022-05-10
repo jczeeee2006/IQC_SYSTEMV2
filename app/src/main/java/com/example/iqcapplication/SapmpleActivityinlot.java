@@ -2,12 +2,14 @@ package com.example.iqcapplication;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,22 +26,24 @@ import android.widget.Toast;
 
 import com.example.iqcapplication.Update.LotFormActivity;
 import com.example.iqcapplication.add.InspectionDetailsActivity;
+import com.example.iqcapplication.encapsulation.LotEncapsulation;
 import com.example.iqcapplication.fragments.FragmentforLot;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class SapmpleActivityinlot extends AppCompatActivity {
+public class SapmpleActivityinlot extends AppCompatActivity  {
     Button firstFragButton;
     ConnectionClass connectionClass;
     Button button,buttonAdd,buttonShow,nextForm,clearDatA;
     public static EditText totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks,dateToday;
     public static AutoCompleteTextView lot_invoiceno, tv_partname, goodsc, et_partnum;
+
+    ArrayList<LotEncapsulation> lotData = new ArrayList<>();
 
     ImageButton helpButton;
     int ctr= 0;
@@ -48,16 +52,15 @@ public class SapmpleActivityinlot extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        replaceFragment(new FragmentforLot());
         setContentView(R.layout.activity_sapmple_activityinlot);
         firstFragButton = findViewById(R.id.showbutton);
+        Fragment fragment= new FragmentforLot();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.framelayout, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
 
-
-        firstFragButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                replaceFragment(new FragmentforLot());
-            }
-        });
 
 
         boxseqid = findViewById(R.id.boxSequence);
@@ -101,7 +104,10 @@ public class SapmpleActivityinlot extends AppCompatActivity {
         tv_partname.setText(LotFormActivity.partnameholder);
         et_partnum.setText(LotFormActivity.partnumholder);
         goodsc.setText(LotFormActivity.goodscodeholder);
-
+        lotquant.setText(LotFormActivity.lotQuantityholder);
+        lotno.setText(LotFormActivity.lotnumholder);
+        boxnum.setText(LotFormActivity.boxnumholder);
+        sampsize.setText(LotFormActivity.samplesizeHolder);
        quantityrecieved.setText(LotFormActivity.actualquantityHolder);
         LotAsync lotAsync = new LotAsync();
         lotAsync.execute("");
@@ -191,12 +197,14 @@ public class SapmpleActivityinlot extends AppCompatActivity {
 
     }
 
+
     public  class LotAsync extends AsyncTask<String, String, String>{
         @Override
         protected void onPreExecute() {
 
             Query();
             GoodsCodelist();
+            partnumList();
             super.onPreExecute();
         }
 
@@ -212,6 +220,12 @@ public class SapmpleActivityinlot extends AppCompatActivity {
             return null;
         }
     }
+
+
+
+
+
+
     //--------------GENERATING OF SPECIFIC FIELDS FROM PART NUMBER----------------//
     public String Query(){
 
@@ -302,6 +316,9 @@ public class SapmpleActivityinlot extends AppCompatActivity {
                     invoicenumholder = et_partnum.getText().toString();
                     tv_partname.setText(invandgoodscode(goodsc.getText().toString(),"PART_NAME"));
                     partnameholder = tv_partname.getText().toString();
+
+                    boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
+                    boxseqholder = boxseqid.getText().toString();
                 }
             });
 
@@ -316,6 +333,66 @@ public class SapmpleActivityinlot extends AppCompatActivity {
         }
         return z;
     }
+
+
+    public String partnumList(){
+
+        connectionClass = new ConnectionClass();
+        String z = "";
+        try{
+
+            Connection conn2 = connectionClass.CONN4();
+            String query = "SELECT DISTINCT (PART_NUMBER) from Receive ";
+            PreparedStatement stmt = conn2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            final ArrayList<String> inv = new ArrayList<String>();
+            while (rs.next()) {
+                String invoice = rs.getString("PART_NUMBER");
+                inv.add(invoice);
+            }
+
+            final AutoCompleteTextView   partN = findViewById(R.id.partN);
+            final ArrayAdapter<String> partn_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
+            partN.setThreshold(1);
+            partN.setAdapter(partn_array);
+
+            partN.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String item = parent.getItemAtPosition(position).toString();
+                    //-------SET THE DATA FROM DB TO PARTNUMBER TEXTBOX
+                    partN.setText(item);
+
+                    goodsc.setText(partNum(partN.getText().toString(), "GOODS_CODE"));
+                    partnumholder = et_partnum.getText().toString();
+                    lot_invoiceno.setText(partNum(partN.getText().toString(), "INVOICE"));
+                    invoicenumholder = et_partnum.getText().toString();
+                    tv_partname.setText(partNum(partN.getText().toString(),"PART_NAME"));
+                    partnameholder = tv_partname.getText().toString();
+
+                    boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
+                    boxseqholder = boxseqid.getText().toString();
+                }
+            });
+
+            partN.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    partN.showDropDown();
+                }
+            });
+        }catch (Exception e){
+            z = e.toString();
+        }
+        return z;
+    }
+
+
+
+
+
+
+
 
     //-----------------------GENERATING OF PARTNAME AND GOODS CODE DEPENDING ON PARTNUMBER-------------------//
     public String nameandGoodsCode(String invoice, String selectedCol){
@@ -359,13 +436,40 @@ public class SapmpleActivityinlot extends AppCompatActivity {
     }
 
 
+    public String partNum(String partNum, String selectedCol){
+
+        String output = "";
+        connectionClass = new ConnectionClass();
+        try{
+            Connection con2 = connectionClass.CONN4();
+            String query = "SELECT "+selectedCol+" FROM Receive WHERE PART_NUMBER = '"+partNum+"'";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String generatedItem = rs.getString(selectedCol);
+
+                output = generatedItem;
+            }
+        }catch(Exception e){
+            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
+        }
+        return output;
+    }
+
+
+
+
+
+
+
+
 
     //----GET THE LATEST ID TO THE TOP -------//
     public int Latest_ID(String tablename){
         int output = 0;
         connectionClass = new ConnectionClass();
         try{
-            Connection con = connectionClass.CONN();//open ng connection sa connection class
+            Connection con = connectionClass.CONN2();//open ng connection sa connection class
             String query = "SELECT TOP 1 id FROM "+tablename+" ORDER BY id DESC";
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
@@ -378,7 +482,7 @@ public class SapmpleActivityinlot extends AppCompatActivity {
         }
         return output;
     }
-
+/*
     public boolean getData(){
         boolean output = false;
         String Invoice_no = lot_invoiceno.getText().toString();
@@ -415,7 +519,7 @@ public class SapmpleActivityinlot extends AppCompatActivity {
         }
 
         return output;
-    }
+    }*/
 
     void confirmDialog1() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -498,7 +602,9 @@ public class SapmpleActivityinlot extends AppCompatActivity {
         quantityrecieved.setText("");
         boxnum.setText("");
         sampsize.setText("");
-
+        lotno.setText("");
+        lotno.setText("");
+        boxseqid.setText("");
     }
 
 
@@ -508,11 +614,12 @@ public class SapmpleActivityinlot extends AppCompatActivity {
             String QuantRecieved = quantityrecieved.getText().toString();
             if(!lotquant.getText().toString().equals("")){
 
-                if(quantityrecieved.getText().toString().equals("")){
+                if(quantityrecieved.getText().toString().equals("") ){
                     quantityrecieved.setText(String.valueOf(0 + Integer.parseInt(lotquant.getText().toString())));
 
                 }else{
                     quantityrecieved.setText(String.valueOf(Integer.parseInt(QuantRecieved) + Integer.parseInt(lotquant.getText().toString())));
+                    quantityrecieved.setTextColor(Color.parseColor("#23f011"));
                 }
 
                 DatabaseHelper myDB = new DatabaseHelper(SapmpleActivityinlot.this);
@@ -544,6 +651,8 @@ public class SapmpleActivityinlot extends AppCompatActivity {
         }
 
     }
+
+
 
 
 

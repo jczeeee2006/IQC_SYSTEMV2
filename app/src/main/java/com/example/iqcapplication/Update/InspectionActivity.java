@@ -5,6 +5,7 @@ import static com.example.iqcapplication.MainActivity.connectionClass;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,7 +52,41 @@ public class InspectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inspection);
+        valueNames();
+        getIntentData();
 
+
+        updatedata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog2();
+            }
+        });
+
+        uploadData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog3();
+            }
+        });
+        backform.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InspectionActivity.this, InspectionDetailsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent pendingIntent =
+                        PendingIntent.getActivity(InspectionActivity.this, 0, intent, 0);
+                try {
+                    pendingIntent.send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    public void valueNames(){
         updatedata = findViewById(R.id.updatedata2);
         connectionClass = new ConnectionClass();
 
@@ -90,31 +125,6 @@ public class InspectionActivity extends AppCompatActivity {
         backform = findViewById(R.id. inspectnextbutton);
         dateToday = findViewById(R.id.dateToday1);
         boxseqins.setText(SapmpleActivityinlot.boxseqholder);
-        getIntentData();
-
-
-        updatedata.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog2();
-            }
-        });
-
-        uploadData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog3();
-            }
-        });
-        backform.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InspectionActivity.this, InspectionDetailsActivity.class);
-
-                startActivity(intent);
-            }
-        });
-
     }
 
     void confirmDialog3() {
@@ -173,7 +183,7 @@ public class InspectionActivity extends AppCompatActivity {
                     myDB.updateinspectdata(insid,  prepared,  prepareddate, insinvoicenum,  insgoods, inspartname,  insinvoicequant,  insassyline,
                             inspatnum, instemp, insrohs,  insdateinspected,  inshumid,  insupp, inspectorrs,  insdatereceived,
                             insmaker, inssample,  insmaterial,  insinspecttype,  insulmarking,  insoir,  inscocs,prodttpes,  instestreport, dateTodayString);
-
+                    Toast.makeText(InspectionActivity.this, "Successfully inserted", Toast.LENGTH_SHORT).show();
 
 
                 }catch (Exception e){
@@ -188,7 +198,7 @@ public class InspectionActivity extends AppCompatActivity {
 
                 try{
                     connectionClass = new ConnectionClass();
-                    Connection con = connectionClass.CONN();
+                    Connection con = connectionClass.CONN2();
                     String query = "SELECT * FROM inspectiondata WHERE  Date =  '"+ dateToday.getText().toString() +"' ";
                     PreparedStatement stmtt = con.prepareStatement(query);
                     ResultSet rs = stmtt.executeQuery();
@@ -199,7 +209,7 @@ public class InspectionActivity extends AppCompatActivity {
                     }
                    else{
                        connectionClass = new ConnectionClass();
-                        Connection conn = connectionClass.CONN();
+                        Connection conn = connectionClass.CONN2();
                         String query2 = "INSERT INTO inspectiondata (prepared,  prepared_date, temperature, assembly_line, invoice_no, part_number, rohs_compliance, humidity, inspected_date, recieved_date, supplier, maker, inspector, material_type, production_type, inspection_type, oir, test_report, sample_size, ul_marking, coc, partname, invoicequant, goodsCode, MaterialCodeBoxSeqID, Date) values ('" + prepared + "','" + dateeee.getText().toString() + "','" + instemp + "','" + insassyline + "','" + invoicenum.getText().toString() + "','" + inspatnum + "','" + insrohs + "','" + inshumid + "','" + dateinspected.getText().toString() + "','" + datereceived.getText().toString() + "','" + insupp + "','" + insmaker + "','" + inspectorrs + "','" + insmaterial + "','" + prodttpes + "','" + insinspecttype + "','" + insoir + "','" + instestreport + "','" + inssample + "','" + insulmarking + "','" + inscocs + "','" + inspartname + "','" + insinvoicequant + "','" + insgoods + "','" + SapmpleActivityinlot.boxseqholder + "', '" + dateToday.getText().toString()+ "')";
                         Statement stmt = conn.createStatement();
                         stmt.execute(query2);

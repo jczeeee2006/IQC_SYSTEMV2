@@ -1,56 +1,119 @@
 package com.example.iqcapplication.fragments;
 
+import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.iqcapplication.Adapters.CustomAdapterLot;
 import com.example.iqcapplication.DatabaseHelper;
+import com.example.iqcapplication.MainActivity;
 import com.example.iqcapplication.R;
+import com.example.iqcapplication.SapmpleActivityinlot;
 import com.example.iqcapplication.encapsulation.LotEncapsulation;
 
 import java.util.ArrayList;
 
 
-public class FragmentforLot extends Fragment {
+public class FragmentforLot extends Fragment  {
     DatabaseHelper myDB;
     CustomAdapterLot customAdapterLot;
     ArrayList<LotEncapsulation> lotData = new ArrayList<>();
     RecyclerView recyclerView;
+    Toolbar tOolbar;
+    MenuItem menuItem;
+    SearchView searchView;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
        View view = inflater.inflate(R.layout.fragment_forlot, container, false);
 
+
+
         recyclerView = view.findViewById(R.id.recyclerview);
-
-        recyclerView.setHasFixedSize(true);
-
+        tOolbar = view.findViewById(R.id.toolbar);
         myDB = new DatabaseHelper(getContext());
 
+
+        //-------------SEARCH VIEW TOOLBAR------------//
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(tOolbar);
+        activity.getSupportActionBar().setTitle("SEARCH RECORDS");
         customAdapterLot = new CustomAdapterLot(getActivity(),getContext(), lotData);
+
         recyclerView.setAdapter(customAdapterLot);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        displayData();
 
         recyclerView.setItemViewCacheSize(20);
         recyclerView.setDrawingCacheEnabled(true);
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
+        displayData();
+
         return view;
     }
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
+        //-------------SEARCH VIEW DECLARE------------//
+        inflater.inflate(R.menu.search_v, menu);
+        MenuItem item = menu.findItem(R.id.searchairlist);
+            searchView = (SearchView)item.getActionView();
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                customAdapterLot.getFilter().filter(newText);
+                return false;
+            }
+        });
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
     void displayData() {
-        int ctr= 0;
         Cursor cursor = myDB.readAllData();
         if (cursor.getCount() == 0) {
             Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();

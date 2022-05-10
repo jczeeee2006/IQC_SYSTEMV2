@@ -6,53 +6,51 @@
     android:layout_height="wrap_content"
     android:padding="5dp"
     android:layout_margin="10dp"
-    android:id="@+id/dimensionLayout"
+    android:id="@+id/functionalLayout"
     android:background="@drawable/grid_row_border"
-  >
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="780dp"
         android:layout_height="720dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/dcid_txt"
+            android:id="@+id/fcid_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="56dp"
             android:fontFamily="@font/popbold"
             android:text="1"
-            android:textColor="@color/darkblue"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintHorizontal_bias="0.933"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/checkPointfc"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="140dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="152dp"
+            android:background="@drawable/edittext_shadow"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintHorizontal_bias="0.38"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/instrumentUsed_txt"
+            android:id="@+id/fcinstrumentUsed_txt"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="56dp"
@@ -65,18 +63,17 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintHorizontal_bias="0.086"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/sampleUnit_txt"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:id="@+id/fcsampleUnit_txt"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="44dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
@@ -85,18 +82,17 @@
             android:paddingTop="10dp"
             android:text="mm"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/instrumentUsed_txt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/instrumentUsed_txt"
-            app:layout_constraintTop_toBottomOf="@+id/instrumentUsed_txt" />
+            app:layout_constraintEnd_toStartOf="@+id/checkPointfc"
+            app:layout_constraintHorizontal_bias="0.37"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fcinstrumentUsed_txt" />
 
         <TextView
-            android:id="@+id/dc6_txt"
+            android:id="@+id/fc6_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
@@ -104,31 +100,31 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/checkPointfc"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/checkPointfc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.142"
+            app:layout_constraintStart_toEndOf="@+id/fc1_txt"
             app:layout_constraintTop_toBottomOf="@+id/checkPointfc" />
 
         <TextView
-            android:id="@+id/sampleSizedc_txt"
+            android:id="@+id/sampleSizefc_txt"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/edittext_shadow"
             android:elevation="10dp"
+            android:ems="10"
             android:inputType="number|textPersonName"
-            android:textColor="@color/blayk"
+            android:paddingLeft="10dp"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintHorizontal_bias="0.696"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dc2_txt"
+            android:id="@+id/fc2_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
@@ -139,51 +135,32 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/dc1_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc1_txt" />
-
-        <TextView
-            android:id="@+id/dc1_txt"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
-            android:elevation="10dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/blayk"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/sampleUnit_txt"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintStart_toStartOf="@+id/sampleUnit_txt"
-            app:layout_constraintTop_toBottomOf="@+id/sampleUnit_txt" />
-
-        <TextView
-            android:id="@+id/dc7_txt"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
-            android:elevation="10dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/blayk"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc6_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fc1_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/dc6_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc6_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fc1_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc1_txt" />
 
         <TextView
-            android:id="@+id/dc3_txt"
+            android:id="@+id/fc1_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/fcsampleUnit_txt"
+            app:layout_constraintHorizontal_bias="0.282"
+            app:layout_constraintStart_toStartOf="@+id/fcsampleUnit_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fcsampleUnit_txt" />
+
+        <TextView
+            android:id="@+id/fc7_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
@@ -194,37 +171,17 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc2_txt"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/dc2_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc2_txt" />
-
-        <TextView
-            android:id="@+id/dc8_txt"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
-            android:elevation="10dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/blayk"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc7_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fc6_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/dc7_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc7_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fc6_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc6_txt" />
 
         <TextView
-            android:id="@+id/dc4_txt"
+            android:id="@+id/fc3_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
@@ -232,15 +189,14 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc3_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fc2_txt"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/dc3_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc3_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fc2_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc2_txt" />
 
         <TextView
-            android:id="@+id/dc9_txt"
+            android:id="@+id/fc8_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
@@ -251,18 +207,53 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc8_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fc7_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/fc7_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc7_txt" />
+
+        <TextView
+            android:id="@+id/fc4_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/fc3_txt"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fc3_txt" />
+
+        <TextView
+            android:id="@+id/fc9_txt"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_corners"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/fc8_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/dc8_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc8_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fc8_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc8_txt" />
 
         <TextView
-            android:id="@+id/dc5_txt"
+            android:id="@+id/fc5_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
@@ -270,18 +261,17 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc4_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fc4_txt"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/dc4_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc4_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fc4_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc4_txt" />
 
         <TextView
-            android:id="@+id/dc10_txt"
+            android:id="@+id/fc10_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
@@ -289,12 +279,11 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/dc9_txt"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/dc9_txt"
-            app:layout_constraintTop_toBottomOf="@+id/dc9_txt" />
+            app:layout_constraintEnd_toEndOf="@+id/fc9_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/fc9_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fc9_txt" />
 
         <TextView
             android:id="@+id/textView31"
@@ -315,8 +304,8 @@
             android:text="Instrument Used:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/instrumentUsed_txt"
-            app:layout_constraintStart_toStartOf="@+id/instrumentUsed_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fcinstrumentUsed_txt"
+            app:layout_constraintStart_toStartOf="@+id/fcinstrumentUsed_txt" />
 
         <TextView
             android:id="@+id/textView66"
@@ -325,8 +314,8 @@
             android:fontFamily="@font/popbold"
             android:text="Sample Size:"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/sampleSizedc_txt"
-            app:layout_constraintStart_toStartOf="@+id/sampleSizedc_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/sampleSizefc_txt"
+            app:layout_constraintStart_toStartOf="@+id/sampleSizefc_txt" />
 
         <TextView
             android:id="@+id/textView60"
@@ -336,8 +325,8 @@
             android:text="Sample Unit:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/sampleUnit_txt"
-            app:layout_constraintStart_toStartOf="@+id/sampleUnit_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fcsampleUnit_txt"
+            app:layout_constraintStart_toStartOf="@+id/fcsampleUnit_txt" />
 
         <TextView
             android:id="@+id/textView49"
@@ -347,8 +336,8 @@
             android:text="Sample 1:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc1_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc1_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc1_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc1_txt" />
 
         <TextView
             android:id="@+id/textView55"
@@ -358,8 +347,8 @@
             android:text="Sample 6:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc6_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc6_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc6_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc6_txt" />
 
         <TextView
             android:id="@+id/textView56"
@@ -369,8 +358,8 @@
             android:text="Sample 7:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc7_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc7_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc7_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc7_txt" />
 
         <TextView
             android:id="@+id/textView57"
@@ -380,8 +369,8 @@
             android:text="Sample 8:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc8_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc8_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc8_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc8_txt" />
 
         <TextView
             android:id="@+id/textView58"
@@ -391,8 +380,8 @@
             android:text="Sample 9:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc9_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc9_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc9_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc9_txt" />
 
         <TextView
             android:id="@+id/textView59"
@@ -402,19 +391,19 @@
             android:text="Sample 10:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc10_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc10_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc10_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc10_txt" />
 
         <TextView
             android:id="@+id/textView50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="86dp"
+            android:layout_height="21dp"
             android:fontFamily="@font/popbold"
             android:text="Sample 2:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc2_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc2_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc2_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc2_txt" />
 
         <TextView
             android:id="@+id/textView51"
@@ -424,8 +413,8 @@
             android:text="Sample 3:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc3_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc3_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc3_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc3_txt" />
 
         <TextView
             android:id="@+id/textView53"
@@ -435,8 +424,8 @@
             android:text="Sample 4:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc4_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc4_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc4_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc4_txt" />
 
         <TextView
             android:id="@+id/textView54"
@@ -446,25 +435,24 @@
             android:text="Sample 5:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/dc5_txt"
-            app:layout_constraintStart_toStartOf="@+id/dc5_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fc5_txt"
+            app:layout_constraintStart_toStartOf="@+id/fc5_txt" />
 
 
         <TextView
-            android:id="@+id/minimum_txt"
+            android:id="@+id/fcminimum_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/upperspecs_txt"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/upperspecs_txt"
-            app:layout_constraintTop_toBottomOf="@+id/upperspecs_txt" />
+            app:layout_constraintEnd_toEndOf="@+id/fcupperspecs_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/fcupperspecs_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fcupperspecs_txt" />
 
         <TextView
             android:id="@+id/averagefc"
@@ -475,15 +463,14 @@
             android:elevation="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/minimum_txt"
+            app:layout_constraintEnd_toEndOf="@+id/fcminimum_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/minimum_txt"
-            app:layout_constraintTop_toBottomOf="@+id/minimum_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fcminimum_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fcminimum_txt" />
 
         <TextView
-            android:id="@+id/maximum_txt"
+            android:id="@+id/fcmaximum_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
@@ -491,18 +478,17 @@
             android:elevation="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/averagefc"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/averagefc"
             app:layout_constraintTop_toBottomOf="@+id/averagefc" />
 
         <TextView
             android:id="@+id/dcjudgeMent_txt"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="52dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
@@ -510,48 +496,45 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fcmaximum_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/maximum_txt"
-            app:layout_constraintTop_toBottomOf="@+id/maximum_txt" />
+            app:layout_constraintStart_toStartOf="@+id/fcmaximum_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fcmaximum_txt" />
 
         <TextView
-            android:id="@+id/lowerspec_txt"
+            android:id="@+id/fclowerspec_txt"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="152dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.346"
+            app:layout_constraintHorizontal_bias="0.36"
             app:layout_constraintStart_toEndOf="@+id/checkPointfc"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/upperspecs_txt"
+            android:id="@+id/fcupperspecs_txt"
             android:layout_width="154dp"
             android:layout_height="43dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingTop="10dp"
             android:textAlignment="center"
-            android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/lowerspec_txt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/lowerspec_txt"
-            app:layout_constraintTop_toBottomOf="@+id/lowerspec_txt" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.247"
+            app:layout_constraintStart_toEndOf="@+id/fc6_txt"
+            app:layout_constraintTop_toBottomOf="@+id/fclowerspec_txt" />
 
         <TextView
             android:id="@+id/textView41"
@@ -560,8 +543,8 @@
             android:fontFamily="@font/pop"
             android:text="Lower Specs:"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/lowerspec_txt"
-            app:layout_constraintStart_toStartOf="@+id/lowerspec_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fclowerspec_txt"
+            app:layout_constraintStart_toStartOf="@+id/fclowerspec_txt" />
 
         <TextView
             android:id="@+id/upperspec"
@@ -570,8 +553,8 @@
             android:fontFamily="@font/pop"
             android:text="Upper Specs:"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/upperspecs_txt"
-            app:layout_constraintStart_toStartOf="@+id/upperspecs_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fcupperspecs_txt"
+            app:layout_constraintStart_toStartOf="@+id/fcupperspecs_txt" />
 
         <TextView
             android:id="@+id/textView80"
@@ -590,8 +573,8 @@
             android:fontFamily="@font/pop"
             android:textColor="@color/darkblue"
             android:text="Minimum"
-            app:layout_constraintBottom_toTopOf="@+id/minimum_txt"
-            app:layout_constraintStart_toStartOf="@+id/minimum_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fcminimum_txt"
+            app:layout_constraintStart_toStartOf="@+id/fcminimum_txt" />
 
         <TextView
             android:id="@+id/textView47"
@@ -600,8 +583,8 @@
             android:fontFamily="@font/pop"
             android:text="Maximum"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/maximum_txt"
-            app:layout_constraintStart_toStartOf="@+id/maximum_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/fcmaximum_txt"
+            app:layout_constraintStart_toStartOf="@+id/fcmaximum_txt" />
 
         <TextView
             android:id="@+id/textView48"
@@ -614,7 +597,7 @@
             app:layout_constraintStart_toStartOf="@+id/averagefc" />
 
         <TextView
-            android:id="@+id/datedim_txt"
+            android:id="@+id/fdatedim_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"

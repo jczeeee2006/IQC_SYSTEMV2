@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TableFormforall"
+    tools:ignore="MissingDefaultResource">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/white">
+
+        <TableRow
+
+            android:background="@color/teal_200">
+
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="InvoiceNumber"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Part Number"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Part Name "
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Goods Code"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Lot Number"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="InvoiceNumber"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Box Number "
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/textView83"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Total Quantity"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Actual Quantity"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sample Size"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+            android:id="@+id/textView87"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Box Sequence Id"
+            android:textColor="@color/white"
+            android:padding="10sp"
+            android:layout_weight="4"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+        </TableRow>
+
+        <TableRow
+
+            android:background="@color/gray">
+
+            <TextView
+                android:id="@+id/invoiceview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/partNumberView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/partNnameView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="4"
+                android:padding="10sp"
+
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/goodsCodeview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/lotNumView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/boxNumView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/totalView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/actualview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/sampsizeview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/boxseqview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:layout_weight="4"
+                android:layout_gravity="center_horizontal"
+                />
+        </TableRow>
+</TableLayout>
+
+</RelativeLayout>

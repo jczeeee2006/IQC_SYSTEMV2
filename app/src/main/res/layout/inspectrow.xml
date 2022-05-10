@@ -13,13 +13,13 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="950dp"
+        android:layout_height="900dp"
         android:padding="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inspectrow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="900dp"
             android:background="@drawable/edittext_background">
 
             <TextView
@@ -35,13 +35,14 @@
                 android:id="@+id/humidIns_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="56dp"
-                android:background='@drawable/rounded_corners'
+                android:layout_marginTop="60dp"
+                android:background="@drawable/rounded_corners"
                 android:elevation="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/tempIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -52,164 +53,162 @@
                 android:id="@+id/preparedins_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="56dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="20dp"
+                android:layout_marginTop="92dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.08"
+                app:layout_constraintHorizontal_bias="0.122"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/prepareddate_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="20dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/preparedins_txt"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/preparedins_txt"
-                app:layout_constraintTop_toBottomOf="@+id/preparedins_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/preparedins_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/invoiceIns_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="20dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/prepareddate_txt"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/prepareddate_txt"
-                app:layout_constraintTop_toBottomOf="@+id/prepareddate_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/prepareddate_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/goodsCodeIns_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="64dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="20dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/invoiceIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/invoiceIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/invoiceIns_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/invoiceIns_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/oirIns_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="52dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/makerins_txt"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/makerins_txt"
-                app:layout_constraintTop_toBottomOf="@+id/makerins_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/makerins_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/makerins_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/goodsCodeIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/goodsCodeIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/goodsCodeIns_txt" />
-
-            <TextView
-                android:id="@+id/humidIns_txt2"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="56dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/tempIns_txt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tempIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/tempIns_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/goodsCodeIns_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/testReportIns_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/oirIns_txt"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/oirIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/oirIns_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/oirIns_txt"
+                tools:paddingLeft="10dp" />
 
 
             <TextView
                 android:id="@+id/cocins_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
+                android:layout_marginTop="56dp"
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/testReportIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/testReportIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/testReportIns_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/testReportIns_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/boxseqid_txt"
@@ -230,14 +229,15 @@
                 android:id="@+id/tempIns_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="56dp"
-                android:background='@drawable/rounded_corners'
+                android:layout_marginTop="52dp"
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/inspectorins_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -337,13 +337,14 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="56dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/humidIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -355,13 +356,14 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/productionins_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -372,14 +374,15 @@
                 android:id="@+id/productionins_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="68dp"
-                android:background='@drawable/rounded_corners'
+                android:layout_marginTop="64dp"
+                android:background="@drawable/rounded_corners"
                 android:elevation="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/materialin_txtcocins_txt4"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -391,78 +394,46 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="52dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/date_received_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/date_received_txt"
-                app:layout_constraintTop_toBottomOf="@+id/date_received_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/date_received_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/date_received_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
+                android:layout_marginTop="56dp"
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/ul_Marking_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/ul_Marking_txt"
-                app:layout_constraintTop_toBottomOf="@+id/ul_Marking_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/ul_Marking_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/ul_Marking_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="68dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="20dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/assylineins_txt"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/assylineins_txt"
-                app:layout_constraintTop_toBottomOf="@+id/assylineins_txt" />
-
-            <TextView
-                android:id="@+id/invoiceQuantins_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="60dp"
-                android:background='@drawable/rounded_corners'
-                android:elevation="10dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/dateinspect_txt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dateinspect_txt"
-                app:layout_constraintTop_toBottomOf="@+id/dateinspect_txt" />
-
-            <TextView
-                android:id="@+id/sampleSizeIns_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="20dp"
                 android:ems="10"
@@ -470,11 +441,51 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/assylineins_txt"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/assylineins_txt"
+                app:layout_constraintTop_toBottomOf="@+id/assylineins_txt"
+                tools:paddingLeft="10dp" />
+
+            <TextView
+                android:id="@+id/invoiceQuantins_txt"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/dateinspect_txt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dateinspect_txt"
+                app:layout_constraintTop_toBottomOf="@+id/dateinspect_txt"
+                tools:paddingLeft="10dp" />
+
+            <TextView
+                android:id="@+id/sampleSizeIns_txt"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_corners"
+                android:elevation="20dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.521"
+                app:layout_constraintHorizontal_bias="0.657"
                 app:layout_constraintStart_toEndOf="@+id/partNumIns_txt"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/partNumIns_txt" />
 
             <TextView
                 android:id="@+id/textView38"
@@ -542,11 +553,13 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.521"
+                app:layout_constraintHorizontal_bias="0.54"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/preparedins_txt" />
+                app:layout_constraintTop_toTopOf="@+id/preparedins_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/partNameIns_txt"
@@ -560,17 +573,19 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/partNumIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/partNumIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/partNumIns_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/partNumIns_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/assylineins_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
@@ -578,17 +593,19 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/partNameIns_txt"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/partNameIns_txt"
-                app:layout_constraintTop_toBottomOf="@+id/partNameIns_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/partNameIns_txt"
+                tools:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/supplierins_txt"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
@@ -596,6 +613,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/sampleSizeIns_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -614,6 +632,7 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/supplierins_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -703,7 +722,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Assyembly Line"
+                android:text="Assembly Line"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/assylineins_txt"
@@ -746,13 +765,13 @@
                 android:id="@+id/id_txt"
                 android:layout_width="33dp"
                 android:layout_height="81dp"
-                android:layout_marginTop="872dp"
+                android:layout_marginTop="56dp"
                 android:fontFamily="@font/popbold"
                 android:text="1"
                 android:textColor="@color/darkish"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.674"
+                app:layout_constraintHorizontal_bias="0.04"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -761,18 +780,20 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="56dp"
-                android:background='@drawable/rounded_corners'
+                android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/invoiceQuantins_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/invoiceQuantins_txt"
-                app:layout_constraintTop_toBottomOf="@+id/invoiceQuantins_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/invoiceQuantins_txt"
+                tools:paddingLeft="10dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

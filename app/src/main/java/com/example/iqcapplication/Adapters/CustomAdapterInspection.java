@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,17 +25,20 @@ import com.example.iqcapplication.encapsulation.InspectionEncapsulation;
 import com.example.iqcapplication.encapsulation.LotEncapsulation;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterInspection.MyViewHolder> {
+public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterInspection.MyViewHolder> implements Filterable {
     Context context;
     Activity activity;
     ArrayList<InspectionEncapsulation> inspectData = new ArrayList<>();
-
+    ArrayList<InspectionEncapsulation> inspectDataa ;
 
     public CustomAdapterInspection(Activity activity, Context context, ArrayList<InspectionEncapsulation> inspectData) {
         this.activity = activity;
         this.context = context;
         this.inspectData = inspectData;
+        this.inspectDataa = new ArrayList<>(inspectData);
     }
 
     @Override
@@ -43,6 +48,47 @@ public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterI
 
         return  new CustomAdapterInspection.MyViewHolder(view);
     }
+
+
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    //------------FILTERING OF DATA IN FRAMELAYOUT-----------------//
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<InspectionEncapsulation> filteredair = new ArrayList<>();
+
+            //-------------RECYCLERVIEW LIST OF DATA ---------------------
+            if (inspectDataa.size() == 0) inspectDataa = new ArrayList<>(inspectData);
+            if (constraint.toString().isEmpty() || constraint.length() ==0) {
+                filteredair.addAll(inspectDataa);
+            } else {
+                for (InspectionEncapsulation lot : inspectDataa) {
+
+                    if (lot.getDateeee().toLowerCase().contains(constraint.toString().toLowerCase()) || lot.getDateinspected().contains(constraint.toString().toLowerCase())) {
+                        filteredair.add(lot);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredair;
+            return filterResults;
+        }
+
+        ///-----------------------------DISPLAY RESULT WHEN FILTERING------------//
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults filterResults) {
+            inspectData.clear();
+            inspectData.addAll((Collection<? extends InspectionEncapsulation>) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
+
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterInspection.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
@@ -83,7 +129,7 @@ public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterI
         holder.inspectform.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, InspectionActivity.class);
+                Intent intent = new Intent(activity, InspectionActivity.class);
 
                 InspectionEncapsulation lotNumberlist = inspectData.get(position);
                 intent.putExtra("idins_txt", String.valueOf(lotNumberlist.getId()));
@@ -119,7 +165,7 @@ public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterI
                 intent.putExtra("cocins_txt", String.valueOf(lotNumberlist.getInscoc()));
                 intent.putExtra("dateToday_txt", String.valueOf(lotNumberlist.getDateToday()));
                 intent.putExtra("boxseqid_txt", String.valueOf(lotNumberlist.getBoxseqid()));
-                context.startActivity(intent);
+                activity.startActivityForResult(intent, -1);
 
 
 

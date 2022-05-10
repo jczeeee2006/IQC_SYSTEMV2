@@ -49,10 +49,10 @@
                 android:drawableLeft="@drawable/ic_baseline_keyboard_double_arrow_left_24"
                 android:text="back"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/dc5up"
+                app:layout_constraintEnd_toEndOf="@+id/fc5up"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc5up"
-                app:layout_constraintTop_toBottomOf="@+id/dc5up"
+                app:layout_constraintStart_toStartOf="@+id/fc5up"
+                app:layout_constraintTop_toBottomOf="@+id/fc5up"
                 app:layout_constraintVertical_bias="0.333" />
 
             <EditText
@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <AutoCompleteTextView
-                android:id="@+id/instrumentUsedup"
+                android:id="@+id/instrumentUsedupfc"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
@@ -90,7 +90,7 @@
                 tools:textAlignment="center" />
 
             <EditText
-                android:id="@+id/sampleUnitup"
+                android:id="@+id/sampleUnitupfc"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="160dp"
@@ -108,7 +108,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/dc6up"
+                android:id="@+id/fc6up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="52dp"
@@ -120,7 +120,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/minimumfc"
                 app:layout_constraintHorizontal_bias="0.508"
-                app:layout_constraintStart_toEndOf="@+id/dc1up"
+                app:layout_constraintStart_toEndOf="@+id/fc1up"
                 app:layout_constraintTop_toBottomOf="@+id/checkPointup" />
 
             <EditText
@@ -133,12 +133,12 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/upperspecsup"
+                app:layout_constraintEnd_toStartOf="@+id/upperspecsupfc"
                 app:layout_constraintStart_toEndOf="@+id/checkPointup"
                 app:layout_constraintTop_toTopOf="@+id/checkPointup" />
 
             <EditText
-                android:id="@+id/dc2up"
+                android:id="@+id/fc2up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="24dp"
@@ -150,11 +150,11 @@
                 android:textSize="16sp"
 
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc1up"
-                app:layout_constraintTop_toBottomOf="@+id/dc1up" />
+                app:layout_constraintStart_toStartOf="@+id/fc1up"
+                app:layout_constraintTop_toBottomOf="@+id/fc1up" />
 
             <EditText
-                android:id="@+id/dc1up"
+                android:id="@+id/fc1up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -167,10 +167,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.125"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sampleUnitup" />
+                app:layout_constraintTop_toBottomOf="@+id/sampleUnitupfc" />
 
             <EditText
-                android:id="@+id/dc7up"
+                android:id="@+id/fc7up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="28dp"
@@ -180,13 +180,13 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/dc6up"
+                app:layout_constraintEnd_toEndOf="@+id/fc6up"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc6up"
-                app:layout_constraintTop_toBottomOf="@+id/dc6up" />
+                app:layout_constraintStart_toStartOf="@+id/fc6up"
+                app:layout_constraintTop_toBottomOf="@+id/fc6up" />
 
             <EditText
-                android:id="@+id/dc3up"
+                android:id="@+id/fc3up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="24dp"
@@ -198,11 +198,11 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc2"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc2up"
-                app:layout_constraintTop_toBottomOf="@+id/dc2up" />
+                app:layout_constraintStart_toStartOf="@+id/fc2up"
+                app:layout_constraintTop_toBottomOf="@+id/fc2up" />
 
             <EditText
-                android:id="@+id/dc8up"
+                android:id="@+id/fc8up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="24dp"
@@ -212,13 +212,13 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/dc7up"
+                app:layout_constraintEnd_toEndOf="@+id/fc7up"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc7up"
-                app:layout_constraintTop_toBottomOf="@+id/dc7up" />
+                app:layout_constraintStart_toStartOf="@+id/fc7up"
+                app:layout_constraintTop_toBottomOf="@+id/fc7up" />
 
             <EditText
-                android:id="@+id/dc4up"
+                android:id="@+id/fc4up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="44dp"
@@ -230,11 +230,11 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc3"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc3up"
-                app:layout_constraintTop_toBottomOf="@+id/dc3up" />
+                app:layout_constraintStart_toStartOf="@+id/fc3up"
+                app:layout_constraintTop_toBottomOf="@+id/fc3up" />
 
             <EditText
-                android:id="@+id/dc9up"
+                android:id="@+id/fc9up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -246,11 +246,11 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc8"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc8up"
-                app:layout_constraintTop_toBottomOf="@+id/dc8up" />
+                app:layout_constraintStart_toStartOf="@+id/fc8up"
+                app:layout_constraintTop_toBottomOf="@+id/fc8up" />
 
             <EditText
-                android:id="@+id/dc5up"
+                android:id="@+id/fc5up"
                 android:layout_width="143dp"
                 android:layout_height="43dp"
                 android:layout_marginStart="4dp"
@@ -263,11 +263,11 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc4"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc4up"
-                app:layout_constraintTop_toBottomOf="@+id/dc4up" />
+                app:layout_constraintStart_toStartOf="@+id/fc4up"
+                app:layout_constraintTop_toBottomOf="@+id/fc4up" />
 
             <EditText
-                android:id="@+id/dc10up"
+                android:id="@+id/fc10up"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -277,10 +277,10 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/dc9up"
+                app:layout_constraintEnd_toEndOf="@+id/fc9up"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc9up"
-                app:layout_constraintTop_toBottomOf="@+id/dc9up" />
+                app:layout_constraintStart_toStartOf="@+id/fc9up"
+                app:layout_constraintTop_toBottomOf="@+id/fc9up" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -297,8 +297,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Instrument Used:"
-                app:layout_constraintBottom_toTopOf="@+id/instrumentUsedup"
-                app:layout_constraintStart_toStartOf="@+id/instrumentUsedup" />
+                app:layout_constraintBottom_toTopOf="@+id/instrumentUsedupfc"
+                app:layout_constraintStart_toStartOf="@+id/instrumentUsedupfc" />
 
             <TextView
                 android:id="@+id/textView66"
@@ -315,8 +315,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample Unit:"
-                app:layout_constraintBottom_toTopOf="@+id/sampleUnitup"
-                app:layout_constraintStart_toStartOf="@+id/sampleUnitup" />
+                app:layout_constraintBottom_toTopOf="@+id/sampleUnitupfc"
+                app:layout_constraintStart_toStartOf="@+id/sampleUnitupfc" />
 
             <TextView
                 android:id="@+id/textView49"
@@ -324,8 +324,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 1:"
-                app:layout_constraintBottom_toTopOf="@+id/dc1up"
-                app:layout_constraintStart_toStartOf="@+id/dc1up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc1up"
+                app:layout_constraintStart_toStartOf="@+id/fc1up" />
 
             <TextView
                 android:id="@+id/textView55"
@@ -333,8 +333,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 6:"
-                app:layout_constraintBottom_toTopOf="@+id/dc6up"
-                app:layout_constraintStart_toStartOf="@+id/dc6up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc6up"
+                app:layout_constraintStart_toStartOf="@+id/fc6up" />
 
             <TextView
                 android:id="@+id/textView56"
@@ -342,8 +342,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 7:"
-                app:layout_constraintBottom_toTopOf="@+id/dc7up"
-                app:layout_constraintStart_toStartOf="@+id/dc7up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc7up"
+                app:layout_constraintStart_toStartOf="@+id/fc7up" />
 
             <TextView
                 android:id="@+id/textView57"
@@ -351,8 +351,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 8:"
-                app:layout_constraintBottom_toTopOf="@+id/dc8up"
-                app:layout_constraintStart_toStartOf="@+id/dc8up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc8up"
+                app:layout_constraintStart_toStartOf="@+id/fc8up" />
 
             <TextView
                 android:id="@+id/textView58"
@@ -360,8 +360,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 9:"
-                app:layout_constraintBottom_toTopOf="@+id/dc9up"
-                app:layout_constraintStart_toStartOf="@+id/dc9up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc9up"
+                app:layout_constraintStart_toStartOf="@+id/fc9up" />
 
             <TextView
                 android:id="@+id/textView59"
@@ -369,8 +369,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 10:"
-                app:layout_constraintBottom_toTopOf="@+id/dc10up"
-                app:layout_constraintStart_toStartOf="@+id/dc10up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc10up"
+                app:layout_constraintStart_toStartOf="@+id/fc10up" />
 
             <TextView
                 android:id="@+id/textView50"
@@ -378,8 +378,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 2:"
-                app:layout_constraintBottom_toTopOf="@+id/dc2up"
-                app:layout_constraintStart_toStartOf="@+id/dc2up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc2up"
+                app:layout_constraintStart_toStartOf="@+id/fc2up" />
 
             <TextView
                 android:id="@+id/textView51"
@@ -387,8 +387,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 3:"
-                app:layout_constraintBottom_toTopOf="@+id/dc3up"
-                app:layout_constraintStart_toStartOf="@+id/dc3up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc3up"
+                app:layout_constraintStart_toStartOf="@+id/fc3up" />
 
             <TextView
                 android:id="@+id/textView53"
@@ -396,8 +396,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 4:"
-                app:layout_constraintBottom_toTopOf="@+id/dc4up"
-                app:layout_constraintStart_toStartOf="@+id/dc4up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc4up"
+                app:layout_constraintStart_toStartOf="@+id/fc4up" />
 
             <TextView
                 android:id="@+id/textView54"
@@ -405,12 +405,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Sample 5:"
-                app:layout_constraintBottom_toTopOf="@+id/dc5up"
-                app:layout_constraintStart_toStartOf="@+id/dc5up" />
+                app:layout_constraintBottom_toTopOf="@+id/fc5up"
+                app:layout_constraintStart_toStartOf="@+id/fc5up" />
 
 
             <Button
-                android:id="@+id/Viewdatafc"
+                android:id="@+id/viewdadtfun"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
 
@@ -418,14 +418,14 @@
                 android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
                 android:text="UPLOAD DATA"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/uploadfcDatafc"
+                app:layout_constraintEnd_toEndOf="@+id/updateTosqlite"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/uploadfcDatafc"
-                app:layout_constraintTop_toBottomOf="@+id/uploadfcDatafc"
+                app:layout_constraintStart_toStartOf="@+id/updateTosqlite"
+                app:layout_constraintTop_toBottomOf="@+id/updateTosqlite"
                 app:layout_constraintVertical_bias="0.333" />
 
             <Button
-                android:id="@+id/uploadfcDatafc"
+                android:id="@+id/updateTosqlite"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="568dp"
@@ -438,20 +438,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/minimumup"
+                android:id="@+id/minimumupfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/upperspecsup"
+                app:layout_constraintEnd_toEndOf="@+id/upperspecsupfc"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/upperspecsup"
-                app:layout_constraintTop_toBottomOf="@+id/upperspecsup" />
+                app:layout_constraintStart_toStartOf="@+id/upperspecsupfc"
+                app:layout_constraintTop_toBottomOf="@+id/upperspecsupfc" />
 
             <TextView
-                android:id="@+id/average_txtup"
+                android:id="@+id/average_txtupfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="24dp"
@@ -459,13 +459,13 @@
                 android:elevation="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/minimumup"
+                app:layout_constraintEnd_toEndOf="@+id/minimumupfc"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/minimumup"
-                app:layout_constraintTop_toBottomOf="@+id/minimumup" />
+                app:layout_constraintStart_toStartOf="@+id/minimumupfc"
+                app:layout_constraintTop_toBottomOf="@+id/minimumupfc" />
 
             <TextView
-                android:id="@+id/maximumup"
+                android:id="@+id/maximumupfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -473,13 +473,13 @@
                 android:elevation="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/average_txtup"
+                app:layout_constraintEnd_toEndOf="@+id/average_txtupfc"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/average_txtup"
-                app:layout_constraintTop_toBottomOf="@+id/average_txtup" />
+                app:layout_constraintStart_toStartOf="@+id/average_txtupfc"
+                app:layout_constraintTop_toBottomOf="@+id/average_txtupfc" />
 
             <EditText
-                android:id="@+id/dcjudgeMentup"
+                android:id="@+id/fcjudgeMentup"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
@@ -489,13 +489,13 @@
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/maximumup"
+                app:layout_constraintEnd_toEndOf="@+id/maximumupfc"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/maximumup"
-                app:layout_constraintTop_toBottomOf="@+id/maximumup" />
+                app:layout_constraintStart_toStartOf="@+id/maximumupfc"
+                app:layout_constraintTop_toBottomOf="@+id/maximumupfc" />
 
             <EditText
-                android:id="@+id/lowerspecup"
+                android:id="@+id/lowerspecupfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="60dp"
@@ -511,7 +511,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/upperspecsup"
+                android:id="@+id/upperspecsupfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="48dp"
@@ -520,10 +520,10 @@
                 android:inputType="textPersonName"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/lowerspecup"
+                app:layout_constraintEnd_toEndOf="@+id/lowerspecupfc"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/lowerspecup"
-                app:layout_constraintTop_toBottomOf="@+id/lowerspecup" />
+                app:layout_constraintStart_toStartOf="@+id/lowerspecupfc"
+                app:layout_constraintTop_toBottomOf="@+id/lowerspecupfc" />
 
             <TextView
                 android:id="@+id/textView41"
@@ -531,8 +531,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Lower Specs:"
-                app:layout_constraintBottom_toTopOf="@+id/lowerspecup"
-                app:layout_constraintStart_toStartOf="@+id/lowerspecup" />
+                app:layout_constraintBottom_toTopOf="@+id/lowerspecupfc"
+                app:layout_constraintStart_toStartOf="@+id/lowerspecupfc" />
 
             <TextView
                 android:id="@+id/upperspec"
@@ -540,8 +540,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Upper Specs:"
-                app:layout_constraintBottom_toTopOf="@+id/upperspecsup"
-                app:layout_constraintStart_toStartOf="@+id/upperspecsup" />
+                app:layout_constraintBottom_toTopOf="@+id/upperspecsupfc"
+                app:layout_constraintStart_toStartOf="@+id/upperspecsupfc" />
 
             <TextView
                 android:id="@+id/textView80"
@@ -550,8 +550,8 @@
 
                 android:fontFamily="@font/popbold"
                 android:text="Judgement:"
-                app:layout_constraintBottom_toTopOf="@+id/dcjudgeMentup"
-                app:layout_constraintStart_toStartOf="@+id/dcjudgeMentup" />
+                app:layout_constraintBottom_toTopOf="@+id/fcjudgeMentup"
+                app:layout_constraintStart_toStartOf="@+id/fcjudgeMentup" />
 
             <TextView
                 android:id="@+id/textView46"
@@ -559,8 +559,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Minimum"
-                app:layout_constraintBottom_toTopOf="@+id/minimumup"
-                app:layout_constraintStart_toStartOf="@+id/minimumup" />
+                app:layout_constraintBottom_toTopOf="@+id/minimumupfc"
+                app:layout_constraintStart_toStartOf="@+id/minimumupfc" />
 
             <TextView
                 android:id="@+id/textView47"
@@ -568,8 +568,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Maximum"
-                app:layout_constraintBottom_toTopOf="@+id/maximumup"
-                app:layout_constraintStart_toStartOf="@+id/maximumup" />
+                app:layout_constraintBottom_toTopOf="@+id/maximumupfc"
+                app:layout_constraintStart_toStartOf="@+id/maximumupfc" />
 
             <TextView
                 android:id="@+id/textView48"
@@ -577,8 +577,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop"
                 android:text="Average:"
-                app:layout_constraintBottom_toTopOf="@+id/average_txtup"
-                app:layout_constraintStart_toStartOf="@+id/average_txtup" />
+                app:layout_constraintBottom_toTopOf="@+id/average_txtupfc"
+                app:layout_constraintStart_toStartOf="@+id/average_txtupfc" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

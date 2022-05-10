@@ -15,32 +15,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IQCAPPLICATION">
         <activity
-            android:name=".FunctionalActivity"
+            android:name=".Update.FunctionalActivity"
             android:exported="false" />
         <activity
+            android:name=".TableFormforall"
+            android:exported="false" />
+        <activity
+            android:name=".FunctionalActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IQCAPPLICATION1" />
+        <activity
             android:name=".Update.DimensionActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".Update.InspectionActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".DimensionalActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.IQCAPPLICATION1"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Update.LotFormActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".VisualInspection"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".SapmpleActivityinlot"
-            android:exported="false"
+            android:exported="true"
             android:resizeableActivity="true"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity

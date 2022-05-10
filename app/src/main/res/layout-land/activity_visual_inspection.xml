@@ -20,25 +20,25 @@
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.406"
-        app:layout_constraintStart_toEndOf="@+id/cardView2" />
+        app:layout_constraintStart_toStartOf="@+id/cardView4" />
 
     <TextView
         android:id="@+id/textView77"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
         android:fontFamily="@font/popbold"
         android:text="VISUAL FORM"
         android:textColor="@color/ocean"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="@+id/cardView2" />
 
     <androidx.cardview.widget.CardView
 
         android:id="@+id/cardView4"
-        android:layout_width="650dp"
-        android:layout_height="470dp"
+        android:layout_width="570dp"
+        android:layout_height="400dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -47,16 +47,16 @@
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666"
+        app:layout_constraintVertical_bias="0.587"
         app:layout_goneMarginLeft="30dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="550dp"
-            android:layout_height="450dp"
+            android:layout_height="400dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
@@ -87,12 +87,13 @@
                 android:background="@drawable/edittext_shadow"
 
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:padding="10dp"
                 android:shadowColor="#000"
                 android:shadowDx="-6"
                 android:shadowDy="-6"
                 android:shadowRadius="20"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.205"
@@ -113,6 +114,7 @@
                 android:shadowDx="-6"
                 android:shadowDy="-6"
                 android:shadowRadius="20"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.936"
@@ -122,13 +124,14 @@
             <EditText
                 android:id="@+id/visualRemarksdefect"
                 android:layout_width="400dp"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="68dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.566"
@@ -140,7 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Quantitiy:"
+                android:text="Quantity"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/visualQuantitiy"
@@ -173,7 +176,7 @@
                 android:layout_width="150dp"
                 android:layout_height="70dp"
 
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
                 android:elevation="20dp"
@@ -181,7 +184,7 @@
                 android:text="NEXT FORM"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.692"
+                app:layout_constraintHorizontal_bias="0.926"
                 app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
                 app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
 
@@ -191,9 +194,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="770dp"
-        android:layout_height="570dp"
+        android:layout_height="400dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="200dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -209,39 +212,28 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="730dp"
-            android:layout_height="550dp"
+            android:layout_height="400dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
 
             <Button
-                android:id="@+id/ViewRecordsvisual"
-                android:layout_width="250dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="120dp"
-                android:backgroundTint="@color/darkish"
-                android:drawableLeft="@drawable/ic_baseline_search_24"
-                android:elevation="20dp"
-                android:paddingLeft="20dp"
-                android:text="VIEW RECORDS"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/visualRemarks"
-                app:layout_constraintTop_toBottomOf="@+id/visualRemarks" />
-
-            <Button
                 android:id="@+id/visualOk"
                 android:layout_width="160dp"
                 android:layout_height="70dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_check_circle_outline_244"
                 android:elevation="20dp"
                 android:paddingLeft="20dp"
-                android:text="PASSED"
+                android:text="OK"
                 android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.874"
                 app:layout_constraintStart_toStartOf="@+id/visualRemarks"
-                app:layout_constraintTop_toBottomOf="@+id/visualRemarks" />
+                app:layout_constraintTop_toBottomOf="@+id/visualJudgement" />
 
             <AutoCompleteTextView
                 android:id="@+id/visualInstrument"
@@ -258,6 +250,7 @@
                 android:shadowDx="-6"
                 android:shadowDy="-6"
                 android:shadowRadius="20"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.062"
@@ -268,15 +261,16 @@
                 android:id="@+id/visualJudgement"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="368dp"
+                android:layout_marginTop="204dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
 
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.909"
+                app:layout_constraintHorizontal_bias="0.866"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -287,8 +281,9 @@
                 android:layout_marginTop="84dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:padding="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -304,6 +299,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.447"
@@ -312,17 +308,18 @@
 
             <EditText
                 android:id="@+id/visualRemarks"
-                android:layout_width="650dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="80dp"
-                android:background="@drawable/rounded_corners"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/edittext_shadow"
                 android:elevation="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintHorizontal_bias="0.102"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/visualSampleSize" />
 
@@ -387,15 +384,14 @@
                 android:layout_height="70dp"
 
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="188dp"
                 android:backgroundTint="#FF0000"
                 android:drawableLeft="@drawable/ic_delete"
                 android:elevation="20dp"
                 android:paddingLeft="20dp"
-                android:text="FAILED"
+                android:text="NG"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/visualRemarks"
-                app:layout_constraintHorizontal_bias="0.535"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.018"
                 app:layout_constraintStart_toStartOf="@+id/visualRemarks"
                 app:layout_constraintTop_toBottomOf="@+id/visualRemarks" />
 

@@ -6,21 +6,38 @@
     android:layout_height="match_parent"
     android:background="@drawable/paaa"
     tools:context=".Update.LotFormActivity">
+
+    <TextView
+        android:id="@+id/textView85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popbold"
+        android:text=" UPDATE/UPLOAD"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/cardView2" />
+
+
     <EditText
         android:id="@+id/dateToday"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:background="@drawable/edittext_shadow"
+
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:visibility="gone"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textAlignment="center"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="825dp"
-        tools:layout_editor_absoluteY="41dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
-
 
     <TextView
         android:id="@+id/textView40"
@@ -38,12 +55,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="750dp"
-        android:layout_height="700dp"
+        android:layout_height="650dp"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="104dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -51,7 +69,7 @@
         app:cardCornerRadius="44dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginLeft="30dp">
@@ -59,7 +77,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="730dp"
-            android:layout_height="700dp"
+            android:layout_height="650dp"
             android:layout_marginRight="30dp"
 
             android:layout_marginBottom="20dp"
@@ -80,6 +98,7 @@
                 android:shadowDx="-6"
                 android:shadowDy="-6"
                 android:shadowRadius="20"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.062"
@@ -95,6 +114,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/invoiceNumup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -111,6 +131,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/goodsCodeup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -126,6 +147,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,6 +163,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.447"
@@ -157,6 +180,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/atctualQuantup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -184,6 +208,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -200,6 +225,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/partNameup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -293,6 +319,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/boxNumup"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -308,6 +335,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/lotQuantup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -345,6 +373,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/rejectup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -360,6 +389,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/partNup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -375,6 +405,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/lotNumberup"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -414,9 +445,17 @@
                 app:layout_constraintBottom_toTopOf="@+id/remarksup"
                 app:layout_constraintStart_toStartOf="@+id/remarksup" />
 
+            <TextView
+                android:id="@+id/difference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
 
     <Button
         android:id="@+id/failed"
@@ -424,13 +463,14 @@
         android:layout_height="70dp"
 
         android:layout_marginTop="196dp"
-        android:backgroundTint="@color/darkblue"
+        android:backgroundTint="#16e06e"
         android:drawableLeft="@drawable/ic_baseline_system_update_24"
         android:elevation="20dp"
         android:paddingLeft="20dp"
         android:text="UPDATE DATA "
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toEndOf="@+id/cardView2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -465,6 +505,23 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/uploadtosqlserver"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/uploadtosqlserver"
+        app:layout_constraintTop_toBottomOf="@+id/uploadtosqlserver" />
+
+    <Button
+        android:id="@+id/updateReject"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="136dp"
+        android:backgroundTint="@color/darkish"
+        android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+        android:elevation="20dp"
+        android:paddingLeft="20dp"
+
+        android:text="update reject"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/uploadtosqlserver"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/uploadtosqlserver"
         app:layout_constraintTop_toBottomOf="@+id/uploadtosqlserver" />
 

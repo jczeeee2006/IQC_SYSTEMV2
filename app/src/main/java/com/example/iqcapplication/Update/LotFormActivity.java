@@ -5,19 +5,26 @@ import static com.example.iqcapplication.MainActivity.connectionClass;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iqcapplication.ConnectionClass;
 import com.example.iqcapplication.DatabaseHelper;
+import com.example.iqcapplication.DimensionalActivity;
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.SapmpleActivityinlot;
+import com.example.iqcapplication.add.InspectionDetailsActivity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,8 +36,12 @@ public class LotFormActivity extends AppCompatActivity {
     AutoCompleteTextView lot_invoicenoup, tv_partnameup, goodscup, et_partnumup;
     String id, REMARKS,LOTQUANT,LOTNUM,SAMPLE,REJECT,TOTALQUANT,ACTUALQUANT,BOXSEQ,BOX_NUMBER,PART_NAME,
             GOODS_CODE,PART_NUMBER,INVOICE, DATETIME;
-    public static String    boxseqholder,invoiceholder,partnumholder,goodscodeholder,partnameholder,totalquantholder,lotnumholder,actualquantityHolder ;
-    Button buttonAdd, button,buttonUpload,backButton;
+    public static String    boxseqholder,invoiceholder,partnumholder,goodscodeholder,partnameholder,totalquantholder,lotnumholder,actualquantityHolder, lotQuantityholder,
+            boxnumholder,samplesizeHolder;
+
+    TextView difFerence;
+
+    Button buttonAdd, button,buttonUpload,backButton, updateRejectup;
     public static  String dateHolder;
     ConnectionClass connectionClassss;
     @Override
@@ -53,11 +64,13 @@ public class LotFormActivity extends AppCompatActivity {
         remarksup   = findViewById(R.id.remarksup);
         buttonAdd = findViewById(R.id.add);
         button = findViewById(R.id.failed);
+        difFerence = findViewById(R.id.difference);
+
         buttonUpload = findViewById(R.id.uploadtosqlserver);
 
         dateToday = findViewById(R.id.dateToday);
         backButton  = findViewById(R.id.lotbackButton);
-
+        updateRejectup = findViewById(R.id.updateReject);
         boxseqidup.setEnabled(false);
         lot_invoicenoup.setEnabled(false);
         et_partnumup.setEnabled(false);
@@ -65,17 +78,58 @@ public class LotFormActivity extends AppCompatActivity {
         goodscup.setEnabled(false);
         getIntentData();
 
-
+        samplenumberenabled();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 confirmDialog1();
             }
+
+
         });
 
 
+        updateRejectup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int firstvalue= Integer.parseInt((totalquantityup.getText().toString()));
+                int secondvalue=Integer.parseInt((rejectup.getText().toString()));
+                int diff = 0;
+                connectionClass = new ConnectionClass();
+                Connection con = connectionClass.CONN2();
+                        try {
 
+                            if(difFerence.getText().toString().equals("")  && !difFerence.getText().toString().equals("") ){
+                                difFerence.setText(String.valueOf(0 - Integer.parseInt(rejectup.getText().toString())));
+
+
+                                String query = " UPDATE LotNumber SET reject = '" + Integer.parseInt(rejectup.getText().toString() )+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "'";
+                                String query2 = " UPDATE LotNumber SET DIFF = '" + difFerence.getText().toString()+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "' ";
+                                Statement stmt =  con.createStatement();
+                                stmt.execute(query+query2);
+
+                                String  query4 = "";
+
+                                Toast.makeText(getApplicationContext(),"Successfully updated!", Toast.LENGTH_SHORT).show();
+
+                            }else{
+                                difFerence.setText(String.valueOf(firstvalue - secondvalue));
+                                difFerence.setText(String.valueOf(diff));
+                                totalquantityup.setTextColor(Color.parseColor("#23f011"));
+                            }
+
+
+
+                        } catch (Exception ex) {
+                            Toast.makeText(getApplicationContext(),ex.toString(), Toast.LENGTH_LONG).show();
+
+                        }
+
+
+                    }
+
+        });
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,18 +140,28 @@ public class LotFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LotFormActivity.this, SapmpleActivityinlot.class);
-               boxseqholder = boxseqidup.getText().toString();
-               invoiceholder = lot_invoicenoup.getText().toString();
-               partnameholder = tv_partnameup.getText().toString();
-               partnumholder  = et_partnumup.getText().toString();
-               goodscodeholder = goodscup.getText().toString();
-               totalquantholder = totalquantityup .getText().toString();
-               lotnumholder = lotquantup.getText().toString();
-               dateHolder = dateToday.getText().toString();
-               actualquantityHolder  = quantityrecievedup.getText().toString();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent pendingIntent =
+                        PendingIntent.getActivity(LotFormActivity.this, 0, intent, 0);
+                boxseqholder = boxseqidup.getText().toString();
+                invoiceholder = lot_invoicenoup.getText().toString();
+                partnameholder = tv_partnameup.getText().toString();
+                partnumholder  = et_partnumup.getText().toString();
+                goodscodeholder = goodscup.getText().toString();
+                totalquantholder = totalquantityup .getText().toString();
+                lotnumholder = lotnoup.getText().toString();
+                dateHolder = dateToday.getText().toString();
+                actualquantityHolder  = quantityrecievedup.getText().toString();
+                lotQuantityholder = lotquantup.getText().toString();
+                boxnumholder = boxnumup.getText().toString();
+                samplesizeHolder   = sampsizeup.getText().toString();
+                try {
+                    pendingIntent.send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
+                }
 
 
-                       startActivity(intent);
 
             }
         });
@@ -125,11 +189,33 @@ public class LotFormActivity extends AppCompatActivity {
     }
 
 
+    public void samplenumberenabled(){
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                     //  quantityrecievedup.setText(lotquantup.getText() + "");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        };
+
+
+            lotquantup.addTextChangedListener(textWatcher);
+
+    }
+
     // TODO: 08/04/2022      ahhhh check yung date today kung nag iinsert ba sa database server
     void savetoSQLite(){
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
 
                 try{
                     DatabaseHelper myDB = new DatabaseHelper(LotFormActivity.this);
@@ -153,10 +239,6 @@ public class LotFormActivity extends AppCompatActivity {
                 }catch(Exception e ){
                     Toast.makeText(LotFormActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
-
-            }
-        });
-
     }
     void confirmDialog3() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -166,12 +248,8 @@ public class LotFormActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                if(sampsizeup.getText().toString().equals("")){
-                    sampsizeup.setError("Enter Sample size");
-                }else if(!sampsizeup.getText().toString().equals("")){
-                    saveToSQLSERVER();
-                }
 
+                saveToSQLSERVER();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -189,7 +267,7 @@ public class LotFormActivity extends AppCompatActivity {
 
                   try{
                       connectionClassss = new ConnectionClass();
-                      Connection con = connectionClass.CONN();
+                      Connection con = connectionClass.CONN2();
                       String query = "SELECT * FROM LotNumber WHERE  Date =  '"+ dateToday.getText().toString()+"' ";
                       PreparedStatement stmtt = con.prepareStatement(query);
                       ResultSet rs = stmtt.executeQuery();

@@ -113,7 +113,7 @@ public class CustomAdapterDimension extends RecyclerView.Adapter<CustomAdapterDi
 
                 intent.putExtra("getdatedim", String.valueOf(dimensionlist.getDate()));
 
-                context.startActivity(intent);
+                activity.startActivityForResult(intent,-1);
             }
         });
 

@@ -17,12 +17,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "IQCDATABASE";
-    private static final int DATABASE_VERSION = 26;
+    private static final int DATABASE_VERSION = 28;
 
     private static final  String TABLE_NAME = "Lotnumberdb";
     private static final  String TABLE_NAME2 = "Dimensiondb";
     private static final  String TABLE_NAME3 = "Inspectiondb";
     private static final  String TABLE_NAME4 = "Visualdb";
+    private static final  String TABLE_NAME5 = "Functiondb";
 
    // lot table
     private static final  String COLUMN_ID = "ID";
@@ -69,6 +70,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String  COLUMN_P_JUDGEMENT = "JUDGEMENT";
     private static final  String  COLUMN_P_DATEDIM = "DATE";
 
+
+   //--------Function check----------------------//
+    private static final  String COLUMN_P_FCID = "FCID";
+    private static final  String COLUMN_P_FINSTRUMENT = "FCINSTRUMENT";
+    private static final  String COLUMN_P_FCSAMPLENUM = "FCSAMPLENUM";
+    private static final  String COLUMN_P_FCCHECKPOINT = "FCCHECKPOINT";
+    private static final  String COLUMN_PF_FCSAMPLEUNIT = "FCSAMPLEUNIT";
+
+    private static final  String COLUMN_P_FCSAMPLE1 = "FCSAMPLE1";
+    private static final  String COLUMN_P_FCSAMPLE2 = "FCSAMPLE2";
+    private static final  String COLUMN_P_FCSAMPLE3 = "FCSAMPLE3";
+    private static final  String COLUMN_P_FCSAMPLE4 = "FCSAMPLE4";
+    private static final  String COLUMN_P_FCSAMPLE5 = "FCSAMPLE5";
+
+    private static final  String COLUMN_P_FCSAMPLE6 = "FCSAMPLE6";
+    private static final  String COLUMN_P_FCSAMPLE7 = "FCSAMPLE7";
+    private static final  String COLUMN_P_FCSAMPLE8 = "FCSAMPLE8";
+    private static final  String  COLUMN_P_FCSAMPLE9 = "FCSAMPLE9";
+    private static final  String  COLUMN_P_FCSAMPLE10 = "FCSAMPLE10";
+
+    private static final  String  COLUMN_P_FLOWER = "FLOWER";
+    private static final  String  COLUMN_P_FUPPER = "FUPPER";
+    private static final  String  COLUMN_P_FMINIMUM = "FMINIMUM";
+    private static final  String  COLUMN_P_FAVERAGE = "FAVERAGE";
+    private static final  String  COLUMN_P_FMAXIMUM = "FMAXIMUM";
+    private static final  String  COLUMN_P_FJUDGEMENT = "FJUDGEMENT";
+    private static final  String  COLUMN_P_FDATEDIM = "FDATE";
 
     //inspection table
     private static final  String COLUMN_P_INSID = "INSID";
@@ -207,13 +235,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+        String query4  =
+                "CREATE TABLE " + TABLE_NAME5 +
+                        "(" + COLUMN_P_FCID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_P_FINSTRUMENT  + " TEXT," +
+                        COLUMN_P_FCSAMPLENUM + " TEXT," +
+                        COLUMN_P_FCCHECKPOINT + " TEXT," +
+                        COLUMN_PF_FCSAMPLEUNIT + " TEXT," +
 
+                        COLUMN_P_FCSAMPLE1 + " TEXT," +
+                        COLUMN_P_FCSAMPLE2 + " TEXT," +
+                        COLUMN_P_FCSAMPLE3 + " TEXT," +
+                        COLUMN_P_FCSAMPLE4 + " TEXT," +
+                        COLUMN_P_FCSAMPLE5 + " TEXT," +
+                        COLUMN_P_FCSAMPLE6 + " TEXT," +
+                        COLUMN_P_FCSAMPLE7 + " TEXT," +
+                        COLUMN_P_FCSAMPLE8 + " TEXT," +
+                        COLUMN_P_FCSAMPLE9 + " TEXT," +
+                        COLUMN_P_FCSAMPLE10 + " TEXT," +
+
+                        COLUMN_P_FLOWER + " TEXT," +
+                        COLUMN_P_FUPPER + " TEXT," +
+                        COLUMN_P_FMINIMUM  + " TEXT," +
+                        COLUMN_P_FAVERAGE  + " TEXT," +
+                        COLUMN_P_FMAXIMUM   + " TEXT," +
+                        COLUMN_P_FJUDGEMENT   + " TEXT," +
+                        COLUMN_P_FDATEDIM  + " TEXT );" ;
 
 
         db.execSQL(query);
         db.execSQL(query1);
         db.execSQL(query2);
         db.execSQL(query3);
+        db.execSQL(query4);
     }
 
     @Override
@@ -222,7 +276,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME3);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME4);
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME5);
         onCreate(db);
 
 
@@ -296,6 +350,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+    public void addFC(String instrumentUsed, String samplenum, String checkpoint, String samplUnit, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
+                      String sample7, String sample8, String sample9,String sample10,String lower, String upper, String min,String average, String max, String judgement,String date){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_P_FINSTRUMENT,instrumentUsed);
+        cv.put(COLUMN_P_FCCHECKPOINT, checkpoint);
+        cv.put(COLUMN_P_FCSAMPLENUM, samplenum);
+        cv.put(COLUMN_P_FCCHECKPOINT, checkpoint);
+        cv.put(COLUMN_PF_FCSAMPLEUNIT, samplUnit);
+        cv.put(COLUMN_P_FCSAMPLE1, sample1);
+        cv.put(COLUMN_P_FCSAMPLE2, sample2);
+        cv.put(COLUMN_P_FCSAMPLE3, sample3);
+        cv.put(COLUMN_P_FCSAMPLE4, sample4);
+        cv.put(COLUMN_P_FCSAMPLE5, sample5);
+        cv.put(COLUMN_P_FCSAMPLE6, sample6);
+        cv.put(COLUMN_P_FCSAMPLE7, sample7);
+        cv.put(COLUMN_P_FCSAMPLE8, sample8);
+        cv.put(COLUMN_P_FCSAMPLE9, sample9);
+        cv.put(COLUMN_P_FCSAMPLE10, sample10);
+        cv.put(COLUMN_P_FLOWER, lower);
+        cv.put(COLUMN_P_FUPPER, upper);
+        cv.put(COLUMN_P_FMINIMUM, min);
+        cv.put(COLUMN_P_FAVERAGE, average);
+        cv.put(COLUMN_P_FMAXIMUM, max);
+        cv.put(COLUMN_P_FJUDGEMENT, judgement);
+        cv.put(COLUMN_P_FDATEDIM, date);
+
+        long result = db.insert(TABLE_NAME5, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void addinspection(String prepared, String prepareddate, String insinvoicenum, String insgoods, String inspartname, String insinvoicequant, String insassyline,
                               String inspatnum, String instemp, String insrohs, String insdateinspected, String inshumid, String insupp, String inspector, String insdatereceived,
@@ -430,6 +520,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Cursor readFcData(){
+        String query = "SELECT * FROM " + TABLE_NAME5;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+
+        }
+        return cursor;
+
+    }
+
 
 
     public void updateinspectdata(String insid, String prepared, String prepareddate,String insinvoicenum, String insgoods,String inspartname, String insinvoicequant, String insassyline,
@@ -463,8 +568,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_INSCOC, inscoc);
         cv.put(COLUMN_P_INSPRODTYPE, prodtypes);
         cv.put(COLUMN_P_INSTESTREPORT, instestreport);
-        cv.put(COLUMN_P_DATE_TIMEE, dateteime)
-        ;
+        cv.put(COLUMN_P_DATE_TIMEE, dateteime);
+
 
         long result = db.update(TABLE_NAME3, cv,"INSID=?", new String[]{insid});
         if(result == -1){
@@ -555,6 +660,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_DATEDIM, date);
 
         long result = db.update(TABLE_NAME2, cv,"DCID=?", new String[]{_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context," Succesfully updated", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void updateFc( String _id,String instrumentUsed,  String samplenum, String checkpoint, String samplUnit, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
+                          String sample7, String sample8, String sample9,String sample10,String lower, String upper, String max, String min, String average, String judgement,String date){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_P_FINSTRUMENT,instrumentUsed);
+        cv.put(COLUMN_P_FCCHECKPOINT, checkpoint);
+        cv.put(COLUMN_P_FCSAMPLENUM, samplenum);
+        cv.put(COLUMN_P_FCCHECKPOINT, checkpoint);
+        cv.put(COLUMN_PF_FCSAMPLEUNIT, samplUnit);
+        cv.put(COLUMN_P_FCSAMPLE1, sample1);
+        cv.put(COLUMN_P_FCSAMPLE2, sample2);
+        cv.put(COLUMN_P_FCSAMPLE3, sample3);
+        cv.put(COLUMN_P_FCSAMPLE4, sample4);
+        cv.put(COLUMN_P_FCSAMPLE5, sample5);
+        cv.put(COLUMN_P_FCSAMPLE6, sample6);
+        cv.put(COLUMN_P_FCSAMPLE7, sample7);
+        cv.put(COLUMN_P_FCSAMPLE8, sample8);
+        cv.put(COLUMN_P_FCSAMPLE9, sample9);
+        cv.put(COLUMN_P_FCSAMPLE10, sample10);
+        cv.put(COLUMN_P_FLOWER, lower);
+        cv.put(COLUMN_P_FUPPER, upper);
+        cv.put(COLUMN_P_FMINIMUM, min);
+        cv.put(COLUMN_P_FAVERAGE, average);
+        cv.put(COLUMN_P_FMAXIMUM, max);
+        cv.put(COLUMN_P_FJUDGEMENT, judgement);
+        cv.put(COLUMN_P_FDATEDIM, date);
+
+        long result = db.update(TABLE_NAME5, cv,"fCID=?", new String[]{_id});
         if(result == -1){
             Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
         }else {

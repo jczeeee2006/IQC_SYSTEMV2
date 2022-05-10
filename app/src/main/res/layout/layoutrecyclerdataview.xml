@@ -19,24 +19,26 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="743dp"
+            android:layout_height="620dp"
             android:background="@drawable/edittext_background">
 
             <TextView
                 android:id="@+id/invoiceNum_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.257"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/dateHolder_txt"
@@ -54,62 +56,68 @@
 
             <TextView
                 android:id="@+id/goodsCode_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/invoiceNum_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/invoiceNum_txt"
-                app:layout_constraintTop_toBottomOf="@+id/invoiceNum_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/invoiceNum_txt"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/boxNum_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/goodsCode_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/goodsCode_txt"
-                app:layout_constraintTop_toBottomOf="@+id/goodsCode_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/goodsCode_txt"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/partN_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.863"
+                app:layout_constraintHorizontal_bias="0.835"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/partName_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/partN_txt"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -118,85 +126,94 @@
 
             <TextView
                 android:id="@+id/totalQuan_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/rounded_corners"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/boxSequence_txt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/boxSequence_txt"
+                app:layout_constraintTop_toBottomOf="@+id/boxSequence_txt"
+                tools:background="@drawable/rounded_corners" />
+
+            <TextView
+                android:id="@+id/atctualQuant_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/rounded_corners"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:fontFamily="@font/popbold"
+                android:paddingTop="10dp"
+                android:textColor="#23f011"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/totalQuan_txt"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toStartOf="@+id/totalQuan_txt"
+                app:layout_constraintTop_toBottomOf="@+id/totalQuan_txt"
+                tools:background="@drawable/rounded_corners" />
+
+            <TextView
+                android:id="@+id/reject_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/rounded_corners"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/atctualQuant_txt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/atctualQuant_txt"
+                app:layout_constraintTop_toBottomOf="@+id/atctualQuant_txt"
+                tools:background="@drawable/rounded_corners" />
+
+            <TextView
+                android:id="@+id/boxSequence_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/rounded_corners"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/partName_txt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/partName_txt"
+                app:layout_constraintTop_toBottomOf="@+id/partName_txt"
+                tools:background="@drawable/rounded_corners" />
+
+            <TextView
+                android:id="@+id/remarks_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/boxSequence_txt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/boxSequence_txt"
-                app:layout_constraintTop_toBottomOf="@+id/boxSequence_txt" />
-
-            <TextView
-                android:id="@+id/atctualQuant_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="56dp"
-                android:background="@drawable/rounded_corners"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:textColor="#1dcf1d"
-                android:paddingTop="10dp"
-                android:fontFamily="@font/popbold"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/totalQuan_txt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/totalQuan_txt"
-                app:layout_constraintTop_toBottomOf="@+id/totalQuan_txt" />
-
-            <TextView
-                android:id="@+id/reject_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="44dp"
-                android:background="@drawable/rounded_corners"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/atctualQuant_txt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/atctualQuant_txt"
-                app:layout_constraintTop_toBottomOf="@+id/atctualQuant_txt" />
-
-            <TextView
-                android:id="@+id/boxSequence_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/rounded_corners"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/partName_txt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/partName_txt"
-                app:layout_constraintTop_toBottomOf="@+id/partName_txt" />
-
-            <TextView
-                android:id="@+id/remarks_txt"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="64dp"
-                android:background="@drawable/rounded_corners"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/reject_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/sampleSize_txt"
-                app:layout_constraintTop_toBottomOf="@+id/sampleSize_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/sampleSize_txt"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/textView"
@@ -288,19 +305,21 @@
 
             <TextView
                 android:id="@+id/sampleSize_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="44dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/lotQuant_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/lotQuant_txt"
-                app:layout_constraintTop_toBottomOf="@+id/lotQuant_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/lotQuant_txt"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -326,35 +345,40 @@
 
             <TextView
                 android:id="@+id/lotNumber_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/boxNum_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/boxNum_txt"
-                app:layout_constraintTop_toBottomOf="@+id/boxNum_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/boxNum_txt"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/lotQuant_txt"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="56dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="20dp"
+
                 android:paddingTop="10dp"
+                android:textColor="@color/darkblue"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/lotNumber_txt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/lotNumber_txt"
-                app:layout_constraintTop_toBottomOf="@+id/lotNumber_txt" />
+                app:layout_constraintTop_toBottomOf="@+id/lotNumber_txt"
+                tools:background="@drawable/rounded_corners" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -393,8 +417,8 @@
                 android:id="@+id/idins_txt"
                 android:layout_width="33dp"
                 android:layout_height="81dp"
-                android:layout_marginStart="68dp"
-                android:layout_marginTop="72dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="56dp"
                 android:fontFamily="@font/popbold"
                 android:text="1"
                 android:textColor="@color/darkish"

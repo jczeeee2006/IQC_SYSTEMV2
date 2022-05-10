@@ -9,10 +9,12 @@
     <color name="white">#FFFFFFFF</color>
 
 
+
     <color name="gray">#808080</color>
     <color name="darkblue">#22577E</color>
     <color name="ocean">#5584AC</color>
     <color name="darkish">#134792</color>
     <color name="whiten">#f6f9ff</color>
+    <color name="blayk">#0a0a0a</color>
 
 </resources>
