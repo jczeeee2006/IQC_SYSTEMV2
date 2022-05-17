@@ -21,7 +21,7 @@
             android:name=".TableFormforall"
             android:exported="false" />
         <activity
-            android:name=".FunctionalActivity"
+            android:name=".FunctionalActivity2"
             android:exported="true"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity

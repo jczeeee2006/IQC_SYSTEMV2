@@ -7,6 +7,26 @@
     android:background="@drawable/paaa"
     tools:context=".Update.DimensionActivity">
 
+
+    <TextView
+        android:id="@+id/goodsupdimch"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/cardView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/invoiceupdimm"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/cardView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView84"
         android:layout_width="wrap_content"

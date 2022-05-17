@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,22 +22,19 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.iqcapplication.Update.DimensionActivity;
-import com.example.iqcapplication.Update.LotFormActivity;
-import com.example.iqcapplication.add.InspectionDetailsActivity;
 import com.example.iqcapplication.fragments.FragmentForFunctional;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class FunctionalActivity extends AppCompatActivity {
+public class FunctionalActivity2 extends AppCompatActivity {
+
 
     EditText Fc_Checkpoints, Fc_Samplesize, Fc_Sampleunit, Fc_1, Fc_2, Fc_3, Fc_4, Fc_5, Fc_6, Fc_7, Fc_8, Fc_9, Fc_10, Lowerspec, Upperspec, Remarkss, checkedDate, Approve;
 
@@ -138,7 +134,7 @@ public class FunctionalActivity extends AppCompatActivity {
         rejectquantityyyy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FunctionalActivity.this, SapmpleActivityinlot.class);
+                Intent intent = new Intent(FunctionalActivity2.this, SapmpleActivityinlot.class);
                 String invoiceeenum = SapmpleActivityinlot.invoicenumholder;
                 String goodscodee = SapmpleActivityinlot.goodscodeholder;
                 String Boxseqid = SapmpleActivityinlot.boxseqholder;
@@ -178,9 +174,9 @@ public class FunctionalActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(FunctionalActivity.this, MainActivity.class);
-                insert_sampleSize();
-                Toast.makeText(FunctionalActivity.this, "Inspection Finish!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FunctionalActivity2.this, SapmpleActivityinlot.class);
+               // insert_sampleSize();
+                Toast.makeText(FunctionalActivity2.this, "Inspection Finish!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
 
@@ -504,7 +500,7 @@ public class FunctionalActivity extends AppCompatActivity {
                         Uspec = Float.parseFloat(Upperspec.getText().toString());
                     }
                     catch (Exception ex){
-                        Toast.makeText(FunctionalActivity.this, "Input Valid Value", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FunctionalActivity2.this, "Input Valid Value", Toast.LENGTH_SHORT).show();
                     }
 
                     if (!Fc_1.getText().toString().equals(""))
@@ -540,7 +536,7 @@ public class FunctionalActivity extends AppCompatActivity {
                     if (!Fc_2.getText().toString().equals("")) {
 
                         try {
-                            num2 = Float.parseFloat(Fc_3.getText().toString());
+                            num2 = Float.parseFloat(Fc_2.getText().toString());
                         } catch (Exception e) {
                             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                         }
@@ -1162,7 +1158,7 @@ public class FunctionalActivity extends AppCompatActivity {
         FC_Judgement.setText("");
 
     }
-    public void insert_sampleSize(){
+ /*   public void insert_sampleSize(){
 
         try{
             connectionClass = new ConnectionClass();
@@ -1176,13 +1172,13 @@ public class FunctionalActivity extends AppCompatActivity {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
 
-    }
+    }*/
 
     public void addDatatoSQLite(){
         try{
 
 
-            DatabaseHelper myDB = new DatabaseHelper(FunctionalActivity.this);
+            DatabaseHelper myDB = new DatabaseHelper(FunctionalActivity2.this);
             myDB.addFC(
 
                     instrumentUsed.getText().toString().trim(),
@@ -1216,5 +1212,12 @@ public class FunctionalActivity extends AppCompatActivity {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
 }
 

@@ -26,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iqcapplication.Update.DimensionActivity;
 import com.example.iqcapplication.add.InspectionDetailsActivity;
 import com.example.iqcapplication.fragments.FragmentForDimension;
 
@@ -41,7 +42,7 @@ import java.util.List;
 
 public class DimensionalActivity extends AppCompatActivity {
     EditText  dc_checkPoints,upperSpec,lowerSpec,sammpleUnit,dcsampleSize;
-    TextView dc_Minimum,dc_Maximum,dc_Average,dc_Judgemen,dateToday;
+    TextView dc_Minimum,dc_Maximum,dc_Average,dc_Judgemen,dateToday, goodscodedim,invoicedimm;
     EditText dc1,dc2,dc3,dc4,dc5,dc6,dc7,dc8,dc9,dc10;
 
     public static String dcinstrumentholder, dccheckholder,dcupperspecholder,dclowerspecholder,dcsampleunitholder,dcsamplesizeholder,dcminimumholder,dcmaximumholder,dcaverageholder,dcjudgementholder,
@@ -64,7 +65,7 @@ public class DimensionalActivity extends AppCompatActivity {
 
 
     public static int ctr = 1, samplesize_id_hldr=0, dimcheck_id_hldr = 0, sampleSizeDC = 0;
-    public  static String judgeHolder = "PASSED", colorHolder = "#58f40b";
+    public  static String judgeHolder = "PASSED", colorHolder = "#58f40b", goodsdcholder,invoicedcholder;
     public static boolean fourinstrument = false;
 
     @Override
@@ -106,6 +107,13 @@ public class DimensionalActivity extends AppCompatActivity {
         nextFormdim = findViewById(R.id.nextFormfc);
         sammpleUnit.setText("Mm");
         sammpleUnit.setEnabled(false);
+        goodscodedim = findViewById(R.id.goodsdch);
+        invoicedimm = findViewById(R.id.invoicedimm);
+
+
+        invoicedcholder = invoicedimm.getText().toString();
+        goodsdcholder = goodscodedim.getText().toString();
+
 
         dcInstrument();
         sampleComputation();
@@ -138,7 +146,9 @@ public class DimensionalActivity extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String noww = df.format(new Date());
         dateToday.setText(noww);
-
+        instrumentUsed.setText(DimensionActivity.instrumenholder);
+        dc_checkPoints.setText(DimensionActivity.dccheckpointsholder);
+        dcsampleSize.setText(DimensionActivity.dcsamplesizeHolder);
         dc_Judgemen.setEnabled(false);
 
 
@@ -512,6 +522,9 @@ public class DimensionalActivity extends AppCompatActivity {
                 colorHolder = "#58f40b";
 
                 if(upperSpec.getText().toString().equals("")){
+                    judgeHolder = "PASSED";
+                    colorHolder = "#58f40b";
+
                     dc_Judgemen.setText("");
                     dc1.setTextColor(Color.parseColor("#000000"));
                     dc2.setTextColor(Color.parseColor("#000000"));
@@ -1276,7 +1289,7 @@ public class DimensionalActivity extends AppCompatActivity {
                     //  String time = rs.getString("Time");
                     Toast.makeText(DimensionalActivity.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
                 }
-                String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ InspectionDetailsActivity.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"' ,'"+SapmpleActivityinlot.boxseqholder+"','"+dateToday.getText().toString()+"')"   ;
+                String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ SapmpleActivityinlot.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"' ,'"+SapmpleActivityinlot.boxseqholder+"','"+dateToday.getText().toString()+"')"   ;
 
                 Statement stmt = con.createStatement();
                 stmt.execute(query2);
@@ -1290,13 +1303,21 @@ public class DimensionalActivity extends AppCompatActivity {
             }
         }
     }
-
     public void insert_sampleSize(){
 
         try{
             connectionClass = new ConnectionClass();
             Connection con = connectionClass.CONN2();
-            String query1 = "INSERT INTO SampleSize (dimension_sample_size, goodsCode,invoice_number,MaterialCodeBoxSeqID) values ('"+sampleSizeDC+"', '"+SapmpleActivityinlot.materialholder+"', '"+SapmpleActivityinlot.invoicenumholder+"', '"+SapmpleActivityinlot.boxseqholder+"')";
+            String query = "SELECT * FROM SampleSize WHERE  MaterialCodeBoxSeqID =  '"+ InspectionDetailsActivity.boxseqholder +"' and  dimension_sample_size  = '"+dcsampleSize.getText().toString()+"'  ";
+            PreparedStatement stmtt = con.prepareStatement(query);
+            ResultSet rs = stmtt.executeQuery();
+            if(rs.next()){
+
+                //  String time = rs.getString("Time");
+
+            }
+
+            String query1 = "INSERT INTO SampleSize (dimension_sample_size, goodsCode,invoice_number,MaterialCodeBoxSeqID) values ('"+dcsampleSize.getText().toString()+"', '"+InspectionDetailsActivity.goodscodeholder+"', '"+InspectionDetailsActivity.invoicenumholderr+"', '"+SapmpleActivityinlot.boxseqholder+"')";
             Statement stmt = con.createStatement();
             stmt.execute(query1);
             samplesize_id_hldr = Latest_ID("SampleSize");

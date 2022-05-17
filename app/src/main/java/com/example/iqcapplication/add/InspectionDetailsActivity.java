@@ -56,7 +56,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     ConnectionClass connectionClass;
     private int mYear,mMonth,mDay;
 
-    public static String goodscodeholder,invoicenumholderr;
+    public static String goodscodeholder,invoicenumholderr,boxseqholder;
     final Calendar myCalendar= Calendar.getInstance();
 
     public ArrayAdapter inspecttypee,OIRR,testreportt,mattypee,cocc,rohscompp,prodadapter,uladpter,makerADapter ;
@@ -123,6 +123,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         boxsequenceins.setText(SapmpleActivityinlot.boxseqholder);
         goodscodeholder = goodc.getText().toString();
         invoicenumholderr  = invoicenum.getText().toString();
+
         temp.setText(temp_hum("Temperature"));
         humidity.setText(temp_hum("Humidity"));
         preparedby.setText(MainActivity.lastNameholder);
@@ -189,7 +190,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
     void confirmDialog2() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Proceed to" + "next form" + "?");
+        builder.setTitle("Proceed to " + "next form" + "?");
         builder.setMessage("Are you sure you want to proceed to next form?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

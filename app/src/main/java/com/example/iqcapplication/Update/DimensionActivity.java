@@ -31,14 +31,14 @@ import java.sql.Statement;
 public class DimensionActivity extends AppCompatActivity {
     EditText dc_checkPoints,upperSpec,lowerSpec,sammpleUnit,dcsampleSize;
 
-    TextView dc_Minimum,dc_Maximum,dc_Average,dc_Judgemen,dateToday,tvinvoice;
+    TextView dc_Minimum,dc_Maximum,dc_Average,dc_Judgemen,dateToday,tvinvoice, invoiceupdimmm,goodsupdimchh;
 
     EditText dc1,dc2,dc3,dc4,dc5,dc6,dc7,dc8,dc9,dc10,dcdefectquant,encountered,dcdefectremarks;
     AutoCompleteTextView instrumentUsed;
 
     String id,instrumentUsedstring,  samplenum,  checkpoint,  samplUnit,  sample1,  sample2,  sample3,  sample4 ,  sample5,  sample6,
      sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim;
-
+   public static String dcsamplesizeHolder,dccheckpointsholder,instrumenholder;
     public static int ctr = 1, samplesize_id_hldr=0, dimcheck_id_hldr = 0, sampleSizeDC = 0;
     public  static String judgeHolder = "PASSED", colorHolder = "#58f40b";
     public static boolean fourinstrument = false;
@@ -96,6 +96,10 @@ public class DimensionActivity extends AppCompatActivity {
         uploadtosqlite = findViewById(R.id.uploadfcDatafc);
         backbutton = findViewById(R.id.backbuttondim);
 
+        goodsupdimchh = findViewById(R.id.goodsupdimch);
+        invoiceupdimmm = findViewById(R.id.invoicedimm);
+
+
         dc_Judgemen.setEnabled(false);
         dc1.setEnabled(false);
         dc2.setEnabled(false);
@@ -114,7 +118,10 @@ public class DimensionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DimensionActivity.this, DimensionalActivity.class);
-
+                dcsamplesizeHolder = dcsampleSize.getText().toString();
+                dccheckpointsholder = dc_checkPoints.getText().toString();
+                instrumenholder = instrumentUsed.getText().toString();
+               // insert_sampleSize();
                 startActivity(intent);
             }
         });
@@ -453,7 +460,7 @@ public class DimensionActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 insert_dimcheck();
-                insert_sampleSize();
+
 
 
             }
@@ -561,7 +568,7 @@ public class DimensionActivity extends AppCompatActivity {
             try {
                 connectionClass = new ConnectionClass();
                 Connection con = connectionClass.CONN2();
-                String query = "SELECT * FROM DimensionalCheck WHERE Date =  '"+ gdatedim +"' ";
+                String query = "SELECT * FROM DimensionalCheck WHERE Date =  '"+ dateToday.getText().toString() +"' ";
                 PreparedStatement stmtt = con.prepareStatement(query);
                 ResultSet rs = stmtt.executeQuery();
                 if(rs.next()){
@@ -569,11 +576,13 @@ public class DimensionActivity extends AppCompatActivity {
                      // String time = rs.getString("Date");
                     Toast.makeText(DimensionActivity.this, "Already Existing in our database ", Toast.LENGTH_SHORT).show();
                 }else{
-                    String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ InspectionDetailsActivity.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"','"+SapmpleActivityinlot.boxseqholder+"', '"+dateToday.getText().toString()+"')"   ;
+                    String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date)" +
+                            " values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ SapmpleActivityinlot.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"','"+SapmpleActivityinlot.boxseqholder+"', '"+dateToday.getText().toString()+"')"   ;
 
                     Statement stmt = con.createStatement();
                     stmt.execute(query2);
                     dimcheck_id_hldr = Latest_ID("DimensionalCheck");
+
                     Toast.makeText(this, "Successfully Added", Toast.LENGTH_SHORT).show();
 
                 }
@@ -646,6 +655,10 @@ public class DimensionActivity extends AppCompatActivity {
 
             sammpleUnit.setText(samplUnit);
             dcsampleSize.setText(samplenum);
+            dcsamplesizeHolder = dcsampleSize.getText().toString();
+            dccheckpointsholder = dc_checkPoints.getText().toString();
+            instrumenholder = instrumentUsed.getText().toString();
+
             instrumentUsed.setText(instrumentUsedstring);
             dc_checkPoints.setText(checkpoint);
 

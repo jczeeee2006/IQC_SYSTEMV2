@@ -21,7 +21,7 @@
 
     <FrameLayout
         android:id="@+id/dcframelayout"
-        android:layout_width="590dp"
+        android:layout_width="620dp"
         android:layout_height="670dp"
         android:background="@drawable/layer"
         android:elevation="20dp"
@@ -683,5 +683,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/goodsdch"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/cardView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/invoicedimm"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/cardView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

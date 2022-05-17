@@ -108,9 +108,9 @@ public class ConnectionClass {
         try {
 
             Class.forName(classs);
-            ConnURL4 = "jdbc:jtds:sqlserver://" + ip + ";"
-                    + "databaseName=" + db4 + ";user=" + un + ";password="
-                    + password + ";";
+            ConnURL4 = "jdbc:jtds:sqlserver://" + ip2 + ";"
+                    + "databaseName=" + db4 + ";user=" + un1 + ";password="
+                    + password1 + ";";
             conn4 = DriverManager.getConnection(ConnURL4);
         } catch (SQLException se) {
             Log.e("ERRO", se.getMessage());

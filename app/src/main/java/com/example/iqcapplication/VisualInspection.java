@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.iqcapplication.Update.LotFormActivity;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +24,7 @@ public class VisualInspection extends AppCompatActivity {
     AutoCompleteTextView visualinsUsed;
     EditText visualsampleSize,visualCheckpoint, visualremarks, visualJudgement,visualDefectQuantity, visualdefectJudgement,visualdefectRemarks;
 
-    Button appearanceOK, appearanceNG,visualAddDefect,visualnextForm;
+    Button appearanceOK, appearanceNG,visualAddDefect,visualnextForm,addDdefet2;
 
     public ConnectionClass connectionClass;
 
@@ -45,14 +43,14 @@ public class VisualInspection extends AppCompatActivity {
         visualDefectQuantity  = findViewById(R.id.visualQuantitiy);
         visualdefectRemarks   = findViewById(R.id.visualRemarksdefect);
         visualdefectJudgement = findViewById(R.id.visualjudgementdefect);
-
+        addDdefet2 = findViewById(R.id.adddefect2);
         appearanceOK = findViewById(R.id.visualOk);
         appearanceNG = findViewById(R.id.failedd);
         visualAddDefect  = findViewById(R.id.adddefect);
         visualnextForm  = findViewById(R.id.nextFormvisual);
 
-        visualInspect();
-        displayButton();
+        visualInspecXt();
+
 
         appearanceOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,21 +78,29 @@ public class VisualInspection extends AppCompatActivity {
         visualnextForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VisualInspection.this, FunctionalActivity.class);
+                Intent intent = new Intent(VisualInspection.this, FunctionalActivity2.class);
                 update_judgement();
                 insert_defect_AP();
 
                 startActivity(intent);
             }
         });
+
+        addDdefet2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VisualInspection.this, SapmpleActivityinlot.class);
+
+                confirmDialog6();
+                startActivity(intent);
+            }
+        });
     }
 
 
-    public void displayButton(){
 
-    }
 
-    public void visualInspect(){
+    public void visualInspecXt(){
 
 
 
@@ -131,7 +137,7 @@ public class VisualInspection extends AppCompatActivity {
                 Connection con = connectionClass.CONN2();
 
                 String query = "INSERT INTO Appearance_Inspection ( invoice_no, ig_checkpoints, instrument_used, result, remarks, goodsCode,MaterialCodeBoxSeqID) values ('"+SapmpleActivityinlot.invoicenumholder+"','"+IGCheckpoints+"','"+Instrumentused+"','"+Result+"','"+Remarkss+"','"+SapmpleActivityinlot.goodscodeholder+"','"+SapmpleActivityinlot.boxseqholder+"')";
-                String query1 = "UPDATE SampleSize SET appearance_sample_size = '"+visualsampleSize.getText().toString()+"' WHERE id = '"+DimensionalActivity.samplesize_id_hldr+"'";
+                String query1 = "UPDATE SampleSize SET appearance_sample_size = '"+visualsampleSize.getText().toString()+"' WHERE id = '"+ DimensionalActivity.samplesize_id_hldr+"'";
                 Statement stmt = con.createStatement();
                 stmt.execute(query+query1);
 
@@ -303,6 +309,36 @@ public class VisualInspection extends AppCompatActivity {
         });
         builder.create().show();
     }
+
+    void confirmDialog6() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("ADD" +  " REJECT" + "?");
+        builder.setMessage("Are you sure you want to switch form?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                Intent intent = new Intent(VisualInspection.this, SapmpleActivityinlot.class);
+
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
 }
 
 

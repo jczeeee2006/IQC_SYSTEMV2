@@ -37,7 +37,7 @@ public class LotFormActivity extends AppCompatActivity {
     String id, REMARKS,LOTQUANT,LOTNUM,SAMPLE,REJECT,TOTALQUANT,ACTUALQUANT,BOXSEQ,BOX_NUMBER,PART_NAME,
             GOODS_CODE,PART_NUMBER,INVOICE, DATETIME, rejectHolder;
     public static String    boxseqholder,invoiceholder,partnumholder,goodscodeholder,partnameholder,totalquantholder,lotnumholder,actualquantityHolder, lotQuantityholder,
-            boxnumholder,samplesizeHolder;
+            boxnumholder,samplesizeHolder, rejectHolderr;
 
     TextView difFerence,totallGood;
 
@@ -127,6 +127,7 @@ public class LotFormActivity extends AppCompatActivity {
 
 
 
+
                         String query6 = " UPDATE LotNumber SET Total_good = '" + totallGood.getText().toString()+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' ";
                         Statement stmt1 =  con.createStatement();
                         stmt1.execute(query6);
@@ -184,6 +185,7 @@ public class LotFormActivity extends AppCompatActivity {
                 lotQuantityholder = lotquantup.getText().toString();
                 boxnumholder = boxnumup.getText().toString();
                 samplesizeHolder   = sampsizeup.getText().toString();
+                rejectHolderr = rejectUp.getText().toString();
 
                 try {
                     pendingIntent.send();
@@ -277,7 +279,6 @@ public class LotFormActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
 
                 saveToSQLSERVER();
                 totalQuantofReject();

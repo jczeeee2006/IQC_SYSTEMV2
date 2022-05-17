@@ -1,5 +1,7 @@
 package com.example.iqcapplication;
 
+import static com.example.iqcapplication.MainActivity.connectionClass;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -32,6 +34,7 @@ import com.example.iqcapplication.fragments.FragmentforLot;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,7 +42,7 @@ import java.util.Date;
 public class SapmpleActivityinlot extends AppCompatActivity  {
     Button firstFragButton;
     ConnectionClass connectionClass;
-    Button button,buttonAdd,buttonShow,nextForm,clearDatA;
+    Button button,buttonAdd,buttonShow,nextForm,clearDatA, uploadSaServer;
     public static EditText totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks,dateToday;
     public static AutoCompleteTextView lot_invoiceno, tv_partname, goodsc, et_partnum;
 
@@ -82,6 +85,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         nextForm = findViewById(R.id.nextForm);
         clearDatA = findViewById(R.id.clearData);
         dateToday  = findViewById(R.id.dateToday);
+        uploadSaServer = findViewById(R.id.uploadsaServer);
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String noww = df.format(new Date());
@@ -108,7 +112,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         lotno.setText(LotFormActivity.lotnumholder);
         boxnum.setText(LotFormActivity.boxnumholder);
         sampsize.setText(LotFormActivity.samplesizeHolder);
-       quantityrecieved.setText(LotFormActivity.actualquantityHolder);
+        quantityrecieved.setText(LotFormActivity.actualquantityHolder);
+        reject.setText(LotFormActivity.rejectHolderr);
         LotAsync lotAsync = new LotAsync();
         lotAsync.execute("");
         buttonList();
@@ -153,6 +158,13 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     }
                 },1000);
 
+            }
+        });
+
+        uploadSaServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog5();
             }
         });
 
@@ -557,6 +569,68 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                 boxseqholder = boxseqid.getText().toString();
                 dateholder  = dateToday.getText().toString();
                 startActivity(intent);
+
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+
+    void saveToSQLSERVER(){
+
+
+
+        try{
+            connectionClassss = new ConnectionClass();
+            Connection con = connectionClass.CONN2();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            String noww = df.format(new Date());
+            dateToday.setText(noww);
+            if(lot_invoiceno.getText().toString().equals("") && tv_partname.getText().toString().equals("") && quantityrecieved.getText().toString().equals("")){
+                Toast.makeText(this, "Fill up required fields.", Toast.LENGTH_SHORT).show();
+            }else{
+                String query = "SELECT * FROM LotNumber  WHERE  Date =  '"+ dateToday.getText().toString()+"'   ";
+                PreparedStatement stmtt = con.prepareStatement(query);
+                ResultSet rs = stmtt.executeQuery();
+                if(rs.next()){
+
+                    //  String time = rs.getString("Time");
+                    Toast.makeText(SapmpleActivityinlot.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
+                }else{
+                    connectionClassss = new ConnectionClass();
+                    String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date) values ('" + lot_invoiceno.getText().toString() + "','" + et_partnum.getText().toString() + "','" + tv_partname.getText().toString() + "','" + totalquantity.getText().toString() + "','" + quantityrecieved.getText().toString() + "','" + lotno.getText().toString() + "','" +lotquant.getText().toString() + "','" + boxnum.getText().toString() + "','" + reject.getText().toString() + "','" + sampsize.getText().toString() + "', '" + goodsc.getText().toString() + "', '" + boxseqid.getText().toString() + "',  '" + remarks.getText().toString() + "' ,  '" + dateToday.getText().toString() + "')";
+                    Statement stmt = con.createStatement();
+                    stmt.execute(query1);
+                    Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+
+        }catch(Exception e ){
+            Toast.makeText(SapmpleActivityinlot.this,e.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    void confirmDialog5() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Upload  " + " Data to our Server" + "?");
+        builder.setMessage("Are you sure you want to upload data? this cannot be undone.");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                saveToSQLSERVER();
+                addDatatoSQLite();
 
 
             }

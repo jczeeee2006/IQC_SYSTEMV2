@@ -1,7 +1,6 @@
 package com.example.iqcapplication.Update;
 
-import static com.example.iqcapplication.FunctionalActivity.isNumeric;
-import static com.example.iqcapplication.MainActivity.connectionClass;
+import static com.example.iqcapplication.FunctionalActivity2.isNumeric;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.iqcapplication.ConnectionClass;
 import com.example.iqcapplication.DatabaseHelper;
+import com.example.iqcapplication.FunctionalActivity2;
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.SapmpleActivityinlot;
 
@@ -115,8 +115,7 @@ public class FunctionalActivity extends AppCompatActivity {
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FunctionalActivity.this,FunctionalActivity.class);
-                startActivity(intent);
+          //
             }
         });
 

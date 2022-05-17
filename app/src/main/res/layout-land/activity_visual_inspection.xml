@@ -79,6 +79,23 @@
                 app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
                 app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
 
+            <Button
+
+                android:id="@+id/adddefect2"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#ff0000"
+                android:drawableLeft="@drawable/ic_baseline_add_box_24"
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="ADDREJECT"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/visualRemarksdefect"
+                app:layout_constraintHorizontal_bias="0.632"
+                app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
+                app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
+
             <AutoCompleteTextView
                 android:id="@+id/visualQuantitiy"
                 android:layout_width="200dp"
@@ -96,7 +113,7 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintHorizontal_bias="0.14"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,7 +134,7 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.936"
+                app:layout_constraintHorizontal_bias="0.902"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,7 +142,7 @@
                 android:id="@+id/visualRemarksdefect"
                 android:layout_width="400dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
@@ -134,8 +151,8 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.566"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/visualQuantitiy"
                 app:layout_constraintTop_toBottomOf="@+id/visualQuantitiy" />
 
             <TextView
@@ -183,8 +200,8 @@
                 android:paddingLeft="20dp"
                 android:text="NEXT FORM"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.926"
+                app:layout_constraintEnd_toEndOf="@+id/visualjudgementdefect"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
                 app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
 
@@ -196,17 +213,18 @@
         android:layout_width="770dp"
         android:layout_height="400dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="200dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="44dp"
         app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545"
         app:layout_goneMarginLeft="30dp">
 
 
