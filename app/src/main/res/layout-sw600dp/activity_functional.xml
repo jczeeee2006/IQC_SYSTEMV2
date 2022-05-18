@@ -21,53 +21,49 @@
 
     <FrameLayout
         android:id="@+id/fcframelayout"
-        android:layout_width="650dp"
-        android:layout_height="540dp"
+        android:layout_width="600dp"
+        android:layout_height="650dp"
         android:background="@drawable/layer"
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.446" />
+        app:layout_constraintVertical_bias="0.953" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="700dp"
+        android:layout_width="650dp"
         android:layout_height="750dp"
-        android:layout_marginTop="32dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="44dp"
         app:cardElevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginLeft="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="700dp"
-            android:layout_height="760dp"
+            android:layout_width="650dp"
+            android:layout_height="750dp"
             android:layout_marginRight="30dp"
 
-            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/rejectquanttt"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="28dp"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
                 android:text="ADD REJECT"
-                app:layout_constraintEnd_toEndOf="@+id/adddatatosqllite"
+                app:layout_constraintEnd_toEndOf="@+id/fcjudgeMent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/adddatatosqllite"
-                app:layout_constraintTop_toBottomOf="@+id/adddatatosqllite" />
+                app:layout_constraintStart_toStartOf="@+id/fcjudgeMent"
+                app:layout_constraintTop_toBottomOf="@+id/fcjudgeMent" />
 
             <EditText
                 android:id="@+id/checkPointfc"
@@ -141,7 +137,7 @@
                 android:id="@+id/sampleSizefc_"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:background="@drawable/rounded_corners"
+                android:background="@drawable/edittext_shadow"
                 android:elevation="10dp"
                 android:inputType="number|textPersonName"
                 android:paddingLeft="10dp"
@@ -468,13 +464,13 @@
                 app:layout_constraintVertical_bias="0.409" />
 
             <Button
-                android:id="@+id/nextFormfc"
+                android:id="@+id/uploadtoSQL"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
 
-                android:backgroundTint="@color/darkblue"
-                android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
-                android:text="NEXT FORM"
+                android:backgroundTint="#FF0000"
+                android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+                android:text="UPLOAD"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/fc5"
                 app:layout_constraintHorizontal_bias="0.366"
@@ -483,20 +479,7 @@
                 app:layout_constraintVertical_bias="0.235" />
 
 
-            <Button
-                android:id="@+id/adddatatosqllite"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
 
-                android:backgroundTint="#1ff03b"
-                android:drawableLeft="@drawable/ic_baseline_add_box_24"
-                android:text="add"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/fcjudgeMent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fcjudgeMent"
-                app:layout_constraintTop_toBottomOf="@+id/fcjudgeMent"
-                app:layout_constraintVertical_bias="0.287" />
 
             <TextView
                 android:id="@+id/minimumfc"

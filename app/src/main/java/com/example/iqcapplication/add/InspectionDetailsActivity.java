@@ -52,7 +52,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     EditText invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,  goodc, dateeee, inspector, dateinspected,samplesize,
             datereceived,invoicequant,dateTodayins,boxsequenceins;
     AutoCompleteTextView oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking,maker;
-    Button nextForm,addData,showButton;
+    Button nextForm,addData,showButton,backButton,deleteRecordsins;
     ConnectionClass connectionClass;
     private int mYear,mMonth,mDay;
 
@@ -106,8 +106,8 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         nextForm = findViewById(R.id.inspectnextbutton);
         boxsequenceins = findViewById(R.id.boxseqinspection);
         dateTodayins = findViewById(R.id.dateToday1);
-
-
+        backButton = findViewById(R.id.backButton);
+        deleteRecordsins = findViewById(R.id.deleteRecordsinspect);
 
          //----------------------HUMIDITY-------------------------///
 
@@ -164,6 +164,20 @@ public class InspectionDetailsActivity extends AppCompatActivity {
             }
         });
 
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog11();
+            }
+        });
+
+        deleteRecordsins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConfirmDialog14();
+            }
+        });
     }
 
     void confirmDialog1() {
@@ -187,6 +201,53 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         builder.create().show();
     }
 
+
+
+    void confirmDialog11() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Back " + " to Lot Form " + "?");
+        builder.setMessage("Are you sure you want to go to previous form?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(InspectionDetailsActivity.this, SapmpleActivityinlot.class);
+                startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+
+
+    void ConfirmDialog14() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("DELETE " + " PREVIOUS RECORDS " + "?");
+        builder.setMessage("Are you sure you want to DEETE previous form?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                DatabaseHelper myDB = new DatabaseHelper(InspectionDetailsActivity.this);
+                myDB.deleteallRow2();
+                Intent intent = new Intent(InspectionDetailsActivity.this, InspectionDetailsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
 
     void confirmDialog2() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

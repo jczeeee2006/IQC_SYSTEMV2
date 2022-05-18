@@ -703,4 +703,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    void deleteOneRow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+      long result =   db.delete(TABLE_NAME,"id=?",new String[] {row_id});
+      if(result == -1){
+
+      }else{
+          Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+      }
+    }
+
+
+    void deleteallRow(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME);
+    }
+
+    void deleteallRow1(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME2);
+    }
+
+
+    public void deleteallRow2(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME3);
+    }
 }

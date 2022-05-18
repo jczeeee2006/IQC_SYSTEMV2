@@ -49,7 +49,7 @@ public class DimensionalActivity extends AppCompatActivity {
             dc1holder,dc2holder,dc3holder,dc4holder,dc5holder,dc6holder,dc7holder,dc8holder,dc9holder,dc10holder;
     AutoCompleteTextView instrumentUsed;
     public ArrayAdapter  dcinstrument_adapter;
-    Button addData,uploadtosqlite,nextFormdim ;
+    Button addData,uploadtosqlite,nextFormdim,deleteDimension ;
     ImageButton helpbuttton;
     float num1 = 0;
     float num2 = 0;
@@ -105,11 +105,14 @@ public class DimensionalActivity extends AppCompatActivity {
         addData = findViewById(R.id.viewdadtfun);
         uploadtosqlite = findViewById(R.id.updateTosqlite);
         nextFormdim = findViewById(R.id.nextFormfc);
+
         sammpleUnit.setText("Mm");
+
         sammpleUnit.setEnabled(false);
+
         goodscodedim = findViewById(R.id.goodsdch);
         invoicedimm = findViewById(R.id.invoicedimm);
-
+        deleteDimension = findViewById(R.id.deleteAllRecordsdim);
 
         invoicedcholder = invoicedimm.getText().toString();
         goodsdcholder = goodscodedim.getText().toString();
@@ -164,6 +167,13 @@ public class DimensionalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 confirmDialog3();
+            }
+        });
+
+        deleteDimension.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog10();
             }
         });
 
@@ -234,8 +244,9 @@ public class DimensionalActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                if(dcsampleSize.getText().toString().equals("")){
+                if(dcsampleSize.getText().toString().equals("") || lowerSpec.getText().toString().equals("") || upperSpec.getText().toString().equals("") ){
                     dcsampleSize.setError("Enter Sample size, this occurs due to tablet loosing to its keyboard");
+                    lowerSpec.setError("Enter lower spec, the field is blank");
                 }else if(!dcsampleSize.getText().toString().equals("")){
                     addDatatoSQLite();
                    // insert_dimcheck();
@@ -1349,8 +1360,9 @@ public class DimensionalActivity extends AppCompatActivity {
 
         return output;
     }
-    public void reset_sample()
-    {
+
+
+    public void reset_sample() {
         sampleSizeDC = ctr;
         ctr = 1;
         dc1.setText("");
@@ -1364,11 +1376,38 @@ public class DimensionalActivity extends AppCompatActivity {
         dc9.setText("");
         dc10.setText("");
 
+
         dc_checkPoints.setText("");
         lowerSpec.setText("");
         upperSpec.setText("");
         dc_Judgemen.setText("");
 
+    }
+
+
+    void confirmDialog10() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("DELETE " + " " +
+                "PREVIOUS RECORDS " + "?");
+        builder.setMessage("Are you sure you want to DELETE data?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                DatabaseHelper myDB = new DatabaseHelper(DimensionalActivity.this);
+                myDB.deleteallRow1();
+                Toast.makeText(DimensionalActivity.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DimensionalActivity.this, DimensionalActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 
 

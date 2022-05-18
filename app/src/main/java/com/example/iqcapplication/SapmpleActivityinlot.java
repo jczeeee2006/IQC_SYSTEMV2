@@ -42,30 +42,32 @@ import java.util.Date;
 public class SapmpleActivityinlot extends AppCompatActivity  {
     Button firstFragButton;
     ConnectionClass connectionClass;
-    Button button,buttonAdd,buttonShow,nextForm,clearDatA, uploadSaServer;
+    Button button,buttonAdd,buttonShow,nextForm,clearDatA, uploadSaServer,deleteRecords;
     public static EditText totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks,dateToday;
     public static AutoCompleteTextView lot_invoiceno, tv_partname, goodsc, et_partnum;
 
     ArrayList<LotEncapsulation> lotData = new ArrayList<>();
 
     ImageButton helpButton;
-    int ctr= 0;
-    public static String goodscodeholder, invoicenumholder,materialholder, boxseqholder, partnameholder,  partnumholder, latestID,transacid,totaltransaction,dateholder;
+
+    public static String goodscodeholder, invoicenumholder,materialholder, boxseqholder, partnameholder,  partnumholder, latestID,dateholder;
     private  ConnectionClass connectionClassss;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         replaceFragment(new FragmentforLot());
+
         setContentView(R.layout.activity_sapmple_activityinlot);
-        firstFragButton = findViewById(R.id.showbutton);
+
+
         Fragment fragment= new FragmentforLot();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.framelayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
 
-
-
+        firstFragButton = findViewById(R.id.showbutton);
         boxseqid = findViewById(R.id.boxSequence);
         lot_invoiceno = findViewById(R.id.invoiceNum);
         totalquantity = findViewById(R.id.totalQuan_txt);
@@ -86,7 +88,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         clearDatA = findViewById(R.id.clearData);
         dateToday  = findViewById(R.id.dateToday);
         uploadSaServer = findViewById(R.id.uploadsaServer);
-
+        deleteRecords = findViewById(R.id.deleteAllRecords);
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String noww = df.format(new Date());
         dateToday.setText(noww);
@@ -99,8 +101,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
 
        // Query();
-        //GoodsCodelist();
-        totaltransaction = transacid;
+        //GoodsCodelist()
 
         boxseqid.setText(LotFormActivity.boxseqholder);
         lot_invoiceno.setText(LotFormActivity.invoiceholder);
@@ -117,6 +118,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         LotAsync lotAsync = new LotAsync();
         lotAsync.execute("");
         buttonList();
+
+
 
     }
 
@@ -145,21 +148,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         });
 
 
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog1();
-                new Handler().postDelayed(new Runnable() {
-                    public void run() {
 
-                        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                        String noww = df.format(new Date());
-                        dateToday.setText(noww);
-                    }
-                },1000);
-
-            }
-        });
 
         uploadSaServer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +161,13 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 myCustomDalog();
+            }
+        });
+
+        deleteRecords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog10();
             }
         });
 
@@ -232,10 +228,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             return null;
         }
     }
-
-
-
-
 
 
     //--------------GENERATING OF SPECIFIC FIELDS FROM PART NUMBER----------------//
@@ -399,13 +391,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         return z;
     }
 
-
-
-
-
-
-
-
     //-----------------------GENERATING OF PARTNAME AND GOODS CODE DEPENDING ON PARTNUMBER-------------------//
     public String nameandGoodsCode(String invoice, String selectedCol){
 
@@ -467,14 +452,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         }
         return output;
     }
-
-
-
-
-
-
-
-
 
     //----GET THE LATEST ID TO THE TOP -------//
     public int Latest_ID(String tablename){
@@ -554,6 +531,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         builder.create().show();
     }
 
+    //--------------PROCEED TO NEXT FORM-------------------//
     void confirmDialog2() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Proceed to next " + " Form " + "?");
@@ -586,7 +564,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     void saveToSQLSERVER(){
 
 
-
+        String names = "";
         try{
             connectionClassss = new ConnectionClass();
             Connection con = connectionClass.CONN2();
@@ -604,11 +582,15 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     //  String time = rs.getString("Time");
                     Toast.makeText(SapmpleActivityinlot.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
                 }else{
-                    connectionClassss = new ConnectionClass();
-                    String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date) values ('" + lot_invoiceno.getText().toString() + "','" + et_partnum.getText().toString() + "','" + tv_partname.getText().toString() + "','" + totalquantity.getText().toString() + "','" + quantityrecieved.getText().toString() + "','" + lotno.getText().toString() + "','" +lotquant.getText().toString() + "','" + boxnum.getText().toString() + "','" + reject.getText().toString() + "','" + sampsize.getText().toString() + "', '" + goodsc.getText().toString() + "', '" + boxseqid.getText().toString() + "',  '" + remarks.getText().toString() + "' ,  '" + dateToday.getText().toString() + "')";
-                    Statement stmt = con.createStatement();
-                    stmt.execute(query1);
-                    Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
+                    for(LotEncapsulation lotDatas :lotData){
+                        names += lotDatas;
+                        connectionClassss = new ConnectionClass();
+                        String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date) values ('" + lotDatas.getLot_invoiceno() + "','" + lotDatas.getEt_partnum() + "','" +lotDatas.getTv_partname() + "','" + lotDatas.getTotalquantity() + "','" + lotDatas.getQuantityrecieved() + "','" + lotDatas.getLotno() + "','" +lotDatas.getLotquant() + "','" + lotDatas.getBoxnum() + "','" +lotDatas.getReject() + "','" + lotDatas.getSampsize() + "', '" + lotDatas.getGoodsc() + "', '" + lotDatas.getBoxseqid() + "',  '" + lotDatas.getRemarks() + "' ,  '" + lotDatas.getDateToday() + "')";
+                        Statement stmt = con.createStatement();
+                        stmt.execute(query1);
+                        Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
+                    }
+
 
                 }
 
@@ -621,7 +603,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
     }
 
-
+    //--------------UPLOADING TO SQL SERVER-------------------//
     void confirmDialog5() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Upload  " + " Data to our Server" + "?");
@@ -644,7 +626,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         builder.create().show();
     }
 
-
+    //------------CLEARING OF DATA----------------------------//
     void confirmDialog3() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Clear " + " Data " + "?");
@@ -682,6 +664,31 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     }
 
 
+    void confirmDialog10() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("DELETE " + " ALL RECORDS " + "?");
+        builder.setMessage("Are you sure you want to DELETE data?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                 DatabaseHelper myDB = new DatabaseHelper(SapmpleActivityinlot.this);
+                 myDB.deleteallRow();
+                 Toast.makeText(SapmpleActivityinlot.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                 Intent intent = new Intent(SapmpleActivityinlot.this, SapmpleActivityinlot.class);
+                    startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+    //------------UPLOAD TO SQLITE----------------------------//
     public void addDatatoSQLite(){
 
         try{

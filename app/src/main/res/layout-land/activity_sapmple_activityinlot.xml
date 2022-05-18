@@ -24,7 +24,7 @@
 
     <FrameLayout
         android:id="@+id/framelayout"
-        android:layout_width="590dp"
+        android:layout_width="580dp"
         android:layout_height="650dp"
         android:background="@drawable/layer"
         android:elevation="20dp"
@@ -39,7 +39,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="750dp"
+        android:layout_width="720dp"
         android:layout_height="670dp"
 
         android:elevation="12sp"
@@ -50,7 +50,7 @@
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.769"
@@ -58,7 +58,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="730dp"
+            android:layout_width="720dp"
             android:layout_height="700dp"
             android:layout_marginRight="30dp"
 
@@ -70,7 +70,7 @@
                 android:id="@+id/nextForm"
                 android:layout_width="200dp"
                 android:layout_height="70dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
                 android:elevation="20dp"
@@ -78,9 +78,9 @@
                 android:text="next form"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/showbutton"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/addlotbutton"
-                app:layout_constraintTop_toBottomOf="@+id/addlotbutton" />
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toEndOf="@+id/remarks"
+                app:layout_constraintTop_toBottomOf="@+id/showbutton" />
 
             <Button
                 android:id="@+id/uploadsaServer"
@@ -94,10 +94,10 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/showbutton"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/showbutton"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/nextForm"
                 app:layout_constraintTop_toBottomOf="@+id/showbutton"
-                app:layout_constraintVertical_bias="0.272" />
+                app:layout_constraintVertical_bias="0.342" />
 
             <AutoCompleteTextView
                 android:id="@+id/invoiceNum"
@@ -301,23 +301,6 @@
                 app:layout_constraintBottom_toTopOf="@+id/partName"
                 app:layout_constraintStart_toStartOf="@+id/partName" />
 
-            <Button
-                android:id="@+id/addlotbutton"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="32dp"
-
-                android:backgroundTint="#16e06e"
-                android:drawableLeft="@drawable/ic_baseline_add_box_24"
-                android:elevation="20dp"
-                android:paddingLeft="20dp"
-                android:text="ADD DATA"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/lotQuant"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/lotQuant"
-                app:layout_constraintTop_toBottomOf="@+id/sampleSize" />
-
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
@@ -500,8 +483,9 @@
             <Button
                 android:id="@+id/showbutton"
 
-                android:layout_width="200dp"
+                android:layout_width="430dp"
                 android:layout_height="70dp"
+                android:layout_marginEnd="32dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_pageview_24"
                 android:elevation="20dp"
@@ -513,7 +497,7 @@
                 app:layout_constraintHorizontal_bias="0.23"
                 app:layout_constraintStart_toEndOf="@+id/addlotbutton"
                 app:layout_constraintTop_toBottomOf="@+id/boxSequence"
-                app:layout_constraintVertical_bias="0.22" />
+                app:layout_constraintVertical_bias="0.195" />
 
             <Button
                 android:id="@+id/clearData"
@@ -553,10 +537,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/framelayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.791"
         app:layout_constraintStart_toEndOf="@+id/textView39"
         app:layout_constraintTop_toTopOf="@+id/textView39"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_help_outline_24" />
+
+    <Button
+        android:id="@+id/deleteAllRecords"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:backgroundTint="#FF0000"
+        android:drawableLeft="@drawable/ic_delete"
+        android:text=" "
+        app:layout_constraintBottom_toTopOf="@+id/framelayout"
+        app:layout_constraintEnd_toStartOf="@+id/helpButton"
+        app:layout_constraintStart_toEndOf="@+id/textView39" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

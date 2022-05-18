@@ -38,7 +38,7 @@
 
         android:id="@+id/cardView4"
         android:layout_width="570dp"
-        android:layout_height="400dp"
+        android:layout_height="450dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -47,16 +47,16 @@
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587"
+        app:layout_constraintVertical_bias="0.622"
         app:layout_goneMarginLeft="30dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="550dp"
-            android:layout_height="400dp"
+            android:layout_height="450dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
@@ -67,6 +67,7 @@
                 android:id="@+id/adddefect"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="48dp"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
@@ -89,10 +90,10 @@
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
                 android:elevation="20dp"
                 android:paddingLeft="20dp"
-                android:text="ADDREJECT"
+                android:text="REJECT"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/visualRemarksdefect"
-                app:layout_constraintHorizontal_bias="0.632"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
                 app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
 
@@ -190,10 +191,10 @@
 
             <Button
                 android:id="@+id/nextFormvisual"
-                android:layout_width="150dp"
+                android:layout_width="450dp"
                 android:layout_height="70dp"
 
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="116dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
                 android:elevation="20dp"
@@ -201,7 +202,7 @@
                 android:text="NEXT FORM"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/visualjudgementdefect"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/visualRemarksdefect"
                 app:layout_constraintTop_toBottomOf="@+id/visualRemarksdefect" />
 
@@ -210,7 +211,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="770dp"
+        android:layout_width="720dp"
         android:layout_height="400dp"
         android:layout_marginLeft="50dp"
         android:elevation="12sp"
@@ -221,7 +222,7 @@
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.545"
@@ -229,7 +230,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="730dp"
+            android:layout_width="720dp"
             android:layout_height="400dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"

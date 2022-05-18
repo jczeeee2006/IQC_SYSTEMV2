@@ -94,28 +94,23 @@ public class FunctionalActivity extends AppCompatActivity {
 
         FC_Judgement  = findViewById(R.id.fcjudgeMentup);
         dateTodayfc  = findViewById(R.id.datefunup);
-        backbutton = findViewById(R.id.backbuttonfun);
+        backbutton = findViewById(R.id.BACKbUTTONFC);
         fc_checkPoints  = findViewById(R.id.checkPointup);
         upperSpec  = findViewById(R.id.upperspecsupfc);
         lowerSpec  = findViewById(R.id.lowerspecupfc);
         ffcsampleSize = findViewById(R.id.sampleSizefc_up);
+        uploadtosqlsserver = findViewById(R.id.viewdadtfun);
+
+        getIntentData();
+
           sampleComputation();
-        addData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog();
-            }
-        });
-        uploadtosqlsserver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog1();
-            }
-        });
+
+
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-          //
+                Intent intent = new Intent(FunctionalActivity.this, FunctionalActivity2.class);
+                startActivity(intent);
             }
         });
 
@@ -179,7 +174,7 @@ public class FunctionalActivity extends AppCompatActivity {
             if (!Fc_2.getText().toString().equals("")) {
 
                 try {
-                    num2 = Float.parseFloat(Fc_3.getText().toString());
+                    num2 = Float.parseFloat(Fc_2.getText().toString());
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
@@ -419,8 +414,8 @@ public class FunctionalActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                insert_funcheck();
-                insert_sampleSize();
+            //   insert_funcheck();
+              //  insert_sampleSize();
 
 
             }
@@ -827,7 +822,7 @@ public class FunctionalActivity extends AppCompatActivity {
     }
 
 
-    public void insert_funcheck()
+   /* public void insert_funcheck()
     {
 
         String Checkpoints = fc_checkPoints.getText().toString();
@@ -864,7 +859,7 @@ public class FunctionalActivity extends AppCompatActivity {
 
                 String query = "INSERT INTO FunctionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement, remarks, MaterialCodeBoxSeqID) values ('"+ SapmpleActivityinlot.invoicenumholder+"', '"+SapmpleActivityinlot.materialholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"','"+Remm+"','"+SapmpleActivityinlot.boxseqholder+"')";
                 //Toast.makeText(this, String.valueOf(sampleSizeFC), Toast.LENGTH_LONG).show();
-                String query1 = "UPDATE SampleSize SET function_sample_size = '"+ffcsampleSize+"' WHERE id = '"+DimensionActivity.samplesize_id_hldr+"'";
+                String query1 = "UPDATE SampleSize SET function_sample_size = '"+ffcsampleSize.getText().toString()+"' WHERE id = '"+DimensionActivity.samplesize_id_hldr+"'";
                 Statement stmt = con.createStatement();
                 stmt.execute(query+query1);
                 Toast.makeText(getApplicationContext(), "Successfully added!", Toast.LENGTH_SHORT).show();
@@ -879,15 +874,17 @@ public class FunctionalActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }
         }
-    }
+    }*/
 
     public int Latest_ID(String tablename){
         int output = 0;
 
-        connectionClass = new ConnectionClass();
+
 
         try {
+            connectionClass = new ConnectionClass();
             Connection con = connectionClass.CONN2();//open ng connection sa connection class
+
             String query = "SELECT TOP 1 id FROM "+tablename+" ORDER BY id DESC";
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
@@ -918,6 +915,78 @@ public class FunctionalActivity extends AppCompatActivity {
         }
 
     }
+
+
+    public void getIntentData(){
+        if(getIntent().hasExtra("id") &&  getIntent().hasExtra("getInstrumentUsed") && getIntent().hasExtra("getCheckpointdc") &&  getIntent().hasExtra("getSampleUnit") &&
+                getIntent().hasExtra("getSampleSize") &&  getIntent().hasExtra("getSample1dc") &&
+                getIntent().hasExtra("getSample2dc") &&  getIntent().hasExtra("getSample3dc") &&  getIntent().hasExtra("getSample4dc") &&   getIntent().hasExtra("getSample5dc") &&
+                getIntent().hasExtra("getSample6dc") &&  getIntent().hasExtra("getSample7dc") &&  getIntent().hasExtra("getSample8dc") &&  getIntent().hasExtra("getSample9dc") &&
+                getIntent().hasExtra("getSample10dc") &&   getIntent().hasExtra("getUpperSpecs") && getIntent().hasExtra("getLoweSpecs") &&
+                getIntent().hasExtra("getMinimum") &&   getIntent().hasExtra("getAverage") &&  getIntent().hasExtra("getMaximum") &&  getIntent().hasExtra("getJudgement") &&  getIntent().hasExtra("getdatedim")
+        ){
+
+
+            id   = getIntent().getStringExtra("id");
+            instrumentUsedstring = getIntent().getStringExtra("getInstrumentUsed");
+            checkpoint   = getIntent().getStringExtra("getCheckpointdc");
+            samplUnit   = getIntent().getStringExtra("getSampleUnit");
+            samplenum   = getIntent().getStringExtra("getSampleSize");
+
+            sample1   = getIntent().getStringExtra("getSample1dc");
+            sample2   = getIntent().getStringExtra("getSample2dc");
+            sample3   = getIntent().getStringExtra("getSample3dc");
+            sample4   = getIntent().getStringExtra("getSample4dc");
+            sample5   = getIntent().getStringExtra("getSample5dc");
+
+            sample6   = getIntent().getStringExtra("getSample6dc");
+            sample7   = getIntent().getStringExtra("getSample7dc");
+            sample8   = getIntent().getStringExtra("getSample8dc");
+            sample9   = getIntent().getStringExtra("getSample9dc");
+            sample10   = getIntent().getStringExtra("getSample10dc");
+
+            upper   = getIntent().getStringExtra("getUpperSpecs");
+            lower   = getIntent().getStringExtra("getLoweSpecs");
+            min   = getIntent().getStringExtra("getMinimum");
+            average   = getIntent().getStringExtra("getAverage");
+            max   = getIntent().getStringExtra("getMaximum");
+            judgement   = getIntent().getStringExtra("getJudgement");
+            gdatedim = getIntent().getStringExtra("getdatedim");
+
+
+            sammpleUnit.setText(samplUnit);
+            ffcsampleSize.setText(samplenum);
+
+
+            instrumentUsed.setText(instrumentUsedstring);
+            fc_checkPoints.setText(checkpoint);
+
+            Fc_1.setText(sample1);
+            Fc_2.setText(sample2);
+            Fc_3.setText(sample3);
+            Fc_4.setText(sample4);
+            Fc_5.setText(sample5);
+            Fc_6.setText(sample6);
+            Fc_7.setText(sample7);
+            Fc_8.setText(sample8);
+            Fc_9.setText(sample9);
+            Fc_10.setText(sample10);
+
+
+            lowerSpec.setText(lower);
+            upperSpec.setText(upper);
+
+            fc_Minimum.setText(min);
+            fc_Maximum.setText(max);
+            fc_Average.setText(average);
+
+            FC_Judgement.setText(judgement);
+
+            dateTodayfc.setText(gdatedim);
+        }
+    }
+
+
 
 
 }

@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         return output;
     }
 
+
+    //------------------USER LOGIN COMPARING--------------------//
     public class DoLogin extends AsyncTask<String, String, String>
     {
         String z = "";

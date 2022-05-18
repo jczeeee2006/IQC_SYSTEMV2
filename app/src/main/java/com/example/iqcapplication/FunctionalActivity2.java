@@ -22,11 +22,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iqcapplication.Update.DimensionActivity;
+import com.example.iqcapplication.add.InspectionDetailsActivity;
 import com.example.iqcapplication.fragments.FragmentForFunctional;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,18 +42,15 @@ public class FunctionalActivity2 extends AppCompatActivity {
     EditText Fc_Checkpoints, Fc_Samplesize, Fc_Sampleunit, Fc_1, Fc_2, Fc_3, Fc_4, Fc_5, Fc_6, Fc_7, Fc_8, Fc_9, Fc_10, Lowerspec, Upperspec, Remarkss, checkedDate, Approve;
 
     Button rejectquantityyyy;
-    EditText REMARKS;
+
     TextView FC_Judgement,  Minimum, Average, Maximum,dateTodayfc;
 
 
-
     AutoCompleteTextView instrumentUsed;
-    public static String totalholder,addcountholder;
+
     public ArrayAdapter dcinstrument_adapter;
 
-    Button viewDatafc,uploadtosqlitefc,nextFomrmfc,addtosqlite ;
-
-    ImageButton helpbuttton;
+    Button viewDatafc,uploadtosqlitefc,nextFomrmfc,addtosqlite,SQLSERVERUP ;
 
     float num1 = 0;
     float num2 = 0;
@@ -63,21 +63,11 @@ public class FunctionalActivity2 extends AppCompatActivity {
     float num9 = 0;
     float num10 = 0;
 
-    public static int ctr = 1, samplesizefc_id_hldr=0, funcheck_id_hldr = 0, sampleSizeDC = 0;
+    public static int  samplesizefc_id_hldr=0, funcheck_id_hldr = 0, sampleSizeDC = 0;
     public  static String judgeHolder = "PASSED", colorHolder = "#58f40b";
 
 
-    public static boolean isNumeric(String strNum) {
-        if (strNum == null) {
-            return false;
-        }
-        try {
-            double d = Double.parseDouble(strNum);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +97,10 @@ public class FunctionalActivity2 extends AppCompatActivity {
         Fc_8  = findViewById(R.id.fc8);
         Fc_9  = findViewById(R.id.fc9);
         Fc_10  = findViewById(R.id.fc10);
-        nextFomrmfc = findViewById(R.id.nextFormfc);
         uploadtosqlitefc  = findViewById(R.id.updateTosqlite);
-        addtosqlite   = findViewById(R.id.adddatatosqllite);
+      //  addtosqlite   = findViewById(R.id.adddatatosqllite);
+        SQLSERVERUP = findViewById(R.id.uploadtoSQL);
+
 
 
         samplenumberenabled();
@@ -123,12 +114,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
 
         viewDatafc = findViewById(R.id.viewdadtfun);
-        nextFomrmfc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog7();
-            }
-        });
+
 
 
         rejectquantityyyy.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +124,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
                 String invoiceeenum = SapmpleActivityinlot.invoicenumholder;
                 String goodscodee = SapmpleActivityinlot.goodscodeholder;
                 String Boxseqid = SapmpleActivityinlot.boxseqholder;
+
                 startActivity(intent);
             }
         });
@@ -150,36 +137,46 @@ public class FunctionalActivity2 extends AppCompatActivity {
             }
         });
 
-        addtosqlite.setOnClickListener(new View.OnClickListener() {
+
+        SQLSERVERUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                confirmDialog();
+                confirmDialog10();
 
 
             }
         });
 
 
+    }
 
-
-
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
 
-
-    void confirmDialog7() {
+    void confirmDialog10() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("FINISH " + "INSPECTION" + "?");
-        builder.setMessage("Are you sure you want to exit?");
+        builder.setTitle("UPLOAD TO " + "SQL SERVER" + "?");
+        builder.setMessage("Are you sure you want to upload?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(FunctionalActivity2.this, SapmpleActivityinlot.class);
-               // insert_sampleSize();
-                Toast.makeText(FunctionalActivity2.this, "Inspection Finish!", Toast.LENGTH_SHORT).show();
+
+                insert_funcheck();
+                addDatatoSQLite();
+                Toast.makeText(FunctionalActivity2.this, "Sucessfully Uploaded!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
-
-
 
             }
         });
@@ -191,6 +188,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
         });
         builder.create().show();
     }
+
+
 
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -208,6 +207,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
             }
         });
+
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -219,15 +219,15 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
 
 
-
     private void replaceFragment(FragmentForFunctional fcfragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fcframelayout,fcfragment);
         fragmentTransaction.commit();
 
-    }
 
+
+    }
 
 
     public void fcinstrumentUsedd(){
@@ -248,6 +248,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
     }
 
+
+
     public void disableTexts() {
         Fc_2.setEnabled(false);
         Fc_3.setEnabled(false);
@@ -262,6 +264,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
     }
 
 
+    //----------------------SAMPLE ENABLE DIABLE---------------------------//
     public void samplenumberenabled(){
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -396,6 +399,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
                     Fc_10.setEnabled(false);
 
                 }
+
+
                 if(Fc_Samplesize.getText().toString().equals("9")) {
                     Fc_2.setEnabled(true);
                     Fc_3.setEnabled(true);
@@ -460,6 +465,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
         Fc_10.addTextChangedListener(textWatcher);
     }
 
+
+    //----------------------UPPERSPEC TEXTCHANGE---------------------------//
     public void upperSpec(){
 
         Upperspec.addTextChangedListener(new TextWatcher() {
@@ -761,6 +768,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
     }
 
+    //---------------------COMPUTATION FOR MIN MAX AVE---------------------//
     void sampleComputation(){
 
         TextWatcher textWatcher = new TextWatcher() {
@@ -1113,6 +1121,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
     }
 
+    //----------------------GET LATEST ID---------------------------------//
     public int Latest_ID(String tablename){
         int output = 0;
 
@@ -1136,44 +1145,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
     }
 
 
-
-    public void reset_sample()
-    {
-        sampleSizeDC = ctr;
-        ctr = 1;
-        Fc_1.setText("");
-        Fc_2.setText("");
-        Fc_3.setText("");
-        Fc_4.setText("");
-        Fc_5.setText("");
-        Fc_6.setText("");
-        Fc_7.setText("");
-        Fc_8.setText("");
-        Fc_9.setText("");
-        Fc_10.setText("");
-
-        Fc_Checkpoints.setText("");
-        Lowerspec.setText("");
-        Upperspec.setText("");
-        FC_Judgement.setText("");
-
-    }
- /*   public void insert_sampleSize(){
-
-        try{
-            connectionClass = new ConnectionClass();
-            Connection con = connectionClass.CONN2();
-            String query1 = "INSERT INTO SampleSize (function_sample_size, goodsCode,invoice_number,MaterialCodeBoxSeqID) values ('"+Fc_Samplesize.getText().toString()+"', '"+SapmpleActivityinlot.materialholder+"', '"+SapmpleActivityinlot.invoicenumholder+"', '"+SapmpleActivityinlot.boxseqholder+"')";
-            Statement stmt = con.createStatement();
-            stmt.execute(query1);
-            samplesizefc_id_hldr = Latest_ID("SampleSize");
-            funcheck_id_hldr = Latest_ID("FunctionalCheck");
-        }catch (Exception e){
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
-
+    //----------------------SQLITE DATABASE INSERTION--------------------//
     public void addDatatoSQLite(){
         try{
 
@@ -1217,6 +1189,63 @@ public class FunctionalActivity2 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         return;
+    }
+
+
+
+  //-------------------------SQL SERVER INSERTION-----------------------//
+    public void insert_funcheck()
+    {
+
+        String Checkpoints = Fc_Checkpoints.getText().toString();
+        String Instrumentused = instrumentUsed.getText().toString();
+        String Sampleunit = Fc_Sampleunit.getText().toString();
+        String DC1 = Fc_1.getText().toString();
+        String DC2 = Fc_2.getText().toString();
+        String DC3 = Fc_3.getText().toString();
+        String DC4 = Fc_4.getText().toString();
+        String DC5 = Fc_5.getText().toString();
+        String DC6 = Fc_6.getText().toString();
+        String DC7 = Fc_7.getText().toString();
+        String DC8 = Fc_8.getText().toString();
+        String DC9 = Fc_9.getText().toString();
+        String DC10 = Fc_10.getText().toString();
+        String Min = Minimum.getText().toString();
+        String Ave = Average.getText().toString();
+        String Max = Maximum.getText().toString();
+        String LowerSpec = Lowerspec.getText().toString();
+        String UppperSpec = Upperspec.getText().toString();
+        String Judgmnt = FC_Judgement.getText().toString();
+        String Samplesize = Fc_Samplesize.getText().toString();
+//        String Remm = Remarkss.getText().toString();
+
+
+        if (Checkpoints.trim().equals(""))//dagdagan mo
+        {
+            Toast.makeText(getApplicationContext(), "Must input atleast 1 checkpoint!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            try {
+                connectionClass = new ConnectionClass();
+                Connection con = connectionClass.CONN2();
+
+                String query = "INSERT INTO FunctionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement, MaterialCodeBoxSeqID) values ('"+ SapmpleActivityinlot.invoicenumholder+"', '"+SapmpleActivityinlot.materialholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"','"+SapmpleActivityinlot.boxseqholder+"')";
+                //Toast.makeText(this, String.valueOf(sampleSizeFC), Toast.LENGTH_LONG).show();
+                String query1 = "UPDATE SampleSize SET function_sample_size = '"+ Samplesize +"' WHERE MaterialCodeBoxSeqID = '"+ SapmpleActivityinlot.boxseqholder+"'";
+                Statement stmt = con.createStatement();
+                stmt.execute(query+query1);
+
+                samplesizefc_id_hldr = Latest_ID("SampleSize");
+                funcheck_id_hldr = Latest_ID("FunctionalCheck");
+
+                Toast.makeText(getApplicationContext(), "Successfully added!", Toast.LENGTH_SHORT).show();
+
+
+
+            } catch (Exception ex) {
+                Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
 }

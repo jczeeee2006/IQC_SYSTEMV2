@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.Update.DimensionActivity;
+import com.example.iqcapplication.Update.FunctionalActivity;
 import com.example.iqcapplication.encapsulation.DimensionEncapsulation;
 import com.example.iqcapplication.encapsulation.FunctionalEncapsulation;
 
@@ -77,7 +78,7 @@ public class CustomAdapterFunctional extends RecyclerView.Adapter<CustomAdapterF
         holder.functionLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DimensionActivity.class);
+                Intent intent = new Intent(context, FunctionalActivity.class);
                 FunctionalEncapsulation functionalEncapsulation = functionalEncapsulations.get(position);
 
                 intent.putExtra("id", String.valueOf(functionalEncapsulation.getdcID()));

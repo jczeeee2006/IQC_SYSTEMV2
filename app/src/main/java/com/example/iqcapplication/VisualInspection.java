@@ -29,8 +29,11 @@ public class VisualInspection extends AppCompatActivity {
     public ConnectionClass connectionClass;
 
     public static int appinspectioncheck_id_hldr =0;
+
     public ArrayAdapter instrumentUsedd;
+
     ArrayList<Integer> id_list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,17 +92,20 @@ public class VisualInspection extends AppCompatActivity {
         addDdefet2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VisualInspection.this, SapmpleActivityinlot.class);
+
 
                 confirmDialog6();
-                startActivity(intent);
+
             }
         });
+
+
+
     }
 
 
 
-
+    //--------------------------INSTRUMENTUSED----------------------//
     public void visualInspecXt(){
 
 
@@ -117,9 +123,8 @@ public class VisualInspection extends AppCompatActivity {
 
     }
 
-
-    public void insert_appearanceinspection(String Result)
-    {
+    //--------------------------INSERT/UPDATE----------------------//
+    public void insert_appearanceinspection(String Result) {
         String Sample_size = visualsampleSize.getText().toString();
         String IGCheckpoints = visualCheckpoint.getText().toString();
         String Instrumentused = visualinsUsed.getText().toString();
@@ -152,8 +157,9 @@ public class VisualInspection extends AppCompatActivity {
             }
         }
     }
-    public void reset()
-    {
+
+
+    public void reset() {
         //apsamplesize.setText("");
         visualCheckpoint.setText("");
 
@@ -161,8 +167,8 @@ public class VisualInspection extends AppCompatActivity {
 
     }
 
-    public void update_judgement()
-    {
+    //--------------------------UPDATE OVER ALL JUDGEMENT----------------------//
+    public void update_judgement() {
         String Judgement = visualJudgement.getText().toString();
 
         try {
@@ -188,8 +194,9 @@ public class VisualInspection extends AppCompatActivity {
 
     }
 
-    public int Latest_ID()
-    {
+
+    //--------------------------GET LATEST ID----------------------//
+    public int Latest_ID() {
         int output = 0;
 
         connectionClass = new ConnectionClass();
@@ -212,7 +219,10 @@ public class VisualInspection extends AppCompatActivity {
         return output;
     }
 
-    //-------------INSERT QUERY TO SQL DATABASE--------------------
+
+
+
+    //-------------INSERT QUERY TO SQL DATABASE--------------------//
     public void insert_defect_AP() {
         String Quantity = visualDefectQuantity.getText().toString();
         String Encountered = visualdefectJudgement.getText().toString();
@@ -240,6 +250,9 @@ public class VisualInspection extends AppCompatActivity {
         }
     }
 
+
+
+    //--------------ADD DEFECT-------------------------------//
     void confirmDialog2() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("ADD" + "DATA " + "?");
@@ -261,6 +274,8 @@ public class VisualInspection extends AppCompatActivity {
         builder.create().show();
     }
 
+
+    //------------------ADD AS PASSED-------------------------//
     void confirmDialog3() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("ADD" + " AS PASSED" + "?");
@@ -285,7 +300,7 @@ public class VisualInspection extends AppCompatActivity {
         builder.create().show();
     }
 
-
+    //------------------ADD AS FAILED-------------------------//
     void confirmDialog4() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("ADD" +  " AS FAILED" + "?");
@@ -310,6 +325,9 @@ public class VisualInspection extends AppCompatActivity {
         builder.create().show();
     }
 
+
+
+    //------------------ADD REJECT-------------------------//
     void confirmDialog6() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("ADD" +  " REJECT" + "?");

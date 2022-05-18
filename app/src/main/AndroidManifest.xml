@@ -16,6 +16,7 @@
         android:theme="@style/Theme.IQCAPPLICATION">
         <activity
             android:name=".Update.FunctionalActivity"
+            android:theme="@style/Theme.IQCAPPLICATION1"
             android:exported="false" />
         <activity
             android:name=".TableFormforall"
