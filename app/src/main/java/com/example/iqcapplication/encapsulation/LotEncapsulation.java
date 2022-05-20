@@ -1,10 +1,10 @@
 package com.example.iqcapplication.encapsulation;
 
 public class LotEncapsulation {
-    int id;
-    String totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks, lot_invoiceno, tv_partname, goodsc, et_partnum, dateToday;
 
-    public LotEncapsulation(int id, String lot_invoiceno, String et_partnum, String goodsc, String tv_partname, String boxnum, String boxseqid, String quantityrecieved, String totalquantity,
+    String id, totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks, lot_invoiceno, tv_partname, goodsc, et_partnum, dateToday;
+
+    public LotEncapsulation(String id, String lot_invoiceno, String et_partnum, String goodsc, String tv_partname, String boxnum, String boxseqid, String quantityrecieved, String totalquantity,
                             String reject, String sampsize, String lotno, String lotquant, String remarks, String dateToday) {
         this.id = id;
         this.totalquantity = totalquantity;
@@ -28,13 +28,10 @@ public class LotEncapsulation {
         return dateToday;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTotalquantity() {
         return totalquantity;

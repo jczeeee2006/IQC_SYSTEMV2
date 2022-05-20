@@ -92,7 +92,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String noww = df.format(new Date());
         dateToday.setText(noww);
-
         connectionClass = new ConnectionClass();
         quantityrecieved.setEnabled(false);
         boxseqid.setEnabled(false);
@@ -582,14 +581,12 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     //  String time = rs.getString("Time");
                     Toast.makeText(SapmpleActivityinlot.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
                 }else{
-                    for(LotEncapsulation lotDatas :lotData){
-                        names += lotDatas;
-                        connectionClassss = new ConnectionClass();
-                        String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date) values ('" + lotDatas.getLot_invoiceno() + "','" + lotDatas.getEt_partnum() + "','" +lotDatas.getTv_partname() + "','" + lotDatas.getTotalquantity() + "','" + lotDatas.getQuantityrecieved() + "','" + lotDatas.getLotno() + "','" +lotDatas.getLotquant() + "','" + lotDatas.getBoxnum() + "','" +lotDatas.getReject() + "','" + lotDatas.getSampsize() + "', '" + lotDatas.getGoodsc() + "', '" + lotDatas.getBoxseqid() + "',  '" + lotDatas.getRemarks() + "' ,  '" + lotDatas.getDateToday() + "')";
-                        Statement stmt = con.createStatement();
-                        stmt.execute(query1);
-                        Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
-                    }
+
+                    connectionClassss = new ConnectionClass();
+                    String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date) values ('" + lot_invoiceno.getText().toString() + "','" + et_partnum.getText().toString() + "','" + tv_partname.getText().toString() + "','" + totalquantity.getText().toString() + "','" + quantityrecieved.getText().toString() + "','" + lotno.getText().toString() + "','" +lotquant.getText().toString() + "','" + boxnum.getText().toString() + "','" + reject.getText().toString() + "','" + sampsize.getText().toString() + "', '" + goodsc.getText().toString() + "', '" + boxseqid.getText().toString() + "',  '" + remarks.getText().toString() + "' ,  '" + dateToday.getText().toString() + "')";
+                    Statement stmt = con.createStatement();
+                    stmt.execute(query1);
+                    Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -732,6 +729,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         }
 
     }
+
+
 
 
 

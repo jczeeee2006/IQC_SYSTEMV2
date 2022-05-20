@@ -206,8 +206,8 @@ public class LotFormActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                savetoSQLite();
-
+               savetoSQLite();
+                updateSQLData();
 
             }
         });
@@ -272,6 +272,24 @@ public class LotFormActivity extends AppCompatActivity {
                     Toast.makeText(LotFormActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
     }
+
+
+    void updateSQLData(){
+        try{
+            connectionClass = new ConnectionClass();
+            Connection con = connectionClass.CONN2();
+
+            String query = " UPDATE LotNumber SET invoice_no = '" + lot_invoicenoup.getText().toString() + "', part_no = '"+et_partnumup.getText().toString()+ "', part_name = '"+tv_partnameup.getText().toString()+ "', total_quantity = '"+totalquantityup.getText().toString()+ "', quantity_recieved = '"+quantityrecievedup.getText().toString()+ "', lot_no = '"+lotnoup.getText().toString()+ "', lot_quantity = '"+lotquantup.getText().toString()+ "', box_number = '"+boxnumup.getText().toString()+ "', reject = '"+rejectUp.getText().toString()+ "', sample_size = '"+sampsizeup.getText().toString()+ "' WHERE Date = '" + dateToday.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "'";
+            Statement stmt =  con.createStatement();
+            stmt.execute(query);
+
+            Toast.makeText(getApplicationContext(),"Successfully updated!", Toast.LENGTH_SHORT).show();
+        }catch(Exception e){
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     void confirmDialog3() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Upload data to  " + " SQL SERVER " + "?");

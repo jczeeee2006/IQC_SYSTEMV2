@@ -116,9 +116,7 @@ public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyVi
             } else {
                 for (LotEncapsulation lot : lotDataaa) {
 
-                    if (lot.getBoxnum().toLowerCase().contains(constraint.toString().toLowerCase()) || lot.getLotno().contains(constraint.toString().toLowerCase())
-                            || lot.getTotalquantity().contains(constraint.toString().toLowerCase())||lot.getLotquant().contains(constraint.toString().toLowerCase())|| lot.getQuantityrecieved().contains(constraint.toString().toLowerCase())
-                            || lot.getEt_partnum().contains(constraint.toString().toLowerCase()) || lot.getTv_partname().contains(constraint.toString().toLowerCase())
+                    if (lot.getId().contains(constraint.toString().toLowerCase())
                     ) {
                         filteredair.add(lot);
                     }

@@ -121,7 +121,7 @@ public class FragmentforLot extends Fragment  {
             while (cursor.moveToNext()) {
 
                 lotData.add(new LotEncapsulation
-                        (cursor.getInt(0),
+                        (cursor.getString(0),
                                 cursor.getString(1),
                                 cursor.getString(2),
                                 cursor.getString(3),
