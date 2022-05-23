@@ -209,7 +209,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         @Override
         protected void onPreExecute() {
 
-            Query();
+            //Query();
             GoodsCodelist();
             partnumList();
             super.onPreExecute();
@@ -230,6 +230,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
 
     //--------------GENERATING OF SPECIFIC FIELDS FROM PART NUMBER----------------//
+/*
     public String Query(){
 
         connectionClass = new ConnectionClass();
@@ -284,6 +285,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         }
         return z;
     }
+*/
 
     public String GoodsCodelist(){
 
@@ -368,8 +370,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
                     goodsc.setText(partNum(partN.getText().toString(), "GOODS_CODE"));
                     partnumholder = et_partnum.getText().toString();
-                    lot_invoiceno.setText(partNum(partN.getText().toString(), "INVOICE"));
-                    invoicenumholder = et_partnum.getText().toString();
+//                    lot_invoiceno.setText(partNum(partN.getText().toString(), "INVOICE"));
+//                    invoicenumholder = et_partnum.getText().toString();
                     tv_partname.setText(partNum(partN.getText().toString(),"PART_NAME"));
                     partnameholder = tv_partname.getText().toString();
 
@@ -692,11 +694,11 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             String QuantRecieved = quantityrecieved.getText().toString();
             if(!lotquant.getText().toString().equals("")){
 
-                if(quantityrecieved.getText().toString().equals("") ){
-                    quantityrecieved.setText(String.valueOf(0 + Integer.parseInt(lotquant.getText().toString())));
+
+                    quantityrecieved.setText(String.valueOf(Integer.parseInt(lotquant.getText().toString())));
 
                 }else{
-                    quantityrecieved.setText(String.valueOf(Integer.parseInt(QuantRecieved) + Integer.parseInt(lotquant.getText().toString())));
+                    quantityrecieved.setText(String.valueOf(Integer.parseInt(quantityrecieved.getText().toString()) + Integer.parseInt(lotquant.getText().toString())));
                     quantityrecieved.setTextColor(Color.parseColor("#23f011"));
                 }
 
@@ -718,11 +720,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                         dateToday.getText().toString().trim()
                        );
 
-
-            }
-            else {
-                Toast.makeText(SapmpleActivityinlot.this, "please fill up data", Toast.LENGTH_SHORT).show();
-            }
 
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();

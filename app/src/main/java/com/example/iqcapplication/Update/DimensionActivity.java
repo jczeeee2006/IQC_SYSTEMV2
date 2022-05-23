@@ -672,11 +672,8 @@ public class DimensionActivity extends AppCompatActivity {
             dc8.setText(sample8);
             dc9.setText(sample9);
             dc10.setText(sample10);
-
-
             lowerSpec.setText(lower);
             upperSpec.setText(upper);
-
             dc_Minimum.setText(min);
             dc_Maximum.setText(max);
             dc_Average.setText(average);
