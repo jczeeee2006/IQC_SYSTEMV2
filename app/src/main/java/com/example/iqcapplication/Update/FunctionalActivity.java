@@ -1,6 +1,7 @@
 package com.example.iqcapplication.Update;
 
 import static com.example.iqcapplication.FunctionalActivity2.isNumeric;
+import static com.example.iqcapplication.MainActivity.connectionClass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,9 +21,11 @@ import android.widget.Toast;
 
 import com.example.iqcapplication.ConnectionClass;
 import com.example.iqcapplication.DatabaseHelper;
+import com.example.iqcapplication.DimensionalActivity;
 import com.example.iqcapplication.FunctionalActivity2;
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.SapmpleActivityinlot;
+import com.example.iqcapplication.add.InspectionDetailsActivity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,7 +65,7 @@ public class FunctionalActivity extends AppCompatActivity {
     float num9 = 0;
     float num10 = 0;
 
-    Button addData,uploadtosqlsserver,backbutton,addDefectdc ;
+    Button addData,uploadtosqlsserver,backbutton,addDefectdc,updateTosqlite ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +102,7 @@ public class FunctionalActivity extends AppCompatActivity {
         upperSpec  = findViewById(R.id.upperspecsupfc);
         lowerSpec  = findViewById(R.id.lowerspecupfc);
         ffcsampleSize = findViewById(R.id.sampleSizefc_up);
-        uploadtosqlsserver = findViewById(R.id.viewdadtfun);
+        uploadtosqlsserver = findViewById(R.id.updateTosqlite);
 
         getIntentData();
 
@@ -113,7 +116,12 @@ public class FunctionalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        uploadtosqlsserver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
+            }
+        });
 
         judgeHolder = "PASSED";
         colorHolder = "#58f40b";
@@ -388,12 +396,12 @@ public class FunctionalActivity extends AppCompatActivity {
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("UPDATE" + "DATA" + "?");
-        builder.setMessage("Are you sure you want to UPDATE? this process can't be undone");
+        builder.setMessage("Are you sure you want to UPDATE?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                updateDatainSQlite();
-
+               // updateDatainSQlite();
+                updateData();
 
             }
         });
@@ -472,6 +480,30 @@ public class FunctionalActivity extends AppCompatActivity {
         }
     }
 
+
+    void updateData(){
+        try{
+            connectionClass = new ConnectionClass();
+            Connection con = connectionClass.CONN2();
+
+            String query = " UPDATE FunctionalCheck SET invoice_no = '" + DimensionalActivity.invoicedcholder + "', checkpoints = '"+fc_checkPoints.getText().toString()+ "'," +
+                    " instrument_used = '"+instrumentUsed.getText().toString()+ "', sample_unit = '"+sammpleUnit.getText().toString()+ "'," +
+                    " sample1 = '"+Fc_1.getText().toString()+ "', sample2 = '"+Fc_2.getText().toString()+ "', sample3 = '"+Fc_3.getText().toString()+ "'," +
+                    " sample4 = '"+Fc_4.getText().toString()+ "', sample5 = '"+Fc_5.getText().toString()+ "', sample6 = '"+Fc_6.getText().toString()+ "', sample7 = '"+Fc_7.getText().toString()+ "', sample8 = '"+Fc_8.getText().toString()+ "', sample9 = '"+Fc_9.getText().toString()+ "'," +
+                    "sample10 = '"+Fc_10.getText().toString()+ "',  minimum = '"+fc_Minimum.getText().toString()+ "',  average = '"+fc_Average.getText().toString()+ "',  " +
+                    "maximum = '"+fc_Maximum.getText().toString()+" ',  lower_spec_limit = '"+lowerSpec.getText().toString()+" ',  upper_spec_limit = '"+upperSpec.getText().toString()+" ', " +
+                    "judgement = '"+FC_Judgement.getText().toString()+" ' WHERE MaterialCodeBoxSeqID = '" + SapmpleActivityinlot.boxseqholder+ "'";
+            Statement stmt =  con.createStatement();
+            stmt.execute(query);
+
+            Toast.makeText(getApplicationContext(),"Successfully updated!", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.toString(), Toast.LENGTH_SHORT).show();
+        }
+        finally {
+
+        }
+    }
 
     void sampleComputation() {
 

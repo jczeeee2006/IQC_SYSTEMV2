@@ -15,12 +15,12 @@
         android:backgroundTint="#FF0000"
         android:drawableLeft="@drawable/ic_delete"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/textView81"
+        app:layout_constraintBottom_toTopOf="@+id/dcframelayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.768"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="@+id/textView81"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/helpButton1"
@@ -28,30 +28,32 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/textView81"
+        app:layout_constraintBottom_toTopOf="@+id/dcframelayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
+        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_help_outline_24" />
 
     <FrameLayout
         android:id="@+id/dcframelayout"
-        android:layout_width="580dp"
+        android:layout_width="600dp"
         android:layout_height="603dp"
         android:background="@drawable/layer"
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.67" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
         android:layout_width="700dp"
-        android:layout_height="750dp"
+        android:layout_height="736dp"
+        android:layout_marginStart="16dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
@@ -64,7 +66,7 @@
         app:layout_goneMarginLeft="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="700dp"
+            android:layout_width="690dp"
             android:layout_height="760dp"
             android:layout_marginRight="30dp"
 
@@ -473,9 +475,9 @@
                 android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginBottom="112dp"
-                android:backgroundTint="#16e06e"
+                android:backgroundTint="#FF1515"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
-                android:text="ADD DATA"
+                android:text="UPLOAD DATA"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.904"
@@ -500,12 +502,12 @@
                 android:id="@+id/updateTosqlite"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/darkblue"
                 android:drawableLeft="@drawable/ic_baseline_pageview_24"
                 android:text="VIEW DATA"
                 app:layout_constraintEnd_toEndOf="@+id/viewdadtfun"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/viewdadtfun"
                 app:layout_constraintTop_toBottomOf="@+id/viewdadtfun" />
 
@@ -543,14 +545,14 @@
                 android:id="@+id/maximumfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="56dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/averagefc"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/averagefc"
                 app:layout_constraintTop_toBottomOf="@+id/averagefc" />
 
@@ -681,11 +683,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/popbold"
         android:text="DIMENSION  RECORDS"
-        android:textColor="#3F6C8E"
+        android:textColor="#FFFFFF"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/dcframelayout"
         app:layout_constraintEnd_toEndOf="@+id/dcframelayout"
-        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/dcframelayout" />
 
     <TextView

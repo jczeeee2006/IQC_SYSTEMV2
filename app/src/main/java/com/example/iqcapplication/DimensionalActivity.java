@@ -51,6 +51,8 @@ public class DimensionalActivity extends AppCompatActivity {
     public ArrayAdapter  dcinstrument_adapter;
     Button addData,uploadtosqlite,nextFormdim,deleteDimension ;
     ImageButton helpbuttton;
+
+
     float num1 = 0;
     float num2 = 0;
     float num3 = 0;
@@ -63,7 +65,6 @@ public class DimensionalActivity extends AppCompatActivity {
     float num10 = 0;
 
 
-
     public static int ctr = 1, samplesize_id_hldr=0, dimcheck_id_hldr = 0, sampleSizeDC = 0;
     public  static String judgeHolder = "PASSED", colorHolder = "#58f40b", goodsdcholder,invoicedcholder;
     public static boolean fourinstrument = false;
@@ -72,8 +73,6 @@ public class DimensionalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dimensional);
-
-
 
         sammpleUnit = findViewById(R.id.sampleUnit);
         addData = findViewById(R.id.viewdadtfun);
@@ -101,29 +100,16 @@ public class DimensionalActivity extends AppCompatActivity {
         lowerSpec = findViewById(R.id.lowerspecfc);
         dc_checkPoints = findViewById(R.id.checkPointfc);
         dcsampleSize = findViewById(R.id.sampleSizefc_);
-
         addData = findViewById(R.id.viewdadtfun);
         uploadtosqlite = findViewById(R.id.updateTosqlite);
         nextFormdim = findViewById(R.id.nextFormfc);
-
         sammpleUnit.setText("Mm");
-
         sammpleUnit.setEnabled(false);
-
         goodscodedim = findViewById(R.id.goodsdch);
         invoicedimm = findViewById(R.id.invoicedimm);
         deleteDimension = findViewById(R.id.deleteAllRecordsdim);
-
         invoicedcholder = invoicedimm.getText().toString();
         goodsdcholder = goodscodedim.getText().toString();
-
-
-        dcInstrument();
-        sampleComputation();
-        upperSpec();
-        disableTexts();
-        samplenumberenabled();
-        buttonss();
         dccheckholder = dc_checkPoints.getText().toString();
         dcupperspecholder = upperSpec.getText().toString();
         dclowerspecholder = lowerSpec.getText().toString();
@@ -146,14 +132,21 @@ public class DimensionalActivity extends AppCompatActivity {
         dc10holder = dc10.getText().toString();
         dateToday = findViewById(R.id.dateTodaydim);
         dcinstrumentholder  = instrumentUsed.getText().toString();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String noww = df.format(new Date());
-        dateToday.setText(noww);
+
         instrumentUsed.setText(DimensionActivity.instrumenholder);
         dc_checkPoints.setText(DimensionActivity.dccheckpointsholder);
         dcsampleSize.setText(DimensionActivity.dcsamplesizeHolder);
         dc_Judgemen.setEnabled(false);
 
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String noww = df.format(new Date());
+        dateToday.setText(noww);
+        dcInstrument();
+        sampleComputation();
+        upperSpec();
+        disableTexts();
+        samplenumberenabled();
+        buttonss();
 
         helpbuttton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -249,7 +242,7 @@ public class DimensionalActivity extends AppCompatActivity {
                     lowerSpec.setError("Enter lower spec, the field is blank");
                 }else if(!dcsampleSize.getText().toString().equals("")){
                     addDatatoSQLite();
-                   // insert_dimcheck();
+                    insert_dimcheck();
                 }
 
             }
@@ -290,7 +283,7 @@ public class DimensionalActivity extends AppCompatActivity {
                     dc_Judgemen.getText().toString().trim(),
                     dateToday.getText().toString().trim()
             );
-         //   insert_dimcheck();
+
 
 
         }catch(Exception e){
@@ -1339,6 +1332,9 @@ public class DimensionalActivity extends AppCompatActivity {
 
     }
 
+
+
+
     public int Latest_ID(String tablename){
         int output = 0;
 
@@ -1409,6 +1405,7 @@ public class DimensionalActivity extends AppCompatActivity {
         });
         builder.create().show();
     }
+
 
 
 

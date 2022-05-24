@@ -41,7 +41,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
     EditText Fc_Checkpoints, Fc_Samplesize, Fc_Sampleunit, Fc_1, Fc_2, Fc_3, Fc_4, Fc_5, Fc_6, Fc_7, Fc_8, Fc_9, Fc_10, Lowerspec, Upperspec, Remarkss, checkedDate, Approve;
 
-    Button rejectquantityyyy;
+    Button rejectquantityyyy,finishhh;
 
     TextView FC_Judgement,  Minimum, Average, Maximum,dateTodayfc;
 
@@ -100,7 +100,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
         uploadtosqlitefc  = findViewById(R.id.updateTosqlite);
       //  addtosqlite   = findViewById(R.id.adddatatosqllite);
         SQLSERVERUP = findViewById(R.id.uploadtoSQL);
-
+        finishhh = findViewById(R.id.rejectquanttt2);
 
 
         samplenumberenabled();
@@ -147,6 +147,15 @@ public class FunctionalActivity2 extends AppCompatActivity {
             }
         });
 
+        finishhh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
+
+
+            }
+        });
+
 
     }
 
@@ -171,12 +180,11 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(FunctionalActivity2.this, SapmpleActivityinlot.class);
+
 
                 insert_funcheck();
                 addDatatoSQLite();
-                Toast.makeText(FunctionalActivity2.this, "Sucessfully Uploaded!", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
+
 
             }
         });
@@ -193,17 +201,14 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("ADD" + "DATA" + "?");
-        builder.setMessage("Are you sure you want to ADD?");
+        builder.setTitle("FINISH " + "FILING DATA" + "?");
+        builder.setMessage("Are you sure you want to proceed?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(Fc_Samplesize.getText().toString().equals("")){
-                    Fc_Samplesize.setError("Enter Sample size, this occurs due to tablet loosing to its keyboard");
-                }else if(!Fc_Samplesize.getText().toString().equals("")){
-                    addDatatoSQLite();
-
-                }
+                    Intent intent = new Intent(FunctionalActivity2.this, SapmpleActivityinlot.class);
+                    Toast.makeText(FunctionalActivity2.this, "Finish Inspection", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
 
             }
         });

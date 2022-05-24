@@ -913,13 +913,13 @@
           android:layout_width="670dp"
           android:layout_height="1000dp"
 
-          android:layout_marginTop="136dp"
+          android:layout_marginTop="132dp"
           android:background="@drawable/layer"
           android:elevation="10dp"
           android:innerRadius="40dp"
           android:shape="ring"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintHorizontal_bias="0.993"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 

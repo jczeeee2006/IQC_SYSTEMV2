@@ -26,19 +26,20 @@
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/drawable/rounded_corners.xml" value="0.121" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/drawable/transparent.xml" value="0.3675" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_dimension.xml" value="0.1763668430335097" />
-        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_dimensional.xml" value="0.10400000000000001" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_dimensional.xml" value="0.4" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_inspection.xml" value="0.16" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_inspection_details.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_lot_form.xml" value="0.12" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_lot_number.xml" value="0.152" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_sapmple_activityinlot.xml" value="0.12" />
-        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_visual_inspection.xml" value="0.136" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_sapmple_activityinlot.xml" value="0.536" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-land/activity_visual_inspection.xml" value="0.4" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_dimension.xml" value="0.136" />
-        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_functional.xml" value="0.2" />
-        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_functional2.xml" value="0.1" />
-        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_inspection_details.xml" value="0.1" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_functional.xml" value="0.536" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_functional2.xml" value="0.264" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_inspection_details.xml" value="0.4" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_sapmple_activityinlot.xml" value="0.2" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_table_formforall.xml" value="0.264" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/activity_visual_inspection.xml" value="0.15671182266009853" />
         <entry key="..\:/Users/justine/AndroidStudioProjects/IQCAPPLICATION/app/src/main/res/layout-sw600dp/fragment_lot.xml" value="0.13079470198675497" />

@@ -27,39 +27,52 @@
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="650dp"
-        android:layout_height="750dp"
+        android:layout_width="600dp"
+        android:layout_height="740dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="44dp"
         app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginLeft="30dp">
+        app:layout_goneMarginLeft="30dp"
+        tools:layout_editor_absoluteY="54dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="650dp"
+            android:layout_width="620dp"
             android:layout_height="750dp"
-            android:layout_marginRight="30dp"
 
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/rejectquanttt"
-                android:layout_width="150dp"
+                android:layout_width="174dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="48dp"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
                 android:text="ADD REJECT"
+                app:layout_constraintEnd_toEndOf="@+id/fcjudgeMent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/fcjudgeMent"
+                app:layout_constraintTop_toBottomOf="@+id/fcjudgeMent" />
+
+            <Button
+                android:id="@+id/rejectquanttt2"
+                android:layout_width="174dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="112dp"
+                android:drawableLeft="@drawable/ic_baseline_check_circle_24"
+                android:text="DONE INSPECTION"
                 app:layout_constraintEnd_toEndOf="@+id/fcjudgeMent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/fcjudgeMent"
@@ -129,7 +142,7 @@
                 android:paddingLeft="10dp"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/instrumentUsedfc" />
 
@@ -479,8 +492,6 @@
                 app:layout_constraintVertical_bias="0.235" />
 
 
-
-
             <TextView
                 android:id="@+id/minimumfc"
                 android:layout_width="150dp"
@@ -513,13 +524,13 @@
                 android:id="@+id/maximumfc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/averagefc"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/averagefc"
                 app:layout_constraintTop_toBottomOf="@+id/averagefc" />
 
@@ -550,7 +561,7 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintHorizontal_bias="0.651"
                 app:layout_constraintStart_toEndOf="@+id/checkPointfc"
                 app:layout_constraintTop_toTopOf="parent" />
 

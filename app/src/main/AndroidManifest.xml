@@ -16,50 +16,61 @@
         android:theme="@style/Theme.IQCAPPLICATION">
         <activity
             android:name=".Update.FunctionalActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1"
             android:exported="false" />
         <activity
             android:name=".TableFormforall"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".FunctionalActivity2"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".Update.DimensionActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".Update.InspectionActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".DimensionalActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Update.LotFormActivity"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".VisualInspection"
             android:exported="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".SapmpleActivityinlot"
             android:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".add.InspectionDetailsActivity"
             android:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.IQCAPPLICATION1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
