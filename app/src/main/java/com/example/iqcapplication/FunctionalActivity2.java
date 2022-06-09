@@ -97,6 +97,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
         Fc_8  = findViewById(R.id.fc8);
         Fc_9  = findViewById(R.id.fc9);
         Fc_10  = findViewById(R.id.fc10);
+
+        Button deleteRecords = (Button) findViewById(R.id.deleteAllRecordfunc2);
         uploadtosqlitefc  = findViewById(R.id.updateTosqlite);
       //  addtosqlite   = findViewById(R.id.adddatatosqllite);
         SQLSERVERUP = findViewById(R.id.uploadtoSQL);
@@ -116,7 +118,12 @@ public class FunctionalActivity2 extends AppCompatActivity {
         viewDatafc = findViewById(R.id.viewdadtfun);
 
 
-
+        deleteRecords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRecords();
+            }
+        });
         rejectquantityyyy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1194,6 +1201,32 @@ public class FunctionalActivity2 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         return;
+    }
+
+
+    void deleteRecords() {
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
+        builder.setTitle("DELETE " + " " +
+                "PREVIOUS RECORDS " + "?");
+        builder.setMessage("Are you sure you want to DELETE data?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                DatabaseHelper myDB = new DatabaseHelper(FunctionalActivity2.this);
+                myDB.deleteallRow3();
+                Toast.makeText(FunctionalActivity2.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FunctionalActivity2.this, FunctionalActivity2.class);
+                startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 
 

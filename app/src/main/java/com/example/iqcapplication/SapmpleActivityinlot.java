@@ -16,6 +16,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -96,11 +98,12 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         quantityrecieved.setEnabled(false);
         boxseqid.setEnabled(false);
 
+
+        //desc of data in lotnumber
         latestID = String.valueOf((Latest_ID("LotNumber")+1));
 
 
-       // Query();
-        //GoodsCodelist()
+
 
         boxseqid.setText(LotFormActivity.boxseqholder);
         lot_invoiceno.setText(LotFormActivity.invoiceholder);
@@ -119,6 +122,23 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         buttonList();
 
 
+        et_partnum.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length() != 0)
+                    boxseqid.setText(et_partnum.getText().toString() + "-" + latestID);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
 
@@ -182,18 +202,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     }
 
 
-    public void onPause(){
-        super.onPause();
-        String toStore = et_partnum.getText().toString();
-        getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putString("KEY", toStore);
-    }
-
-
-    public void onResume(){
-        super.onResume();
-        String toStore = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("KEY", et_partnum.getText().toString());
-        et_partnum.setText(toStore);
-    }
 
 
     private void replaceFragment(FragmentforLot lotFragment) {
@@ -230,62 +238,62 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
 
     //--------------GENERATING OF SPECIFIC FIELDS FROM PART NUMBER----------------//
-/*
-    public String Query(){
 
-        connectionClass = new ConnectionClass();
-        String z = "";
-        try{
-            Connection conn2 = connectionClass.CONN4();
-            String query = "SELECT DISTINCT (INVOICE) from Receive";
-            PreparedStatement stmt = conn2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            final ArrayList<String> inv = new ArrayList<String>();
-            while (rs.next()) {
-                String invoice = rs.getString("INVOICE");
-                inv.add(invoice);
+//    public String Query(){
+//
+//        connectionClass = new ConnectionClass();
+//        String z = "";
+//        try{
+//            Connection conn2 = connectionClass.CONN4();
+//            String query = "SELECT DISTINCT (INVOICE) from Receive";
+//            PreparedStatement stmt = conn2.prepareStatement(query);
+//            ResultSet rs = stmt.executeQuery();
+//            final ArrayList<String> inv = new ArrayList<String>();
+//            while (rs.next()) {
+//                String invoice = rs.getString("INVOICE");
+//                inv.add(invoice);
+//
+//
+//            }
+//            final AutoCompleteTextView   lot_invoiceno = findViewById(R.id.invoiceNum);
+//            final ArrayAdapter<String> partn_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
+//            lot_invoiceno.setThreshold(1);
+//            lot_invoiceno.setAdapter(partn_array);
+//
+//            lot_invoiceno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                    String item = parent.getItemAtPosition(position).toString();
+//                    //-------SET THE DATA FROM DB TO PARTNUMBER TEXTBOX
+//                    lot_invoiceno.setText(item);
+//                    lot_invoiceno.showDropDown();
+//                    tv_partname.setText(nameandGoodsCode(lot_invoiceno.getText().toString(),"PART_NAME"));
+//                    partnameholder = tv_partname.getText().toString();
+//                    goodsc.setText(nameandGoodsCode(lot_invoiceno.getText().toString(), "GOODS_CODE"));
+//                    materialholder = goodsc.getText().toString();
+//                    et_partnum.setText(nameandGoodsCode(lot_invoiceno.getText().toString(), "PART_NUMBER"));
+//                    partnumholder = et_partnum.getText().toString();
+//                    boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
+//                    boxseqholder = boxseqid.getText().toString();
+//
+//                }
+//            });
+//
+//            lot_invoiceno.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    lot_invoiceno.showDropDown();
+//                }
+//            });
+//
+//
+//        }catch (Exception e){
+//            z = e.toString();
+//
+//        }
+//        return z;
+//    }
 
-
-            }
-            final AutoCompleteTextView   lot_invoiceno = findViewById(R.id.invoiceNum);
-            final ArrayAdapter<String> partn_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
-            lot_invoiceno.setThreshold(1);
-            lot_invoiceno.setAdapter(partn_array);
-
-            lot_invoiceno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String item = parent.getItemAtPosition(position).toString();
-                    //-------SET THE DATA FROM DB TO PARTNUMBER TEXTBOX
-                    lot_invoiceno.setText(item);
-                    lot_invoiceno.showDropDown();
-                    tv_partname.setText(nameandGoodsCode(lot_invoiceno.getText().toString(),"PART_NAME"));
-                    partnameholder = tv_partname.getText().toString();
-                    goodsc.setText(nameandGoodsCode(lot_invoiceno.getText().toString(), "GOODS_CODE"));
-                    materialholder = goodsc.getText().toString();
-                    et_partnum.setText(nameandGoodsCode(lot_invoiceno.getText().toString(), "PART_NUMBER"));
-                    partnumholder = et_partnum.getText().toString();
-                    boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
-                    boxseqholder = boxseqid.getText().toString();
-
-                }
-            });
-
-            lot_invoiceno.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    lot_invoiceno.showDropDown();
-                }
-            });
-
-
-        }catch (Exception e){
-            z = e.toString();
-
-        }
-        return z;
-    }
-*/
 
     public String GoodsCodelist(){
 
@@ -340,14 +348,15 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     }
 
 
-    public String partnumList(){
+
+    public void partnumList(){
 
         connectionClass = new ConnectionClass();
-        String z = "";
+
         try{
 
             Connection conn2 = connectionClass.CONN4();
-            String query = "SELECT DISTINCT (PART_NUMBER) from Receive ";
+            String query = "SELECT DISTINCT (PART_NUMBER) from Receive WHERE (PART_NUMBER IS NOT NULL) ";
             PreparedStatement stmt = conn2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             final ArrayList<String> inv = new ArrayList<String>();
@@ -356,23 +365,23 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                 inv.add(invoice);
             }
 
-            final AutoCompleteTextView   partN = findViewById(R.id.partN);
+            final AutoCompleteTextView   et_partnum = findViewById(R.id.partN);
             final ArrayAdapter<String> partn_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
-            partN.setThreshold(1);
-            partN.setAdapter(partn_array);
+            et_partnum.setThreshold(1);
+            et_partnum.setAdapter(partn_array);
 
-            partN.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            et_partnum.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String item = parent.getItemAtPosition(position).toString();
                     //-------SET THE DATA FROM DB TO PARTNUMBER TEXTBOX
-                    partN.setText(item);
+                    et_partnum.setText(item);
 
-                    goodsc.setText(partNum(partN.getText().toString(), "GOODS_CODE"));
-                    partnumholder = et_partnum.getText().toString();
-//                    lot_invoiceno.setText(partNum(partN.getText().toString(), "INVOICE"));
-//                    invoicenumholder = et_partnum.getText().toString();
-                    tv_partname.setText(partNum(partN.getText().toString(),"PART_NAME"));
+                    goodsc.setText(partNum(et_partnum.getText().toString(), "GOODS_CODE"));
+                    goodscodeholder = et_partnum.getText().toString();
+                    lot_invoiceno.setText(partNum(et_partnum.getText().toString(), "INVOICE"));
+                    invoicenumholder = et_partnum.getText().toString();
+                    tv_partname.setText(partNum(et_partnum.getText().toString(),"PART_NAME"));
                     partnameholder = tv_partname.getText().toString();
 
                     boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
@@ -380,17 +389,13 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                 }
             });
 
-            partN.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    partN.showDropDown();
-                }
-            });
+
         }catch (Exception e){
-            z = e.toString();
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
-        return z;
+
     }
+
 
     //-----------------------GENERATING OF PARTNAME AND GOODS CODE DEPENDING ON PARTNUMBER-------------------//
     public String nameandGoodsCode(String invoice, String selectedCol){
@@ -732,5 +737,5 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
 
 
-
+    
 }

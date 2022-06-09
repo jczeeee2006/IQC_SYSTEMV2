@@ -1223,7 +1223,9 @@ public class DimensionalActivity extends AppCompatActivity {
 
 
                         dc_Minimum.setText(String.valueOf(min));
-                        dcsampleSize.setText((String.valueOf(list.size())));
+                        dc_Maximum.setText(String.valueOf(max));
+                        dc_Average.setText(String.valueOf(average));
+
                     } else {
 
                     }

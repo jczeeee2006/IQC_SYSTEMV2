@@ -21,12 +21,12 @@
           android:id="@+id/deleteRecordsinspect"
           android:layout_width="52dp"
           android:layout_height="53dp"
-          android:layout_marginTop="80dp"
+          android:layout_marginTop="76dp"
           android:backgroundTint="#FF0000"
           android:drawableLeft="@drawable/ic_delete"
           android:text=" "
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.04"
+          app:layout_constraintHorizontal_bias="0.979"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,10 +55,8 @@
           android:textSize="16sp"
           android:visibility="invisible"
           app:layout_constraintEnd_toEndOf="@+id/framelayoutins"
-          app:layout_constraintHorizontal_bias="0.98"
-          app:layout_constraintStart_toStartOf="@+id/framelayoutins"
           tools:ignore="MissingConstraints"
-          tools:layout_editor_absoluteY="51dp" />
+          tools:layout_editor_absoluteY="16dp" />
 
       <EditText
           android:id="@+id/boxseqinspection"
@@ -867,7 +865,7 @@
 
       <Button
           android:id="@+id/backButton"
-          android:layout_width="450dp"
+          android:layout_width="430dp"
           android:layout_height="70dp"
           android:layout_marginTop="4dp"
           android:backgroundTint="@color/darkish"
@@ -910,7 +908,7 @@
 
       <FrameLayout
           android:id="@+id/framelayoutins"
-          android:layout_width="670dp"
+          android:layout_width="750dp"
           android:layout_height="1000dp"
 
           android:layout_marginTop="132dp"

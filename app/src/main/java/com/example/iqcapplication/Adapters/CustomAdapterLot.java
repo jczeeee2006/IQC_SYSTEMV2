@@ -88,6 +88,10 @@ public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyVi
                 intent.putExtra("lotquant", String.valueOf(lotNumberlist.getLotquant()));
                 intent.putExtra("remarks", String.valueOf(lotNumberlist.getRemarks()));
                 intent.putExtra("dateToday", String.valueOf(lotNumberlist.getDateToday()));
+
+
+
+
                 activity.startActivityForResult(intent,-1);
 
             }

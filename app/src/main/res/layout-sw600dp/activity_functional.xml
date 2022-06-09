@@ -7,6 +7,18 @@
     android:background="@drawable/paaa"
     tools:context=".FunctionalActivity2">
 
+    <Button
+        android:id="@+id/deleteAllRecordfunc2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:backgroundTint="#FF0000"
+        android:drawableLeft="@drawable/ic_delete"
+        android:text=" "
+        app:layout_constraintBottom_toBottomOf="@+id/textView82"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toEndOf="@+id/textView82" />
+
     <TextView
         android:id="@+id/textView82"
         android:layout_width="wrap_content"
@@ -34,13 +46,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="600dp"
-        android:layout_height="740dp"
+        android:layout_width="620dp"
+        android:layout_height="760dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="44dp"
+
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"

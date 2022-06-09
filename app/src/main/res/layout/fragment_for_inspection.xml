@@ -21,7 +21,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewins"
         android:layout_width="match_parent"
-        android:layout_height="850dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="90dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"

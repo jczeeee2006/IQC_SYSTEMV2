@@ -22,13 +22,13 @@
             android:id="@+id/dcid_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="648dp"
             android:fontFamily="@font/popbold"
             android:text="1"
             android:textColor="@color/darkblue"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintHorizontal_bias="0.812"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,11 +118,11 @@
             android:background="@drawable/rounded_corners"
             android:elevation="10dp"
             android:inputType="number|textPersonName"
-            android:textColor="@color/blayk"
             android:textAlignment="center"
+            android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintHorizontal_bias="0.768"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

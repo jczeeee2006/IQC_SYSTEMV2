@@ -88,13 +88,12 @@ public class CustomAdapterFunctional extends RecyclerView.Adapter<CustomAdapterF
 
                 intent.putExtra("getSample1dc", String.valueOf(functionalEncapsulation.getSample1dc()));
                 intent.putExtra("getSample2dc", String.valueOf(functionalEncapsulation.getSample2dc()));
-
                 intent.putExtra("getSample3dc", String.valueOf(functionalEncapsulation.getSample3dc()));
                 intent.putExtra("getSample4dc", String.valueOf(functionalEncapsulation.getSample4dc()));
                 intent.putExtra("getSample5dc", String.valueOf(functionalEncapsulation.getSample5dc()));
+
                 intent.putExtra("getSample6dc", String.valueOf(functionalEncapsulation.getSample6dc()));
                 intent.putExtra("getSample7dc", String.valueOf(functionalEncapsulation.getSmple7dc()));
-
                 intent.putExtra("getSample8dc", String.valueOf(functionalEncapsulation.getSample8dc()));
                 intent.putExtra("getSample9dc", String.valueOf(functionalEncapsulation.getSample9dc()));
                 intent.putExtra("getSample10dc", String.valueOf(functionalEncapsulation.getSample10dc()));
