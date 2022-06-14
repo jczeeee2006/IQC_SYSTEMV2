@@ -1287,23 +1287,23 @@ public class DimensionalActivity extends AppCompatActivity {
             try {
                 connectionClass = new ConnectionClass();
                 Connection con = connectionClass.CONN2();
-                String query = "SELECT * FROM DimensionalCheck WHERE  Date =  '"+ dateToday.getText().toString() +"' ";
-                PreparedStatement stmtt = con.prepareStatement(query);
-                ResultSet rs = stmtt.executeQuery();
-                if(rs.next()){
-
-                    //  String time = rs.getString("Time");
-                    Toast.makeText(DimensionalActivity.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
-                }
+//                String query = "SELECT * FROM DimensionalCheck WHERE  Date =  '"+ dateToday.getText().toString() +"' ";
+//                PreparedStatement stmtt = con.prepareStatement(query);
+//                ResultSet rs = stmtt.executeQuery();
+//                if(rs.next()){
+//
+//                    //  String time = rs.getString("Time");
+//                    Toast.makeText(DimensionalActivity.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
+//                }
                 String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ SapmpleActivityinlot.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"' ,'"+SapmpleActivityinlot.boxseqholder+"','"+dateToday.getText().toString()+"')"   ;
 
                 Statement stmt = con.createStatement();
                 stmt.execute(query2);
                 dimcheck_id_hldr = Latest_ID("DimensionalCheck");
 
+                Toast.makeText(this, "Successfully inserted in SQL Database, can now show in Generated form", Toast.LENGTH_SHORT).show();
 
 
-                reset_sample();
             } catch (Exception ex) {
                 Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_LONG).show();
             }

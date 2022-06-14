@@ -18,6 +18,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,7 @@ import com.example.iqcapplication.DimensionalActivity;
 import com.example.iqcapplication.MainActivity;
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.SapmpleActivityinlot;
+import com.example.iqcapplication.Update.InspectionActivity;
 import com.example.iqcapplication.VisualInspection;
 import com.example.iqcapplication.fragments.FragmentForInspection;
 import com.example.iqcapplication.fragments.FragmentforLot;
@@ -38,6 +40,7 @@ import com.example.iqcapplication.fragments.FragmentforLot;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -183,13 +186,12 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     void confirmDialog1() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Upload " + " Data " + "?");
-        builder.setMessage("Are you sure you want to Upload to this Device?");
+        builder.setMessage("Are you sure you want to Upload to this Device?, kung na upload na po wag na i click ang button para hindi mag doble entry yung generated form.");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                   insertIntoSQLlite();
-
-
+                  saveToSQLSERVER();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -199,6 +201,44 @@ public class InspectionDetailsActivity extends AppCompatActivity {
             }
         });
         builder.create().show();
+    }
+
+
+    void saveToSQLSERVER() {
+
+
+        try{
+            connectionClass = new ConnectionClass();
+            Connection con = connectionClass.CONN2();
+            String query = "SELECT * FROM inspectiondata WHERE  Date =  '"+ dateTodayins.getText().toString() +"' and  MaterialCodeBoxSeqID = '"+ boxsequenceins.getText().toString() +"' ";
+            PreparedStatement stmtt = con.prepareStatement(query);
+            ResultSet rs = stmtt.executeQuery();
+            if(rs.next()){
+
+                //  String time = rs.getString("Time");
+                Toast.makeText(this, "Data already existing in SQL Database,cannot input duplicate data...", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                connectionClass = new ConnectionClass();
+                Connection conn = connectionClass.CONN2();
+                String query2 = "INSERT INTO inspectiondata (prepared,  prepared_date, temperature, assembly_line, invoice_no, part_number, rohs_compliance, humidity, inspected_date, recieved_date, supplier, maker, inspector, material_type, production_type, inspection_type, oir, test_report, sample_size, ul_marking, coc, partname, invoicequant, goodsCode, MaterialCodeBoxSeqID, Date) values ('" + preparedby.getText().toString() + "','" + dateeee.getText().toString() + "','" + temp.getText().toString() + "','" + assemblyline.getText().toString() + "','" + invoicenum.getText().toString() + "','"
+                        + partnum.getText().toString() + "','" + rohscomp.getText().toString() + "','" + humidity.getText().toString() + "','" + dateinspected.getText().toString() + "','"
+                        + datereceived.getText().toString() + "','" + supplier.getText().toString() + "','" + maker.getText().toString() + "','" + inspector.getText().toString() + "','"
+                        + mattype.getText().toString() + "','" + prodtype.getText().toString() + "','" + inspecttype.getText().toString() + "','" + oir.getText().toString() + "','"
+                        + testreport.getText().toString() + "','" + samplesize.getText().toString() + "','" + ulmarking.getText().toString() + "','" + inscoc.getText().toString() + "','"
+                        + partName.getText().toString() + "','" + invoicequant.getText().toString() + "','" + goodc.getText().toString() + "','" + SapmpleActivityinlot.boxseqholder + "', '"
+                        + dateTodayins.getText().toString()+ "')";
+
+
+                Statement stmt = conn.createStatement();
+                stmt.execute(query2);
+            }
+
+
+        }catch(Exception e ){
+            Toast.makeText(this,e.toString(), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -229,7 +269,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     void ConfirmDialog14() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("DELETE " + " PREVIOUS RECORDS " + "?");
-        builder.setMessage("Are you sure you want to DEETE previous form?");
+        builder.setMessage("Are you sure you want to DELETE previous form?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -276,10 +316,10 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         String now = df.format(new Date());
         dateTodayins.setText(now);
 
-
-        SimpleDateFormat dff = new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
-        String noww = dff.format(new Date());
-        datereceived.setText(noww);
+//
+//        SimpleDateFormat dff = new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
+//        String noww = dff.format(new Date());
+//        datereceived.setText(noww);
 
         SimpleDateFormat dfff = new SimpleDateFormat("yyyy/MM/dd",Locale.ENGLISH);
         String nowwww = dfff.format(new Date());
@@ -295,20 +335,20 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
     }
 
-    public void Maker() {
-
-        makerADapter = ArrayAdapter.createFromResource(this, R.array.Makers, android.R.layout.simple_dropdown_item_1line);
-        makerADapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        maker.setAdapter(makerADapter);
-
-        maker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                maker.showDropDown();
-            }
-        });
-
-    }
+//    public void Maker() {
+//
+//        makerADapter = ArrayAdapter.createFromResource(this, R.array.Makers, android.R.layout.simple_dropdown_item_1line);
+//        makerADapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        maker.setAdapter(makerADapter);
+//
+//        maker.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                maker.showDropDown();
+//            }
+//        });
+//
+//    }
 
     public void suupplier() {
         final AutoCompleteTextView SUPPLIER = findViewById(R.id.supplierup);
@@ -326,7 +366,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                 String  assylinee = rs.getString("ASY_LINE");
                 SUPPLIER.setText(supplier);
                 invoicequant.setText(invoicequantity);
-                assemblyline.setText(assylinee);
+
 
             }
 
@@ -409,7 +449,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                     DatePickerDialog datePickerDialog = new DatePickerDialog ( InspectionDetailsActivity.this, new DatePickerDialog.OnDateSetListener () {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                            datereceived.setText ( dayOfMonth + "/" + (month + 1) + "/" + year );
+                            datereceived.setText ( year  + "/" + (month + 1) + "/" +dayOfMonth );
                         }
                     }, mYear, mMonth, mDay );
                     datePickerDialog.show ();
@@ -625,7 +665,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
             OOIR();
             rohs();
             prodtype();
-            Maker();
+          //  Maker();
             mattype();
             ulMarking();
             coc();

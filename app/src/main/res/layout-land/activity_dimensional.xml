@@ -17,7 +17,7 @@
         android:text=" "
         app:layout_constraintBottom_toTopOf="@+id/dcframelayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="@+id/textView81"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -30,7 +30,7 @@
 
         app:layout_constraintBottom_toTopOf="@+id/dcframelayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.983"
+        app:layout_constraintHorizontal_bias="0.974"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -502,12 +502,12 @@
                 android:id="@+id/updateTosqlite"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:backgroundTint="@color/darkblue"
                 android:drawableLeft="@drawable/ic_baseline_pageview_24"
                 android:text="VIEW DATA"
                 app:layout_constraintEnd_toEndOf="@+id/viewdadtfun"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/viewdadtfun"
                 app:layout_constraintTop_toBottomOf="@+id/viewdadtfun" />
 

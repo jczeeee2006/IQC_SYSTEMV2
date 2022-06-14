@@ -330,7 +330,7 @@
           android:id="@+id/cardView2"
           android:layout_width="610dp"
           android:layout_height="420dp"
-          android:layout_marginLeft="30dp"
+
           android:layout_marginTop="136dp"
           android:elevation="12sp"
           android:innerRadius="0dp"
@@ -338,8 +338,6 @@
           app:cardBackgroundColor="#fff"
           app:cardCornerRadius="44dp"
           app:cardElevation="4dp"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent">
 
@@ -896,7 +894,7 @@
           android:layout_width="200dp"
           android:layout_height="70dp"
           android:layout_marginTop="64dp"
-          android:backgroundTint="#16e06e"
+          android:backgroundTint="#FB0000"
           android:drawableLeft="@drawable/ic_baseline_save_24"
           android:elevation="20dp"
           android:text="SAVE DATA"
@@ -908,7 +906,7 @@
 
       <FrameLayout
           android:id="@+id/framelayoutins"
-          android:layout_width="750dp"
+          android:layout_width="730dp"
           android:layout_height="1000dp"
 
           android:layout_marginTop="132dp"

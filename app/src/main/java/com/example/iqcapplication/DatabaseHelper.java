@@ -309,7 +309,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added Succesfully in device", Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -346,8 +346,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added Succesfully in device", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
 
@@ -383,7 +385,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added Succesfully in device", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -429,8 +431,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added Succesfully in device", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void addVisual( String instrument, String sampSize, String checkpoint,String remarks, String judgement){
@@ -447,7 +450,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added Succesfully in device", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -498,6 +501,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query,null);
 
         }
+
         return cursor;
 
     }

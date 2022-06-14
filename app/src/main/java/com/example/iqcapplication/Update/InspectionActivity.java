@@ -195,7 +195,7 @@ public class InspectionActivity extends AppCompatActivity {
 
     void saveToSQLSERVER() {
 
-
+                String prepared = preparedby.getText().toString();
                 try{
                     connectionClass = new ConnectionClass();
                     Connection con = connectionClass.CONN2();
@@ -213,7 +213,7 @@ public class InspectionActivity extends AppCompatActivity {
                         String query2 = "INSERT INTO inspectiondata (prepared,  prepared_date, temperature, assembly_line, invoice_no, part_number, rohs_compliance, humidity, inspected_date, recieved_date, supplier, maker, inspector, material_type, production_type, inspection_type, oir, test_report, sample_size, ul_marking, coc, partname, invoicequant, goodsCode, MaterialCodeBoxSeqID, Date) values ('" + prepared + "','" + dateeee.getText().toString() + "','" + instemp + "','" + insassyline + "','" + invoicenum.getText().toString() + "','" + inspatnum + "','" + insrohs + "','" + inshumid + "','" + dateinspected.getText().toString() + "','" + datereceived.getText().toString() + "','" + insupp + "','" + insmaker + "','" + inspectorrs + "','" + insmaterial + "','" + prodttpes + "','" + insinspecttype + "','" + insoir + "','" + instestreport + "','" + inssample + "','" + insulmarking + "','" + inscocs + "','" + inspartname + "','" + insinvoicequant + "','" + insgoods + "','" + SapmpleActivityinlot.boxseqholder + "', '" + dateToday.getText().toString()+ "')";
                         Statement stmt = conn.createStatement();
                         stmt.execute(query2);
-                        Toast.makeText(InspectionActivity.this, "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+
                     }
 
 

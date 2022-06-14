@@ -379,8 +379,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
                     goodsc.setText(partNum(et_partnum.getText().toString(), "GOODS_CODE"));
                     goodscodeholder = et_partnum.getText().toString();
-                    lot_invoiceno.setText(partNum(et_partnum.getText().toString(), "INVOICE"));
-                    invoicenumholder = et_partnum.getText().toString();
+//                    lot_invoiceno.setText(partNum(et_partnum.getText().toString(), "INVOICE"));
+//                    invoicenumholder = et_partnum.getText().toString();
                     tv_partname.setText(partNum(et_partnum.getText().toString(),"PART_NAME"));
                     partnameholder = tv_partname.getText().toString();
 
@@ -486,7 +486,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         String Part_name = tv_partname.getText().toString();
         String GoodsCode = goodsc.getText().toString();
         String TotalQuant = totalquantity.getText().toString();
-        String QuantRecieved = quantityrecieved.getText().toString();
+        String QuantRecieved = quantityrec  ieved.getText().toString();
         String BoxNum  = boxnum.getText().toString();
         String SampleSize = sampsize.getText().toString();
 
@@ -570,7 +570,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     void saveToSQLSERVER(){
 
 
-        String names = "";
+        String QuantReceived = quantityrecieved.getText().toString();
+
         try{
             connectionClassss = new ConnectionClass();
             Connection con = connectionClass.CONN2();
@@ -594,7 +595,14 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     Statement stmt = con.createStatement();
                     stmt.execute(query1);
                     Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
-
+                    if (quantityrecieved.getText().toString().equals("")) {
+                        quantityrecieved.setText(String.valueOf(0 + Integer.parseInt(lotquant.getText().toString())));
+                        QuantReceived = quantityrecieved.getText().toString();
+                    }
+                    else {
+                        quantityrecieved.setText(String.valueOf(Integer.parseInt(QuantReceived) + Integer.parseInt(lotquant.getText().toString())));
+                        QuantReceived = quantityrecieved.getText().toString();
+                    }
 
                 }
 
@@ -697,15 +705,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
         try{
             String QuantRecieved = quantityrecieved.getText().toString();
-            if(!lotquant.getText().toString().equals("")){
 
-
-                    quantityrecieved.setText(String.valueOf(Integer.parseInt(lotquant.getText().toString())));
-
-                }else{
-                    quantityrecieved.setText(String.valueOf(Integer.parseInt(quantityrecieved.getText().toString()) + Integer.parseInt(lotquant.getText().toString())));
-                    quantityrecieved.setTextColor(Color.parseColor("#23f011"));
-                }
 
                 DatabaseHelper myDB = new DatabaseHelper(SapmpleActivityinlot.this);
                 myDB.addData(

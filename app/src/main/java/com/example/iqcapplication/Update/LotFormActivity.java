@@ -171,19 +171,19 @@ public class LotFormActivity extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 PendingIntent pendingIntent =
                         PendingIntent.getActivity(LotFormActivity.this, 0, intent, 0);
-                boxseqholder = boxseqidup.getText().toString();
-                invoiceholder = lot_invoicenoup.getText().toString();
-                partnameholder = tv_partnameup.getText().toString();
-                partnumholder  = et_partnumup.getText().toString();
-                goodscodeholder = goodscup.getText().toString();
-                totalquantholder = totalquantityup .getText().toString();
-                lotnumholder = lotnoup.getText().toString();
-                dateHolder = dateToday.getText().toString();
-                actualquantityHolder  = quantityrecievedup.getText().toString();
-                lotQuantityholder = lotquantup.getText().toString();
-                boxnumholder = boxnumup.getText().toString();
-                samplesizeHolder   = sampsizeup.getText().toString();
-                rejectHolderr = rejectUp.getText().toString();
+//                boxseqholder = boxseqidup.getText().toString();
+//                invoiceholder = lot_invoicenoup.getText().toString();
+//                partnameholder = tv_partnameup.getText().toString();
+//                partnumholder  = et_partnumup.getText().toString();
+//                goodscodeholder = goodscup.getText().toString();
+//                totalquantholder = totalquantityup .getText().toString();
+//                lotnumholder = lotnoup.getText().toString();
+//                dateHolder = dateToday.getText().toString();
+//                actualquantityHolder  = quantityrecievedup.getText().toString();
+//                lotQuantityholder = lotquantup.getText().toString();
+//                boxnumholder = boxnumup.getText().toString();
+//                samplesizeHolder   = sampsizeup.getText().toString();
+//                rejectHolderr = rejectUp.getText().toString();
 
                 try {
                     pendingIntent.send();

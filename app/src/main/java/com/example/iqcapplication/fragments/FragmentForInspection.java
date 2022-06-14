@@ -132,5 +132,7 @@ public class FragmentForInspection extends Fragment {
             }
             Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 }

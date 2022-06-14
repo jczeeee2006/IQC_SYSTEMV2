@@ -101,16 +101,16 @@ public class DimensionActivity extends AppCompatActivity {
 
 
         dc_Judgemen.setEnabled(false);
-        dc1.setEnabled(false);
-        dc2.setEnabled(false);
-        dc3.setEnabled(false);
-        dc4.setEnabled(false);
-        dc5.setEnabled(false);
-        dc6.setEnabled(false);
-        dc7.setEnabled(false);
-        dc8.setEnabled(false);
-        dc9.setEnabled(false);
-        dc10.setEnabled(false);
+//        dc1.setEnabled(false);
+//        dc2.setEnabled(false);
+//        dc3.setEnabled(false);
+//        dc4.setEnabled(false);
+//        dc5.setEnabled(false);
+//        dc6.setEnabled(false);
+//        dc7.setEnabled(false);
+//        dc8.setEnabled(false);
+//        dc9.setEnabled(false);
+//        dc10.setEnabled(false);
 
 
         getIntentData();
@@ -119,7 +119,7 @@ public class DimensionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DimensionActivity.this, DimensionalActivity.class);
                 dcsamplesizeHolder = dcsampleSize.getText().toString();
-                dccheckpointsholder = dc_checkPoints.getText().toString();
+               // dccheckpointsholder = dc_checkPoints.getText().toString();
                 instrumenholder = instrumentUsed.getText().toString();
                // insert_sampleSize();
                 startActivity(intent);
