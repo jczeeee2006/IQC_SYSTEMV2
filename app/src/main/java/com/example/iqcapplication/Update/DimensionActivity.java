@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -33,11 +35,11 @@ public class DimensionActivity extends AppCompatActivity {
 
     TextView dc_Minimum,dc_Maximum,dc_Average,dc_Judgemen,dateToday,tvinvoice, invoiceupdimmm,goodsupdimchh;
 
-    EditText dc1,dc2,dc3,dc4,dc5,dc6,dc7,dc8,dc9,dc10,dcdefectquant,encountered,dcdefectremarks;
+    EditText dc1,dc2,dc3,dc4,dc5,dc6,dc7,dc8,dc9,dc10,dcdefectquant,encountered,dcdefectremarks, dcremarks;
     AutoCompleteTextView instrumentUsed;
 
     String id,instrumentUsedstring,  samplenum,  checkpoint,  samplUnit,  sample1,  sample2,  sample3,  sample4 ,  sample5,  sample6,
-     sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim;
+     sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim,dcremarkss;
    public static String dcsamplesizeHolder,dccheckpointsholder,instrumenholder;
     public static int ctr = 1, samplesize_id_hldr=0, dimcheck_id_hldr = 0, sampleSizeDC = 0;
     public  static String judgeHolder = "PASSED", colorHolder = "#58f40b";
@@ -74,11 +76,13 @@ public class DimensionActivity extends AppCompatActivity {
         dc8 = findViewById(R.id.dc8up);
         dc9 = findViewById(R.id.dc9up);
         dc10 = findViewById(R.id.dc10up);
+
         instrumentUsed = findViewById(R.id.instrumentUsedup);
         dcdefectquant = findViewById(R.id.dimensionfcQuantitiy);
         encountered  = findViewById(R.id.dcencountered);
         dcdefectremarks = findViewById(R.id.DimensionRemarksdefect);
         addDefectdc = findViewById(R.id.adddefectdc);
+        dcremarks = findViewById(R.id.remarkdcup);
 
         //-----MIN MAX AVERAGE
         dc_Minimum = findViewById(R.id.minimumup);
@@ -101,17 +105,8 @@ public class DimensionActivity extends AppCompatActivity {
 
 
         dc_Judgemen.setEnabled(false);
-//        dc1.setEnabled(false);
-//        dc2.setEnabled(false);
-//        dc3.setEnabled(false);
-//        dc4.setEnabled(false);
-//        dc5.setEnabled(false);
-//        dc6.setEnabled(false);
-//        dc7.setEnabled(false);
-//        dc8.setEnabled(false);
-//        dc9.setEnabled(false);
-//        dc10.setEnabled(false);
 
+        upperSpec();
 
         getIntentData();
         backbutton.setOnClickListener(new View.OnClickListener() {
@@ -271,8 +266,8 @@ public class DimensionActivity extends AppCompatActivity {
 
                 if (num4 < Lspec || num4 > Uspec)
                 {
-                    judgeHolder = "FAILED";
 
+                    judgeHolder = "FAILED";
                     colorHolder = "#FF0000";
                     dc_Judgemen.setText(judgeHolder);
 
@@ -287,8 +282,11 @@ public class DimensionActivity extends AppCompatActivity {
 
             if (!dc5.getText().toString().equals("")) {
                 try{
+
                     num5 = Float.parseFloat(dc5.getText().toString());
+
                 }catch (Exception e){
+
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
 
@@ -430,6 +428,319 @@ public class DimensionActivity extends AppCompatActivity {
 
     }
 
+
+    public void upperSpec(){
+
+
+        upperSpec.addTextChangedListener(new TextWatcher() {
+            float num1 = 0;
+            float num2 = 0;
+            float num3 = 0;
+            float num4 = 0;
+            float num5 = 0;
+            float num6 = 0;
+            float num7 = 0;
+            float num8 = 0;
+            float num9 = 0;
+            float num10 = 0;
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                judgeHolder = "PASSED";
+                colorHolder = "#58f40b";
+
+                if(upperSpec.getText().toString().equals("")){
+                    judgeHolder = "PASSED";
+                    colorHolder = "#58f40b";
+
+                    dc_Judgemen.setText("");
+                    dc1.setTextColor(Color.parseColor("#000000"));
+                    dc2.setTextColor(Color.parseColor("#000000"));
+                    dc3.setTextColor(Color.parseColor("#000000"));
+                    dc4.setTextColor(Color.parseColor("#000000"));
+                    dc5.setTextColor(Color.parseColor("#000000"));
+                    dc6.setTextColor(Color.parseColor("#000000"));
+                    dc7.setTextColor(Color.parseColor("#000000"));
+                    dc8.setTextColor(Color.parseColor("#000000"));
+                    dc9.setTextColor(Color.parseColor("#000000"));
+                    dc10.setTextColor(Color.parseColor("#000000"));
+                }
+                else{
+
+                    float Lspec = 0;
+                    float Uspec = 0;
+
+                    try{
+                        Lspec = Float.parseFloat(lowerSpec.getText().toString());
+                        Uspec = Float.parseFloat(upperSpec.getText().toString());
+                    }
+                    catch (Exception ex){
+                        Toast.makeText(DimensionActivity.this, "Input Valid Value", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if (!dc1.getText().toString().equals(""))
+                    {
+                        try {
+                            num1 = Float.parseFloat(dc1.getText().toString());
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Toast.makeText(getApplicationContext(), ex.toString()  , Toast.LENGTH_LONG).show();
+
+                        }
+
+
+                        if (num1 < Lspec || num1 > Uspec)
+                        {
+
+                            judgeHolder = "FAILED";
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc1.setTextColor(Color.parseColor("#FF0000"));
+
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc1.setTextColor(Color.parseColor("#58f40b"));
+                        }
+                    }
+
+                    if (!dc2.getText().toString().equals("")) {
+
+                        try {
+                            num2 = Float.parseFloat(dc2.getText().toString());
+                        } catch (Exception e) {
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+                        if (num2 < Lspec || num2 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc2.setTextColor(Color.parseColor("#FF0000"));
+                        } else {
+                            dc_Judgemen.setText(judgeHolder);
+
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc2.setTextColor(Color.parseColor("#58f40b"));
+                        }
+
+                    }
+
+                    if (!dc3.getText().toString().equals("")) {
+                        try {
+                            num3 = Float.parseFloat(dc3.getText().toString());
+                        }catch(Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+
+                        if (num3 < Lspec || num3 > Uspec)
+                        {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc3.setTextColor(Color.parseColor("#FF0000"));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc3.setTextColor(Color.parseColor("#58f40b"));
+                        }
+
+                    }
+
+                    if (!dc4.getText().toString().equals("")) {
+                        try{
+                            num4 = Float.parseFloat(dc4.getText().toString());
+                        }catch (Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num4 < Lspec || num4 > Uspec)
+                        {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+
+                            dc4.setTextColor(Color.parseColor("#FF0000"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc4.setTextColor(Color.parseColor("#58f40b"));
+                        }
+                    }
+
+                    if (!dc5.getText().toString().equals("")) {
+                        try{
+                            num5 = Float.parseFloat(dc5.getText().toString());
+                        }catch (Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num5 < Lspec || num5 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+
+                            dc5.setTextColor(Color.parseColor(colorHolder));
+                            dc_Judgemen.setTextColor(Color.parseColor("#FF0000"));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc5.setTextColor(Color.parseColor("#58f40b"));
+
+                        }
+
+                    }
+
+                    if (!dc6.getText().toString().equals("")) {
+
+                        try{
+                            num6 = Float.parseFloat(dc6.getText().toString());
+                        }catch (Exception e ){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num6 < Lspec || num6 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+                            dc6.setTextColor(Color.parseColor(colorHolder));
+                            dc_Judgemen.setTextColor(Color.parseColor("#FF0000"));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc6.setTextColor(Color.parseColor("#58f40b"));
+                        }
+                    }
+
+                    if (!dc7.getText().toString().equals(""))
+                    {
+                        try{
+                            num7 = Float.parseFloat(dc7.getText().toString());
+                        }catch(Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num7 < Lspec || num7 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+                            dc7.setTextColor(Color.parseColor("#FF0000"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                            dc7.setTextColor(Color.parseColor("#58f40b"));
+                        }
+                    }
+
+                    if (!dc8.getText().toString().equals("")) {
+
+                        try{
+                            num8 = Float.parseFloat(dc8.getText().toString());
+                        }catch(Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num8 < Lspec || num8 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+                            dc8.setTextColor(Color.parseColor("#FF0000"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc8.setTextColor(Color.parseColor("#58f40b"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }
+                    }
+
+                    if (!dc9.getText().toString().equals("")) {
+
+                        try{
+                            num9 = Float.parseFloat(dc9.getText().toString());
+                        }catch(Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num9 < Lspec || num9 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+                            dc9.setTextColor(Color.parseColor("#FF0000"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc9.setTextColor(Color.parseColor("#58f40b"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }
+                    }
+
+                    if (!dc10.getText().toString().equals("")) {
+
+                        try{
+                            num10 = Float.parseFloat(dc10.getText().toString());
+                        }catch(Exception e){
+                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
+
+
+                        if (num10 < Lspec || num10 > Uspec) {
+                            judgeHolder = "FAILED";
+
+                            colorHolder = "#FF0000";
+                            dc_Judgemen.setText(judgeHolder);
+                            dc10.setTextColor(Color.parseColor("#FF0000"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }else{
+                            dc_Judgemen.setText(judgeHolder);
+                            dc10.setTextColor(Color.parseColor("#58f40b"));
+                            dc_Judgemen.setTextColor(Color.parseColor(colorHolder));
+                        }
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+    }
+
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("UPDATE" + "DATA" + "?");
@@ -523,8 +834,10 @@ public class DimensionActivity extends AppCompatActivity {
 
             judgement = dc_Judgemen.getText().toString().trim();
             gdatedim = dateToday.getText().toString().trim();
+            dcremarkss  = dcremarks.getText().toString();
+
                     myDB.updateDc( id, instrumentUsedstring, samplenum,  checkpoint,  samplUnit,  sample1,  sample2,  sample3,  sample4 ,  sample5,  sample6,
-                             sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim);
+                             sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim, dcremarkss);
 
             Toast.makeText(DimensionActivity.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
 
@@ -623,7 +936,7 @@ public class DimensionActivity extends AppCompatActivity {
                 getIntent().hasExtra("getSampleSize") &&  getIntent().hasExtra("getSample1dc") &&
                 getIntent().hasExtra("getSample2dc") &&  getIntent().hasExtra("getSample3dc") &&  getIntent().hasExtra("getSample4dc") &&   getIntent().hasExtra("getSample5dc") &&
                 getIntent().hasExtra("getSample6dc") &&  getIntent().hasExtra("getSample7dc") &&  getIntent().hasExtra("getSample8dc") &&  getIntent().hasExtra("getSample9dc") &&
-                getIntent().hasExtra("getSample10dc") &&   getIntent().hasExtra("getUpperSpecs") && getIntent().hasExtra("getLoweSpecs") &&
+                getIntent().hasExtra("getSample10dc") &&  getIntent().hasExtra("getLoweSpecs") &&   getIntent().hasExtra("getUpperSpecs") &&
         getIntent().hasExtra("getMinimum") &&   getIntent().hasExtra("getAverage") &&  getIntent().hasExtra("getMaximum") &&  getIntent().hasExtra("getJudgement") &&  getIntent().hasExtra("getdatedim")
         ){
 

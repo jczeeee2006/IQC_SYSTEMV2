@@ -72,8 +72,8 @@
 
             <AutoCompleteTextView
                 android:id="@+id/instrumentUsedupfc"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -84,7 +84,7 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.154"
+                app:layout_constraintHorizontal_bias="0.288"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:textAlignment="center" />

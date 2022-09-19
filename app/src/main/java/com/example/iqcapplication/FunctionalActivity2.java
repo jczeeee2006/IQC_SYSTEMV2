@@ -338,7 +338,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
                     Fc_3.setEnabled(true);
                     Fc_4.setEnabled(true);
                     Fc_5.setEnabled(true);
-                }else if(Fc_Samplesize.getText().toString().equals("")){
+                }
+                else if(Fc_Samplesize.getText().toString().equals("")){
                     Fc_2.setEnabled(false);
                     Fc_3.setEnabled(false);
                     Fc_4.setEnabled(false);

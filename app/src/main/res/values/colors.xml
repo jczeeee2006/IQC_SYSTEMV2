@@ -16,5 +16,6 @@
     <color name="darkish">#134792</color>
     <color name="whiten">#f6f9ff</color>
     <color name="blayk">#0a0a0a</color>
-
+    <color name="green">#1FAC3C</color>
+    <color name="red">#E33A3A</color>
 </resources>

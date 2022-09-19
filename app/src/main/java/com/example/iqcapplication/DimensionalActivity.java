@@ -40,10 +40,12 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class DimensionalActivity extends AppCompatActivity {
     EditText  dc_checkPoints,upperSpec,lowerSpec,sammpleUnit,dcsampleSize;
     TextView dc_Minimum,dc_Maximum,dc_Average,dc_Judgemen,dateToday, goodscodedim,invoicedimm;
-    EditText dc1,dc2,dc3,dc4,dc5,dc6,dc7,dc8,dc9,dc10;
+    EditText dc1,dc2,dc3,dc4,dc5,dc6,dc7,dc8,dc9,dc10,remarks;
 
     public static String dcinstrumentholder, dccheckholder,dcupperspecholder,dclowerspecholder,dcsampleunitholder,dcsamplesizeholder,dcminimumholder,dcmaximumholder,dcaverageholder,dcjudgementholder,
             dc1holder,dc2holder,dc3holder,dc4holder,dc5holder,dc6holder,dc7holder,dc8holder,dc9holder,dc10holder;
@@ -100,6 +102,8 @@ public class DimensionalActivity extends AppCompatActivity {
         lowerSpec = findViewById(R.id.lowerspecfc);
         dc_checkPoints = findViewById(R.id.checkPointfc);
         dcsampleSize = findViewById(R.id.sampleSizefc_);
+        remarks = findViewById(R.id.remarkspercheckpoint);
+
         addData = findViewById(R.id.viewdadtfun);
         uploadtosqlite = findViewById(R.id.updateTosqlite);
         nextFormdim = findViewById(R.id.nextFormfc);
@@ -141,6 +145,8 @@ public class DimensionalActivity extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String noww = df.format(new Date());
         dateToday.setText(noww);
+
+
         dcInstrument();
         sampleComputation();
         upperSpec();
@@ -212,11 +218,10 @@ public class DimensionalActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
                 Intent intent = new Intent(DimensionalActivity.this, VisualInspection.class);
                 insert_sampleSize();
                 startActivity(intent);
-
+                CustomIntent.customType(DimensionalActivity.this,"left-to-right");
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -243,6 +248,7 @@ public class DimensionalActivity extends AppCompatActivity {
                 }else if(!dcsampleSize.getText().toString().equals("")){
                     addDatatoSQLite();
                     insert_dimcheck();
+                    resetData();
                 }
 
             }
@@ -263,8 +269,8 @@ public class DimensionalActivity extends AppCompatActivity {
 
                     instrumentUsed.getText().toString().trim(),
                     dcsampleSize.getText().toString().trim(),
-                    dc_checkPoints.getText().toString().trim(),
                     sammpleUnit.getText().toString().trim(),
+                    dc_checkPoints.getText().toString().trim(),
                     dc1.getText().toString().trim(),
                     dc2.getText().toString().trim(),
                     dc3.getText().toString().trim(),
@@ -281,7 +287,8 @@ public class DimensionalActivity extends AppCompatActivity {
                     dc_Average.getText().toString().trim(),
                     dc_Maximum.getText().toString().trim(),
                     dc_Judgemen.getText().toString().trim(),
-                    dateToday.getText().toString().trim()
+                    dateToday.getText().toString().trim(),
+                    remarks.getText().toString().trim()
             );
 
 
@@ -1266,13 +1273,15 @@ public class DimensionalActivity extends AppCompatActivity {
         String DC8 = dc8.getText().toString();
         String DC9 = dc9.getText().toString();
         String DC10 = dc10.getText().toString();
-
+        String remarkss = remarks.getText().toString();
+        String LowerSpec = lowerSpec.getText().toString();
+        String UppperSpec = upperSpec.getText().toString();
         String Min = dc_Minimum.getText().toString();
         String Ave = dc_Average.getText().toString();
         String Max = dc_Maximum.getText().toString();
 
-        String LowerSpec = lowerSpec.getText().toString();
-        String UppperSpec = upperSpec.getText().toString();
+
+
         String Judgmnt = dc_Judgemen.getText().toString();
 
 
@@ -1287,21 +1296,18 @@ public class DimensionalActivity extends AppCompatActivity {
             try {
                 connectionClass = new ConnectionClass();
                 Connection con = connectionClass.CONN2();
-//                String query = "SELECT * FROM DimensionalCheck WHERE  Date =  '"+ dateToday.getText().toString() +"' ";
-//                PreparedStatement stmtt = con.prepareStatement(query);
-//                ResultSet rs = stmtt.executeQuery();
-//                if(rs.next()){
-//
-//                    //  String time = rs.getString("Time");
-//                    Toast.makeText(DimensionalActivity.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
-//                }
-                String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ SapmpleActivityinlot.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"' ,'"+SapmpleActivityinlot.boxseqholder+"','"+dateToday.getText().toString()+"')"   ;
 
-                Statement stmt = con.createStatement();
-                stmt.execute(query2);
-                dimcheck_id_hldr = Latest_ID("DimensionalCheck");
+                if(con != null){
+                    String query2 = "INSERT INTO DimensionalCheck (invoice_no, goodsCode, checkpoints, instrument_used, sample_unit, sample1, sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample9, sample10, minimum, average, maximum, lower_spec_limit, upper_spec_limit, judgement,MaterialCodeBoxSeqID, Date, Remarks_chckpoint) values ('"+SapmpleActivityinlot.invoicenumholder+"', '"+ SapmpleActivityinlot.goodscodeholder+"', '"+Checkpoints+"','"+Instrumentused+"','"+Sampleunit+"','"+DC1+"','"+DC2+"','"+DC3+"','"+DC4+"','"+DC5+"','"+DC6+"','"+DC7+"','"+DC8+"','"+DC9+"','"+DC10+"','"+Min+"','"+Ave+"','"+Max+"','"+LowerSpec+"','"+UppperSpec+"','"+Judgmnt+"' ,'"+SapmpleActivityinlot.boxseqholder+"','"+dateToday.getText().toString()+"','"+remarkss+"')"   ;
 
-                Toast.makeText(this, "Successfully inserted in SQL Database, can now show in Generated form", Toast.LENGTH_SHORT).show();
+                    Statement stmt = con.createStatement();
+                    stmt.execute(query2);
+                    dimcheck_id_hldr = Latest_ID("DimensionalCheck");
+
+                    Toast.makeText(this, "Successfully inserted in SQL Database, can now show in Generated form", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+                }
 
 
             } catch (Exception ex) {
@@ -1309,6 +1315,7 @@ public class DimensionalActivity extends AppCompatActivity {
             }
         }
     }
+
     public void insert_sampleSize(){
 
         try{
@@ -1333,8 +1340,6 @@ public class DimensionalActivity extends AppCompatActivity {
         }
 
     }
-
-
 
 
     public int Latest_ID(String tablename){
@@ -1409,6 +1414,24 @@ public class DimensionalActivity extends AppCompatActivity {
     }
 
 
-
+    void resetData(){
+        dc_checkPoints.setText("");
+        dc1.setText("");
+        dc2.setText("");
+        dc3.setText("");
+        dc4.setText("");
+        dc5.setText("");
+        dc6.setText("");
+        dc7.setText("");
+        dc8.setText("");
+        dc9.setText("");
+        dc10.setText("");
+        lowerSpec.setText("");
+        upperSpec.setText("");
+        dc_Minimum.setText("");
+        dc_Average.setText("");
+        dc_Maximum.setText("");
+        dc_Judgemen.setText("");
+    }
 
 }

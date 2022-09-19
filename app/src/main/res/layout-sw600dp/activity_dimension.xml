@@ -65,10 +65,21 @@
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="Remarks:"
+                android:textColor="@color/darkish"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/remarkdcup"
+                app:layout_constraintStart_toStartOf="@+id/remarkdcup" />
+
             <EditText
                 android:id="@+id/checkPointup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -81,10 +92,11 @@
                 app:layout_constraintStart_toEndOf="@+id/instrumentUsedup"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <AutoCompleteTextView
                 android:id="@+id/instrumentUsedup"
                 android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -103,8 +115,8 @@
             <EditText
                 android:id="@+id/sampleUnitup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="160dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="144dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
@@ -121,7 +133,7 @@
             <EditText
                 android:id="@+id/dc6up"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -136,7 +148,7 @@
             <EditText
                 android:id="@+id/dc7up"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -153,7 +165,7 @@
             <EditText
                 android:id="@+id/dc8up"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -170,7 +182,7 @@
             <EditText
                 android:id="@+id/dc9up"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -185,27 +197,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/dc8up" />
 
             <EditText
-                android:id="@+id/dc10up"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/dc9up"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc9up"
-                app:layout_constraintTop_toBottomOf="@+id/dc9up" />
-
-            <EditText
                 android:id="@+id/sampleSizedc_up"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="number|textPersonName"
@@ -218,139 +213,54 @@
                 app:layout_constraintStart_toStartOf="@+id/checkPointup"
                 app:layout_constraintTop_toBottomOf="@+id/checkPointup" />
 
-            <EditText
-                android:id="@+id/dc2up"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/dc1up"
-                app:layout_constraintTop_toBottomOf="@+id/dc1up" />
-
-            <EditText
-                android:id="@+id/dc1up"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.12"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sampleUnitup" />
-
-            <EditText
-                android:id="@+id/dc3up"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc2"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc2up"
-                app:layout_constraintTop_toBottomOf="@+id/dc2up" />
-
-            <EditText
-                android:id="@+id/dc4up"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc3"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/dc3up"
-                app:layout_constraintTop_toBottomOf="@+id/dc3up" />
-
-            <EditText
-                android:id="@+id/dc5up"
-                android:layout_width="143dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/edittext_shadow"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/fc4"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc4up"
-                app:layout_constraintTop_toBottomOf="@+id/dc4up" />
-
 
             <Button
                 android:id="@+id/Viewdatafc"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
 
-                android:backgroundTint="#FF0000"
+                android:backgroundTint="@color/red"
                 android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
                 android:text="UPLOAD DATA"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/uploadfcDatafc"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/uploadfcDatafc"
                 app:layout_constraintTop_toBottomOf="@+id/uploadfcDatafc"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/backbuttondim"
-                android:layout_width="350dp"
+                android:layout_width="200dp"
                 android:layout_height="60dp"
 
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_keyboard_double_arrow_left_24"
                 android:text="back"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/dc5up"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/dc5up"
-                app:layout_constraintTop_toBottomOf="@+id/dc5up"
-                app:layout_constraintVertical_bias="0.333" />
+                app:layout_constraintEnd_toEndOf="@+id/Viewdatafc"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/Viewdatafc"
+                app:layout_constraintTop_toBottomOf="@+id/Viewdatafc"
+                app:layout_constraintVertical_bias="0.222" />
 
             <Button
                 android:id="@+id/uploadfcDatafc"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="600dp"
-                android:backgroundTint="#16e06e"
+                android:layout_marginTop="516dp"
+                android:backgroundTint="@color/green"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
                 android:text="UPDATE DATA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.918"
+                app:layout_constraintHorizontal_bias="0.919"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/minimumup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -366,7 +276,7 @@
             <TextView
                 android:id="@+id/average_txtup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -382,7 +292,7 @@
             <TextView
                 android:id="@+id/maximumup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -398,7 +308,7 @@
             <EditText
                 android:id="@+id/dcjudgeMentup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -510,6 +420,124 @@
                 app:layout_constraintBottom_toTopOf="@+id/dc9up"
                 app:layout_constraintStart_toStartOf="@+id/dc9up" />
 
+            <EditText
+                android:id="@+id/dc1up"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.119"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sampleUnitup" />
+
+            <EditText
+                android:id="@+id/dc2up"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/dc1up"
+                app:layout_constraintTop_toBottomOf="@+id/dc1up" />
+
+            <EditText
+                android:id="@+id/dc4up"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc3up"
+                app:layout_constraintTop_toBottomOf="@+id/dc3up" />
+
+            <EditText
+                android:id="@+id/dc3up"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/dc2up"
+                app:layout_constraintTop_toBottomOf="@+id/dc2up" />
+
+            <EditText
+                android:id="@+id/dc5up"
+                android:layout_width="143dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/fc4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc4up"
+                app:layout_constraintTop_toBottomOf="@+id/dc4up" />
+
+            <EditText
+                android:id="@+id/dc10up"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/dc9up"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc9up"
+                app:layout_constraintTop_toBottomOf="@+id/dc9up" />
+
+            <EditText
+                android:id="@+id/remarkdcup"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:paddingLeft="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/dc5up"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/dc5up"
+                app:layout_constraintTop_toBottomOf="@+id/dc5up" />
+
             <TextView
                 android:id="@+id/textView57"
                 android:layout_width="wrap_content"
@@ -569,7 +597,7 @@
                 android:id="@+id/textView41"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Lower Specs:"
                 android:textColor="@color/darkblue"
                 android:textSize="16sp"
@@ -580,7 +608,7 @@
                 android:id="@+id/upperspec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Upper Specs:"
                 android:textColor="@color/darkblue"
                 android:textSize="16sp"
@@ -591,7 +619,7 @@
                 android:id="@+id/textView46"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Minimum"
                 android:textColor="@color/darkblue"
                 android:textSize="16sp"
@@ -602,7 +630,7 @@
                 android:id="@+id/textView48"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Average:"
                 android:textColor="@color/darkblue"
                 android:textSize="16sp"
@@ -623,7 +651,7 @@
             <EditText
                 android:id="@+id/lowerspecup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="60dp"
                 android:layout_marginEnd="68dp"
                 android:background="@drawable/edittext_shadow"
@@ -640,8 +668,8 @@
             <EditText
                 android:id="@+id/upperspecsup"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="48dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -832,4 +860,6 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

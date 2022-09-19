@@ -152,7 +152,7 @@ public class CustomAdapterFunctional extends RecyclerView.Adapter<CustomAdapterF
             fc_Maximum_txt = itemView.findViewById(R.id.fcmaximum_txt);
             fc_Average_txt = itemView.findViewById(R.id.averagefc);
 
-            fc_Judgemen_txt  = itemView.findViewById(R.id.dcjudgeMent_txt);
+            fc_Judgemen_txt  = itemView.findViewById(R.id.fcjudgeMent_txt);
             fc_checkPoins_txt  = itemView.findViewById(R.id.checkPointfc);
 
             upperSpec_txt  = itemView.findViewById(R.id.fcupperspecs_txt);

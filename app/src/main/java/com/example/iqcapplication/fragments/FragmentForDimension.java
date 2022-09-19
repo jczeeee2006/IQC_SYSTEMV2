@@ -44,11 +44,11 @@ public class FragmentForDimension extends Fragment {
 
 
         myDB = new DatabaseHelper(getContext());
-        displayData();
-        customAdapterDimension = new CustomAdapterDimension(getActivity(),getContext(), dimesiondata);
-        recyclerView.setAdapter(customAdapterDimension);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        customAdapterDimension = new CustomAdapterDimension(getActivity(),getContext(), dimesiondata);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(customAdapterDimension);
+        displayData();
 
 
         return view;
@@ -84,7 +84,9 @@ public class FragmentForDimension extends Fragment {
                                 cursor.getString(18),
                                 cursor.getString(19),
                                 cursor.getString(20),
-                                cursor.getString(21)
+                                cursor.getString(21),
+                                cursor.getString(22)
+
                         ));
 
             }

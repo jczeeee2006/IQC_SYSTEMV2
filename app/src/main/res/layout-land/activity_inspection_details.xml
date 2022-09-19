@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical"
-    android:background="@drawable/paaa"
+
     tools:context=".add.InspectionDetailsActivity">
 
 
@@ -17,18 +17,7 @@
        app:layout_constraintTop_toTopOf="parent"
        tools:ignore="MissingConstraints">
 
-      <TextView
-          android:id="@+id/textView86"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:fontFamily="@font/popbold"
-          android:text=" INSPECTION RECORDS"
-          android:textColor="@color/white"
-          android:textSize="48sp"
-          app:layout_constraintBottom_toTopOf="@+id/framelayoutins"
-          app:layout_constraintEnd_toEndOf="@+id/framelayoutins"
-          app:layout_constraintHorizontal_bias="0.539"
-          app:layout_constraintStart_toStartOf="@+id/framelayoutins" />
+
 
       <EditText
           android:id="@+id/dateToday1"
@@ -40,12 +29,35 @@
           android:padding="10dp"
           android:textAlignment="center"
           android:textSize="16sp"
-          android:visibility="invisible"
+          android:visibility="gone"
           app:layout_constraintEnd_toEndOf="@+id/framelayoutins"
           app:layout_constraintHorizontal_bias="0.98"
           app:layout_constraintStart_toStartOf="@+id/framelayoutins"
           tools:ignore="MissingConstraints"
           tools:layout_editor_absoluteY="51dp" />
+
+
+      <Button
+          android:id="@+id/backButton"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_marginEnd="20dp"
+          android:background="@drawable/ic_baseline_keyboard_double_arrow_left_24"
+          app:layout_constraintBottom_toTopOf="@+id/framelayoutins"
+          app:layout_constraintEnd_toStartOf="@+id/deleteRecordsinspect"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="1.0" />
+
+      <Button
+          android:id="@+id/deleteRecordsinspect"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_marginEnd="80dp"
+          android:background="@drawable/ic_delete"
+          app:layout_constraintBottom_toBottomOf="@+id/backButton"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="1.0" />
 
       <EditText
           android:id="@+id/boxseqinspection"
@@ -55,9 +67,10 @@
           android:ems="10"
           android:inputType="textPersonName"
           android:padding="10dp"
+
           android:textAlignment="center"
           android:textSize="16sp"
-          android:visibility="invisible"
+          android:visibility="gone"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           tools:ignore="MissingConstraints" />
@@ -67,7 +80,7 @@
           android:id="@+id/cardView5"
           android:layout_width="610dp"
           android:layout_height="420dp"
-          android:layout_marginTop="84dp"
+          android:layout_marginTop="68dp"
           android:elevation="12sp"
           android:innerRadius="0dp"
           android:shape="ring"
@@ -75,7 +88,7 @@
           app:cardCornerRadius="44dp"
           app:cardElevation="4dp"
           app:layout_constraintEnd_toEndOf="@+id/cardView2"
-          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="@+id/cardView2"
           app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
@@ -90,7 +103,7 @@
             <EditText
                 android:id="@+id/inspectorup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="68dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -106,8 +119,8 @@
 
             <TextView
                 android:id="@+id/textView26"
-                android:layout_width="105dp"
-                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
                 android:text="Inspector:"
                 android:textColor="@color/darkish"
@@ -118,7 +131,7 @@
             <EditText
                 android:id="@+id/sampleSizeinspectup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -146,10 +159,9 @@
             <AutoCompleteTextView
                 android:id="@+id/makerup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
-                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
@@ -176,7 +188,7 @@
             <EditText
                 android:id="@+id/dateinsp"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -192,7 +204,7 @@
             <EditText
                 android:id="@+id/assyLineup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -220,8 +232,8 @@
             <AutoCompleteTextView
                 android:id="@+id/ulMarkingup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                 android:inputType="textPersonName"
@@ -230,7 +242,7 @@
                 android:textColor="@color/blayk"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/dateReceivedup"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/dateReceivedup"
                 app:layout_constraintTop_toBottomOf="@+id/dateReceivedup" />
 
@@ -248,7 +260,7 @@
             <EditText
                 android:id="@+id/dateReceivedup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -265,7 +277,7 @@
             <EditText
                 android:id="@+id/invoiceQuantityup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -320,7 +332,7 @@
           android:layout_width="610dp"
           android:layout_height="420dp"
           android:layout_marginLeft="30dp"
-          android:layout_marginTop="136dp"
+          android:layout_marginTop="76dp"
           android:elevation="12sp"
           android:innerRadius="0dp"
           android:shape="ring"
@@ -335,7 +347,7 @@
 
          <androidx.constraintlayout.widget.ConstraintLayout
              android:layout_width="590dp"
-             android:layout_height="420dp"
+             android:layout_height="410dp"
              android:layout_marginLeft="30dp"
              android:layout_marginRight="30dp"
              android:layout_marginBottom="20dp"
@@ -366,7 +378,7 @@
             <AutoCompleteTextView
                 android:id="@+id/partNuminspecup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="44dp"
                 android:background="@drawable/edittext_shadow"
                 android:elevation="10dp"
@@ -383,7 +395,7 @@
             <EditText
                 android:id="@+id/partName"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="44dp"
                 android:background="@drawable/edittext_shadow"
                 android:elevation="10dp"
@@ -412,7 +424,7 @@
             <EditText
                 android:id="@+id/goodsCodeinspup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:elevation="10dp"
@@ -442,7 +454,7 @@
             <EditText
                 android:id="@+id/prepared"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
@@ -472,7 +484,7 @@
             <EditText
                 android:id="@+id/dateinspectup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:background="@drawable/layer"
                 android:drawableRight="@drawable/ic_baseline_calendar_today_24"
                 android:elevation="10dp"
@@ -501,7 +513,7 @@
             <EditText
                 android:id="@+id/invoiceNumberinsup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:elevation="10dp"
@@ -518,7 +530,7 @@
             <EditText
                 android:id="@+id/humidity"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="44dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -536,8 +548,8 @@
             <EditText
                 android:id="@+id/temperature"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="40dp"
+                android:layout_height="45dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
                 android:ems="10"
@@ -582,20 +594,22 @@
           android:id="@+id/cardView"
           android:layout_width="610dp"
           android:layout_height="420dp"
-          android:layout_marginTop="56dp"
+          android:layout_marginEnd="16dp"
           android:elevation="12sp"
           android:innerRadius="0dp"
           android:shape="ring"
           app:cardBackgroundColor="#fff"
           app:cardCornerRadius="44dp"
           app:cardElevation="4dp"
-          app:layout_constraintStart_toStartOf="@+id/cardView5"
-          app:layout_constraintTop_toBottomOf="@+id/cardView5">
+          app:layout_constraintBottom_toTopOf="@+id/framelayoutins"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.553">
 
 
          <androidx.constraintlayout.widget.ConstraintLayout
-             android:layout_width="610dp"
-             android:layout_height="420dp"
+             android:layout_width="616dp"
+             android:layout_height="386dp"
              android:layout_marginLeft="30dp"
              android:layout_marginRight="30dp"
              android:layout_marginBottom="30dp"
@@ -605,10 +619,9 @@
             <AutoCompleteTextView
                 android:id="@+id/supplierup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
-                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingRight="10dp"
@@ -623,7 +636,7 @@
             <AutoCompleteTextView
                 android:id="@+id/testreportup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -641,7 +654,7 @@
             <AutoCompleteTextView
                 android:id="@+id/oirup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -671,7 +684,7 @@
             <AutoCompleteTextView
                 android:id="@+id/inspecttypeup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -679,18 +692,18 @@
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:textAlignment="center"
+                android:textColor="@color/blayk"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.36"
                 app:layout_constraintStart_toEndOf="@+id/oirup"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@color/blayk" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <AutoCompleteTextView
                 android:id="@+id/mattypeup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="44dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                 android:ems="10"
@@ -700,7 +713,7 @@
                 android:textColor="@color/blayk"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/inspecttypeup"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/inspecttypeup"
                 app:layout_constraintTop_toBottomOf="@+id/inspecttypeup" />
 
@@ -740,7 +753,7 @@
             <AutoCompleteTextView
                 android:id="@+id/cocup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="44dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -758,7 +771,7 @@
             <AutoCompleteTextView
                 android:id="@+id/rohsup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -820,7 +833,7 @@
             <AutoCompleteTextView
                 android:id="@+id/prodtypeup"
                 android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -840,19 +853,6 @@
       </androidx.cardview.widget.CardView>
 
       <Button
-          android:id="@+id/inspectnextbutton"
-          android:layout_width="200dp"
-          android:layout_height="70dp"
-          android:backgroundTint="@color/darkish"
-          android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
-          android:elevation="10dp"
-          android:text="NEXT Form"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.321"
-          app:layout_constraintStart_toEndOf="@+id/button3"
-          app:layout_constraintTop_toTopOf="@+id/button3" />
-
-      <Button
           android:id="@+id/button3"
           android:layout_width="200dp"
           android:layout_height="70dp"
@@ -862,7 +862,7 @@
           android:text="VIEW  DATA"
           android:textAlignment="center"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.106"
+          app:layout_constraintHorizontal_bias="0.008"
           app:layout_constraintStart_toEndOf="@+id/button2"
           app:layout_constraintTop_toTopOf="@+id/button2" />
 
@@ -870,31 +870,44 @@
           android:id="@+id/button2"
           android:layout_width="200dp"
           android:layout_height="70dp"
-          android:layout_marginTop="64dp"
+          android:layout_marginTop="56dp"
           android:backgroundTint="#16e06e"
           android:drawableLeft="@drawable/ic_baseline_save_24"
           android:elevation="20dp"
           android:text="SAVE DATA"
           android:textAlignment="center"
           app:layout_constraintEnd_toEndOf="@+id/framelayoutins"
-          app:layout_constraintHorizontal_bias="0.056"
-          app:layout_constraintStart_toStartOf="@+id/framelayoutins"
-          app:layout_constraintTop_toBottomOf="@+id/framelayoutins" />
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/cardView5"
+          app:layout_constraintTop_toBottomOf="@+id/cardView5" />
 
       <FrameLayout
           android:id="@+id/framelayoutins"
-          android:layout_width="720dp"
-          android:layout_height="900dp"
-
-          android:layout_marginTop="136dp"
+          android:layout_width="750dp"
+          android:layout_height="640dp"
+          android:layout_marginTop="532dp"
           android:background="@drawable/layer"
           android:elevation="10dp"
           android:innerRadius="40dp"
           android:shape="ring"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintHorizontal_bias="0.918"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+          app:layout_constraintTop_toTopOf="parent" >
+
+      </FrameLayout>
+
+      <Button
+          android:id="@+id/inspectnextbutton"
+          android:layout_width="200dp"
+          android:layout_height="70dp"
+          android:backgroundTint="@color/darkish"
+          android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
+          android:elevation="10dp"
+          android:text="NEXT Form"
+          android:layout_marginLeft="10dp"
+          app:layout_constraintStart_toEndOf="@+id/button3"
+          app:layout_constraintTop_toTopOf="@+id/button3" />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
 

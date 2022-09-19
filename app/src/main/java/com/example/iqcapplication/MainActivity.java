@@ -14,10 +14,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.net.NetworkInterface;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
         Button  btn_login;
@@ -53,6 +56,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+        String getMacAddress() {
+            try {
+                List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+                for (NetworkInterface nif : all) {
+                    if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+
+                    byte[] macBytes = nif.getHardwareAddress();
+                    if (macBytes == null) {
+                        return "";
+                    }
+
+                    StringBuilder res1 = new StringBuilder();
+                    for (byte b : macBytes) {
+                        res1.append(String.format("%02X:",b));
+                    }
+
+                    if (res1.length() > 0) {
+                        res1.deleteCharAt(res1.length() - 1);
+                    }
+                    return res1.toString();
+                }
+            } catch (Exception ex) {
+
+            }
+            return "02:00:00:00:00:00";
+
+        }
 
     public String firstandLastname(String username, String password)
     {
@@ -60,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             connectionClass = new ConnectionClass();
-            Connection conn = connectionClass.CONN();
-            String query = "SELECT *  FROM User_Account WHERE employee_num= '" + username + "' AND password= '" + password + "' ";
+            Connection conn = connectionClass.CONN2();
+            String query = "SELECT *  FROM User_Account WHERE employee_num= '" + username + "' AND passWord= '" + password + "' ";
 
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
@@ -69,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             while (rs.next()) {
                 String fname = rs.getString("employee_num");
                 usernameh = fname;
-                String pos = rs.getString("password");
+                String pos = rs.getString("passWord");
                 String lastName = rs.getString("lastname");
                 lastNameholder = lastName;
                 output = fname + " " + pos + " " + lastName;
@@ -77,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             return output;
         }
+
         return output;
+
     }
 
 
@@ -103,11 +135,11 @@ public class MainActivity extends AppCompatActivity {
             else {
                 try {
                     connectionClass = new ConnectionClass();
-                    Connection con = connectionClass.CONN();
+                    Connection con = connectionClass.CONN2();
                     if (con == null) {
                         z = "No Internet Connection";
                     } else {
-                        String query = "SELECT * from User_Account where employee_num='" + userid + "' and password='" + password + "'";
+                        String query = "SELECT * from User_Account where employee_num='" + userid + "' and passWord='" + password + "'";
                         Statement stmt = con.createStatement();
                         ResultSet rs = stmt.executeQuery(query);
 
@@ -117,11 +149,12 @@ public class MainActivity extends AppCompatActivity {
 
                             isSuccess = true;
                         } else {
-                            z = "Invalid Credentials";
+
                             isSuccess = false;
                         }
 
                     }
+
                 } catch (Exception ex) {
                     isSuccess = false;
                     z = ex.toString();

@@ -451,6 +451,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
 
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -459,8 +460,43 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/difference" />
+
+            <Button
+                android:id="@+id/lotbackButton"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
+                android:elevation="20dp"
+
+                android:paddingLeft="20dp"
+                android:text="BACK"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/sampleSizeup"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/sampleSizeup"
+                app:layout_constraintTop_toBottomOf="@+id/sampleSizeup" />
+
+            <Button
+                android:id="@+id/updateReject"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/darkish"
+                android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+
+                android:elevation="20dp"
+                android:paddingLeft="20dp"
+                android:text="update reject"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/boxSequenceup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/boxSequenceup"
+                app:layout_constraintTop_toBottomOf="@+id/boxSequenceup" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -469,7 +505,7 @@
         android:id="@+id/failed"
         android:layout_width="200dp"
         android:layout_height="70dp"
-
+        android:visibility="invisible"
         android:layout_marginTop="196dp"
         android:backgroundTint="#16e06e"
         android:drawableLeft="@drawable/ic_baseline_system_update_24"
@@ -486,7 +522,7 @@
         android:id="@+id/uploadtosqlserver"
         android:layout_width="200dp"
         android:layout_height="70dp"
-
+        android:visibility="invisible"
         android:layout_marginTop="32dp"
         android:backgroundTint="#FF0000"
         android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
@@ -498,40 +534,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/failed"
         app:layout_constraintTop_toBottomOf="@+id/failed" />
-
-    <Button
-        android:id="@+id/lotbackButton"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="@color/darkish"
-        android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
-        android:elevation="20dp"
-        android:paddingLeft="20dp"
-
-        android:text="BACK"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/uploadtosqlserver"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/uploadtosqlserver"
-        app:layout_constraintTop_toBottomOf="@+id/uploadtosqlserver" />
-
-    <Button
-        android:id="@+id/updateReject"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="136dp"
-        android:backgroundTint="@color/darkish"
-        android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
-        android:elevation="20dp"
-        android:paddingLeft="20dp"
-
-        android:text="update reject"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/uploadtosqlserver"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/uploadtosqlserver"
-        app:layout_constraintTop_toBottomOf="@+id/uploadtosqlserver" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

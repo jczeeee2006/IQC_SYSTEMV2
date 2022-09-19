@@ -54,17 +54,23 @@ import java.util.Locale;
 public class InspectionDetailsActivity extends AppCompatActivity {
     EditText invoicenum, preparedby, temp, assemblyline, partnum,partName, humidity, supplier,  goodc, dateeee, inspector, dateinspected,samplesize,
             datereceived,invoicequant,dateTodayins,boxsequenceins;
+
     AutoCompleteTextView oir,inspecttype,testreport,mattype,inscoc,rohscomp,prodtype,ulmarking,maker;
+
     Button nextForm,addData,showButton,backButton,deleteRecordsins;
+
     ConnectionClass connectionClass;
+
     private int mYear,mMonth,mDay;
 
     public static String goodscodeholder,invoicenumholderr,boxseqholder;
+
     final Calendar myCalendar= Calendar.getInstance();
 
     public ArrayAdapter inspecttypee,OIRR,testreportt,mattypee,cocc,rohscompp,prodadapter,uladpter,makerADapter ;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +82,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         transaction.commit();
 
         connectionClass = new ConnectionClass();
-
 
         preparedby = findViewById(R.id.prepared);
         dateeee = findViewById(R.id.dateinspectup);
@@ -131,7 +136,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         humidity.setText(temp_hum("Humidity"));
         preparedby.setText(MainActivity.lastNameholder);
         inspector.setText(MainActivity.lastNameholder);
-        inspector.setEnabled(false);
         preparedby.setEnabled(false);
         invoicenum.setEnabled(false);
         dateeee.setEnabled(false);
@@ -190,8 +194,24 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                  insertIntoSQLlite();
-                  saveToSQLSERVER();
+                if(partnum.length()==0){
+                    partnum.setError("Enter Part Number");
+                }
+                // ERROR MESSAGE FOR TOTAL QUUANTITY
+                else if(partName.length()==0){
+                    partName.setError("Enter part name");
+                }
+                else if(goodc.length()==0)
+                {
+                    goodc.setError("Enter part name");
+                }else if(invoicenum.length()==0){
+                    invoicenum.setError("Enter invoicenum");
+                }
+                else{
+                    insertIntoSQLlite();
+                    saveToSQLSERVER();
+                }
+
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -205,8 +225,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
 
     void saveToSQLSERVER() {
-
-
         try{
             connectionClass = new ConnectionClass();
             Connection con = connectionClass.CONN2();
@@ -234,13 +252,11 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                 stmt.execute(query2);
             }
 
-
         }catch(Exception e ){
             Toast.makeText(this,e.toString(), Toast.LENGTH_SHORT).show();
         }
 
     }
-
 
 
     void confirmDialog11() {
@@ -378,13 +394,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
     }
 
 
-    public void myCustomDalog(){
-        final Dialog MyDialog = new Dialog(InspectionDetailsActivity.this);
-        MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        MyDialog.setContentView(R.layout.customdialog);
-
-        MyDialog.show();
-    }
 
 
 
@@ -402,6 +411,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                             dateeee.setText ( dayOfMonth + "/" + (month + 1) + "/" + year );
+
                         }
                     }, mYear, mMonth, mDay );
                     datePickerDialog.show ();

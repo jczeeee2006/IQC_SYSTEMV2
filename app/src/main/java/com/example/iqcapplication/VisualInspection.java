@@ -285,7 +285,7 @@ public class VisualInspection extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 insert_appearanceinspection("OK");
-                visualJudgement.setText("PASSSED");
+                visualJudgement.setText("PASSED");
                 visualJudgement.setTextColor(Color.parseColor("#23f011"));
                 reset();
 

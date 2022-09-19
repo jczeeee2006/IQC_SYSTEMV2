@@ -50,7 +50,7 @@ public class FunctionalActivity extends AppCompatActivity {
 
     public static int  funcheck_id_hldr = 0, samplesizefc_id_hldr=0;
 
-    public static int ctr = 1, samplesize_id_hldr=0, dimcheck_id_hldr = 0, sampleSizeDC = 0;
+    public static int ctr = 1,sampleSizeDC = 0;
     public  static String judgeHolder = "PASSED", colorHolder = "#58f40b";
     public static boolean fourinstrument = false;
 
@@ -441,44 +441,44 @@ public class FunctionalActivity extends AppCompatActivity {
 
 
 
-    public void updateDatainSQlite(){
-        try{
-            DatabaseHelper myDB = new DatabaseHelper(FunctionalActivity.this);
-
-            instrumentUsedstring =    instrumentUsed.getText().toString().trim();
-            samplenum  = ffcsampleSize.getText().toString().trim();
-            checkpoint = fc_checkPoints.getText().toString().trim();
-            samplUnit  = sammpleUnit.getText().toString().trim();
-
-            sample1 = Fc_1.getText().toString().trim();
-            sample2 = Fc_2.getText().toString().trim();
-            sample3 = Fc_3.getText().toString().trim();
-            sample4 = Fc_4.getText().toString().trim();
-            sample5 = Fc_5.getText().toString().trim();
-            sample6 = Fc_6.getText().toString().trim();
-            sample7 = Fc_7.getText().toString().trim();
-            sample8 = Fc_8.getText().toString().trim();
-            sample9 = Fc_9.getText().toString().trim();
-            sample10 = Fc_10.getText().toString().trim();
-
-            lower = lowerSpec.getText().toString().trim();
-            upper = upperSpec.getText().toString().trim();
-
-            min = fc_Minimum.getText().toString().trim();
-            average = fc_Average.getText().toString().trim();
-            max = fc_Maximum.getText().toString().trim();
-
-            judgement = FC_Judgement.getText().toString().trim();
-            gdatedim = dateTodayfc.getText().toString().trim();
-            myDB.updateDc( id, instrumentUsedstring, samplenum,  checkpoint,  samplUnit,  sample1,  sample2,  sample3,  sample4 ,  sample5,  sample6,
-                    sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim);
-
-            Toast.makeText(FunctionalActivity.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
-
-        }catch(Exception e){
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-        }
-    }
+//    public void updateDatainSQlite(){
+//        try{
+//            DatabaseHelper myDB = new DatabaseHelper(FunctionalActivity.this);
+//
+//            instrumentUsedstring =    instrumentUsed.getText().toString().trim();
+//            samplenum  = ffcsampleSize.getText().toString().trim();
+//            checkpoint = fc_checkPoints.getText().toString().trim();
+//            samplUnit  = sammpleUnit.getText().toString().trim();
+//
+//            sample1 = Fc_1.getText().toString().trim();
+//            sample2 = Fc_2.getText().toString().trim();
+//            sample3 = Fc_3.getText().toString().trim();
+//            sample4 = Fc_4.getText().toString().trim();
+//            sample5 = Fc_5.getText().toString().trim();
+//            sample6 = Fc_6.getText().toString().trim();
+//            sample7 = Fc_7.getText().toString().trim();
+//            sample8 = Fc_8.getText().toString().trim();
+//            sample9 = Fc_9.getText().toString().trim();
+//            sample10 = Fc_10.getText().toString().trim();
+//
+//            lower = lowerSpec.getText().toString().trim();
+//            upper = upperSpec.getText().toString().trim();
+//
+//            min = fc_Minimum.getText().toString().trim();
+//            average = fc_Average.getText().toString().trim();
+//            max = fc_Maximum.getText().toString().trim();
+//
+//            judgement = FC_Judgement.getText().toString().trim();
+//            gdatedim = dateTodayfc.getText().toString().trim();
+//            myDB.updateDc( id, instrumentUsedstring, samplenum,  checkpoint,  samplUnit,  sample1,  sample2,  sample3,  sample4 ,  sample5,  sample6,
+//                    sample7,  sample8,  sample9, sample10, lower,  upper,  max,  min,  average,  judgement,gdatedim);
+//
+//            Toast.makeText(FunctionalActivity.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+//
+//        }catch(Exception e){
+//            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
     void updateData(){

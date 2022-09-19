@@ -33,7 +33,7 @@
 
     <FrameLayout
         android:id="@+id/fcframelayout"
-        android:layout_width="600dp"
+        android:layout_width="650dp"
         android:layout_height="650dp"
         android:background="@drawable/layer"
         android:elevation="20dp"
@@ -46,7 +46,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="620dp"
+        android:layout_width="700dp"
         android:layout_height="760dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
@@ -62,7 +62,7 @@
         tools:layout_editor_absoluteY="54dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="620dp"
+            android:layout_width="690dp"
             android:layout_height="750dp"
 
             android:orientation="vertical">
@@ -103,7 +103,7 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.32"
+                app:layout_constraintHorizontal_bias="0.352"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -155,7 +155,7 @@
                 android:paddingLeft="10dp"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/instrumentUsedfc" />
 
@@ -170,7 +170,7 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.536"
+                app:layout_constraintHorizontal_bias="0.571"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/checkPointfc" />
 
@@ -211,7 +211,7 @@
                 android:id="@+id/fc7"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="text|textCapCharacters"
@@ -219,7 +219,7 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc6"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc6"
                 app:layout_constraintTop_toBottomOf="@+id/fc6" />
 
@@ -243,7 +243,7 @@
                 android:id="@+id/fc8"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="text|textCapCharacters"
@@ -275,7 +275,7 @@
                 android:id="@+id/fc9"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="text|textCapCharacters"
@@ -283,7 +283,7 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc8"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/fc8"
                 app:layout_constraintTop_toBottomOf="@+id/fc8" />
 
@@ -551,7 +551,7 @@
                 android:id="@+id/fcjudgeMent"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -574,7 +574,7 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.651"
+                app:layout_constraintHorizontal_bias="0.746"
                 app:layout_constraintStart_toEndOf="@+id/checkPointfc"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -669,8 +669,10 @@
         android:id="@+id/dateTodayfc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

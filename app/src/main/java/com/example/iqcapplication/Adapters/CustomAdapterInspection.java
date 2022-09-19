@@ -60,6 +60,7 @@ public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterI
     Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
+
             List<InspectionEncapsulation> filteredair = new ArrayList<>();
 
             //-------------RECYCLERVIEW LIST OF DATA ---------------------
@@ -81,12 +82,14 @@ public class CustomAdapterInspection extends RecyclerView.Adapter<CustomAdapterI
         }
 
         ///-----------------------------DISPLAY RESULT WHEN FILTERING------------//
+
         @Override
         protected void publishResults(CharSequence constraint, FilterResults filterResults) {
             inspectData.clear();
             inspectData.addAll((Collection<? extends InspectionEncapsulation>) filterResults.values);
             notifyDataSetChanged();
         }
+
     };
 
 

@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "IQCDATABASE";
-    private static final int DATABASE_VERSION = 28;
+    private static final int DATABASE_VERSION = 32;
 
     private static final  String TABLE_NAME = "Lotnumberdb";
     private static final  String TABLE_NAME2 = "Dimensiondb";
@@ -61,6 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String COLUMN_P_DCSAMPLE8 = "DCSAMPLE8";
     private static final  String  COLUMN_P_DCSAMPLE9 = "DCSAMPLE9";
     private static final  String  COLUMN_P_DCSAMPLE10 = "DCSAMPLE10";
+    private static final  String  COLUMN_P_DCREMARKSS = "DCREMARKS";
 
     private static final  String  COLUMN_P_LOWER = "LOWER";
     private static final  String  COLUMN_P_UPPER = "UPPER";
@@ -184,6 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_DCSAMPLE8 + " TEXT," +
                         COLUMN_P_DCSAMPLE9 + " TEXT," +
                         COLUMN_P_DCSAMPLE10 + " TEXT," +
+                        COLUMN_P_DCREMARKSS + " TEXT," +
 
                         COLUMN_P_LOWER + " TEXT," +
                         COLUMN_P_UPPER + " TEXT," +
@@ -314,16 +316,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void addDC(String instrumentUsed, String samplenum, String checkpoint, String samplUnit, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
-                       String sample7, String sample8, String sample9,String sample10,String lower, String upper, String min,String average, String max, String judgement,String date){
+    public void addDC(String instrumentUsed, String samplenum,  String samplUnit,String checkpoint, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
+                       String sample7, String sample8, String sample9,String sample10,String lower, String upper, String min,String average, String max, String judgement,String date, String remarks){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_P_INSTRUMENT,instrumentUsed);
-        cv.put(COLUMN_P_DCCHECKPOINT, checkpoint);
         cv.put(COLUMN_P_DCSAMPLENUM, samplenum);
-        cv.put(COLUMN_P_DCCHECKPOINT, checkpoint);
         cv.put(COLUMN_P_DCSAMPLEUNIT, samplUnit);
+        cv.put(COLUMN_P_DCCHECKPOINT, checkpoint);
         cv.put(COLUMN_P_DCSAMPLE1, sample1);
         cv.put(COLUMN_P_DCSAMPLE2, sample2);
         cv.put(COLUMN_P_DCSAMPLE3, sample3);
@@ -341,6 +342,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_MAXIMUM, max);
         cv.put(COLUMN_P_JUDGEMENT, judgement);
         cv.put(COLUMN_P_DATEDIM, date);
+        cv.put(COLUMN_P_DCREMARKSS, remarks);
+
 
         long result = db.insert(TABLE_NAME2, null, cv);
         if (result == -1) {
@@ -636,7 +639,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public void updateDc( String _id,String instrumentUsed,  String samplenum, String checkpoint, String samplUnit, String sample1, String sample2, String sample3, String sample4 , String sample5, String sample6,
-                       String sample7, String sample8, String sample9,String sample10,String lower, String upper, String max, String min, String average, String judgement,String date){
+                       String sample7, String sample8, String sample9,String sample10,String lower, String upper, String max, String min, String average, String judgement,String date, String remarks){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -662,6 +665,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_P_MAXIMUM, max);
         cv.put(COLUMN_P_JUDGEMENT, judgement);
         cv.put(COLUMN_P_DATEDIM, date);
+        cv.put(COLUMN_P_DCREMARKSS, remarks);
 
         long result = db.update(TABLE_NAME2, cv,"DCID=?", new String[]{_id});
         if(result == -1){

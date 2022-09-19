@@ -7,13 +7,14 @@
     android:padding="5dp"
     android:layout_margin="10dp"
     android:id="@+id/dimensionLayout"
-    android:background="@drawable/grid_row_border"
+    android:background="@drawable/edittext_background"
+    android:elevation="10dp"
   >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="720dp"
+        android:layout_height="950dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
@@ -22,22 +23,23 @@
             android:id="@+id/dcid_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="648dp"
+            android:layout_marginTop="672dp"
             android:fontFamily="@font/popbold"
             android:text="1"
             android:textColor="@color/darkblue"
             android:textSize="34sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.812"
+            app:layout_constraintHorizontal_bias="0.943"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/checkPointfc"
-            android:layout_width="150dp"
+            android:id="@+id/checkPointdc"
+            android:layout_width="280dp"
             android:layout_height="50dp"
-            android:layout_marginTop="144dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -46,16 +48,17 @@
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/upperspecs_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/upperspecs_txt"
+            app:layout_constraintTop_toBottomOf="@+id/upperspecs_txt" />
 
         <TextView
             android:id="@+id/instrumentUsed_txt"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginTop="56dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/grid_row_borderradius"
 
             android:elevation="10dp"
             android:ems="10"
@@ -67,36 +70,36 @@
             android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintHorizontal_bias="0.084"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/sampleUnit_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
+
             android:paddingLeft="10dp"
-            android:paddingTop="10dp"
             android:text="mm"
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/instrumentUsed_txt"
+            app:layout_constraintEnd_toEndOf="@+id/lowerdc_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/instrumentUsed_txt"
-            app:layout_constraintTop_toBottomOf="@+id/instrumentUsed_txt" />
+            app:layout_constraintStart_toStartOf="@+id/lowerdc_txt"
+            app:layout_constraintTop_toBottomOf="@+id/lowerdc_txt" />
 
         <TextView
             android:id="@+id/dc6_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -105,33 +108,33 @@
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/checkPointfc"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/checkPointfc"
-            app:layout_constraintTop_toBottomOf="@+id/checkPointfc" />
+            app:layout_constraintEnd_toEndOf="@+id/checkPointdc"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/checkPointdc"
+            app:layout_constraintTop_toBottomOf="@+id/checkPointdc" />
 
         <TextView
             android:id="@+id/sampleSizedc_txt"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
-            android:inputType="number|textPersonName"
+            android:paddingTop="10dp"
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.768"
+            app:layout_constraintHorizontal_bias="0.701"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/dc2_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -145,10 +148,10 @@
 
         <TextView
             android:id="@+id/dc1_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -164,10 +167,10 @@
 
         <TextView
             android:id="@+id/dc7_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -183,10 +186,10 @@
 
         <TextView
             android:id="@+id/dc3_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -202,10 +205,10 @@
 
         <TextView
             android:id="@+id/dc8_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -221,10 +224,10 @@
 
         <TextView
             android:id="@+id/dc4_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -240,10 +243,10 @@
 
         <TextView
             android:id="@+id/dc9_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -259,10 +262,10 @@
 
         <TextView
             android:id="@+id/dc5_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -278,10 +281,10 @@
 
         <TextView
             android:id="@+id/dc10_txt"
-            android:layout_width="150dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="44dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -296,6 +299,24 @@
             app:layout_constraintTop_toBottomOf="@+id/dc9_txt" />
 
         <TextView
+            android:id="@+id/remarksdc_txt"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/grid_row_borderradius"
+            android:elevation="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/blayk"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.848"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dcjudgeMent_txt" />
+
+        <TextView
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -303,8 +324,8 @@
             android:text="Checkpoint:"
             android:textColor="@color/darkish"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/checkPointfc"
-            app:layout_constraintStart_toStartOf="@+id/checkPointfc" />
+            app:layout_constraintBottom_toTopOf="@+id/checkPointdc"
+            app:layout_constraintStart_toStartOf="@+id/checkPointdc" />
 
         <TextView
             android:id="@+id/textView52"
@@ -450,59 +471,61 @@
 
 
         <TextView
-            android:id="@+id/minimum_txt"
-            android:layout_width="150dp"
+            android:id="@+id/dcminimum_txt"
+            android:layout_width="170dp"
             android:layout_height="50dp"
-            android:layout_marginTop="48dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/upperspecs_txt"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/upperspecs_txt"
-            app:layout_constraintTop_toBottomOf="@+id/upperspecs_txt" />
+            app:layout_constraintEnd_toEndOf="@+id/dc5_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dc5_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc5_txt" />
 
         <TextView
-            android:id="@+id/averagefc"
-            android:layout_width="150dp"
+            android:id="@+id/averagedc_txt"
+            android:layout_width="170dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/minimum_txt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/minimum_txt"
-            app:layout_constraintTop_toBottomOf="@+id/minimum_txt" />
+            app:layout_constraintEnd_toEndOf="@+id/dc10_txt"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="@+id/dc5_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc10_txt" />
 
         <TextView
-            android:id="@+id/maximum_txt"
-            android:layout_width="150dp"
+            android:id="@+id/dcmaximum_txt"
+            android:layout_width="170dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginBottom="108dp"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:paddingTop="10dp"
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/averagefc"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/averagefc"
-            app:layout_constraintTop_toBottomOf="@+id/averagefc" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/dc10_txt"
+            app:layout_constraintHorizontal_bias="0.818"
+            app:layout_constraintStart_toEndOf="@+id/averagedc_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dc10_txt"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/dcjudgeMent_txt"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -511,35 +534,17 @@
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/dcminimum_txt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/maximum_txt"
-            app:layout_constraintTop_toBottomOf="@+id/maximum_txt" />
-
-        <TextView
-            android:id="@+id/lowerspec_txt"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="144dp"
-            android:background="@drawable/rounded_corners"
-            android:elevation="10dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingTop="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/blayk"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.343"
-            app:layout_constraintStart_toEndOf="@+id/checkPointfc"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/dcminimum_txt"
+            app:layout_constraintTop_toBottomOf="@+id/dcminimum_txt" />
 
         <TextView
             android:id="@+id/upperspecs_txt"
-            android:layout_width="154dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rounded_corners"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="156dp"
+            android:background="@drawable/grid_row_borderradius"
             android:elevation="10dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -547,20 +552,22 @@
             android:textAlignment="center"
             android:textColor="@color/blayk"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/lowerspec_txt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/lowerspec_txt"
-            app:layout_constraintTop_toBottomOf="@+id/lowerspec_txt" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.887"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView41"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/pop"
             android:text="Lower Specs:"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/lowerspec_txt"
-            app:layout_constraintStart_toStartOf="@+id/lowerspec_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/lowerdc_txt"
+            app:layout_constraintStart_toStartOf="@+id/lowerdc_txt"
+            app:layout_constraintTop_toBottomOf="@+id/sampleSizedc_txt" />
 
         <TextView
             android:id="@+id/upperspec"
@@ -576,21 +583,31 @@
             android:id="@+id/textView80"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/darkblue"
             android:fontFamily="@font/pop"
             android:text="Judgement:"
+            android:textColor="@color/darkblue"
             app:layout_constraintBottom_toTopOf="@+id/dcjudgeMent_txt"
             app:layout_constraintStart_toStartOf="@+id/dcjudgeMent_txt" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pop"
+            android:text="Remarks:"
+            android:textColor="@color/darkblue"
+            app:layout_constraintBottom_toTopOf="@+id/remarksdc_txt"
+            app:layout_constraintStart_toStartOf="@+id/remarksdc_txt" />
 
         <TextView
             android:id="@+id/textView46"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pop"
-            android:textColor="@color/darkblue"
             android:text="Minimum"
-            app:layout_constraintBottom_toTopOf="@+id/minimum_txt"
-            app:layout_constraintStart_toStartOf="@+id/minimum_txt" />
+            android:textColor="@color/darkblue"
+            app:layout_constraintBottom_toTopOf="@+id/dcminimum_txt"
+            app:layout_constraintStart_toStartOf="@+id/dcminimum_txt" />
 
         <TextView
             android:id="@+id/textView47"
@@ -599,8 +616,8 @@
             android:fontFamily="@font/pop"
             android:text="Maximum"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/maximum_txt"
-            app:layout_constraintStart_toStartOf="@+id/maximum_txt" />
+            app:layout_constraintBottom_toTopOf="@+id/dcmaximum_txt"
+            app:layout_constraintStart_toStartOf="@+id/dcmaximum_txt" />
 
         <TextView
             android:id="@+id/textView48"
@@ -609,25 +626,39 @@
             android:fontFamily="@font/pop"
             android:text="Average:"
             android:textColor="@color/darkish"
-            app:layout_constraintBottom_toTopOf="@+id/averagefc"
-            app:layout_constraintStart_toStartOf="@+id/averagefc" />
+            app:layout_constraintBottom_toTopOf="@+id/averagedc_txt"
+            app:layout_constraintStart_toStartOf="@+id/averagedc_txt" />
 
         <TextView
             android:id="@+id/datedim_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/popmedium"
             android:text="TextView"
+            android:textColor="@color/darkish"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.356"
+            app:layout_constraintHorizontal_bias="0.96"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.95" />
+            app:layout_constraintVertical_bias="0.018" />
+
+        <TextView
+            android:id="@+id/lowerdc_txt"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="44dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/grid_row_borderradius"
+            android:elevation="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/instrumentUsed_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/instrumentUsed_txt"
+            app:layout_constraintTop_toBottomOf="@+id/instrumentUsed_txt" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
 </LinearLayout>

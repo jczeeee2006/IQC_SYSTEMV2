@@ -10,19 +10,21 @@ import java.sql.SQLException;
 
 public class ConnectionClass {
     String ip = "192.168.2.15:40001" ;//14 dapat
-    String ip2 = "192.168.2.14";
+    String ip2 = "192.168.2.24";
+    String ip3 = "192.168.2.14";
     String classs = "net.sourceforge.jtds.jdbc.Driver";
     String db = "IQCDatabase";
-    String db2 = "MATech";
     String db3 = "TempHumid";
     String db4 = "MA_Receiving";
+
     String un = "iqc_db_user_dev";
     String password = "iqcdbuserdev";
-    String un1 = "software";
-    String password1 = "specialist";
-
-
-
+    String un1 = "Quality";
+    String password1 = "Jhrebui2022@";
+    String un2 = "Warehouse";
+    String password2 = "*MgnfDget2022";
+    String un3 = "software";
+    String password3 = "specialist";
 
     //-----------------IQC DATABASE-----------------------
     @SuppressLint("NewApi")
@@ -84,9 +86,9 @@ public class ConnectionClass {
         try {
 
             Class.forName(classs);
-            ConnURL3 = "jdbc:jtds:sqlserver://" + ip2 + ";"
-                    + "databaseName=" + db3 + ";user=" + un1 + ";password="
-                    + password1 + ";";
+            ConnURL3 = "jdbc:jtds:sqlserver://" + ip3 + ";"
+                    + "databaseName=" + db3 + ";user=" + un3 + ";password="
+                    + password3 + ";";
             conn3 = DriverManager.getConnection(ConnURL3);
         } catch (SQLException se) {
             Log.e("ERRO", se.getMessage());
@@ -109,8 +111,8 @@ public class ConnectionClass {
 
             Class.forName(classs);
             ConnURL4 = "jdbc:jtds:sqlserver://" + ip2 + ";"
-                    + "databaseName=" + db4 + ";user=" + un1 + ";password="
-                    + password1 + ";";
+                    + "databaseName=" + db4 + ";user=" + un2 + ";password="
+                    + password2 + ";";
             conn4 = DriverManager.getConnection(ConnURL4);
         } catch (SQLException se) {
             Log.e("ERRO", se.getMessage());
