@@ -3,11 +3,11 @@ package com.example.iqcapplication.encapsulation;
 public class DimensionEncapsulation {
     int id;
     String lowerSpecs,upperSpecs,minimum,average,Maximum,date,remarks ;
-    String InstrumentUsed, sampleSize, sampleUnit, checkpointdc, sample1dc, sample2dc, sample3dc, sample4dc, sample5dc, sample6dc, sample7dc, sample8dc, sample9dc, sample10dc,judgement;
+    String InstrumentUsed, sampleSize, sampleUnit, checkpointdc, sample1dc, sample2dc, sample3dc, sample4dc, sample5dc, sample6dc, sample7dc, sample8dc, sample9dc, sample10dc,judgement,po_number;
 
     public DimensionEncapsulation(int id,  String instrumentUsed, String sampleSize, String checkpointdc, String sampleUnit,
                               String sample1dc, String sample2dc, String sample3dc, String sample4dc, String sample5dc, String sample6dc, String smple7dc,
-                                  String sample8dc, String sample9dc, String sample10dc, String remarks, String lowerSpecs, String upperSpecs, String minimum, String average, String maximum, String judgement, String date) {
+                                  String sample8dc, String sample9dc, String sample10dc, String remarks, String lowerSpecs, String upperSpecs, String minimum, String average, String maximum, String judgement, String date, String po) {
         this.id = id;
         this.InstrumentUsed = instrumentUsed;
         this.sampleSize = sampleSize;
@@ -34,6 +34,7 @@ public class DimensionEncapsulation {
         this.judgement = judgement;
         this.date = date;
         this.remarks = remarks;
+        this.po_number = po;
     }
 
     public int getId() {
@@ -44,7 +45,9 @@ public class DimensionEncapsulation {
         return date;
     }
 
-
+    public String getPo_number() {
+        return po_number;
+    }
 
     public String getRemarks() {
         return remarks;

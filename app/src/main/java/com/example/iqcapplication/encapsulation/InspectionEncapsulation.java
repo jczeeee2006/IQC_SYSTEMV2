@@ -8,14 +8,12 @@ public class InspectionEncapsulation {
     int id;
     String dateToday;
      String preparedby, dateeee,  invoicenum,  goodc,  partName,  invoicequant,  assemblyline,  partnum,  temp,  rohscomp,  dateinspected,   humidity,
-     supplier,   inspector, datereceived,   maker,  samplesize,  mattype,    inspecttype,  ulmarking, oir,
+     supplier,   inspector, datereceived,   maker,  samplesize,  mattype,    inspecttype,  ulmarking, oir, po_number,
      inscoc,   prodtype,  testreport,boxseqid;
 
     public InspectionEncapsulation(int id, String preparedby, String dateeee, String invoicenum, String goodc, String partName, String invoicequant, String assemblyline,
                                    String partnum, String temp, String rohscomp, String dateinspected, String humidity, String supplier, String inspector, String datereceived,
-                                   String maker, String samplesize, String mattype, String inspecttype, String ulmarking, String oir, String inscoc, String prodtype, String testreport, String dateToday, String boxseqid
-
-    ) {
+                                   String maker, String samplesize, String mattype, String inspecttype, String ulmarking, String oir, String inscoc, String prodtype, String testreport, String dateToday, String boxseqid, String po_number) {
         this.id = id;
         this.preparedby = preparedby;
         this.dateeee = dateeee;
@@ -47,6 +45,11 @@ public class InspectionEncapsulation {
         this.testreport = testreport;
         this.dateToday = dateToday;
         this.boxseqid = boxseqid;
+        this.po_number = po_number;
+    }
+
+    public String getPo_number() {
+        return po_number;
     }
 
     public int getId() {

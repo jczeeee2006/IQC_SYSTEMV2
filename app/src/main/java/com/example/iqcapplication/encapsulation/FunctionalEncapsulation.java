@@ -3,11 +3,11 @@ package com.example.iqcapplication.encapsulation;
 public class FunctionalEncapsulation {
     int id;
     String loweSpecs,upperSpecs,minimum,average,Maximum,date ;
-    String InstrumentUsed, sampleSize, sampleUnit, checkpointdc, sample1dc, sample2dc, sample3dc, sample4dc, sample5dc, sample6dc, smple7dc, sample8dc, sample9dc, sample10dc,judgement;
+    String InstrumentUsed, sampleSize, sampleUnit, checkpointdc, sample1dc, sample2dc, sample3dc, sample4dc, sample5dc, sample6dc, smple7dc, sample8dc, sample9dc, sample10dc,judgement,ponumber;
 
     public FunctionalEncapsulation(int id,  String instrumentUsed, String sampleSize,  String checkpointdc, String sampleUnit,
                                   String sample1dc, String sample2dc, String sample3dc, String sample4dc, String sample5dc, String sample6dc, String smple7dc,
-                                  String sample8dc, String sample9dc, String sample10dc,String loweSpecs, String upperSpecs, String minimum, String average, String maximum, String judgement, String date) {
+                                  String sample8dc, String sample9dc, String sample10dc,String loweSpecs, String upperSpecs, String minimum, String average, String maximum, String judgement, String date, String ponumber) {
         this.id = id;
         this.loweSpecs = loweSpecs;
 
@@ -36,7 +36,15 @@ public class FunctionalEncapsulation {
         this.Maximum = maximum;
         this.judgement = judgement;
         this.date = date;
+        this.ponumber = ponumber;
+
     }
+
+    public String getPonumber() {
+        return ponumber;
+    }
+
+
 
     public int getId() {
         return id;

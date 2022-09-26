@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="@+id/cardView4" />
 
-     SAMPLE SUSA<TextView
+    <TextView
         android:id="@+id/textView77"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537"
+        app:layout_constraintVertical_bias="0.559"
         app:layout_goneMarginLeft="30dp">
 
 
@@ -87,7 +87,7 @@
                 android:layout_height="70dp"
                 android:layout_marginTop="28dp"
                 android:backgroundTint="#ff0000"
-                android:drawableLeft="@drawable/ic_baseline_add_box_24"
+                android:drawableLeft="@drawable/ic_baseline_broken_image_24"
                 android:elevation="20dp"
                 android:paddingLeft="20dp"
                 android:text="REJECT"

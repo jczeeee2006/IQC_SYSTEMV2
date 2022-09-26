@@ -351,20 +351,20 @@ public class InspectionDetailsActivity extends AppCompatActivity {
 
     }
 
-//    public void Maker() {
-//
-//        makerADapter = ArrayAdapter.createFromResource(this, R.array.Makers, android.R.layout.simple_dropdown_item_1line);
-//        makerADapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        maker.setAdapter(makerADapter);
-//
-//        maker.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                maker.showDropDown();
-//            }
-//        });
-//
-//    }
+    public void Maker() {
+
+        makerADapter = ArrayAdapter.createFromResource(this, R.array.Makers, android.R.layout.simple_dropdown_item_1line);
+        makerADapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        maker.setAdapter(makerADapter);
+
+        maker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                maker.showDropDown();
+            }
+        });
+
+    }
 
     public void suupplier() {
         final AutoCompleteTextView SUPPLIER = findViewById(R.id.supplierup);
@@ -382,7 +382,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                 String  assylinee = rs.getString("ASY_LINE");
                 SUPPLIER.setText(supplier);
                 invoicequant.setText(invoicequantity);
-
+                assemblyline.setText(assylinee);
 
             }
 
@@ -675,7 +675,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
             OOIR();
             rohs();
             prodtype();
-          //  Maker();
+            Maker();
             mattype();
             ulMarking();
             coc();

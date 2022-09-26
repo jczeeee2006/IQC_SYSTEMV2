@@ -26,48 +26,60 @@
         android:id="@+id/constraintLayout"
         android:layout_width="730dp"
         android:layout_height="700dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:id="@+id/framelayout"
-            android:layout_width="730dp"
+            android:layout_width="700dp"
             android:layout_height="690dp"
             android:background="@drawable/layer"
             android:elevation="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toTopOf="parent">
 
+            <AutoCompleteTextView
+                android:id="@+id/goodsCode"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/edittext_shadow"
+                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingRight="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="14sp" />
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="700dp"
-        android:layout_height="730dp"
+        android:layout_width="750dp"
+        android:layout_height="742dp"
 
         android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:elevation="12sp"
         android:innerRadius="0dp"
         android:shape="ring"
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="44dp"
         app:cardElevation="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginLeft="30dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="690dp"
+            android:layout_width="710dp"
             android:layout_height="710dp"
             android:layout_marginRight="30dp"
 
@@ -79,7 +91,6 @@
                 android:id="@+id/nextForm"
                 android:layout_width="200dp"
                 android:layout_height="70dp"
-                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
                 android:elevation="20dp"
@@ -87,9 +98,9 @@
                 android:text="next form"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/showbutton"
-                app:layout_constraintHorizontal_bias="0.098"
+                app:layout_constraintHorizontal_bias="0.032"
                 app:layout_constraintStart_toEndOf="@+id/remarks"
-                app:layout_constraintTop_toBottomOf="@+id/showbutton" />
+                app:layout_constraintTop_toTopOf="@+id/clearData" />
 
             <Button
                 android:id="@+id/uploadsaServer"
@@ -103,48 +114,28 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.323"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/nextForm"
                 app:layout_constraintTop_toBottomOf="@+id/showbutton"
-                app:layout_constraintVertical_bias="0.4" />
+                app:layout_constraintVertical_bias="0.55" />
 
             <AutoCompleteTextView
                 android:id="@+id/invoiceNum"
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="76dp"
                 android:background="@drawable/edittext_shadow"
 
                 android:ems="10"
-
                 android:inputType="textPersonName"
-                android:padding="10dp"
-                android:shadowColor="#000"
+                android:padding="5dp"
+
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <AutoCompleteTextView
-                android:id="@+id/goodsCode"
-                android:layout_width="160dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="44dp"
-                android:background="@drawable/edittext_shadow"
-                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingRight="5dp"
-                android:textAlignment="center"
-                android:textColor="@color/blayk"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/invoiceNum"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/invoiceNum"
-                app:layout_constraintTop_toBottomOf="@+id/invoiceNum" />
 
             <EditText
                 android:id="@+id/boxNum"
@@ -155,7 +146,7 @@
 
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -169,17 +160,17 @@
                 android:id="@+id/partN"
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="76dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:hint="Type to search..."
                 android:inputType="textPersonName"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.141"
+                app:layout_constraintHorizontal_bias="0.165"
                 app:layout_constraintStart_toEndOf="@+id/invoiceNum"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -187,22 +178,22 @@
                 android:id="@+id/partName"
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="76dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.409"
+                app:layout_constraintHorizontal_bias="0.6"
                 app:layout_constraintStart_toEndOf="@+id/partN"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/boxSequence"
-                android:layout_width="160dp"
+                android:layout_width="180dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/rounded_corners"
@@ -214,20 +205,48 @@
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/atctualQuant"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/atctualQuant"
                 app:layout_constraintTop_toBottomOf="@+id/atctualQuant" />
+
+            <AutoCompleteTextView
+                android:id="@+id/poLotNumber"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittext_shadow"
+                android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
+                android:ems="10"
+                android:paddingRight="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/sampleSize"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/sampleSize"
+                app:layout_constraintTop_toBottomOf="@+id/sampleSize" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Box Sequence ID"
+                android:text="Box Sequence ID:"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/boxSequence"
                 app:layout_constraintStart_toStartOf="@+id/boxSequence" />
+
+            <TextView
+                android:id="@+id/textView79"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="P.O Number:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/poLotNumber"
+                app:layout_constraintStart_toStartOf="@+id/poLotNumber" />
 
             <EditText
                 android:id="@+id/atctualQuant"
@@ -256,7 +275,7 @@
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="number"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -270,7 +289,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Invoice:"
+                android:text="Invoice *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/invoiceNum"
@@ -281,7 +300,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Part Number"
+                android:text="Part Number *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/partN"
@@ -292,7 +311,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Goods Code:"
+                android:text="Goods Code *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/goodsCode"
@@ -303,7 +322,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Part Name"
+                android:text="Part Name *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/partName"
@@ -314,7 +333,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Box Number:"
+                android:text="Box Number *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/boxNum"
@@ -325,7 +344,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Total Quantity"
+                android:text="Total Quantity *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/totalQuan_txt"
@@ -336,7 +355,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Actual Quantity"
+                android:text="Actual Quantity:"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/atctualQuant"
@@ -351,7 +370,7 @@
 
                 android:ems="10"
                 android:inputType="textEmailAddress|numberPassword"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -369,7 +388,7 @@
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="number"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -385,7 +404,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Reject:"
+                android:text="Reject *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/reject"
@@ -396,7 +415,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Sample size"
+                android:text="Sample size *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/sampleSize"
@@ -410,7 +429,7 @@
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -428,7 +447,7 @@
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="text"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -445,7 +464,7 @@
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="text"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
@@ -460,7 +479,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Lot Quantity"
+                android:text="Lot Quantity *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/lotQuant"
@@ -471,7 +490,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Lot Number:"
+                android:text="Lot Number *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/lotNumber"
@@ -482,7 +501,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popbold"
-                android:text="Remarks:"
+                android:text="Remarks *"
                 android:textColor="@color/darkish"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/remarks"
@@ -491,7 +510,7 @@
             <Button
                 android:id="@+id/showbutton"
 
-                android:layout_width="350dp"
+                android:layout_width="200dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/darkish"
                 android:drawableLeft="@drawable/ic_baseline_pageview_24"
@@ -500,18 +519,18 @@
                 android:text="VIEW RECORD"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/boxSequence"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.87"
 
-                app:layout_constraintStart_toStartOf="@+id/sampleSize"
+                app:layout_constraintStart_toEndOf="@+id/remarks"
                 app:layout_constraintTop_toBottomOf="@+id/boxSequence"
-                app:layout_constraintVertical_bias="0.25" />
+                app:layout_constraintVertical_bias="0.166" />
 
             <Button
                 android:id="@+id/clearData"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="44dp"
                 android:backgroundTint="#FF0000"
                 android:drawableLeft="@drawable/ic_delete"
                 android:elevation="20dp"
@@ -519,7 +538,7 @@
                 android:text="CLEAR "
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/remarks"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/remarks"
                 app:layout_constraintTop_toBottomOf="@+id/remarks" />
 
@@ -531,10 +550,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginEnd="124dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_help_outline_24" />
 
     <Button
@@ -548,7 +568,8 @@
         android:text=" "
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

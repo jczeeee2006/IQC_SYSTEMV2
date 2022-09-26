@@ -124,7 +124,14 @@ public class DimensionActivity extends AppCompatActivity {
         addDefectdc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(dcdefectquant.length()==0){
+                    dcdefectquant.setError("Enter Defect qty");
+                }
+                // ERROR MESSAGE FOR TOTAL QUUANTITY
+                else if(encountered.length()==0){
+                    encountered.setError("Enter Defect Encountered");
+                }
+                else
                 insert_defect_DM();
             }
         });

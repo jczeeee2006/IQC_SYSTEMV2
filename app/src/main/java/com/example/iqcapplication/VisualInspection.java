@@ -227,11 +227,15 @@ public class VisualInspection extends AppCompatActivity {
         String Quantity = visualDefectQuantity.getText().toString();
         String Encountered = visualdefectJudgement.getText().toString();
 
-        if (Quantity.trim().equals("") || Encountered.trim().equals("")){
+            if(Quantity.length()==0){
+                visualDefectQuantity.setError("Enter Defect qty");
+            }
+            // ERROR MESSAGE FOR TOTAL QUUANTITY
+            else if(Encountered.length()==0){
+                visualdefectJudgement.setError("Enter Defect Judgement");
+            }
 
-        }
-
-        else {
+            else {
 
             try {
                 connectionClass = new ConnectionClass();

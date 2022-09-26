@@ -78,7 +78,8 @@ public class FragmentForFunctional extends Fragment {
                                 cursor.getString(18),
                                 cursor.getString(19),
                                 cursor.getString(20),
-                                cursor.getString(21)
+                                cursor.getString(21),
+                                cursor.getString(22)
                         ));
 
             }

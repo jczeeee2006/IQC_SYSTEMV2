@@ -85,7 +85,9 @@ public class FragmentForDimension extends Fragment {
                                 cursor.getString(19),
                                 cursor.getString(20),
                                 cursor.getString(21),
-                                cursor.getString(22)
+                                cursor.getString(22),
+                                cursor.getString(23)
+
 
                         ));
 

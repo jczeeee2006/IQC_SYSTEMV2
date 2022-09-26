@@ -126,7 +126,8 @@ public class FragmentForInspection extends Fragment {
                                 cursor.getString(23),
                                 cursor.getString(24),
                                 cursor.getString(25),
-                                cursor.getString(26)
+                                cursor.getString(26),
+                                cursor.getString(27)
                         ));
 
             }

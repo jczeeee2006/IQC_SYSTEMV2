@@ -30,10 +30,12 @@ public class CustomAdapterLot extends RecyclerView.Adapter<CustomAdapterLot.MyVi
         ArrayList<LotEncapsulation> lotDataaa ;
 
     public CustomAdapterLot(Activity activity,  Context context, ArrayList<LotEncapsulation> lotData) {
+
         this.activity = activity;
         this.context = context;
         this.lotData = lotData;
         this.lotDataaa = new ArrayList<>(lotData);
+
     }
 
 

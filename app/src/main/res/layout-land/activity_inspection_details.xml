@@ -79,7 +79,7 @@
 
           android:id="@+id/cardView5"
           android:layout_width="610dp"
-          android:layout_height="420dp"
+          android:layout_height="520dp"
           android:layout_marginTop="68dp"
           android:elevation="12sp"
           android:innerRadius="0dp"
@@ -94,7 +94,7 @@
 
          <androidx.constraintlayout.widget.ConstraintLayout
              android:layout_width="590dp"
-             android:layout_height="420dp"
+             android:layout_height="500dp"
              android:layout_marginLeft="30dp"
              android:layout_marginRight="30dp"
              android:layout_marginBottom="20dp"
@@ -216,7 +216,26 @@
                 app:layout_constraintEnd_toEndOf="@+id/makerup"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/makerup"
-                app:layout_constraintTop_toBottomOf="@+id/makerup" />
+                app:layout_constraintTop_toBottomOf="@+id/makerup"
+                app:layout_constraintVertical_bias="0.309" />
+
+            <EditText
+                android:id="@+id/ponumberIns"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:background="@drawable/edittext_shadow"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blayk"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/assyLineup"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/assyLineup"
+                app:layout_constraintTop_toBottomOf="@+id/assyLineup"
+                app:layout_constraintVertical_bias="0.816" />
 
             <TextView
 
@@ -242,7 +261,7 @@
                 android:textColor="@color/blayk"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/dateReceivedup"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/dateReceivedup"
                 app:layout_constraintTop_toBottomOf="@+id/dateReceivedup" />
 
@@ -256,6 +275,17 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/assyLineup"
                 app:layout_constraintStart_toStartOf="@+id/assyLineup" />
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popbold"
+                android:text="P.O Number:"
+                android:textColor="@color/darkish"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/ponumberIns"
+                app:layout_constraintStart_toStartOf="@+id/ponumberIns" />
 
             <EditText
                 android:id="@+id/dateReceivedup"
@@ -594,7 +624,6 @@
           android:id="@+id/cardView"
           android:layout_width="610dp"
           android:layout_height="420dp"
-          android:layout_marginEnd="16dp"
           android:elevation="12sp"
           android:innerRadius="0dp"
           android:shape="ring"
@@ -603,8 +632,10 @@
           app:cardElevation="4dp"
           app:layout_constraintBottom_toTopOf="@+id/framelayoutins"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintVertical_bias="0.553">
+          app:layout_constraintHorizontal_bias="0.776"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/cardView2"
+          app:layout_constraintVertical_bias="0.0">
 
 
          <androidx.constraintlayout.widget.ConstraintLayout
@@ -885,15 +916,15 @@
           android:id="@+id/framelayoutins"
           android:layout_width="750dp"
           android:layout_height="640dp"
-          android:layout_marginTop="532dp"
+          android:layout_marginTop="564dp"
           android:background="@drawable/layer"
           android:elevation="10dp"
           android:innerRadius="40dp"
           android:shape="ring"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.918"
+          app:layout_constraintHorizontal_bias="0.907"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" >
+          app:layout_constraintTop_toTopOf="parent">
 
       </FrameLayout>
 

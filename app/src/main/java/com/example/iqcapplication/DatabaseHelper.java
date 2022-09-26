@@ -41,6 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String COLUMN_P_LOTQUANT = "LOTQUANT";
     private static final  String COLUMN_P_REMARKS = "REMARKS";
     private static final  String COLUMN_P_DATETIME = "DATETIME";
+    private static final  String COLUMN_P_PO_NUMBER = "PO_NUMBER";
 
 
     //dimension table
@@ -70,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String  COLUMN_P_MAXIMUM = "MAXIMUM";
     private static final  String  COLUMN_P_JUDGEMENT = "JUDGEMENT";
     private static final  String  COLUMN_P_DATEDIM = "DATE";
+    private static final  String  COLUMN_P_DCPO_NUMBER= "PO_NUMBER";
 
 
    //--------Function check----------------------//
@@ -98,6 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String  COLUMN_P_FMAXIMUM = "FMAXIMUM";
     private static final  String  COLUMN_P_FJUDGEMENT = "FJUDGEMENT";
     private static final  String  COLUMN_P_FDATEDIM = "FDATE";
+    private static final  String  COLUMN_P_FCPO_NUMBER = "PO_NUMBER";
 
     //inspection table
     private static final  String COLUMN_P_INSID = "INSID";
@@ -127,6 +130,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String COLUMN_P_INSTESTREPORT = "INSTESTREPORT";
     private static final  String COLUMN_P_DATE_TIMEE = "DATE_TIME";
     private static final  String COLUMN_P_BOXSEQID = "BOXSEQID";
+    private static final  String COLUMN_P_INSPO = "INSPO";
+
 
     // appearance inspection
     private static final  String COLUMN_P_VISID = "ID";
@@ -135,8 +140,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final  String COLUMN_P_VICHECKPOINT = "CHECKPOINT";
     private static final  String COLUMN_P_VIREMARKS = "REMARKS";
     private static final  String COLUMN_P_VIJUDGEMENT = "JUDGEMENT";
+    private static final  String COLUMN_P_VIPO = "PO_NUMBER";
 
-    //TODO dagdagan ng column yung dim ng date time then fix yung inserting issue sa lahat then proceed sa visual checkpoint dapat matapso ko to by tomorrow
+    //TODO dagdagan ng column yung dim ng date time then fix yung inserting issue sa lahat then proceed sa visual checkpoint
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -164,7 +170,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_LOTNUM + " TEXT," +
                         COLUMN_P_LOTQUANT + " TEXT," +
                         COLUMN_P_REMARKS  + " TEXT," +
-                        COLUMN_P_DATETIME    + " TEXT );" ;
+                        COLUMN_P_DATETIME  + " TEXT," +
+                        COLUMN_P_PO_NUMBER    + " TEXT );" ;
 
 
         String query1  =
@@ -193,7 +200,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_AVERAGE  + " TEXT," +
                         COLUMN_P_MAXIMUM   + " TEXT," +
                         COLUMN_P_JUDGEMENT   + " TEXT," +
-                        COLUMN_P_DATEDIM  + " TEXT );" ;
+                        COLUMN_P_DATEDIM   + " TEXT," +
+                        COLUMN_P_DCPO_NUMBER  + " TEXT );" ;
 
 
         String query2  =
@@ -224,7 +232,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_INSPRODTYPE  + " TEXT," +
                         COLUMN_P_INSTESTREPORT   + " TEXT," +
                         COLUMN_P_DATE_TIMEE    + " TEXT," +
-                        COLUMN_P_BOXSEQID + " TEXT);" ;
+                        COLUMN_P_BOXSEQID    + " TEXT," +
+                        COLUMN_P_INSPO + " TEXT);" ;
 
         String query3  =
                 "CREATE TABLE " + TABLE_NAME4 +
@@ -233,7 +242,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_VISSAMPLESIZE + " TEXT," +
                         COLUMN_P_VICHECKPOINT + " TEXT," +
                         COLUMN_P_VIREMARKS + " TEXT," +
-                        COLUMN_P_VIJUDGEMENT + " TEXT);";
+                        COLUMN_P_VIJUDGEMENT + " TEXT," +
+                        COLUMN_P_VIPO + " TEXT);";
 
 
 
@@ -262,7 +272,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_P_FAVERAGE  + " TEXT," +
                         COLUMN_P_FMAXIMUM   + " TEXT," +
                         COLUMN_P_FJUDGEMENT   + " TEXT," +
-                        COLUMN_P_FDATEDIM  + " TEXT );" ;
+                        COLUMN_P_FDATEDIM   + " TEXT," +
+                        COLUMN_P_FCPO_NUMBER  + " TEXT );" ;
 
 
         db.execSQL(query);

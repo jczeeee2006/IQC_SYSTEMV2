@@ -2,10 +2,10 @@ package com.example.iqcapplication.encapsulation;
 
 public class LotEncapsulation {
 
-    String id, totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks, lot_invoiceno, tv_partname, goodsc, et_partnum, dateToday;
+    String id, totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks, lot_invoiceno, tv_partname, goodsc, et_partnum, dateToday,po_number;
 
     public LotEncapsulation(String id, String lot_invoiceno, String et_partnum, String goodsc, String tv_partname, String boxnum, String boxseqid, String quantityrecieved, String totalquantity,
-                            String reject, String sampsize, String lotno, String lotquant, String remarks, String dateToday) {
+                            String reject, String sampsize, String lotno, String lotquant, String remarks, String dateToday, String po_number) {
         this.id = id;
         this.totalquantity = totalquantity;
         this.quantityrecieved = quantityrecieved;
@@ -21,7 +21,12 @@ public class LotEncapsulation {
         this.goodsc = goodsc;
         this.et_partnum = et_partnum;
         this.dateToday = dateToday;
+        this.po_number = po_number;
 
+    }
+
+    public String getPo_number() {
+        return po_number;
     }
 
     public String getDateToday() {
