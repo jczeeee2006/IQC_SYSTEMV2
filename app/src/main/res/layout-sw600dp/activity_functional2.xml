@@ -22,7 +22,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="725dp"
+        android:layout_width="690dp"
         android:layout_height="745dp"
         android:layout_marginTop="28dp"
         android:elevation="12sp"
@@ -637,7 +637,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76"
+        app:layout_constraintVertical_bias="0.693"
         app:layout_goneMarginLeft="30dp">
 
 

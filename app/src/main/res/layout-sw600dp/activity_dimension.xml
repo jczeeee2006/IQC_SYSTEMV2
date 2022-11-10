@@ -641,7 +641,7 @@
                 android:id="@+id/textView47"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pop"
+                android:fontFamily="@font/popbold"
                 android:text="Maximum"
                 android:textColor="@color/darkblue"
                 android:textSize="16sp"
@@ -662,7 +662,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.532"
-                app:layout_constraintStart_toEndOf="@+id/checkPointfc"
+
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText

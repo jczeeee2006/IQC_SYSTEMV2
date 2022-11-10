@@ -102,6 +102,7 @@ public class LotFormActivity extends AppCompatActivity {
 
                         String query = " UPDATE LotNumber SET reject = '" + Integer.parseInt(rejectUp.getText().toString() )+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "'";
                       //difFerence.setText(String.valueOf(firstvalue - secondvalue));
+                      //difFerence.setText(String.valueOf(firstvalue - secondvalue));
                       //String query2 = " UPDATE LotNumber SET DIFF = '" + Integer.parseInt(difFerence.getText().toString())+ "' WHERE invoice_no = '" + lot_invoicenoup.getText().toString() + "' AND MaterialCodeBoxSeqID = '" + boxseqidup.getText().toString() + "' AND Date = '" + dateToday.getText().toString() + "' ";
                         Statement stmt =  con.createStatement();
                         stmt.execute(query);

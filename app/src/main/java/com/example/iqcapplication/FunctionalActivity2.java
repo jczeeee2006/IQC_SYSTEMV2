@@ -39,7 +39,7 @@ import java.util.List;
 public class FunctionalActivity2 extends AppCompatActivity {
 
 
-    EditText Fc_Checkpoints, Fc_Samplesize, Fc_Sampleunit, Fc_1, Fc_2, Fc_3, Fc_4, Fc_5, Fc_6, Fc_7, Fc_8, Fc_9, Fc_10, Lowerspec, Upperspec, Remarkss, checkedDate, Approve;
+    EditText Fc_Checkpoints, Fc_Samplesize, Fc_Sampleunit, Fc_1, Fc_2, Fc_3, Fc_4, Fc_5, Fc_6, Fc_7, Fc_8, Fc_9, Fc_10, Lowerspec, Upperspec;
 
     Button rejectquantityyyy,finishhh;
 
@@ -50,7 +50,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
     public ArrayAdapter dcinstrument_adapter;
 
-    Button viewDatafc,uploadtosqlitefc,nextFomrmfc,addtosqlite,SQLSERVERUP ;
+    Button viewDatafc,uploadtosqlitefc,SQLSERVERUP ;
 
     float num1 = 0;
     float num2 = 0;
@@ -100,7 +100,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
         Button deleteRecords = (Button) findViewById(R.id.deleteAllRecordfunc2);
         uploadtosqlitefc  = findViewById(R.id.updateTosqlite);
-      //  addtosqlite   = findViewById(R.id.adddatatosqllite);
         SQLSERVERUP = findViewById(R.id.uploadtoSQL);
         finishhh = findViewById(R.id.rejectquanttt2);
 
@@ -128,9 +127,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FunctionalActivity2.this, SapmpleActivityinlot.class);
-                String invoiceeenum = SapmpleActivityinlot.invoicenumholder;
-                String goodscodee = SapmpleActivityinlot.goodscodeholder;
-                String Boxseqid = SapmpleActivityinlot.boxseqholder;
 
                 startActivity(intent);
             }
@@ -149,8 +145,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 confirmDialog10();
-
-
             }
         });
 
@@ -158,8 +152,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 confirmDialog();
-
-
             }
         });
 
@@ -187,12 +179,8 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
-
                 insert_funcheck();
                 addDatatoSQLite();
-
-
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -236,16 +224,11 @@ public class FunctionalActivity2 extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fcframelayout,fcfragment);
         fragmentTransaction.commit();
-
-
-
     }
 
 
     public void fcinstrumentUsedd(){
         AutoCompleteTextView instrumentUsed =  findViewById(R.id.instrumentUsedfc);
-
-
         dcinstrument_adapter = ArrayAdapter.createFromResource(this, R.array.func, android.R.layout.simple_dropdown_item_1line);
         dcinstrument_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         instrumentUsed.setAdapter(dcinstrument_adapter);
@@ -298,9 +281,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
                     Fc_8.setEnabled(false);
                     Fc_9.setEnabled(false);
                     Fc_10.setEnabled(false);
-
                 }
-
                 if(Fc_Samplesize.getText().toString().equals("3")){
                     Fc_2.setEnabled(true);
                     Fc_3.setEnabled(true);
@@ -508,7 +489,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
                     Fc_9.setTextColor(Color.parseColor("#000000"));
                     Fc_10.setTextColor(Color.parseColor("#000000"));
 
-
                 }
 
                 else {
@@ -534,7 +514,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), ex.toString()  , Toast.LENGTH_LONG).show();
 
                         }
-
 
                         if (num1 < Lspec || num1 > Uspec)
                         {
@@ -789,9 +768,7 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
-
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -810,8 +787,6 @@ public class FunctionalActivity2 extends AppCompatActivity {
 
                     final float min = list.get(0);
                     float max = list.get(list.size() - 1);
-
-
 
                     Minimum.setText(String.valueOf(min));
                     Maximum.setText(String.valueOf(max));

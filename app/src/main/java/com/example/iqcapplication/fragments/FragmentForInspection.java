@@ -34,7 +34,6 @@ public class FragmentForInspection extends Fragment {
     ArrayList<InspectionEncapsulation> InspectEncap = new ArrayList<>();
     RecyclerView recyclerView;
     Toolbar tOolbar;
-    MenuItem menuItem;
     SearchView searchView;
 
 

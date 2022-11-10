@@ -41,7 +41,7 @@
           android:id="@+id/backButton"
           android:layout_width="50dp"
           android:layout_height="50dp"
-          android:layout_marginEnd="20dp"
+          android:layout_marginEnd="28dp"
           android:background="@drawable/ic_baseline_keyboard_double_arrow_left_24"
           app:layout_constraintBottom_toTopOf="@+id/framelayoutins"
           app:layout_constraintEnd_toStartOf="@+id/deleteRecordsinspect"
@@ -52,10 +52,9 @@
           android:id="@+id/deleteRecordsinspect"
           android:layout_width="50dp"
           android:layout_height="50dp"
-          android:layout_marginEnd="80dp"
           android:background="@drawable/ic_delete"
           app:layout_constraintBottom_toBottomOf="@+id/backButton"
-          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintEnd_toEndOf="@+id/framelayoutins"
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintVertical_bias="1.0" />
 
@@ -78,7 +77,7 @@
       <androidx.cardview.widget.CardView
 
           android:id="@+id/cardView5"
-          android:layout_width="610dp"
+          android:layout_width="590dp"
           android:layout_height="520dp"
           android:layout_marginTop="68dp"
           android:elevation="12sp"
@@ -93,7 +92,7 @@
           app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
          <androidx.constraintlayout.widget.ConstraintLayout
-             android:layout_width="590dp"
+             android:layout_width="match_parent"
              android:layout_height="500dp"
              android:layout_marginLeft="30dp"
              android:layout_marginRight="30dp"
@@ -190,14 +189,16 @@
                 android:layout_width="250dp"
                 android:layout_height="45dp"
                 android:background="@drawable/edittext_shadow"
+                android:drawableRight="@drawable/ic_baseline_calendar_today_24"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
+                android:paddingRight="5dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.385"
+                app:layout_constraintHorizontal_bias="0.378"
                 app:layout_constraintStart_toEndOf="@+id/inspectorup"
                 app:layout_constraintTop_toTopOf="@+id/inspectorup" />
 
@@ -293,6 +294,8 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
+                android:drawableRight="@drawable/ic_baseline_calendar_today_24"
+                android:paddingRight="5dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="10dp"
@@ -517,9 +520,10 @@
                 android:layout_height="45dp"
                 android:background="@drawable/layer"
                 android:drawableRight="@drawable/ic_baseline_calendar_today_24"
+                android:paddingRight="5dp"
+
                 android:elevation="10dp"
                 android:inputType="textPersonName"
-                android:paddingRight="5dp"
 
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
@@ -632,7 +636,7 @@
           app:cardElevation="4dp"
           app:layout_constraintBottom_toTopOf="@+id/framelayoutins"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.776"
+          app:layout_constraintHorizontal_bias="0.925"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="@+id/cardView2"
           app:layout_constraintVertical_bias="0.0">
@@ -914,15 +918,15 @@
 
       <FrameLayout
           android:id="@+id/framelayoutins"
-          android:layout_width="750dp"
+          android:layout_width="720dp"
           android:layout_height="640dp"
-          android:layout_marginTop="564dp"
+          android:layout_marginTop="552dp"
           android:background="@drawable/layer"
           android:elevation="10dp"
           android:innerRadius="40dp"
           android:shape="ring"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.907"
+          app:layout_constraintHorizontal_bias="0.971"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent">
 

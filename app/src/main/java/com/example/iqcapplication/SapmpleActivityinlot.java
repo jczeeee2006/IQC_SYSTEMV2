@@ -26,6 +26,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iqcapplication.Update.LotFormActivity;
@@ -39,6 +41,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import maes.tech.intentanim.CustomIntent;
@@ -47,14 +50,14 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     Button firstFragButton;
     ConnectionClass connectionClass;
     Button buttonShow,nextForm,clearDatA, uploadSaServer,deleteRecords;
-    public static EditText totalquantity, quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks,dateToday;
-    public static AutoCompleteTextView lot_invoiceno, tv_partname, goodsc, et_partnum;
+    public static EditText  quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks,dateToday;
+    public static AutoCompleteTextView lot_invoiceno, tv_partname, goodsc, et_partnum,autoPO, totalquantity;
 
     ArrayList<LotEncapsulation> lotData = new ArrayList<>();
     AutoCompleteTextView poLotnumber;
     ImageButton helpButton;
 
-    public static String goodscodeholder, invoicenumholder,materialholder, boxseqholder, partnameholder,  partnumholder, latestID,dateholder;
+    public static String goodscodeholder, invoicenumholder,materialholder, boxseqholder, partnameholder,  partnumholder, latestID,dateholder,poholder,totalquanttholder;
     private  ConnectionClass connectionClassss;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         replaceFragment(new FragmentforLot());
 
         setContentView(R.layout.activity_sapmple_activityinlot);
-
 
         Fragment fragment= new FragmentforLot();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -93,12 +95,16 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         dateToday  = findViewById(R.id.dateToday);
         uploadSaServer = findViewById(R.id.uploadsaServer);
         deleteRecords = findViewById(R.id.deleteAllRecords);
-        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        autoPO = findViewById(R.id.poLotNumber);
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String noww = df.format(new Date());
         dateToday.setText(noww);
+
+        Date currentTime = Calendar.getInstance().getTime();
         connectionClass = new ConnectionClass();
         quantityrecieved.setEnabled(false);
         boxseqid.setEnabled(false);
+
         lot_invoiceno.setText(LotFormActivity.invoiceholder);
         et_partnum.setText(LotFormActivity.partnumholder);
         tv_partname.setText(LotFormActivity.partnameholder);
@@ -224,12 +230,12 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     public  class LotAsync extends AsyncTask<String, String, String>{
         @Override
         protected void onPreExecute() {
-            invoiceList();
-            //Query();
-            GoodsCodelist();
-            partnumList();
 
 
+            fillinvoice();
+            partNumber();
+            spinpartNamee();
+          //  purchaseOrder();
             super.onPreExecute();
         }
 
@@ -249,207 +255,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
 
 
-    public String invandgoodscode(String goodsc, String selectedCol){
 
-        String output = "";
-        connectionClass = new ConnectionClass();
-        try{
-            Connection con2 = connectionClass.CONN4();
-            String query = "SELECT "+selectedCol+" FROM Receive WHERE GOODS_CODE = '"+goodsc+"'";
-            PreparedStatement stmt = con2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                String generatedItem = rs.getString(selectedCol);
-
-                output = generatedItem;
-            }
-        }catch(Exception e){
-            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
-        }
-        return output;
-    }
-
-    public String GoodsCodelist(){
-
-        connectionClass = new ConnectionClass();
-        String z = "";
-
-
-        try{
-            Connection conn2 = connectionClass.CONN4();
-            String query = "SELECT GOODS_CODE from Receive ";
-            PreparedStatement stmt = conn2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            final ArrayList<String> inv = new ArrayList<String>();
-            while (rs.next()) {
-                String invoice = rs.getString("GOODS_CODE");
-                inv.add(invoice);
-
-            }
-
-            final AutoCompleteTextView   goodsc = findViewById(R.id.goodsCode);
-            final ArrayAdapter<String> partn_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
-
-            goodsc.setThreshold(1);
-            goodsc.setAdapter(partn_array);
-
-            goodsc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String item = parent.getItemAtPosition(position).toString();
-                    //-------SET THE DATA FROM DB TO PARTNUMBER TEXTBOX
-
-                    et_partnum.setText(invandgoodscode(goodsc.getText().toString(), "PART_NUMBER"));
-                    partnumholder = et_partnum.getText().toString();
-//                  lot_invoiceno.setText(invandgoodscode(goodsc.getText().toString(), "INVOICE"));
-//                  invoicenumholder = et_partnum.getText().toString();
-                    tv_partname.setText(invandgoodscode(goodsc.getText().toString(),"PART_NAME"));
-                    partnameholder = tv_partname.getText().toString();
-                    totalquantity.setText(invandgoodscode(goodsc.getText().toString(),"QTY"));
-                    boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
-                    boxseqholder = boxseqid.getText().toString();
-                    poLotnumber.setText(nameandGoodsCode(goodsc.getText().toString(), "PO"));
-                }
-            });
-
-
-
-        }catch (Exception e){
-                z = e.toString();
-        }
-        return z;
-    }
-
-    public void invoiceList(){
-        connectionClass = new ConnectionClass();
-
-        try{
-
-            Connection conn2 = connectionClass.CONN4();
-            String query = "SELECT DISTINCT (INVOICE) from Receive  ";
-            PreparedStatement stmt = conn2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            final ArrayList<String> inv = new ArrayList<String>();
-            while (rs.next()) {
-                String invoice = rs.getString("INVOICE");
-                inv.add(invoice);
-
-            }
-
-            final AutoCompleteTextView   invoice = findViewById(R.id.invoiceNum);
-            final ArrayAdapter<String> invoicenum = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
-            invoice.setThreshold(1);
-            invoice.setAdapter(invoicenum);
-
-            invoice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String item = parent.getItemAtPosition(position).toString();
-                    //-------SET THE DATA FROM DB TO PARTNUMBER TEXTBOX
-                    invoice.setText(item);
-
-
-
-                    tv_partname.setText(nameandGoodsCode(invoice.getText().toString(),"PART_NAME"));
-                    partnameholder = tv_partname.getText().toString();
-                    et_partnum.setText(nameandGoodsCode(invoice.getText().toString(), "PART_NUMBER"));
-                    boxseqid.setText(et_partnum.getText().toString() + "-"+latestID);
-                    boxseqholder = boxseqid.getText().toString();
-                    totalquantity.setText(nameandGoodsCode(invoice.getText().toString(), "QTY"));
-
-//                    goodsc.setText(nameandGoodsCode(invoice.getText().toString(), "GOODS_CODE"));
-//                    goodscodeholder = et_partnum.getText().toString();
-
-                    poLotnumber.setText(nameandGoodsCode(invoice.getText().toString(), "PO"));
-
-                }
-            });
-
-
-        }catch (Exception e){
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-
-    public void partnumList(){
-
-        connectionClass = new ConnectionClass();
-
-        try{
-
-            Connection conn2 = connectionClass.CONN4();
-            String query = "SELECT DISTINCT (PART_NUMBER) from Receive";
-            PreparedStatement stmt = conn2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            final ArrayList<String> inv = new ArrayList<String>();
-            while (rs.next()) {
-                String invoice = rs.getString("PART_NUMBER");
-                inv.add(invoice);
-            }
-
-            final AutoCompleteTextView   et_partnum = findViewById(R.id.partN);
-            final ArrayAdapter<String> partn_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, inv);
-            et_partnum.setThreshold(1);
-            et_partnum.setAdapter(partn_array);
-
-         et_partnum.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-
-             }
-         });
-
-        }catch (Exception e){
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-
-    //-----------------------GENERATING OF PARTNAME AND GOODS CODE DEPENDING ON PARTNUMBER-------------------//
-    public String nameandGoodsCode(String invoice, String selectedCol){
-
-        String output = "";
-        connectionClass = new ConnectionClass();
-        try{
-            Connection con2 = connectionClass.CONN4();
-            String query = "SELECT  "+selectedCol+" FROM Receive WHERE INVOICE = '"+invoice+"'";
-            PreparedStatement stmt = con2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                String generatedItem = rs.getString(selectedCol);
-                output = generatedItem;
-            }
-        }catch(Exception e){
-            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
-        }
-        return output;
-    }
-
-
-
-
-    public String partNum(String partNum, String selectedCol){
-
-        String output = "";
-        connectionClass = new ConnectionClass();
-        try{
-            Connection con2 = connectionClass.CONN4();
-            String query = "SELECT "+selectedCol+" FROM Receive WHERE PART_NUMBER = '"+partNum+"'";
-            PreparedStatement stmt = con2.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                String generatedItem = rs.getString(selectedCol);
-
-                output = generatedItem;
-            }
-        }catch(Exception e){
-            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
-        }
-        return output;
-    }
 
     //----GET THE LATEST ID TO THE TOP -------//
     public int Latest_ID(String tablename){
@@ -507,6 +313,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                 goodscodeholder = goodsc.getText().toString();
                 boxseqholder = boxseqid.getText().toString();
                 dateholder  = dateToday.getText().toString();
+                totalquanttholder = totalquantity.getText().toString();
+                poholder = poLotnumber.getText().toString();
                 startActivity(intent);
                 CustomIntent.customType(SapmpleActivityinlot.this,"left-to-right");
 
@@ -552,17 +360,17 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                 if(rs.next()){
 
                     String time = rs.getString("Time");
-                    Toast.makeText(SapmpleActivityinlot.this, "Data already existing in SQL Database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SapmpleActivityinlot.this, "Data already existing in SQL Datab ase", Toast.LENGTH_SHORT).show();
                 }else{
 
                     connectionClassss = new ConnectionClass();
-
+                     con = connectionClass.CONN2();
                     String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date,PO_Number) values ('" + lot_invoiceno.getText().toString() + "','" + et_partnum.getText().toString() + "','" + tv_partname.getText().toString() + "','" + totalquantity.getText().toString() + "','" + quantityrecieved.getText().toString() + "','" + lotno.getText().toString() + "','" +lotquant.getText().toString() + "','" + boxnum.getText().toString() + "','" + reject.getText().toString() + "','" + sampsize.getText().toString() + "', '" + goodsc.getText().toString() + "', '" + boxseqid.getText().toString() + "',  '" + remarks.getText().toString() + "' ,  '" + dateToday.getText().toString() + "','"+poLotnumber.getText().toString()+"')";
                     Statement stmt = con.createStatement();
                     stmt.execute(query1);
                     Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
                     Connection connn = connectionClass.CONN4();
-                    String query3 = "exec.dbo.SP_UpdateReject '" +Integer.parseInt(tv_partname.getText().toString())  +"','" +Integer.parseInt(et_partnum.getText().toString())+"','" +Integer.parseInt(lot_invoiceno.getText().toString()) +"','" +Integer.parseInt(reject.getText().toString()) +"'";
+                    String query3 = "UPDATE Receive set NO_GOOD = '"+reject.getText().toString()+"', STATUS = 'IQC_END',  IQC_END_DT = '"+dateToday.getText().toString()+"' WHERE  INVOICE =  '" +lot_invoiceno.getText().toString() +"' AND PART_NAME = '" +tv_partname.getText().toString()  +"' AND PART_NUMBER = '" +et_partnum.getText().toString()+"' AND INVOICE = '" +lot_invoiceno.getText().toString() +"' AND PO = '"+poLotnumber.getText().toString()+"'";
                     Statement stmt2 = connn.createStatement();
                     stmt2.execute(query3);
 
@@ -623,7 +431,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         });
         builder.create().show();
     }
-
+    //TODO YUNG QUERY KULANG PARA MAAYOS, NEED MAWALA NUNG QTY PAG NAG INSERT NA
     public void clearData(){
         lot_invoiceno.setText("");
         boxseqid.setText("");
@@ -637,6 +445,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         lotno.setText("");
         lotno.setText("");
         boxseqid.setText("");
+        poLotnumber.setText("");
     }
 
 
@@ -698,6 +507,546 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
 
 
+    // INVOICE NUMBER GENERATING
+    public void fillinvoice(){
+        final AutoCompleteTextView INVOICE = (AutoCompleteTextView) findViewById(R.id.invoiceNum);
+     //   final Spinner SINVOOICE = findViewById(R.id.invSpin);
+        connectionClass = new ConnectionClass();
 
-    
+        try{
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "select DISTINCT (INVOICE) from Receive where ARCHIVE = 0";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            final ArrayList<String> invoice = new ArrayList<String>();
+
+            while (rs.next()){
+                String invoicenumber = rs.getString("INVOICE");
+                invoice.add(invoicenumber);
+            }
+
+
+            final ArrayAdapter<String> invoice_array = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, invoice);
+            INVOICE.setThreshold(1);
+            INVOICE.setAdapter(invoice_array);
+
+
+
+            partNumber();
+
+
+            //-------AUTO COMPLETE SAUGGESTED ITEM-----
+            INVOICE.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+                    INVOICE.setText(item);
+                    invoicenumholder = item;
+
+                    spinpartNum();
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+    //--------------------------------GOODS CODE--------------------------
+    public void partNumber(){
+
+        final AutoCompleteTextView autopartNum = (AutoCompleteTextView) findViewById(R.id.partN);
+        // final Spinner SgoodC = (Spinner) findViewById(R.id.goodsSpin);
+        //final AutoCompleteTextView mname = (AutoCompleteTextView) findViewById(R.id.et_partname);
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT  DISTINCT (PART_NUMBER) from Receive where PART_NUMBER IS NOT NULL AND INVOICE = '"+invoicenumholder+"'";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> PARTn = new ArrayList<String>();
+            while (rs.next()){
+                String autopartNum1  = rs.getString("PART_NUMBER");
+            
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, PARTn);
+            autopartNum.setThreshold(1);
+            autopartNum.setAdapter(goodc_array);
+
+
+            partNamee();
+
+            autopartNum.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    autopartNum.showDropDown();
+                    autopartNum.setCursorVisible(true);
+                    spinpartNamee();
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void spinpartNum(){
+
+        final AutoCompleteTextView partNum = (AutoCompleteTextView) findViewById(R.id.partN);
+
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "select DISTINCT (PART_NUMBER) from Receive WHERE PART_NUMBER IS NOT NULL AND  INVOICE = '"+invoicenumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> matn = new ArrayList<String>();
+            while (rs.next()){
+                String materialcode = rs.getString("PART_NUMBER");
+                matn.add(materialcode);
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, matn);
+            partNum.setAdapter(goodc_array);
+            partNum.setText("");
+            //MaterialCode();
+
+            partNum.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+                    partNum.setText(item);
+                    partnumholder = item;
+                    spinpartNamee();
+
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+
+    //--------------------------------GOODS CODE--------------------------
+    public void partNamee(){
+
+        final AutoCompleteTextView partNamee = (AutoCompleteTextView) findViewById(R.id.partName);
+        // final Spinner SgoodC = (Spinner) findViewById(R.id.goodsSpin);
+        //final AutoCompleteTextView mname = (AutoCompleteTextView) findViewById(R.id.et_partname);
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "select DISTINCT (PART_NAME) from Receive WHERE PART_NAME IS NOT NULL AND  PART_NUMBER = '"+partnumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> matn = new ArrayList<String>();
+            while (rs.next()){
+                String materialcode = rs.getString("PART_NAME");
+                matn.add(materialcode);
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, matn);
+            partNamee.setAdapter(goodc_array);
+            MaterialCode();
+
+            partNamee.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View arg0) {
+                    partNamee.showDropDown();
+                    partNamee.setCursorVisible(true);
+                    //spingoods();
+
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+
+    public void spinpartNamee(){
+
+        final AutoCompleteTextView partNamee = (AutoCompleteTextView) findViewById(R.id.partName);
+
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "select DISTINCT (PART_NAME) from Receive WHERE PART_NAME IS NOT NULL AND  PART_NUMBER = '"+partnumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> matn = new ArrayList<String>();
+            while (rs.next()){
+                String materialcode = rs.getString("PART_NAME");
+                matn.add(materialcode);
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, matn);
+            partNamee.setAdapter(goodc_array);
+            partNamee.setText("");
+            MaterialCode();
+
+            partNamee.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+                    partNamee.setText(item);
+                    partnameholder = item;
+
+
+
+                    spingoods();
+
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+
+
+
+    //--------------------------------GOODS CODE--------------------------
+    public void MaterialCode(){
+
+        final AutoCompleteTextView autoGoods = (AutoCompleteTextView) findViewById(R.id.goodsCode);
+       // final Spinner SgoodC = (Spinner) findViewById(R.id.goodsSpin);
+        //final AutoCompleteTextView mname = (AutoCompleteTextView) findViewById(R.id.et_partname);
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT DISTINCT (GOODS_CODE) FROM Receive WHERE PART_NAME= '"+partnameholder+"' AND INVOICE = '"+invoicenumholder+"' AND PART_NUMBER = '"+partnumholder+"'";// WHERE InvoiceNumber = '"+invoicenum+"'
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> matn = new ArrayList<String>();
+            while (rs.next()){
+                String materialcode = rs.getString("GOODS_CODE");
+                matn.add(materialcode);
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, matn);
+            autoGoods.setAdapter(goodc_array);
+            //TotalQuantity();
+            PONumber();
+            autoGoods.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View arg0) {
+
+                    autoGoods.showDropDown();
+                    autoGoods.setCursorVisible(true);
+
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+  //  --------------------------------spinner goods code------------------
+    public void spingoods(){
+
+        connectionClass = new ConnectionClass();
+
+        try{
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT DISTINCT (GOODS_CODE) FROM Receive WHERE PART_NAME= '"+partnameholder+"' AND INVOICE = '"+invoicenumholder+"' AND PART_NUMBER = '"+partnumholder+"'";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> invoice = new ArrayList<String>();
+
+            while (rs.next()){
+                String invoicenumber = rs.getString("GOODS_CODE");
+                invoice.add(invoicenumber);
+            }
+
+
+          //  final Spinner goodsSpinn = findViewById(R.id.goodsSpin);
+            AutoCompleteTextView invAuto = findViewById(R.id.goodsCode);
+            ArrayAdapter<String> invoice_array = new ArrayAdapter(this, android.R.layout.simple_spinner_item, invoice);
+            invAuto.setAdapter(invoice_array);
+            //TotalQuantity();
+            PONumber();
+            invAuto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+                    invAuto.setText(item);
+                    goodscodeholder = item;
+                   // spinTotalquant();
+                   // poLotnumber.setText(POandGoodsCode(goodsc.getText().toString(),et_partnum.getText().toString(),lot_invoiceno.getText().toString() ,"PO"));
+                   // totalquantity.setText(totalandGoodsCode(goodsc.getText().toString(),poLotnumber.getText().toString(),tv_partname.getText().toString(), "QTY"));
+
+                    spinPO();
+
+                }
+            });
+
+
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+
+
+
+    public String POandGoodsCode(String inv, String qty,String go,String partName,String partNumber, String selectedCol){
+
+        String output = "";
+        connectionClass = new ConnectionClass();
+        try{
+            Connection con2 = connectionClass.CONN4();
+            String query = " SELECT  "+selectedCol+" FROM Receive WHERE  INVOICE = '"+inv+"' AND QTY = '"+qty+"' AND GOODS_CODE  = '"+go+"' AND PART_NAME = '"+partName+"' AND PART_NUMBER = '"+partNumber+"' ";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+
+                String generatedItem = rs.getString(selectedCol);
+                output = generatedItem;
+            }
+        }catch(Exception e){
+            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+        }
+        return output;
+    }
+
+
+    public String totalandGoodsCode(String go,String pname, String selectedCol){
+
+        String output = "";
+        connectionClass = new ConnectionClass();
+        try{
+            Connection con2 = connectionClass.CONN4();
+            String query = "SELECT  "+selectedCol+" FROM Receive WHERE PO is not null and PART_NAME = '"+pname+"' and GOODS_CODE = '"+go+"' ";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String generatedItem = rs.getString(selectedCol);
+                output = generatedItem;
+            }
+        }catch(Exception e){
+            Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
+        }
+        return output;
+    }
+
+
+    public void TotalQuantity(){
+
+        final AutoCompleteTextView autoTotal = (AutoCompleteTextView) findViewById(R.id.totalQuan_txt);
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> matn = new ArrayList<String>();
+            while (rs.next()){
+                String materialcode = rs.getString("QTY");
+                matn.add(materialcode);
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, matn);
+            autoTotal.setAdapter(goodc_array);
+
+
+            autoTotal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View arg0) {
+
+                    autoTotal.showDropDown();
+                    autoTotal.setCursorVisible(true);
+
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+    public void spinTotalquant(){
+
+        connectionClass = new ConnectionClass();
+
+        try{
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"' ";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> invoice = new ArrayList<String>();
+
+            while (rs.next()){
+                String invoicenumber = rs.getString("QTY");
+                invoice.add(invoicenumber);
+            }
+
+
+            //  final Spinner goodsSpinn = findViewById(R.id.goodsSpin);
+            final AutoCompleteTextView autoTotal = (AutoCompleteTextView) findViewById(R.id.totalQuan_txt);
+            ArrayAdapter<String> invoice_array = new ArrayAdapter(this, android.R.layout.simple_spinner_item, invoice);
+            autoTotal.setAdapter(invoice_array);
+
+            autoTotal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+                    autoTotal.setText(item);
+                    totalquanttholder = item;
+
+
+                    poLotnumber.setText(POandGoodsCode(lot_invoiceno.getText().toString(),   totalquantity.getText().toString(), goodsc.getText().toString() ,tv_partname.getText().toString(),et_partnum.getText().toString(),"PO"));
+
+
+
+                }
+            });
+
+
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void PONumber(){
+
+        final AutoCompleteTextView autoTotal = (AutoCompleteTextView) findViewById(R.id.poLotNumber);
+        connectionClass = new ConnectionClass();
+
+        try{
+
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT  (PO) FROM Receive WHERE GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> matn = new ArrayList<String>();
+            while (rs.next()){
+                String materialcode = rs.getString("PO");
+                matn.add(materialcode);
+            }
+
+            ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, matn);
+            autoTotal.setAdapter(goodc_array);
+
+
+            autoTotal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View arg0) {
+
+                    autoTotal.showDropDown();
+                    autoTotal.setCursorVisible(true);
+
+                }
+            });
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void spinPO(){
+
+        connectionClass = new ConnectionClass();
+
+        try{
+            Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
+            String query = "SELECT  (PO) FROM Receive WHERE   GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"' ";
+            PreparedStatement stmt = con2.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            ArrayList<String> invoice = new ArrayList<String>();
+
+            while (rs.next()){
+                String invoicenumber = rs.getString("PO");
+                invoice.add(invoicenumber);
+            }
+
+
+            //  final Spinner goodsSpinn = findViewById(R.id.goodsSpin);
+            final AutoCompleteTextView autoTotal = (AutoCompleteTextView) findViewById(R.id.poLotNumber);
+            ArrayAdapter<String> invoice_array = new ArrayAdapter(this, android.R.layout.simple_spinner_item, invoice);
+            autoTotal.setAdapter(invoice_array);
+
+            autoTotal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String item = parent.getItemAtPosition(position).toString();
+                    //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
+                    autoTotal.setText(item);
+                    poholder = item;
+
+
+
+
+
+                }
+            });
+
+
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+    }
 }

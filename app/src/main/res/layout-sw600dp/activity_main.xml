@@ -66,16 +66,18 @@
                     app:layout_constraintHorizontal_bias="0.936"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/popbold"
                     android:text="IQC LOG IN "
-                    android:layout_marginTop="20dp"
                     android:textColor="@color/darkish"
                     android:textSize="40sp" />
+
                 <ProgressBar
                     android:id="@+id/pbbar"
                     style="?android:attr/progressBarStyleLargeInverse"

@@ -237,6 +237,7 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                 Toast.makeText(this, "Data already existing in SQL Database,cannot input duplicate data...", Toast.LENGTH_SHORT).show();
             }
             else{
+
                 connectionClass = new ConnectionClass();
                 Connection conn = connectionClass.CONN2();
                 String query2 = "INSERT INTO inspectiondata (prepared,  prepared_date, temperature, assembly_line, invoice_no, part_number, rohs_compliance, humidity, inspected_date, recieved_date, supplier, maker, inspector, material_type, production_type, inspection_type, oir, test_report, sample_size, ul_marking, coc, partname, invoicequant, goodsCode, MaterialCodeBoxSeqID, Date) values ('" + preparedby.getText().toString() + "','" + dateeee.getText().toString() + "','" + temp.getText().toString() + "','" + assemblyline.getText().toString() + "','" + invoicenum.getText().toString() + "','"
@@ -247,9 +248,13 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                         + partName.getText().toString() + "','" + invoicequant.getText().toString() + "','" + goodc.getText().toString() + "','" + SapmpleActivityinlot.boxseqholder + "', '"
                         + dateTodayins.getText().toString()+ "')";
 
-
                 Statement stmt = conn.createStatement();
                 stmt.execute(query2);
+                Connection connn = connectionClass.CONN4();
+                String query3 = "UPDATE Receive  STATUS = 'IQC_END',  IQC_END_DT = '"+dateTodayins.getText().toString()+"' WHERE  INVOICE =  '" +SapmpleActivityinlot.invoicenumholder +"' AND PART_NAME = '" +partName.getText().toString()  +"' AND PART_NUMBER = '" +partnum.getText().toString()+"'  AND PO = '"+SapmpleActivityinlot.poholder+"'";
+                Statement stmt2 = connn.createStatement();
+                stmt2.execute(query3);
+
             }
 
         }catch(Exception e ){

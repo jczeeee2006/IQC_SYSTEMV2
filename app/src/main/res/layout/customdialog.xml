@@ -17,7 +17,7 @@
             android:id="@+id/textView78"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="@font/popbold"
             android:gravity="center"
             android:text="INSTRUCTION FOR USING IQC APPLICATION "

@@ -81,11 +81,9 @@ public class VisualInspection extends AppCompatActivity {
         visualnextForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VisualInspection.this, FunctionalActivity2.class);
-                update_judgement();
-                insert_defect_AP();
 
-                startActivity(intent);
+                confirmDialog10();
+
             }
         });
 
@@ -329,6 +327,29 @@ public class VisualInspection extends AppCompatActivity {
         builder.create().show();
     }
 
+    void confirmDialog10() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("PROCEED TO NEXT" +  "FORM" + "?");
+        builder.setMessage("Are you sure you want to switch form?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                Intent intent = new Intent(VisualInspection.this, FunctionalActivity2.class);
+                update_judgement();
+                insert_defect_AP();
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+    }
 
 
     //------------------ADD REJECT-------------------------//

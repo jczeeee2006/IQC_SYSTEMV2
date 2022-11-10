@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "IQCDATABASE";
-    private static final int DATABASE_VERSION = 32;
+    private static final int DATABASE_VERSION = 33;
 
     private static final  String TABLE_NAME = "Lotnumberdb";
     private static final  String TABLE_NAME2 = "Dimensiondb";

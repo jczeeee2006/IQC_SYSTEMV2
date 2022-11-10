@@ -218,6 +218,8 @@ public class DimensionalActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
+
                 Intent intent = new Intent(DimensionalActivity.this, VisualInspection.class);
                 insert_sampleSize();
                 startActivity(intent);
@@ -242,9 +244,10 @@ public class DimensionalActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                if(dcsampleSize.getText().toString().equals("") || lowerSpec.getText().toString().equals("") || upperSpec.getText().toString().equals("") ){
+                if(dcsampleSize.getText().toString().equals("") || lowerSpec.getText().toString().equals("") || upperSpec.getText().toString().equals("")  || dc_checkPoints.getText().toString().equals("") ){
                     dcsampleSize.setError("Enter Sample size, this occurs due to tablet loosing to its keyboard");
                     lowerSpec.setError("Enter lower spec, the field is blank");
+                    dc_checkPoints.setError("Enter Checkpoint!");
                 }else if(!dcsampleSize.getText().toString().equals("")){
                     addDatatoSQLite();
                     insert_dimcheck();
@@ -1280,12 +1283,7 @@ public class DimensionalActivity extends AppCompatActivity {
         String Ave = dc_Average.getText().toString();
         String Max = dc_Maximum.getText().toString();
 
-
-
         String Judgmnt = dc_Judgemen.getText().toString();
-
-
-
 
         if (Checkpoints.trim().equals("")||Instrumentused.trim().equals(""))//dagdagan mo
         {
@@ -1304,6 +1302,10 @@ public class DimensionalActivity extends AppCompatActivity {
                     stmt.execute(query2);
                     dimcheck_id_hldr = Latest_ID("DimensionalCheck");
 
+                    Connection connn = connectionClass.CONN4();
+                    String query3 = "UPDATE Receive  STATUS = 'IQC_END',  IQC_END_DT = '"+dateToday.getText().toString()+"' WHERE  INVOICE =  '" +SapmpleActivityinlot.invoicenumholder +"' AND PART_NAME = '" +SapmpleActivityinlot.partnameholder  +"' AND PART_NUMBER = '" +SapmpleActivityinlot.partnumholder+"'  AND PO = '"+SapmpleActivityinlot.poholder+"'";
+                    Statement stmt2 = connn.createStatement();
+                    stmt2.execute(query3);
                     Toast.makeText(this, "Successfully inserted in SQL Database, can now show in Generated form", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
@@ -1315,6 +1317,7 @@ public class DimensionalActivity extends AppCompatActivity {
             }
         }
     }
+
 
     public void insert_sampleSize(){
 
