@@ -26,34 +26,32 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="610dp"
-        android:layout_height="670dp"
+        android:layout_width="0dp"
+        android:layout_height="700dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69">
+        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:id="@+id/framelayout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="690dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/layer"
             android:elevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView2"
-        android:layout_width="682dp"
-        android:layout_height="729dp"
+        android:layout_width="673dp"
+        android:layout_height="723dp"
 
         android:elevation="12sp"
         android:innerRadius="0dp"
@@ -63,9 +61,10 @@
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.506"
         app:layout_goneMarginLeft="30dp">
 
 
@@ -105,17 +104,17 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/showbutton"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/showbutton"
                 app:layout_constraintTop_toBottomOf="@+id/showbutton"
-                app:layout_constraintVertical_bias="0.391" />
+                app:layout_constraintVertical_bias="0.29" />
 
             <AutoCompleteTextView
                 android:id="@+id/invoiceNum"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="76dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
 
                 android:ems="10"
@@ -130,7 +129,7 @@
 
             <AutoCompleteTextView
                 android:id="@+id/goodsCode"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="68dp"
                 android:background="@drawable/edittext_shadow"
@@ -150,7 +149,7 @@
 
             <EditText
                 android:id="@+id/boxNum"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
@@ -171,7 +170,8 @@
                 android:id="@+id/partN"
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="76dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                 android:ems="10"
@@ -182,7 +182,7 @@
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.111"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/invoiceNum"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -190,7 +190,7 @@
                 android:id="@+id/partName"
                 android:layout_width="160dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="76dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                 android:ems="10"
@@ -201,7 +201,7 @@
                 android:textColor="@color/blayk"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintHorizontal_bias="0.567"
                 app:layout_constraintStart_toEndOf="@+id/partN"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -378,7 +378,7 @@
 
             <EditText
                 android:id="@+id/reject"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
@@ -438,7 +438,7 @@
 
             <EditText
                 android:id="@+id/remarks"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
@@ -535,15 +535,15 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/boxSequence"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.35"
 
                 app:layout_constraintStart_toStartOf="@+id/boxSequence"
                 app:layout_constraintTop_toBottomOf="@+id/boxSequence"
-                app:layout_constraintVertical_bias="0.256" />
+                app:layout_constraintVertical_bias="0.232" />
 
             <Button
                 android:id="@+id/clearData"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="28dp"
                 android:backgroundTint="#FF0000"
@@ -557,31 +557,55 @@
                 app:layout_constraintStart_toStartOf="@+id/remarks"
                 app:layout_constraintTop_toBottomOf="@+id/remarks" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="64dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="224dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="256dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="416dp" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <ImageButton
         android:id="@+id/helpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.897"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_help_outline_24" />
 
-    <Button
+    <ImageButton
         android:id="@+id/deleteAllRecords"
-        android:layout_width="52dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="#FF0000"
-        android:drawableLeft="@drawable/ic_delete"
-        android:text=" "
+        android:src="@drawable/ic_delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

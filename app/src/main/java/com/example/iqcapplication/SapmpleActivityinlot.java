@@ -504,9 +504,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     }
 
 
-
-
-
     // INVOICE NUMBER GENERATING
     public void fillinvoice(){
         final AutoCompleteTextView INVOICE = (AutoCompleteTextView) findViewById(R.id.invoiceNum);
