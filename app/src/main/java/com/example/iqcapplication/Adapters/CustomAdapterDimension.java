@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.Update.DimensionActivity;
-import com.example.iqcapplication.encapsulation.DimensionEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.DimensionEncapsulation;
 
 import java.util.ArrayList;
 
@@ -53,7 +53,6 @@ public class CustomAdapterDimension extends RecyclerView.Adapter<CustomAdapterDi
         holder.sammpleUnit_txt.setText(String.valueOf(dimensionlist.getSampleUnit()));
         holder.dc_checkPoints_txt.setText(String.valueOf(dimensionlist.getCheckpointdc()));
 
-
         holder.dc1_txt.setText(String.valueOf(dimensionlist.getSample1dc()));
         holder.dc2_txt.setText(String.valueOf(dimensionlist.getSample2dc()));
         holder.dc3_txt.setText(String.valueOf(dimensionlist.getSample3dc()));
@@ -74,6 +73,7 @@ public class CustomAdapterDimension extends RecyclerView.Adapter<CustomAdapterDi
         holder.dc_Judgemen_txt.setText(String.valueOf(dimensionlist.getJudgement()));
         holder.remarks_txt.setText(String.valueOf(dimensionlist.getRemarks()));
         holder.datedim_txt.setText(String.valueOf(dimensionlist.getDate()));
+
         holder.dimensionLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +114,6 @@ public class CustomAdapterDimension extends RecyclerView.Adapter<CustomAdapterDi
                 activity.startActivityForResult(intent, -1);
             }
         });
-
 
     }
 
@@ -161,11 +160,9 @@ public class CustomAdapterDimension extends RecyclerView.Adapter<CustomAdapterDi
             dc9_txt = itemView.findViewById(R.id.dc9_txt);
             dc10_txt = itemView.findViewById(R.id.dc10_txt);
 
-
             lowerSpec_txt = itemView.findViewById(R.id.lowerdc_txt);
 
             upperSpec_txt = itemView.findViewById(R.id.upperspecs_txt);
-
 
             dc_Minimum_txt = itemView.findViewById(R.id.dcminimum_txt);
             dc_Maximum_txt = itemView.findViewById(R.id.dcmaximum_txt);

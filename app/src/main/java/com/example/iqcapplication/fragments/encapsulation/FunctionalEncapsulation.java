@@ -1,16 +1,22 @@
-package com.example.iqcapplication.encapsulation;
+package com.example.iqcapplication.fragments.encapsulation;
 
-public class DimensionEncapsulation {
+public class FunctionalEncapsulation {
     int id;
-    String lowerSpecs,upperSpecs,minimum,average,Maximum,date,remarks ;
-    String InstrumentUsed, sampleSize, sampleUnit, checkpointdc, sample1dc, sample2dc, sample3dc, sample4dc, sample5dc, sample6dc, sample7dc, sample8dc, sample9dc, sample10dc,judgement,po_number;
+    String loweSpecs,upperSpecs,minimum,average,Maximum,date ;
+    String InstrumentUsed, sampleSize, sampleUnit, checkpointdc, sample1dc, sample2dc, sample3dc, sample4dc, sample5dc, sample6dc, smple7dc, sample8dc, sample9dc, sample10dc,judgement,ponumber;
 
-    public DimensionEncapsulation(int id,  String instrumentUsed, String sampleSize, String checkpointdc, String sampleUnit,
-                              String sample1dc, String sample2dc, String sample3dc, String sample4dc, String sample5dc, String sample6dc, String smple7dc,
-                                  String sample8dc, String sample9dc, String sample10dc, String remarks, String lowerSpecs, String upperSpecs, String minimum, String average, String maximum, String judgement, String date, String po) {
+    public FunctionalEncapsulation(int id,  String instrumentUsed, String sampleSize,  String checkpointdc, String sampleUnit,
+                                  String sample1dc, String sample2dc, String sample3dc, String sample4dc, String sample5dc, String sample6dc, String smple7dc,
+                                  String sample8dc, String sample9dc, String sample10dc,String loweSpecs, String upperSpecs, String minimum, String average, String maximum, String judgement, String date, String ponumber) {
         this.id = id;
-        this.InstrumentUsed = instrumentUsed;
+        this.loweSpecs = loweSpecs;
+
+        this.upperSpecs = upperSpecs;
+
+
+        InstrumentUsed = instrumentUsed;
         this.sampleSize = sampleSize;
+
         this.sampleUnit = sampleUnit;
         this.checkpointdc = checkpointdc;
 
@@ -20,22 +26,25 @@ public class DimensionEncapsulation {
         this.sample4dc = sample4dc;
         this.sample5dc = sample5dc;
         this.sample6dc = sample6dc;
-        this.sample7dc = smple7dc;
+        this.smple7dc = smple7dc;
         this.sample8dc = sample8dc;
         this.sample9dc = sample9dc;
         this.sample10dc = sample10dc;
-
-        this.lowerSpecs = lowerSpecs;
-        this.upperSpecs = upperSpecs;
-
         this.minimum = minimum;
+
         this.average = average;
         this.Maximum = maximum;
         this.judgement = judgement;
         this.date = date;
-        this.remarks = remarks;
-        this.po_number = po;
+        this.ponumber = ponumber;
+
     }
+
+    public String getPonumber() {
+        return ponumber;
+    }
+
+
 
     public int getId() {
         return id;
@@ -45,16 +54,12 @@ public class DimensionEncapsulation {
         return date;
     }
 
-    public String getPo_number() {
-        return po_number;
-    }
-
-    public String getRemarks() {
-        return remarks;
+    public int getdcID() {
+        return id;
     }
 
     public String getLoweSpecs() {
-        return lowerSpecs;
+        return loweSpecs;
     }
 
     public String getUpperSpecs() {
@@ -114,7 +119,7 @@ public class DimensionEncapsulation {
     }
 
     public String getSmple7dc() {
-        return sample7dc;
+        return smple7dc;
     }
 
     public String getSample8dc() {

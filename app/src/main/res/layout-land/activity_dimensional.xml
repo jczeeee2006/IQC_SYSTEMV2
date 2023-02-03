@@ -74,7 +74,7 @@
             <EditText
                 android:id="@+id/checkPointfc"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -91,8 +91,8 @@
 
             <AutoCompleteTextView
                 android:id="@+id/instrumentUsedfc"
-                android:layout_width="160dp"
-                android:layout_height="50dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
                 android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
@@ -130,7 +130,7 @@
             <EditText
                 android:id="@+id/fc6"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -147,7 +147,7 @@
             <EditText
                 android:id="@+id/sampleSizefc_"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
                 android:inputType="number"
@@ -164,7 +164,7 @@
             <EditText
                 android:id="@+id/fc2"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:cursorVisible="true"
@@ -182,7 +182,7 @@
             <EditText
                 android:id="@+id/fc1"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -199,7 +199,7 @@
             <EditText
                 android:id="@+id/fc7"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -216,7 +216,7 @@
             <EditText
                 android:id="@+id/fc3"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -233,7 +233,7 @@
             <EditText
                 android:id="@+id/fc8"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -250,7 +250,7 @@
             <EditText
                 android:id="@+id/fc4"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -267,7 +267,7 @@
             <EditText
                 android:id="@+id/fc9"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -284,7 +284,7 @@
             <EditText
                 android:id="@+id/fc5"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="48dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -301,7 +301,7 @@
             <EditText
                 android:id="@+id/fc10"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -317,19 +317,19 @@
 
             <EditText
                 android:id="@+id/remarkspercheckpoint"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="120dp"
+                android:layout_width="280dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="148dp"
                 android:background="@drawable/edittext_shadow"
-                android:ems="10"
 
+                android:ems="10"
                 android:paddingLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/fc9"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc9"
+                app:layout_constraintHorizontal_bias="0.015"
+                app:layout_constraintStart_toStartOf="@+id/fc5"
                 app:layout_constraintTop_toBottomOf="@+id/fc9" />
 
             <TextView
@@ -502,7 +502,7 @@
                 android:id="@+id/viewdadtfun"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="112dp"
+                android:layout_marginBottom="176dp"
                 android:backgroundTint="@color/red"
                 android:drawableLeft="@drawable/ic_baseline_add_box_24"
                 android:text="UPLOAD DATA"
@@ -513,18 +513,18 @@
 
             <Button
                 android:id="@+id/nextFormfc"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="60dp"
 
                 android:backgroundTint="@color/darkblue"
                 android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_right_24"
                 android:text="NEXT FORM"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/fc5"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/fc5"
+                app:layout_constraintEnd_toEndOf="@+id/updateTosqlite"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/updateTosqlite"
                 app:layout_constraintTop_toBottomOf="@+id/fc5"
-                app:layout_constraintVertical_bias="0.296" />
+                app:layout_constraintVertical_bias="0.538" />
 
             <Button
                 android:id="@+id/updateTosqlite"
@@ -542,7 +542,7 @@
             <TextView
                 android:id="@+id/minimumfc"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -557,7 +557,7 @@
             <TextView
                 android:id="@+id/averagefc"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -572,7 +572,7 @@
             <TextView
                 android:id="@+id/maximumfc"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="56dp"
                 android:background="@drawable/rounded_corners"
                 android:elevation="10dp"
@@ -587,7 +587,7 @@
             <EditText
                 android:id="@+id/fcjudgeMent"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
@@ -604,24 +604,24 @@
             <EditText
                 android:id="@+id/lowerspecfc"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textAlignment="center"
                 android:paddingRight="5dp"
+                android:textAlignment="center"
                 android:textColor="@color/blayk"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.593"
+                app:layout_constraintHorizontal_bias="0.455"
                 app:layout_constraintStart_toEndOf="@+id/checkPointfc"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/upperspecsfc"
                 android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="52dp"
                 android:background="@drawable/edittext_shadow"
                 android:ems="10"

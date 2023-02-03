@@ -13,16 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.iqcapplication.ConnectionClass;
 import com.example.iqcapplication.R;
-import com.example.iqcapplication.SapmpleActivityinlot;
 import com.example.iqcapplication.Update.InspectionActivity;
-import com.example.iqcapplication.Update.LotFormActivity;
-import com.example.iqcapplication.encapsulation.InspectionEncapsulation;
-import com.example.iqcapplication.encapsulation.LotEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.InspectionEncapsulation;
 
 import java.util.ArrayList;
 import java.util.Collection;

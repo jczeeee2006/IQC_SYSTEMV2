@@ -14,10 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iqcapplication.R;
-import com.example.iqcapplication.Update.DimensionActivity;
 import com.example.iqcapplication.Update.FunctionalActivity;
-import com.example.iqcapplication.encapsulation.DimensionEncapsulation;
-import com.example.iqcapplication.encapsulation.FunctionalEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.FunctionalEncapsulation;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,5 @@
 package com.example.iqcapplication;
 
-import static com.example.iqcapplication.MainActivity.connectionClass;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,11 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -26,13 +21,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iqcapplication.Update.LotFormActivity;
 import com.example.iqcapplication.add.InspectionDetailsActivity;
-import com.example.iqcapplication.encapsulation.LotEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.LotEncapsulation;
 import com.example.iqcapplication.fragments.FragmentforLot;
 
 import java.sql.Connection;
@@ -46,19 +39,20 @@ import java.util.Date;
 
 import maes.tech.intentanim.CustomIntent;
 
-public class SapmpleActivityinlot extends AppCompatActivity  {
-    Button firstFragButton;
+public class SapmpleActivityinlot extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {       Button firstFragButton;
     ConnectionClass connectionClass;
-    Button buttonShow,nextForm,clearDatA, uploadSaServer,deleteRecords;
+    Button buttonShow,nextForm,clearDatA, uploadSaServer;
     public static EditText  quantityrecieved, lotno, lotquant, boxnum, reject, sampsize, boxseqid,remarks,dateToday;
+    public EditText  invoiceDialog,partnumDialog,partNameDialog,goodsCodeDialog,PoDialog,totalQuantityDialog;
     public static AutoCompleteTextView lot_invoiceno, tv_partname, goodsc, et_partnum,autoPO, totalquantity;
 
-    ArrayList<LotEncapsulation> lotData = new ArrayList<>();
     AutoCompleteTextView poLotnumber;
-    ImageButton helpButton;
+    ImageButton helpButton,deleteRecords;
 
     public static String goodscodeholder, invoicenumholder,materialholder, boxseqholder, partnameholder,  partnumholder, latestID,dateholder,poholder,totalquanttholder;
     private  ConnectionClass connectionClassss;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +66,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         transaction.replace(R.id.framelayout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+
 
         firstFragButton = findViewById(R.id.showbutton);
         boxseqid = findViewById(R.id.boxSequence);
@@ -100,10 +96,18 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         String noww = df.format(new Date());
         dateToday.setText(noww);
 
-        Date currentTime = Calendar.getInstance().getTime();
         connectionClass = new ConnectionClass();
+
+
         quantityrecieved.setEnabled(false);
         boxseqid.setEnabled(false);
+
+
+        latestID = String.valueOf((Latest_ID("LotNumber")+1));
+
+
+
+        //----------------SET TEXT--------------------//
 
         lot_invoiceno.setText(LotFormActivity.invoiceholder);
         et_partnum.setText(LotFormActivity.partnumholder);
@@ -114,10 +118,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         quantityrecieved.setText(LotFormActivity.actualquantityHolder);
         sampsize.setText(LotFormActivity.samplesizeHolder);
         lotquant.setText(LotFormActivity.lotQuantityholder);
-
-        //desc of data in lotnumber
-        latestID = String.valueOf((Latest_ID("LotNumber")+1));
-
 
         boxseqid.setText(LotFormActivity.boxseqholder);
         lot_invoiceno.setText(LotFormActivity.invoiceholder);
@@ -131,11 +131,14 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         sampsize.setText(LotFormActivity.samplesizeHolder);
         quantityrecieved.setText(LotFormActivity.actualquantityHolder);
         reject.setText(LotFormActivity.rejectHolderr);
+
+
+        //------ASYNC FOR UPLOADS
         LotAsync lotAsync = new LotAsync();
         lotAsync.execute("");
         buttonList();
 
-
+        //---------------GENERATE BOX SEQ ID----------------//
         et_partnum.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -171,8 +174,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             }
         });
 
-
-
         buttonShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,11 +182,10 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         });
 
 
-
-
         uploadSaServer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //openDialog();
                 confirmDialog5();
             }
         });
@@ -216,8 +216,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     }
 
 
-
-
     private void replaceFragment(FragmentforLot lotFragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction  fragmentTransaction = fragmentManager.beginTransaction();
@@ -235,7 +233,9 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             fillinvoice();
             partNumber();
             spinpartNamee();
-          //  purchaseOrder();
+            TotalQuantity();
+           // PONumber();
+          //purchaseOrder();
             super.onPreExecute();
         }
 
@@ -252,8 +252,21 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         }
     }
 
+    public void openDialog(){
+        ExampleDialog exampleDialog = new ExampleDialog();
+
+        //exampleDialog.getWindow().setBackgroundDrawableResource(R.drawable.bg_window);
+        exampleDialog.show(getSupportFragmentManager(),"example dialog");
+        exampleDialog.getDialog().getWindow().setBackgroundDrawableResource(R.drawable.bg_window);
+
+    }
 
 
+
+    @Override
+    public void applyTexts(String invoice, String partnum, String partname, String goodsCode, String P, String QTY) {
+
+    }
 
 
 
@@ -342,27 +355,25 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             String noww = df.format(new Date());
             dateToday.setText(noww);
-            if(lot_invoiceno.getText().toString().equals("") && tv_partname.getText().toString().equals("") && quantityrecieved.getText().toString().equals("")){
-                Toast.makeText(this, "Fill up required fields.", Toast.LENGTH_SHORT).show();
+            if(lot_invoiceno.getText().toString().equals("") && tv_partname.getText().toString().equals("") && quantityrecieved.getText().toString().equals("") || con.equals(null)){
+                Toast.makeText(this, "Fill up required fields./ Connect to Internet", Toast.LENGTH_SHORT).show();
             }else{
                 if (quantityrecieved.getText().toString().equals("")) {
                     quantityrecieved.setText(String.valueOf(0 + Integer.parseInt(lotquant.getText().toString())));
-                    QuantReceived = quantityrecieved.getText().toString();
                 }
+
                 else {
                     quantityrecieved.setText(String.valueOf(Integer.parseInt(QuantReceived) + Integer.parseInt(lotquant.getText().toString())));
-                    QuantReceived = quantityrecieved.getText().toString();
+                   // lotquant.setEnabled(true);
                 }
 
                 String query = "SELECT * FROM LotNumber  WHERE  Date =  '"+ dateToday.getText().toString()+"'   ";
                 PreparedStatement stmtt = con.prepareStatement(query);
                 ResultSet rs = stmtt.executeQuery();
                 if(rs.next()){
-
                     String time = rs.getString("Time");
                     Toast.makeText(SapmpleActivityinlot.this, "Data already existing in SQL Datab ase", Toast.LENGTH_SHORT).show();
                 }else{
-
                     connectionClassss = new ConnectionClass();
                      con = connectionClass.CONN2();
                     String query1 = "INSERT INTO LotNumber (invoice_no, part_no, part_name, total_quantity, quantity_recieved,lot_no, lot_quantity, box_number,reject,sample_size, goodsCode, MaterialCodeBoxSeqID ,remarks, Date,PO_Number) values ('" + lot_invoiceno.getText().toString() + "','" + et_partnum.getText().toString() + "','" + tv_partname.getText().toString() + "','" + totalquantity.getText().toString() + "','" + quantityrecieved.getText().toString() + "','" + lotno.getText().toString() + "','" +lotquant.getText().toString() + "','" + boxnum.getText().toString() + "','" + reject.getText().toString() + "','" + sampsize.getText().toString() + "', '" + goodsc.getText().toString() + "', '" + boxseqid.getText().toString() + "',  '" + remarks.getText().toString() + "' ,  '" + dateToday.getText().toString() + "','"+poLotnumber.getText().toString()+"')";
@@ -370,19 +381,19 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     stmt.execute(query1);
                     Toast.makeText(SapmpleActivityinlot.this, "success", Toast.LENGTH_SHORT).show();
                     Connection connn = connectionClass.CONN4();
-                    String query3 = "UPDATE Receive set NO_GOOD = '"+reject.getText().toString()+"', STATUS = 'IQC_END',  IQC_END_DT = '"+dateToday.getText().toString()+"' WHERE  INVOICE =  '" +lot_invoiceno.getText().toString() +"' AND PART_NAME = '" +tv_partname.getText().toString()  +"' AND PART_NUMBER = '" +et_partnum.getText().toString()+"' AND INVOICE = '" +lot_invoiceno.getText().toString() +"' AND PO = '"+poLotnumber.getText().toString()+"'";
+
+                    String query3 = "UPDATE Receive set NO_GOOD = '"+reject.getText().toString()+"', STATUS = 'IQC_END',  IQC_END_DT = '"+dateToday.getText().toString()+"' WHERE  INVOICE =  '" +lot_invoiceno.getText().toString() +"' AND PART_NAME = '" +tv_partname.getText().toString()  +"' AND SUPPLIER_PART_NUMBER = '" +et_partnum.getText().toString()+"' AND INVOICE = '" +lot_invoiceno.getText().toString() +"' AND PO = '"+poLotnumber.getText().toString()+"'";
                     Statement stmt2 = connn.createStatement();
+
                     stmt2.execute(query3);
 
-
-                    Toast.makeText(getApplicationContext(),"Successfully updated!", Toast.LENGTH_SHORT).show();
                 }
 
             }
 
 
         }catch(Exception e ){
-            Toast.makeText(SapmpleActivityinlot.this,e.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(SapmpleActivityinlot.this,"Failed to connect", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -395,6 +406,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                //openDialog();
                 saveToSQLSERVER();
                 addDatatoSQLite();
 
@@ -446,7 +458,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         lotno.setText("");
         boxseqid.setText("");
         poLotnumber.setText("");
-    }
+}
 
 
     void confirmDialog10() {
@@ -564,15 +576,16 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT  DISTINCT (PART_NUMBER) from Receive where PART_NUMBER IS NOT NULL AND INVOICE = '"+invoicenumholder+"'";
+            String query = "SELECT  DISTINCT (SUPPLIER_PART_NUMBER),(PART_NUMBER) from Receive where SUPPLIER_PART_NUMBER IS NOT NULL AND INVOICE = '"+invoicenumholder+"'";
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
             ArrayList<String> PARTn = new ArrayList<String>();
             while (rs.next()){
-                String autopartNum1  = rs.getString("PART_NUMBER");
-            
+                String autopartNum1  = rs.getString("SUPPLIER_PART_NUMBER");
+                String autopartnum2 =  rs.getString("PART_NUMBER");
             }
+
 
             ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, PARTn);
             autopartNum.setThreshold(1);
@@ -607,13 +620,13 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "select DISTINCT (PART_NUMBER) from Receive WHERE PART_NUMBER IS NOT NULL AND  INVOICE = '"+invoicenumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            String query = "select DISTINCT(SUPPLIER_PART_NUMBER) from Receive WHERE SUPPLIER_PART_NUMBER IS NOT NULL AND  INVOICE = '"+invoicenumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
             ArrayList<String> matn = new ArrayList<String>();
             while (rs.next()){
-                String materialcode = rs.getString("PART_NUMBER");
+                String materialcode = rs.getString("SUPPLIER_PART_NUMBER");
                 matn.add(materialcode);
             }
 
@@ -654,7 +667,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "select DISTINCT (PART_NAME) from Receive WHERE PART_NAME IS NOT NULL AND  PART_NUMBER = '"+partnumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            String query = "select DISTINCT (PART_NAME) from Receive WHERE PART_NAME IS NOT NULL AND  SUPPLIER_PART_NUMBER = '"+partnumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -695,7 +708,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "select DISTINCT (PART_NAME) from Receive WHERE PART_NAME IS NOT NULL AND  PART_NUMBER = '"+partnumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            String query = "select DISTINCT (PART_NAME) from Receive WHERE PART_NAME IS NOT NULL AND  SUPPLIER_PART_NUMBER = '"+partnumholder+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -747,15 +760,17 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT DISTINCT (GOODS_CODE) FROM Receive WHERE PART_NAME= '"+partnameholder+"' AND INVOICE = '"+invoicenumholder+"' AND PART_NUMBER = '"+partnumholder+"'";// WHERE InvoiceNumber = '"+invoicenum+"'
+            String query = "SELECT DISTINCT (GOODS_CODE) FROM Receive WHERE PART_NAME= '"+partnameholder+"' AND INVOICE = '"+invoicenumholder+"' AND SUPPLIER_PART_NUMBER = '"+partnumholder+"'";// WHERE InvoiceNumber = '"+invoicenum+"'
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
-
             ArrayList<String> matn = new ArrayList<String>();
+
+
             while (rs.next()){
                 String materialcode = rs.getString("GOODS_CODE");
                 matn.add(materialcode);
             }
+
 
             ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, matn);
             autoGoods.setAdapter(goodc_array);
@@ -785,7 +800,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
         try{
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT DISTINCT (GOODS_CODE) FROM Receive WHERE PART_NAME= '"+partnameholder+"' AND INVOICE = '"+invoicenumholder+"' AND PART_NUMBER = '"+partnumholder+"'";
+            String query = "SELECT DISTINCT (GOODS_CODE) FROM Receive WHERE PART_NAME= '"+partnameholder+"' AND INVOICE = '"+invoicenumholder+"' AND SUPPLIER_PART_NUMBER = '"+partnumholder+"'";
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -811,7 +826,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
                     invAuto.setText(item);
                     goodscodeholder = item;
-                   // spinTotalquant();
+
                    // poLotnumber.setText(POandGoodsCode(goodsc.getText().toString(),et_partnum.getText().toString(),lot_invoiceno.getText().toString() ,"PO"));
                    // totalquantity.setText(totalandGoodsCode(goodsc.getText().toString(),poLotnumber.getText().toString(),tv_partname.getText().toString(), "QTY"));
 
@@ -819,7 +834,6 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
                 }
             });
-
 
 
 
@@ -845,7 +859,9 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
                 String generatedItem = rs.getString(selectedCol);
                 output = generatedItem;
+
             }
+
         }catch(Exception e){
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
         }
@@ -853,13 +869,13 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
     }
 
 
-    public String totalandGoodsCode(String go,String pname, String selectedCol){
+    public String totalandGoodsCode(String inv,String pnUM, String go,String ponum,String  selectedCol){
 
         String output = "";
         connectionClass = new ConnectionClass();
         try{
             Connection con2 = connectionClass.CONN4();
-            String query = "SELECT  "+selectedCol+" FROM Receive WHERE PO is not null and PART_NAME = '"+pname+"' and GOODS_CODE = '"+go+"' ";
+            String query = "SELECT  "+selectedCol+" FROM Receive WHERE PO is not null and INVOICE = '"+inv+"' and SUPPLIER_PART_NUMBER = '"+pnUM+"' and GOODS_CODE = '"+go+"' AND PO = '"+ponum+"' ";
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -870,6 +886,8 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             Toast.makeText(this, "Wifi is off, please connect to load data. ", Toast.LENGTH_LONG).show();
         }
         return output;
+
+
     }
 
 
@@ -881,7 +899,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND SUPPLIER_PART_NUMBER = '"+et_partnum.getText().toString()+"' AND PO = '"+poLotnumber.getText().toString()+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -904,20 +922,20 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
                 }
             });
-
-
         }catch (Exception ex){
             ex.printStackTrace();
         }
 
     }
+
+
     public void spinTotalquant(){
 
         connectionClass = new ConnectionClass();
 
         try{
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"' ";
+            String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND SUPPLIER_PART_NUMBER = '"+et_partnum.getText().toString()+"' AND PO = '"+poLotnumber.getText().toString()+"'  ";
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -942,12 +960,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
                     autoTotal.setText(item);
                     totalquanttholder = item;
-
-
-                    poLotnumber.setText(POandGoodsCode(lot_invoiceno.getText().toString(),   totalquantity.getText().toString(), goodsc.getText().toString() ,tv_partname.getText().toString(),et_partnum.getText().toString(),"PO"));
-
-
-
+                    //poLotnumber.setText(POandGoodsCode(lot_invoiceno.getText().toString(),   totalquantity.getText().toString(), goodsc.getText().toString() ,tv_partname.getText().toString(),et_partnum.getText().toString(),"PO"));
                 }
             });
 
@@ -968,7 +981,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
         try{
 
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT  (PO) FROM Receive WHERE GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
+            String query = "SELECT (PO) FROM Receive WHERE GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND SUPPLIER_PART_NUMBER = '"+et_partnum.getText().toString()+"'  ";// WHERE InvoiceNumber = '"+invoicenum+"'
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -977,10 +990,9 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                 String materialcode = rs.getString("PO");
                 matn.add(materialcode);
             }
-
             ArrayAdapter<String> goodc_array = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, matn);
             autoTotal.setAdapter(goodc_array);
-
+            TotalQuantity();
 
             autoTotal.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -988,10 +1000,9 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
                     autoTotal.showDropDown();
                     autoTotal.setCursorVisible(true);
-
+                    spinTotalquant();
                 }
             });
-
 
         }catch (Exception ex){
             ex.printStackTrace();
@@ -1005,7 +1016,7 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
 
         try{
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
-            String query = "SELECT  (PO) FROM Receive WHERE   GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND PART_NUMBER = '"+et_partnum.getText().toString()+"' ";
+            String query = "SELECT PO FROM Receive WHERE   GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND SUPPLIER_PART_NUMBER = '"+et_partnum.getText().toString()+"' ";
             PreparedStatement stmt = con2.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
@@ -1017,11 +1028,12 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
             }
 
 
+
             //  final Spinner goodsSpinn = findViewById(R.id.goodsSpin);
             final AutoCompleteTextView autoTotal = (AutoCompleteTextView) findViewById(R.id.poLotNumber);
             ArrayAdapter<String> invoice_array = new ArrayAdapter(this, android.R.layout.simple_spinner_item, invoice);
             autoTotal.setAdapter(invoice_array);
-
+            //TotalQuantity();
             autoTotal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -1030,10 +1042,9 @@ public class SapmpleActivityinlot extends AppCompatActivity  {
                     //Toast.makeText(getApplicationContext(), "Selected Item is: \t" + item, Toast.LENGTH_LONG).show();
                     autoTotal.setText(item);
                     poholder = item;
+                    totalquantity.setText(totalandGoodsCode(lot_invoiceno.getText().toString(),   et_partnum.getText().toString(), goodsc.getText().toString() ,poLotnumber.getText().toString(),"QTY"));
 
-
-
-
+                    spinTotalquant();
 
                 }
             });

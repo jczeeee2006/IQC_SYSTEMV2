@@ -1,14 +1,12 @@
-package com.example.iqcapplication.encapsulation;
+package com.example.iqcapplication.fragments.encapsulation;
 
 import java.sql.Date;
 
 public class InspectionEncapsulation {
 
-
     int id;
     String dateToday;
-     String preparedby, dateeee,  invoicenum,  goodc,  partName,  invoicequant,  assemblyline,  partnum,  temp,  rohscomp,  dateinspected,   humidity,
-     supplier,   inspector, datereceived,   maker,  samplesize,  mattype,    inspecttype,  ulmarking, oir, po_number,
+    String preparedby, dateeee,  invoicenum,  goodc,  partName,  invoicequant,  assemblyline,  partnum,  temp,  rohscomp,  dateinspected,   humidity, supplier,   inspector, datereceived,   maker,  samplesize,  mattype,    inspecttype,  ulmarking, oir, po_number,
      inscoc,   prodtype,  testreport,boxseqid;
 
     public InspectionEncapsulation(int id, String preparedby, String dateeee, String invoicenum, String goodc, String partName, String invoicequant, String assemblyline,

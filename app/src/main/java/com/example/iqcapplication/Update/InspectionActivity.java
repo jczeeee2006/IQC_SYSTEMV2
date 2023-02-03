@@ -42,7 +42,7 @@ public class InspectionActivity extends AppCompatActivity {
 
     ConnectionClass connectionClass;
 
-    String insid,  prepared,  prepareddate, insinvoicenum,  insgoods, inspartname,  insinvoicequant,  insassyline,
+     String insid,  prepared,  prepareddate, insinvoicenum,  insgoods, inspartname,  insinvoicequant,  insassyline,
      inspatnum, instemp, insrohs,  insdateinspected,  inshumid,  insupp, inspectorrs,  insdatereceived,
      insmaker, inssample,  insmaterial,  insinspecttype,  insulmarking,  insoir,  inscocs,  instestreport,prodttpes,dateTodayString;
 
@@ -52,10 +52,12 @@ public class InspectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inspection);
+
+        //----call this functions--------//
         valueNames();
         getIntentData();
 
-
+        //-----BUTTON CLICKS-----------//
         updatedata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

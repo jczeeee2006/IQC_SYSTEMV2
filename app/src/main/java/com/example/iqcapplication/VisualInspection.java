@@ -97,16 +97,10 @@ public class VisualInspection extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-
 
     //--------------------------INSTRUMENTUSED----------------------//
     public void visualInspecXt(){
-
-
 
             instrumentUsedd = ArrayAdapter.createFromResource(this, R.array.instrument_array1, android.R.layout.simple_dropdown_item_1line);
             instrumentUsedd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -126,29 +120,32 @@ public class VisualInspection extends AppCompatActivity {
         String Sample_size = visualsampleSize.getText().toString();
         String IGCheckpoints = visualCheckpoint.getText().toString();
         String Instrumentused = visualinsUsed.getText().toString();
-        //String Result = App_Result.getText().toString();
-        //String Judgement = App_Judgement.getText().toString();
         String Remarkss = visualremarks.getText().toString();
 
         if (IGCheckpoints.trim().equals("")||Instrumentused.trim().equals("")|| Sample_size.trim().equals("")) {
+
             Toast.makeText(getApplicationContext(), "Fill up all fields!", Toast.LENGTH_LONG).show();
             visualJudgement.setText("");
+
         }
         else {
+
             try {
+
                 connectionClass = new ConnectionClass();
                 Connection con = connectionClass.CONN2();
-
                 String query = "INSERT INTO Appearance_Inspection ( invoice_no, ig_checkpoints, instrument_used, result, remarks, goodsCode,MaterialCodeBoxSeqID) values ('"+SapmpleActivityinlot.invoicenumholder+"','"+IGCheckpoints+"','"+Instrumentused+"','"+Result+"','"+Remarkss+"','"+SapmpleActivityinlot.goodscodeholder+"','"+SapmpleActivityinlot.boxseqholder+"')";
                 String query1 = "UPDATE SampleSize SET appearance_sample_size = '"+visualsampleSize.getText().toString()+"' WHERE id = '"+ DimensionalActivity.samplesize_id_hldr+"'";
                 Statement stmt = con.createStatement();
                 stmt.execute(query+query1);
+
 
                 Toast.makeText(getApplicationContext(), "Successfully added!",Toast.LENGTH_LONG).show();
                 appinspectioncheck_id_hldr = Latest_ID();
                 id_list.add(Latest_ID());
                 //AlertSuccess();
             }
+
             catch (Exception ex) {
                 //AlertFailed();
                 Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_LONG).show();

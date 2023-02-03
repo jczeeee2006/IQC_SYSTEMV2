@@ -16,7 +16,6 @@ public class ConnectionClass {
     String db = "IQCDatabase";
     String db3 = "TempHumid";
     String db4 = "MA_Receiving";
-
     String un = "iqc_db_user_dev";
     String password = "iqcdbuserdev";
     String un1 = "Quality";
@@ -29,11 +28,13 @@ public class ConnectionClass {
     //-----------------IQC DATABASE-----------------------
     @SuppressLint("NewApi")
     public Connection CONN() {
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
         Connection conn = null;
         String ConnURL = null;
+
         try {
             Class.forName(classs);
             ConnURL = "jdbc:jtds:sqlserver://" + ip + ";"
@@ -48,6 +49,7 @@ public class ConnectionClass {
             Log.e("ERRO", e.getMessage());
         }
         return conn;
+
     }
 
     //------------------------MATech Database---------------------

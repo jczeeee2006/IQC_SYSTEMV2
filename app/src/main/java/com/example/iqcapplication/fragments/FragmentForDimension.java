@@ -13,13 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.iqcapplication.Adapters.CustomAdapterDimension;
-import com.example.iqcapplication.Adapters.CustomAdapterInspection;
-import com.example.iqcapplication.Adapters.CustomAdapterLot;
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.R;
-import com.example.iqcapplication.encapsulation.DimensionEncapsulation;
-import com.example.iqcapplication.encapsulation.InspectionEncapsulation;
-import com.example.iqcapplication.encapsulation.LotEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.DimensionEncapsulation;
 
 import java.util.ArrayList;
 

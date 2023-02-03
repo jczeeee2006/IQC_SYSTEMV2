@@ -1,22 +1,16 @@
 package com.example.iqcapplication.fragments;
 
-import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,10 +22,8 @@ import android.widget.Toast;
 
 import com.example.iqcapplication.Adapters.CustomAdapterLot;
 import com.example.iqcapplication.DatabaseHelper;
-import com.example.iqcapplication.MainActivity;
 import com.example.iqcapplication.R;
-import com.example.iqcapplication.SapmpleActivityinlot;
-import com.example.iqcapplication.encapsulation.LotEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.LotEncapsulation;
 
 import java.util.ArrayList;
 
@@ -140,7 +132,7 @@ public class FragmentforLot extends Fragment  {
                         ));
 
             }
-            Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "View Successfully Loaded", Toast.LENGTH_SHORT).show();
         }
     }
 }

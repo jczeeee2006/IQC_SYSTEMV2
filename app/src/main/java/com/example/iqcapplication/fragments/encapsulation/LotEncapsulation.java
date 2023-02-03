@@ -1,4 +1,4 @@
-package com.example.iqcapplication.encapsulation;
+package com.example.iqcapplication.fragments.encapsulation;
 
 public class LotEncapsulation {
 

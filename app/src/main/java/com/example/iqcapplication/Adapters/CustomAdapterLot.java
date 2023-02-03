@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iqcapplication.R;
 import com.example.iqcapplication.Update.LotFormActivity;
-import com.example.iqcapplication.encapsulation.LotEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.LotEncapsulation;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -24,7 +24,7 @@ import com.example.iqcapplication.Adapters.CustomAdapterInspection;
 
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.R;
-import com.example.iqcapplication.encapsulation.InspectionEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.InspectionEncapsulation;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,6 @@ public class FragmentForInspection extends Fragment {
     RecyclerView recyclerView;
     Toolbar tOolbar;
     SearchView searchView;
-
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

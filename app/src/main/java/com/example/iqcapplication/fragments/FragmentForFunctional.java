@@ -12,12 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.iqcapplication.Adapters.CustomAdapterDimension;
 import com.example.iqcapplication.Adapters.CustomAdapterFunctional;
 import com.example.iqcapplication.DatabaseHelper;
 import com.example.iqcapplication.R;
-import com.example.iqcapplication.encapsulation.DimensionEncapsulation;
-import com.example.iqcapplication.encapsulation.FunctionalEncapsulation;
+import com.example.iqcapplication.fragments.encapsulation.FunctionalEncapsulation;
 
 import java.util.ArrayList;
 
