@@ -934,6 +934,7 @@ public class SapmpleActivityinlot extends AppCompatActivity implements ExampleDi
         connectionClass = new ConnectionClass();
 
         try{
+
             Connection con2 = connectionClass.CONN4();//open ng connection sa connection class
             String query = "SELECT  (QTY) FROM Receive WHERE  GOODS_CODE = '"+goodscodeholder+"' AND INVOICE = '"+invoicenumholder  +"' AND PART_NAME = '"+partnameholder+"' AND SUPPLIER_PART_NUMBER = '"+et_partnum.getText().toString()+"' AND PO = '"+poLotnumber.getText().toString()+"'  ";
             PreparedStatement stmt = con2.prepareStatement(query);
